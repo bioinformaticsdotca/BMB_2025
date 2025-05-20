@@ -20,6 +20,6 @@ favicon: img/favicon.ico
 
 Welcome to CBW’s Beginner Microbiome Analysis Workshop!
 
-<!-- This is your index.Rmd file. It is the mandatory landing page for your website. -->
+## AWS/UNIX primer
 
-<!-- The rest of the content making up the welcome pages are in following files, which begin with "01#-description_of_file" -->
+[You can find the schedule and materials for the AWS/UNIX primer here.](https://bioinformaticsdotca.github.io/AWS_2025)

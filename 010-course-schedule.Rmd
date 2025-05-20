@@ -1,4 +1,4 @@
-# Course Schedule
+## Course Schedule
 
 | Time (PST) |         Day 1         | Time (PST) |            Day 2           |
 |:----------:|:---------------------:|:----------:|:--------------------------:|

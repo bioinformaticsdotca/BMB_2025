@@ -1,4 +1,5 @@
 welcome
+awsunix-primer
 course-schedule
 meet-your-faculty
 module-1
