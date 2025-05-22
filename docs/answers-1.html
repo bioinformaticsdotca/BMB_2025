@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Answers | Beginner Microbiome Analysis 2025</title>
+  <meta name="description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Answers | Beginner Microbiome Analysis 2025" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="github-repo" content="cbw-dev/BMB_2025" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Answers | Beginner Microbiome Analysis 2025" />
+  
+  <meta name="twitter:description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="twitter:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-4-lab-functional-prediction-and-additional-analyses.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+
+ <li><a href="./">[YOUR WORKSHOP NAME]</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#awsunix-primer"><i class="fa fa-check"></i>AWS/UNIX primer</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-schedule"><i class="fa fa-check"></i>Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#meet-your-faculty"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+</ul></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html"><i class="fa fa-check"></i>Module 1 Lab: Introduction to sequencing data analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#log-into-your-aws-instance"><i class="fa fa-check"></i>1.1 Log into your AWS instance</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#maclinux"><i class="fa fa-check"></i>Mac/Linux</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#creating-directories-and-moving-around-on-the-command-line"><i class="fa fa-check"></i>1.2 Creating directories and moving around on the command line</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#use-wget-to-download-files"><i class="fa fa-check"></i>1.3 Use wget to download files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#move-these-files-to-the-directories"><i class="fa fa-check"></i>1.4 Move these files to the directories</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#zip-and-unzip-these-files"><i class="fa fa-check"></i>1.5 Zip and unzip these files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#create-new-tar-archive-of-files"><i class="fa fa-check"></i>1.6 Create new tar archive of files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#unzip-tar-archive"><i class="fa fa-check"></i>1.7 Unzip tar archive</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#look-at-fasta-and-fastq-files-with-less"><i class="fa fa-check"></i>1.8 Look at fasta and fastq files with less</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#installing-programs-to-the-server"><i class="fa fa-check"></i>1.9 Installing programs to the server</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#conda-environments"><i class="fa fa-check"></i>1.10 Conda environments</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#install-fastqc-and-multiqc"><i class="fa fa-check"></i>1.11 Install fastqc and multiqc</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#perform-quality-control-on-fastq-files"><i class="fa fa-check"></i>1.12 Perform quality control on fastq files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#htop---looking-at-the-number-of-processes-we-have-available-or-running"><i class="fa fa-check"></i>1.13 htop - looking at the number of processes we have available or running</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#back-to-the-quality-control"><i class="fa fa-check"></i>1.14 Back to the quality control</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#quality-control-on-the-data-that-well-be-using"><i class="fa fa-check"></i>1.15 Quality control on the data that we’ll be using</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#install-qiime2"><i class="fa fa-check"></i>1.16 Install QIIME2</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#answers"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="part"><span><b>III Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html"><i class="fa fa-check"></i>Module 2 Lab: Marker gene profiling</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#table-of-contents-1"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s"><i class="fa fa-check"></i>1. 16S</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-first-steps"><i class="fa fa-check"></i>1.1. 16S First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data"><i class="fa fa-check"></i>1.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact"><i class="fa fa-check"></i>1.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt"><i class="fa fa-check"></i>1.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>1.2. 16S Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads"><i class="fa fa-check"></i>1.2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads"><i class="fa fa-check"></i>1.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads"><i class="fa fa-check"></i>1.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur"><i class="fa fa-check"></i>1.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output"><i class="fa fa-check"></i>1.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>1.3. 16S Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification"><i class="fa fa-check"></i>1.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast"><i class="fa fa-check"></i>1.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table"><i class="fa fa-check"></i>1.4. 16S Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs"><i class="fa fa-check"></i>1.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs"><i class="fa fa-check"></i>1.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples"><i class="fa fa-check"></i><em>1.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table"><i class="fa fa-check"></i>1.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-answers"><i class="fa fa-check"></i>16S Answers</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-1"><i class="fa fa-check"></i>2. 18S</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-first-steps-1"><i class="fa fa-check"></i>2.1. 18S First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-1"><i class="fa fa-check"></i>2.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-1"><i class="fa fa-check"></i>2.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-1"><i class="fa fa-check"></i>2.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants-1"><i class="fa fa-check"></i>2.2. 18S Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-1"><i class="fa fa-check"></i>2.2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-1"><i class="fa fa-check"></i>2.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-1"><i class="fa fa-check"></i>2.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur-1"><i class="fa fa-check"></i>2.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-1"><i class="fa fa-check"></i>2.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs-1"><i class="fa fa-check"></i>2.3. 18S Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-1"><i class="fa fa-check"></i>2.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-1"><i class="fa fa-check"></i>2.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table-1"><i class="fa fa-check"></i>2.4. 18S Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-1"><i class="fa fa-check"></i>2.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-1"><i class="fa fa-check"></i>2.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-1"><i class="fa fa-check"></i><em>2.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-1"><i class="fa fa-check"></i>2.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-answers-1"><i class="fa fa-check"></i>18S Answers</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its"><i class="fa fa-check"></i>3. ITS</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-first-steps"><i class="fa fa-check"></i>3.1. ITS First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-2"><i class="fa fa-check"></i>3.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-2"><i class="fa fa-check"></i>3.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-2"><i class="fa fa-check"></i>3.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>3.2. ITS Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-2"><i class="fa fa-check"></i>2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-2"><i class="fa fa-check"></i>3.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-2"><i class="fa fa-check"></i>3.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur-2"><i class="fa fa-check"></i>3.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-2"><i class="fa fa-check"></i>3.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>3.3. ITS Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-2"><i class="fa fa-check"></i>3.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-2"><i class="fa fa-check"></i>3.3.2. Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-filtering-resultant-table"><i class="fa fa-check"></i>3.4. ITS Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-2"><i class="fa fa-check"></i>3.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-2"><i class="fa fa-check"></i>3.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-2"><i class="fa fa-check"></i><em>3.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-2"><i class="fa fa-check"></i>3.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-answers"><i class="fa fa-check"></i>ITS Answers</a></li>
+</ul></li>
+<li class="part"><span><b>IV Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html"><i class="fa fa-check"></i>Module 4 Lab: Functional prediction and additional analyses</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#introduction-2"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-testing-with-maaslin3-and-aldex2"><i class="fa fa-check"></i>Differential abundance testing with MaAsLin3 and ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#functional-prediction-with-picrust2"><i class="fa fa-check"></i>Functional prediction with PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#constructing-and-visualising-a-co-occurrence-network-using-xyz"><i class="fa fa-check"></i>Constructing and visualising a co-occurrence network using <code>XYZ</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#table-of-contents-2"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-analysis-using-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.1 Differential abundance analysis using MaAsLin3 and ALDEx2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#prepare-data-from-the-end-of-module-2"><i class="fa fa-check"></i>4.1.1 Prepare data from the end of Module 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#read-output-into-rphyloseq"><i class="fa fa-check"></i>4.1.2 Read output into R/Phyloseq</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#importing-packages"><i class="fa fa-check"></i>Importing packages</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-maaslin3"><i class="fa fa-check"></i>4.1.3 Run MaAsLin3</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-aldex2"><i class="fa fa-check"></i>4.1.4 Run ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#functional-prediction-with-picrust2-1"><i class="fa fa-check"></i>4.2 Functional prediction with PICRUSt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#filter-input-for-picrust2"><i class="fa fa-check"></i>4.2.1 Filter input for PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#start-running-picrust2"><i class="fa fa-check"></i>4.2.2 Start running PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#read-picrust2-output-into-rphyloseq"><i class="fa fa-check"></i>4.2.3 Read PICRUSt2 output into R/Phyloseq</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#look-at-picrust2-alpha-and-beta-diversity"><i class="fa fa-check"></i>4.2.3 Look at PICRUSt2 alpha and beta diversity</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-picrust2-differential-abundance"><i class="fa fa-check"></i>4.2.4 Run PICRUSt2 differential abundance</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#combine-and-plot-picrust2-differential-abundance-results-from-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#plot-da-single-pathway"><i class="fa fa-check"></i>Plot DA single pathway</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#plot-da-all-pathways"><i class="fa fa-check"></i>Plot DA all pathways</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#constructing-and-visualising-a-co-occurrence-network"><i class="fa fa-check"></i>4.3 Constructing and visualising a co-occurrence network</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#answers-16s-differential-abundance-and-picrust2"><i class="fa fa-check"></i>Answers 16S differential abundance and PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#answers-18s-differential-abundance"><i class="fa fa-check"></i>Answers 18S differential abundance</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#code-needed"><i class="fa fa-check"></i>Code needed</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#s-answers-to-questions"><i class="fa fa-check"></i>18S Answers to questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#answers-its-differential-abundance"><i class="fa fa-check"></i>Answers ITS differential abundance</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#code-needed-1"><i class="fa fa-check"></i>Code needed</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#its-answers-to-questions"><i class="fa fa-check"></i>ITS Answers to questions</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+ <center>
+ <a href="https://www.cihr-irsc.gc.ca"><img src="img/sponsors/cihr.png" width=90% style="padding-bottom: 20px" alt="Canadian Institutes of Health Research logo."></a>
+
+ <a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.webp" width=40% style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+ <a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" width=40% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Genomics logo.">
+ <br><br>
+ <a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+ <a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+ <br><br>
+
+ <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Beginner Microbiome Analysis 2025</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="answers-1" class="section level1 hasAnchor">
+<h1>Answers<a href="answers-1.html#answers-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="answers-16s-differential-abundance-and-picrust2" class="section level2 hasAnchor">
+<h2>Answers 16S differential abundance and PICRUSt2<a href="answers-1.html#answers-16s-differential-abundance-and-picrust2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1</strong>: Type in <code>asv_table</code> or look at it in the “Environment” area in the top right. How many rows are there? Does this make sense to you?
+There should be the same number of rows as there were in the <code>feature_table.txt</code>, but without the <code># Constructed from biom file</code> line.</p>
+<p><strong>Question 2</strong>: Are they the same as you remember - any different punctuation?
+You should notice that where there were hyphens (<code>-</code>) before, these have now been replaced with <code>.</code> - this is an annoying thing that R does when importing data. There are options to turn this behaviour off, but we’ll just rename the columns for now.</p>
+<p><strong>Question 3</strong>: How does the number of genera compare with the number of ASVs?
+There are a lot fewer genera than ASVs.</p>
+<p><strong>Question 4</strong>: How many taxa does MaAsLin3 say are significantly differentially abundant?
+These numbers might vary slightly depending on how you have rarefied your data and whether you have kept the random seed the same, but there are 16 rows in the <code>significant_results.tsv</code> file, eight of which are unique (they are each shown twice - once for the abundance DA model and once for the prevalence DA model).</p>
+<p><strong>Question 5</strong>: How many taxa does ALDEx2 find to be significantly differentially abundant?
+Looking at the Kruskal-Wallis false discovery rate corrected p-value (<code>kw.eBH</code>), there are 26 taxa with p &lt;= 0.2.</p>
+<p><strong>Question 6</strong>: Are there any taxa left? Is that what you expected?
+There are seven genera that are found to be DA by both MaAsLin3 and ALDEx2! This means that almost all of the genera identified by MaAsLin3 are also DA with ALDEx2, which is relatively surprising given the different models that they each use.</p>
+<p><strong>Question 7</strong>: Did it look like there are differences between the two treatments for the taxon that you plotted?
+Because you chose the taxon, I can’t give the answer here!! Feel free to talk to one of us if you aren’t sure on how to interpret these results.</p>
+<p><strong>Question 8</strong>: Are there any taxa that you’re surprised to see are significantly differentially abundant? Why?
+Again, chat to one of us if you aren’t sure on how to interpret these results!</p>
+<p><strong>Question 9</strong>: What do you think might be wrong with it?
+For the ASVs, we were needing to skip the first line of the file that didn’t contain a useful header. Now we have the column names in our header line, so the <code>skip=1</code> part of this is making the second line of the file be read in as the header, and this contains pathway abundance information. We should remove the <code>skip=1</code> part before running this again.</p>
+<p><strong>Question 10</strong>: Can you see differences between the samples based on the metadata variables?
+Yes - Shannon and Simpson diversity seems to be slightly higher in Managed than Forest samples, although Observed richness is about the same in both. The samples don’t group entirely separately on the PCoA plot, although there does seem to be some more variation among the Managed than the Forest samples.</p>
+<p><strong>Question 11</strong>: What are these differences like compared with those seen in the taxonomy data?</p>
+</div>
+<div id="answers-18s-differential-abundance" class="section level2 hasAnchor">
+<h2>Answers 18S differential abundance<a href="answers-1.html#answers-18s-differential-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>See below for the answers to questions!</p>
+<div id="code-needed" class="section level3 hasAnchor">
+<h3>Code needed<a href="answers-1.html#code-needed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Importing packages:</p>
+<pre><code>library(phyloseq)
+library(maaslin3)
+library(microbiome)
+library(ALDEx2)
+library(ggplot2)
+library(tidyr)
+library(stringr)
+library(vegan)
+library(stats)
+library(SpiecEasi)</code></pre>
+<p>Setting variables:</p>
+<pre><code>folder = &#39;/home/ubuntu/workspace/bmb_module4/18S_analysis/&#39;</code></pre>
+<p>Read in ASV table:</p>
+<pre><code>asv_table &lt;- read.csv(paste(folder, &quot;deblur_output_exported/feature-table_w_tax.txt&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;, skip=1, header=T)</code></pre>
+<p>Manipulate the feature table:</p>
+<pre><code>asv_table_num = data.matrix(asv_table[,2:13]) 
+rownames(asv_table_num) = asv_table[,1] #give the matrix row names</code></pre>
+<p>Get the taxonomy information:</p>
+<pre><code>taxonomy &lt;- data.frame(asv_table[,&quot;taxonomy&quot;])
+rownames(taxonomy) &lt;- asv_table[,1]
+colnames(taxonomy) = c(&quot;taxonomy&quot;)</code></pre>
+<p>We want to split this so that we have columns for each of Domain, Supergroup, Division, Subdivision, Class, Order, Family, Genus and Species:</p>
+<pre><code>taxonomy_split &lt;- separate(data = taxonomy, col = taxonomy, into = c(&quot;Domain&quot;, &quot;Supergroup&quot;, &quot;Division&quot;, &quot;Subdivision&quot;, &quot;Class&quot;, &quot;Order&quot;, &quot;Family&quot;, &quot;Genus&quot;, &quot;Species&quot;), sep = &quot;\\; &quot;)</code></pre>
+<p>Read in the metadata:</p>
+<pre><code>metadata &lt;- read.csv(paste(folder, &quot;Plastisphere_18S_metadata.tsv&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;)
+samples = data.frame(metadata[,2:3], stringsAsFactors = FALSE)
+rownames(samples) = metadata[,1] #add the sample names as row names</code></pre>
+<p>Combine these into a phyloseq object:</p>
+<pre><code>ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table
+TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table
+taxa_names(TAX) &lt;- rownames(taxonomy_split) #add names to TAX/the tax_table
+SAMPLE = sample_data(samples) #convert samples to a sample_data
+physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object
+physeq #print this out to see what a phyloseq object looks like</code></pre>
+<p>Collapse at the genus level, which is “ta8” for 18S:</p>
+<pre><code>physeq_genus = tax_glom(physeq, taxrank=&quot;ta8&quot;)</code></pre>
+<p>Add names:</p>
+<pre><code>all_tax = paste(tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], tax_table(physeq_genus)[,7], tax_table(physeq_genus)[,8], sep=&#39;;&#39;)
+taxa_names(physeq_genus) = all_tax
+otu_table(physeq_genus)</code></pre>
+<p>Rarefy:</p>
+<pre><code>set.seed(345)
+sample_sums(physeq_genus)
+physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)</code></pre>
+<p>Note that we’ve changed the minimum sample size here because we had some samples with <em>very</em> low numbers of reads. I’ve printed out those sums to see how many samples we’ll lose. This isn’t ideal, but we don’t really want to go below 1000 sequences in our samples. You’ll see that 4 samples get removed, almost all of which are cave samples.</p>
+<p>If this were a “real” analysis, we might find this reduced sample size a bit problematic, but we’ll just carry on for now.</p>
+<p>Get the feature table and metadata that we’re using:</p>
+<pre><code>feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)
+metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)</code></pre>
+<p>Run MaAsLin3:</p>
+<pre><code>fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_treatment&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ light + time&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)</code></pre>
+<p>Probably unsurprisingly given the small numbers of samples in each group, none of these were significant :(</p>
+<p>We can also see what happens if we run each of these separately:</p>
+<pre><code>fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_light&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ light&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)
+
+fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_time&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ time&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)</code></pre>
+<p>But none of these are significant either :(</p>
+<p>Run ALDEx2 separately for light and time:</p>
+<pre><code>x &lt;- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$light, mc.samples = 128, verbose=F, denom=&quot;all&quot;)
+kw.test &lt;- aldex.kw(x, useMC=2, verbose=FALSE)
+write.csv(kw.test, paste(folder, &quot;ALDEx2_light.csv&quot;, sep=&quot;&quot;))
+
+x &lt;- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$time, mc.samples = 128, verbose=F, denom=&quot;all&quot;)
+kw.test &lt;- aldex.kw(x, useMC=2, verbose=FALSE)
+write.csv(kw.test, paste(folder, &quot;ALDEx2_time.csv&quot;, sep=&quot;&quot;))</code></pre>
+<p>Get ALDEx2 results:</p>
+<pre><code>aldex_light = read.csv(paste(folder, &quot;ALDEx2_light.csv&quot;, sep=&quot;&quot;))
+aldex_light = aldex_light[aldex_light$kw.eBH &lt;= 0.2, ]
+
+aldex_time = read.csv(paste(folder, &quot;ALDEx2_time.csv&quot;, sep=&quot;&quot;))
+aldex_time = aldex_time[aldex_time$kw.eBH &lt;= 0.2, ]</code></pre>
+<p>None of these are significant either :(</p>
+</div>
+<div id="s-answers-to-questions" class="section level3 hasAnchor">
+<h3>18S Answers to questions<a href="answers-1.html#s-answers-to-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Question 1</strong>: Type in <code>asv_table</code> or look at it in the “Environment” area in the top right. How many rows are there? Does this make sense to you?
+There should be the same number of rows as there were in the <code>feature_table.txt</code>, but without the <code># Constructed from biom file</code> line.</p>
+<p><strong>Question 2</strong>: Are they the same as you remember - any different punctuation?
+Yes! Unlike with the 16S data, there was no punctuation in our sample names to begin with so these have remained correct.</p>
+<p><strong>Question 3</strong>: How does the number of genera compare with the number of ASVs?
+There are a lot fewer genera than ASVs.</p>
+<p><strong>Question 4</strong>: How many taxa does MaAsLin3 say are significantly differentially abundant?
+None :(</p>
+<p><strong>Question 5</strong>: How many taxa does ALDEx2 find to be significantly differentially abundant?
+None :(</p>
+<p><strong>Question 6</strong>: Are there any taxa left? Is that what you expected?
+There are none found with either MaAsLin3 or ALDEx2, and not with either (or both) metadata variables, so there is no overlap here. If you didn’t run the 16S data already but want to see the plots, try running through the 16S data instead.</p>
+<p><strong>Question 7</strong>: Did it look like there are differences between the two treatments for the taxon that you plotted?
+Not applicable.</p>
+<p><strong>Question 8</strong>: Are there any taxa that you’re surprised to see are significantly differentially abundant? Why?
+Not applicable.</p>
+</div>
+</div>
+<div id="answers-its-differential-abundance" class="section level2 hasAnchor">
+<h2>Answers ITS differential abundance<a href="answers-1.html#answers-its-differential-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="code-needed-1" class="section level3 hasAnchor">
+<h3>Code needed<a href="answers-1.html#code-needed-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Importing packages:</p>
+<pre><code>library(phyloseq)
+library(maaslin3)
+library(microbiome)
+library(ALDEx2)
+library(ggplot2)
+library(tidyr)
+library(stringr)
+library(vegan)
+library(stats)
+library(SpiecEasi)</code></pre>
+<p>Setting variables:</p>
+<pre><code>folder = &#39;/home/ubuntu/workspace/bmb_module4/ITS_analysis/&#39;</code></pre>
+<p>Read in ASV table:</p>
+<pre><code>asv_table &lt;- read.csv(paste(folder, &quot;deblur_output_exported/feature-table_w_tax.txt&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;, skip=1, header=T)</code></pre>
+<p>Manipulate the feature table:</p>
+<pre><code>asv_table_num = data.matrix(asv_table[,2:21]) 
+rownames(asv_table_num) = asv_table[,1] #give the matrix row names</code></pre>
+<p>Get the taxonomy information:</p>
+<pre><code>taxonomy &lt;- data.frame(asv_table[,&quot;taxonomy&quot;])
+rownames(taxonomy) &lt;- asv_table[,1]
+colnames(taxonomy) = c(&quot;taxonomy&quot;)</code></pre>
+<p>We want to split this so that we have columns for each of Kingdom, Phylum, Class, Order, Family, Genus, Species and Subspecies:</p>
+<pre><code>taxonomy_split &lt;- separate(data = taxonomy, col = taxonomy, into = c(&quot;Kingdom&quot;, &quot;Phylum&quot;, &quot;Class&quot;, &quot;Order&quot;, &quot;Family&quot;, &quot;Genus&quot;, &quot;Species&quot;, &quot;Subspecies&quot;), sep = &quot;\\; &quot;)</code></pre>
+<p>Read in the metadata:</p>
+<pre><code>metadata &lt;- read.csv(paste(folder, &quot;pregnancy_ITS_metadata.tsv&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;)
+samples = data.frame(metadata[,2:3], stringsAsFactors = FALSE)
+rownames(samples) = metadata[,1] #add the sample names as row names</code></pre>
+<p>Combine these into a phyloseq object:</p>
+<pre><code>ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table
+TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table
+taxa_names(TAX) &lt;- rownames(taxonomy_split) #add names to TAX/the tax_table
+SAMPLE = sample_data(samples) #convert samples to a sample_data
+physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object
+physeq #print this out to see what a phyloseq object looks like</code></pre>
+<p>Collapse at the genus level, which is “ta6” for ITS:</p>
+<pre><code>physeq_genus = tax_glom(physeq, taxrank=&quot;ta6&quot;)</code></pre>
+<p>Add names:</p>
+<pre><code>all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=&#39;;&#39;)
+taxa_names(physeq_genus) = all_tax
+otu_table(physeq_genus)</code></pre>
+<p>Rarefy:</p>
+<pre><code>set.seed(345)
+sample_sums(physeq_genus)
+physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)</code></pre>
+<p>Note that we’ve changed the minimum sample size here because we had one samples with a <em>very</em> low number of reads. I’ve printed out those sums to see how many samples we’ll lose. This isn’t ideal, but we don’t really want to go below 1000 sequences in our samples. You’ll see that 1 sample gets removed - if we wanted to be even more robust then we might set this to say 10,000 sequences, which would remove 3 samples.</p>
+<p>Get the feature table and metadata that we’re using:</p>
+<pre><code>feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)
+metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)</code></pre>
+<p>Run MaAsLin3:</p>
+<pre><code>fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_treatment&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ exact_age + category&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)</code></pre>
+<p>None of these were significant :(</p>
+<p>We can also see what happens if we run each of these separately:</p>
+<pre><code>fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_exact_age&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ exact_age&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)
+
+fit_out &lt;- maaslin3(input_data = feat_table,
+                    input_metadata = metadata,
+                    output = paste(folder, &#39;maaslin3_category&#39;, sep=&quot;&quot;),
+                    formula = &#39;~ category&#39;,
+                    normalization = &#39;TSS&#39;,
+                    transform = &#39;LOG&#39;,
+                    augment = TRUE,
+                    standardize = TRUE,
+                    max_significance = 0.2,
+                    median_comparison_abundance = TRUE,
+                    median_comparison_prevalence = FALSE,
+                    max_pngs = 100,
+                    cores = 1,
+                    save_models = TRUE)</code></pre>
+<p>But none of these are significant either :(</p>
+<p>Run ALDEx2 separately for exact_age and category:</p>
+<pre><code>x &lt;- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$exact_age, mc.samples = 128, verbose=F, denom=&quot;all&quot;)
+kw.test &lt;- aldex.kw(x, useMC=2, verbose=FALSE)
+write.csv(kw.test, paste(folder, &quot;ALDEx2_exact_age.csv&quot;, sep=&quot;&quot;))
+
+x &lt;- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$category, mc.samples = 128, verbose=F, denom=&quot;all&quot;)
+kw.test &lt;- aldex.kw(x, useMC=2, verbose=FALSE)
+write.csv(kw.test, paste(folder, &quot;ALDEx2_category.csv&quot;, sep=&quot;&quot;))</code></pre>
+<p>Get ALDEx2 results:</p>
+<pre><code>aldex_exact_age = read.csv(paste(folder, &quot;ALDEx2_exact_age.csv&quot;, sep=&quot;&quot;))
+aldex_exact_age = aldex_exact_age[aldex_exact_age$kw.eBH &lt;= 0.2, ]
+
+aldex_category = read.csv(paste(folder, &quot;ALDEx2_category.csv&quot;, sep=&quot;&quot;))
+aldex_category = aldex_category[aldex_category$kw.eBH &lt;= 0.2, ]</code></pre>
+<p>None of these are significant either :(</p>
+</div>
+<div id="its-answers-to-questions" class="section level3 hasAnchor">
+<h3>ITS Answers to questions<a href="answers-1.html#its-answers-to-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Question 1</strong>: Type in <code>asv_table</code> or look at it in the “Environment” area in the top right. How many rows are there? Does this make sense to you?
+There should be the same number of rows as there were in the <code>feature_table.txt</code>, but without the <code># Constructed from biom file</code> line.</p>
+<p><strong>Question 2</strong>: Are they the same as you remember - any different punctuation?
+Yes! Unlike with the 16S data, there was no punctuation in our sample names to begin with so these have remained correct.</p>
+<p><strong>Question 3</strong>: How does the number of genera compare with the number of ASVs?
+There are a lot fewer genera than ASVs.</p>
+<p><strong>Question 4</strong>: How many taxa does MaAsLin3 say are significantly differentially abundant?
+None :(</p>
+<p><strong>Question 5</strong>: How many taxa does ALDEx2 find to be significantly differentially abundant?
+None :(</p>
+<p><strong>Question 6</strong>: Are there any taxa left? Is that what you expected?
+There are none found with either MaAsLin3 or ALDEx2, and not with either (or both) metadata variables, so there is no overlap here. If you didn’t run the 16S data already but want to see the plots, try running through the 16S data instead.</p>
+<p><strong>Question 7</strong>: Did it look like there are differences between the two treatments for the taxon that you plotted?
+Not applicable.</p>
+<p><strong>Question 8</strong>: Are there any taxa that you’re surprised to see are significantly differentially abundant? Why?
+Not applicable.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-4-lab-functional-prediction-and-additional-analyses.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/cbw-dev/bookdown-template/blob/main/050-module-4.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

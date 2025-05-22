@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 2 Lab: Marker gene profiling | Beginner Microbiome Analysis 2025</title>
+  <meta name="description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 2 Lab: Marker gene profiling | Beginner Microbiome Analysis 2025" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="github-repo" content="cbw-dev/BMB_2025" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 2 Lab: Marker gene profiling | Beginner Microbiome Analysis 2025" />
+  
+  <meta name="twitter:description" content="CBW’s Bookdown Template for Workshops" />
+  <meta name="twitter:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-1-lab-introduction-to-sequencing-data-analysis.html"/>
+<link rel="next" href="module-4-lab-functional-prediction-and-additional-analyses.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+
+ <li><a href="./">[YOUR WORKSHOP NAME]</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#awsunix-primer"><i class="fa fa-check"></i>AWS/UNIX primer</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-schedule"><i class="fa fa-check"></i>Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#meet-your-faculty"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+</ul></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html"><i class="fa fa-check"></i>Module 1 Lab: Introduction to sequencing data analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#log-into-your-aws-instance"><i class="fa fa-check"></i>1.1 Log into your AWS instance</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#maclinux"><i class="fa fa-check"></i>Mac/Linux</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#creating-directories-and-moving-around-on-the-command-line"><i class="fa fa-check"></i>1.2 Creating directories and moving around on the command line</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#use-wget-to-download-files"><i class="fa fa-check"></i>1.3 Use wget to download files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#move-these-files-to-the-directories"><i class="fa fa-check"></i>1.4 Move these files to the directories</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#zip-and-unzip-these-files"><i class="fa fa-check"></i>1.5 Zip and unzip these files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#create-new-tar-archive-of-files"><i class="fa fa-check"></i>1.6 Create new tar archive of files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#unzip-tar-archive"><i class="fa fa-check"></i>1.7 Unzip tar archive</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#look-at-fasta-and-fastq-files-with-less"><i class="fa fa-check"></i>1.8 Look at fasta and fastq files with less</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#installing-programs-to-the-server"><i class="fa fa-check"></i>1.9 Installing programs to the server</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#conda-environments"><i class="fa fa-check"></i>1.10 Conda environments</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#install-fastqc-and-multiqc"><i class="fa fa-check"></i>1.11 Install fastqc and multiqc</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#perform-quality-control-on-fastq-files"><i class="fa fa-check"></i>1.12 Perform quality control on fastq files</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#htop---looking-at-the-number-of-processes-we-have-available-or-running"><i class="fa fa-check"></i>1.13 htop - looking at the number of processes we have available or running</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#back-to-the-quality-control"><i class="fa fa-check"></i>1.14 Back to the quality control</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#quality-control-on-the-data-that-well-be-using"><i class="fa fa-check"></i>1.15 Quality control on the data that we’ll be using</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#install-qiime2"><i class="fa fa-check"></i>1.16 Install QIIME2</a></li>
+<li class="chapter" data-level="" data-path="module-1-lab-introduction-to-sequencing-data-analysis.html"><a href="module-1-lab-introduction-to-sequencing-data-analysis.html#answers"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="part"><span><b>III Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html"><i class="fa fa-check"></i>Module 2 Lab: Marker gene profiling</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#table-of-contents-1"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s"><i class="fa fa-check"></i>1. 16S</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-first-steps"><i class="fa fa-check"></i>1.1. 16S First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data"><i class="fa fa-check"></i>1.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact"><i class="fa fa-check"></i>1.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt"><i class="fa fa-check"></i>1.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>1.2. 16S Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads"><i class="fa fa-check"></i>1.2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads"><i class="fa fa-check"></i>1.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads"><i class="fa fa-check"></i>1.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur"><i class="fa fa-check"></i>1.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output"><i class="fa fa-check"></i>1.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>1.3. 16S Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification"><i class="fa fa-check"></i>1.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast"><i class="fa fa-check"></i>1.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table"><i class="fa fa-check"></i>1.4. 16S Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs"><i class="fa fa-check"></i>1.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs"><i class="fa fa-check"></i>1.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples"><i class="fa fa-check"></i><em>1.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table"><i class="fa fa-check"></i>1.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-answers"><i class="fa fa-check"></i>16S Answers</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-1"><i class="fa fa-check"></i>2. 18S</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-first-steps-1"><i class="fa fa-check"></i>2.1. 18S First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-1"><i class="fa fa-check"></i>2.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-1"><i class="fa fa-check"></i>2.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-1"><i class="fa fa-check"></i>2.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants-1"><i class="fa fa-check"></i>2.2. 18S Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-1"><i class="fa fa-check"></i>2.2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-1"><i class="fa fa-check"></i>2.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-1"><i class="fa fa-check"></i>2.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur-1"><i class="fa fa-check"></i>2.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-1"><i class="fa fa-check"></i>2.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs-1"><i class="fa fa-check"></i>2.3. 18S Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-1"><i class="fa fa-check"></i>2.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-1"><i class="fa fa-check"></i>2.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table-1"><i class="fa fa-check"></i>2.4. 18S Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-1"><i class="fa fa-check"></i>2.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-1"><i class="fa fa-check"></i>2.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-1"><i class="fa fa-check"></i><em>2.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-1"><i class="fa fa-check"></i>2.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-answers-1"><i class="fa fa-check"></i>18S Answers</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its"><i class="fa fa-check"></i>3. ITS</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-first-steps"><i class="fa fa-check"></i>3.1. ITS First steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-2"><i class="fa fa-check"></i>3.1.1. Inspect raw data</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-2"><i class="fa fa-check"></i>3.1.2. Import FASTQs as QIIME2 artifact</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-2"><i class="fa fa-check"></i>3.1.3. Trim primers with cutadapt</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>3.2. ITS Denoising the reads into amplicon sequence variants</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-2"><i class="fa fa-check"></i>2.1. Join paired-end reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-2"><i class="fa fa-check"></i>3.2.2. Filter out low-quality reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-2"><i class="fa fa-check"></i>3.2.3. Summarize joined and filtered reads</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#running-deblur-2"><i class="fa fa-check"></i>3.2.4. Running Deblur</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-2"><i class="fa fa-check"></i>3.2.5. Summarizing Deblur output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>3.3. ITS Assign taxonomy to ASVs</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-2"><i class="fa fa-check"></i>3.3.1. Run taxonomic classification</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-2"><i class="fa fa-check"></i>3.3.2. Assess subset of taxonomic assignments with BLAST</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-filtering-resultant-table"><i class="fa fa-check"></i>3.4. ITS Filtering resultant table</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-2"><i class="fa fa-check"></i>3.4.1. Filter out rare ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-2"><i class="fa fa-check"></i>3.4.2. Filter out contaminant and unclassified ASVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-2"><i class="fa fa-check"></i><em>3.4.3. (Optional) Exclude low-depth samples</em></a></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-2"><i class="fa fa-check"></i>3.4.4. Subset and summarize filtered table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#its-answers"><i class="fa fa-check"></i>ITS Answers</a></li>
+</ul></li>
+<li class="part"><span><b>IV Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html"><i class="fa fa-check"></i>Module 4 Lab: Functional prediction and additional analyses</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#introduction-2"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-testing-with-maaslin3-and-aldex2"><i class="fa fa-check"></i>Differential abundance testing with MaAsLin3 and ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#functional-prediction-with-picrust2"><i class="fa fa-check"></i>Functional prediction with PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#constructing-and-visualising-a-co-occurrence-network-using-spiec-easi-bonus-we-run-an-indicator-species-analysis-too"><i class="fa fa-check"></i>Constructing and visualising a co-occurrence network using <code>SPIEC-EASI</code> (Bonus: we run an indicator species analysis too!!)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#table-of-contents-2"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-analysis-using-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.1 Differential abundance analysis using MaAsLin3 and ALDEx2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#prepare-data-from-the-end-of-module-2"><i class="fa fa-check"></i>4.1.1 Prepare data from the end of Module 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#read-output-into-rphyloseq"><i class="fa fa-check"></i>4.1.2 Read output into R/Phyloseq</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#importing-packages"><i class="fa fa-check"></i>Importing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-maaslin3"><i class="fa fa-check"></i>4.1.3 Run MaAsLin3</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-aldex2"><i class="fa fa-check"></i>4.1.4 Run ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#functional-prediction-with-picrust2-1"><i class="fa fa-check"></i>4.2 Functional prediction with PICRUSt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#filter-input-for-picrust2"><i class="fa fa-check"></i>4.2.1 Filter input for PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#start-running-picrust2"><i class="fa fa-check"></i>4.2.2 Start running PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#read-picrust2-output-into-rphyloseq"><i class="fa fa-check"></i>4.2.3 Read PICRUSt2 output into R/Phyloseq</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#look-at-picrust2-alpha-and-beta-diversity"><i class="fa fa-check"></i>4.2.3 Look at PICRUSt2 alpha and beta diversity</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-picrust2-differential-abundance"><i class="fa fa-check"></i>4.2.4 Run PICRUSt2 differential abundance</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#combine-and-plot-picrust2-differential-abundance-results-from-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#plot-da-single-pathway"><i class="fa fa-check"></i>Plot DA single pathway</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#plot-da-all-pathways"><i class="fa fa-check"></i>Plot DA all pathways</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#constructing-and-visualising-a-co-occurrence-network"><i class="fa fa-check"></i>4.3 Constructing and visualising a co-occurrence network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#prepare-data-from-the-end-of-module-2-1"><i class="fa fa-check"></i>4.3.1 Prepare data from the end of Module 2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#indicator-species-analysis-isa"><i class="fa fa-check"></i>4.3.2 Indicator Species Analysis (ISA)</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#abundance-and-prevalence-filtering"><i class="fa fa-check"></i>4.3.3 Abundance and Prevalence filtering</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#contructing-the-co-occurrence-network"><i class="fa fa-check"></i>4.3.4 Contructing the Co-occurrence Network</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#visualizing-networks"><i class="fa fa-check"></i>4.3.5 Visualizing Networks</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#bonus-size-by-network-statistics"><i class="fa fa-check"></i>Bonus: Size by network statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#answers-1"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#answers-16s-differential-abundance-and-picrust2"><i class="fa fa-check"></i>Answers 16S differential abundance and PICRUSt2</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#answers-18s-differential-abundance"><i class="fa fa-check"></i>Answers 18S differential abundance</a></li>
+<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#answers-its-differential-abundance"><i class="fa fa-check"></i>Answers ITS differential abundance</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+ <center>
+ <a href="https://www.cihr-irsc.gc.ca"><img src="img/sponsors/cihr.png" width=90% style="padding-bottom: 20px" alt="Canadian Institutes of Health Research logo."></a>
+
+ <a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.webp" width=40% style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+ <a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" width=40% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Genomics logo.">
+ <br><br>
+ <a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+ <a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+ <br><br>
+
+ <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Beginner Microbiome Analysis 2025</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-2-lab-marker-gene-profiling" class="section level1 hasAnchor">
+<h1>Module 2 Lab: Marker gene profiling<a href="module-2-lab-marker-gene-profiling.html#module-2-lab-marker-gene-profiling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This tutorial is part of the 2025 CBW <a href="https://bioinformaticsdotca.github.io/BMB_2025/">Beginner Microbiome Analysis</a> (held in Vancouver, BC, May 26-27). It is based on the Amplicon SOP v2 available on the <a href="https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2%E2%80%902024.5)">Microbiome Helper repository</a> and previous workshops designed by Monica Alvaro Fuss, Diana Haider and Robert Beiko.</p>
+<p><strong>Author</strong>: Robyn Wright</p>
+<div id="introduction-1" class="section level2 hasAnchor">
+<h2>Introduction<a href="module-2-lab-marker-gene-profiling.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Modules 2 and 3 provide a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi.</p>
+<p>In this tutorial, you can choose between using:
+- 16S dataset from wild blueberry, <em>Vaccinium angustifolium</em> (soil microbiome)
+- <a href="https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R">Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats</a>
+- <a href="https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50">Metagenomic Functional Shifts to Plant Induced Environmental Changes</a>
+- 18S dataset from plastics incubated in a coastal marine environment (plastisphere)
+- <a href="https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050">Microbial pioneers of plastic colonisation in coastal seawaters</a>
+- ITS2 dataset from stool samples from pregnant women (gut microbiome)
+- <a href="https://gut.bmj.com/content/73/8/1302.long">Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health</a></p>
+<p>You can jump to one of the below sections for the commands needed for processing each of these amplicons. We recommend choosing one of them - 16S is the most widely used and also allows you to easily generate a phylogenetic tree. If you have never done any amplicon analysis before then we recommend choosing the 16S dataset.</p>
+<p>In Module 2 we will cover the basics of marker gene analysis from raw reads to filtered feature table. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version 2025.4), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the <a href="https://qiime2.org/">QIIME 2 user documentation</a>, along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within <a href="https://view.qiime2.org/">QIIME2 View</a>.</p>
+</div>
+<div id="table-of-contents-1" class="section level2 hasAnchor">
+<h2>Table of Contents<a href="module-2-lab-marker-gene-profiling.html#table-of-contents-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><a href="#id_1-16S">16S analysis</a>
+<ol style="list-style-type: decimal">
+<li><a href="#id_11-16S-First-steps">16S First steps</a></li>
+<li><a href="#id_12-16S-denoising-the-reads-into-amplicon-sequence-variants">16S Denoising reads into amplicon sequence variants</a></li>
+<li><a href="#id_13-16S-assign-taxonomy-to-asvs">16S Assign taxonomy to ASVs</a></li>
+<li><a href="#id_14-16S-filtering-resultant-table">16S Filtering resultant table</a></li>
+<li><a href="#id_16S-Answers">16S Answers</a></li>
+</ol></li>
+<li><a href="#id_2-18S">18S analysis</a>
+<ol style="list-style-type: decimal">
+<li><a href="#id_21-18S-First-steps">18S First steps</a></li>
+<li><a href="#id_22-18S-denoising-the-reads-into-amplicon-sequence-variants">18S Denoising reads into amplicon sequence variants</a></li>
+<li><a href="#id_23-18S-assign-taxonomy-to-asvs">18S Assign taxonomy to ASVs</a></li>
+<li><a href="#id_24-18S-filtering-resultant-table">18S Filtering resultant table</a></li>
+<li><a href="#id_18S-Answers">18S Answers</a></li>
+</ol></li>
+<li><a href="#id_3-ITS">ITS analysis</a>
+<ol style="list-style-type: decimal">
+<li><a href="#id_31-ITS-First-steps">ITS First steps</a></li>
+<li><a href="#id_32-ITS-denoising-the-reads-into-amplicon-sequence-variants">ITS Denoising reads into amplicon sequence variants</a></li>
+<li><a href="#id_33-ITS-assign-taxonomy-to-asvs">ITS Assign taxonomy to ASVs</a></li>
+<li><a href="#id_34-ITS-filtering-resultant-table">ITS Filtering resultant table</a></li>
+<li><a href="#ITS-Answers">ITS Answers</a></li>
+</ol></li>
+</ol>
+</div>
+<div id="s" class="section level2 hasAnchor">
+<h2>1. 16S<a href="module-2-lab-marker-gene-profiling.html#s" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a directory for Module 2 inside <code>workspace</code> and create a symlink to the raw FASTQ files and the metadata file.</p>
+<pre><code>cd ~/workspace
+mkdir bmb_module2/ bmb_module2/16S_analysis
+cd bmb_module2/16S_analysis
+ln -s ~/CourseData/MIC_data/bmb_raw_data/16S_raw_data raw_data
+ln -s ~/CourseData/MIC_data/bmb_raw_data/Blueberry_16S_metadata.tsv .</code></pre>
+<p>You will have installed the latest version of QIIME2 in Module 1, so you can activate that environment with the command below:</p>
+<pre><code>conda activate qiime2-amplicon-2025.4</code></pre>
+<p>If you didn’t get to that part, you can use this environment instead:</p>
+<pre><code>conda activate qiime2-amplicon-backup</code></pre>
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+<div id="s-first-steps" class="section level2 hasAnchor">
+<h2>1.1. 16S First steps<a href="module-2-lab-marker-gene-profiling.html#s-first-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inspect-raw-data" class="section level3 hasAnchor">
+<h3>1.1.1. Inspect raw data<a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
+<pre><code>ls raw_data</code></pre>
+<pre><code>head Blueberry_16S_metadata.tsv</code></pre>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+</div>
+<div id="import-fastqs-as-qiime2-artifact" class="section level3 hasAnchor">
+<h3>1.1.2. Import FASTQs as QIIME2 artifact<a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an “artifact” (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.</p>
+<pre><code>mkdir reads_qza</code></pre>
+<pre><code>qiime tools import \
+  --type SampleData[PairedEndSequencesWithQuality] \
+  --input-path raw_data/ \
+  --output-path reads_qza/reads.qza \
+  --input-format CasavaOneEightSingleLanePerSampleDirFmt</code></pre>
+<p>This might take a minute! If it hasn’t come back up with the command prompt that looks something like <code>(qiime2-amplicon-2025.4) ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/16S_analysis$</code> yet, then it hasn’t finished running yet and you’ll need to be patient :)</p>
+<p>All of the FASTQs are now in the single artifact file reads_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the <code>qiime tools utilities</code> (e.g. <code>peek</code> and <code>view</code>).</p>
+</div>
+<div id="trim-primers-with-cutadapt" class="section level3 hasAnchor">
+<h3>1.1.3. Trim primers with cutadapt<a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the <a href="http://cutadapt.readthedocs.io/en/stable/guide.html">cutadapt</a> QIIME 2 plugin. The below primers correspond to the 16S V6-V8 region (bacteria-specific primer set). You can see more about different primers and the taxa that they target <a href="https://imr.bio/protocols.html">here</a>.</p>
+<pre><code>qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences reads_qza/reads.qza \
+  --p-cores 4 \
+  --p-front-f ACGCGHNRAACCTTACC \
+  --p-front-r ACGGGCRGTGWGTRCAA \
+  --p-discard-untrimmed \
+  --p-no-indels \
+  --o-trimmed-sequences reads_qza/reads_trimmed.qza</code></pre>
+<p>Visualizing your output data is a good idea after any step to make sure nothing unexpected occurred. The following command generates a “visualization” file with the extension QZV.</p>
+<p>We still have a few preprocessing requirements to check off our list before denoising, so we can wait until these steps are complete to visualize our data. However, if you would like to see what paired-end reads look like before joining, run the following command and open the QZV file in <a href="https://view.qiime2.org/">QIIME2 View</a>.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed.qza \
+  --o-visualization reads_qza/reads_trimmed_summary.qzv</code></pre>
+<p>Remember that you can see and download these files on the webpage: <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!)</p>
+<p><strong>Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?</strong></p>
+</div>
+</div>
+<div id="s-denoising-the-reads-into-amplicon-sequence-variants" class="section level2 hasAnchor">
+<h2>1.2. 16S Denoising the reads into amplicon sequence variants<a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we’ll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found <a href="https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference">here</a>.</p>
+<div id="join-paired-end-reads" class="section level3 hasAnchor">
+<h3>1.2.1. Join paired-end reads<a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Forward and reverse reads can be joined with <a href="https://github.com/torognes/vsearch">VSEARCH</a> as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.</p>
+<pre><code>qiime vsearch merge-pairs \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed.qza \
+  --output-dir reads_qza/reads_joined</code></pre>
+</div>
+<div id="filter-out-low-quality-reads" class="section level3 hasAnchor">
+<h3>1.2.2. Filter out low-quality reads<a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This command will filter out low-quality reads based on the default options.</p>
+<pre><code>qiime quality-filter q-score \
+  --i-demux reads_qza/reads_joined/merged_sequences.qza \
+  --o-filter-stats filt_stats.qza \
+  --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza</code></pre>
+</div>
+<div id="summarize-joined-and-filtered-reads" class="section level3 hasAnchor">
+<h3>1.2.3. Summarize joined and filtered reads<a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is a good idea at this point just to verify that there haven’t been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed_joined_filt.qza \
+  --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
+<p>Now open the file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
+<p><strong>Question 4</strong>: How long are our forward reads? Why are there no reverse reads in our file?</p>
+<p><strong>Question 5</strong>: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+<div id="running-deblur" class="section level3 hasAnchor">
+<h3>1.2.4. Running Deblur<a href="module-2-lab-marker-gene-profiling.html#running-deblur" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Running the <a href="https://github.com/biocore/deblur">Deblur</a> workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set –p-min-reads 1, and is for 16S sequences only. For other amplicon regions, you can either use the denoise-other option in the command and specify a reference database of sequences to use for positive filtering (as in the below versions for 18S and ITS) or use DADA2.</p>
+<p>You’ll need to replace X here with the trim length that was decided in Question 5.</p>
+<pre><code>qiime deblur denoise-16S \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \
+  --p-trim-length X \
+  --p-sample-stats \
+  --p-jobs-to-start 4 \
+  --p-min-reads 1 \
+  --output-dir deblur_output</code></pre>
+<p><em>Note: this command may take a few minutes to run.</em></p>
+</div>
+<div id="summarizing-deblur-output" class="section level3 hasAnchor">
+<h3>1.2.5. Summarizing Deblur output<a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/table.qza \
+  --o-visualization deblur_output/deblur_table_summary.qzv</code></pre>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+</div>
+</div>
+<div id="s-assign-taxonomy-to-asvs" class="section level2 hasAnchor">
+<h2>1.3. 16S Assign taxonomy to ASVs<a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/qiime2-2020.8_classifiers) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)):
+
+-   Full ITS - fungi only (classifier_sh_refs_qiime_ver9_99_s_27.10.2022_ITS.qza)
+-   Full ITS - all eukaryotes (classifier_sh_refs_qiime_ver9_99_s_all_27.10.2022_ITS.qza)</code></pre>
+<p>We’re going to use the Greengenes2 classifier. We can download that from the FTP site <a href="http://ftp.microbio.me/greengenes_release/2022.10/">here</a> - click on the folder <code>sklearn-1.4.2-compatible-nb-classifiers/</code>, and then copy the link for the <code>2022.10.backbone.full-length.nb.sklearn-1.4.2.qza</code> classifier. (Right-click and select “Copy Link Address”. Then we’ll use the <code>wget</code> command like we did in Module 1. That will look something like this:</p>
+<pre><code>wget link-address</code></pre>
+<div id="run-taxonomic-classification" class="section level3 hasAnchor">
+<h3>1.3.1. Run taxonomic classification<a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the –p-reads-per-batch option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set –p-n-jobs 1).</p>
+<p><strong>Because of the memory constraints of this workshop, you can copy the output into your folder:</strong></p>
+<p>But here is the code you would use to run the taxonomic classification:</p>
+<pre><code>qiime feature-classifier classify-sklearn \
+  --i-reads deblur_output/representative_sequences.qza \
+  --i-classifier 2022.10.backbone.full-length.nb.sklearn-1.4.2.qza \
+  --p-n-jobs 4 \
+  --output-dir taxa</code></pre>
+<p>Unfortunately we don’t actually have enough memory to run this so you’ll see a <code>Killed</code> output for this.
+Instead, we’ll copy across the output that we would have got.</p>
+<pre><code>mkdir taxa      
+cp ~/CourseData/MIC_data/bmb_module2/16S/taxa/classification.qza taxa</code></pre>
+<p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
+<pre><code>qiime tools export \
+  --input-path taxa/classification.qza \
+  --output-path taxa</code></pre>
+</div>
+<div id="assess-subset-of-taxonomic-assignments-with-blast" class="section level3 hasAnchor">
+<h3>1.3.2 Assess subset of taxonomic assignments with BLAST<a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:</p>
+<pre><code>qiime feature-table tabulate-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --o-visualization deblur_output/representative_sequences.qzv</code></pre>
+<p>This QZV file tabulates the denoised sequences. Clicking on the nucleotide sequence links to a BLASTn search for that sequence. By comparing these BLAST hits with the taxonomic assignment of ASVs generated above you can reassure yourself that the taxonomic assignments overall worked correctly. It’s a good idea to select ~5 ASVs to BLAST for this validation, which should be from taxonomically different groups, such as different phyla, according to the taxonomic classifier.</p>
+<p>You can then check the taxonomy that was assigned to them using your classifier - you can either open up the <code>taxonomy.tsv</code> file and search for the Feature ID/ASV names there, or you can use the <code>grep</code> command like so:</p>
+<pre><code>grep &quot;02fda7604175053e87dc11e2598a89e0&quot; taxa/taxonomy.tsv</code></pre>
+</div>
+</div>
+<div id="s-filtering-resultant-table" class="section level2 hasAnchor">
+<h2>1.4. 16S Filtering resultant table<a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the <a href="https://docs.qiime2.org/2022.11/tutorials/filtering/">QIIME 2 filtering tutorial</a>.</p>
+<div id="filter-out-rare-asvs" class="section level3 hasAnchor">
+<h3>1.4.1. Filter out rare ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (<code>deblur_table_summary.qzv</code>), multiply it by 0.001, and round to the nearest integer.</p>
+<p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
+<pre><code>qiime feature-table filter-features \
+  --i-table deblur_output/table.qza \
+  --p-min-frequency X \
+  --p-min-samples 1 \
+  --o-filtered-table deblur_output/deblur_table_filt.qza</code></pre>
+</div>
+<div id="filter-out-contaminant-and-unclassified-asvs" class="section level3 hasAnchor">
+<h3>1.4.2. Filter out contaminant and unclassified ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. It can also be <strong>sometimes</strong> useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change p__ to be a string that enables phylum-level assignments to be identified or simply omit that line.</p>
+<p>In general though, it can be very informative if your sequencing reads are coming back with significant amounts of unclassified ASVs as it can indicate upstream analysis problems or indicate you are studying a poorly characterized environment where you have a good chance of identifying a lot of novel phyla. Therefore, our recommendation is to not filter out the unclassified sequences by default, but we will do so here.</p>
+<pre><code>qiime taxa filter-table \
+  --i-table deblur_output/deblur_table_filt.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-include p__ \
+  --p-exclude mitochondria,chloroplast \
+  --o-filtered-table deblur_output/deblur_table_filt_contam.qza</code></pre>
+</div>
+<div id="optional-exclude-low-depth-samples" class="section level3 hasAnchor">
+<h3><em>1.4.3. (Optional) Exclude low-depth samples</em><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth &lt; 50 reads).</p>
+<p>Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.</p>
+</div>
+<div id="subset-and-summarize-filtered-table" class="section level3 hasAnchor">
+<h3>1.4.4. Subset and summarize filtered table<a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check output after filtering.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_filt_contam.qza \
+  --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
+<p><strong>Question 8: What is the minimum and maximum sequencing depth across all samples?</strong></p>
+<p>Happy? Copy a final table.</p>
+<pre><code>cp deblur_output/deblur_table_filt_contam.qza deblur_output/deblur_table_final.qza</code></pre>
+<p>Once we have our final filtered table we will need to subset the QZA file containing the ASV sequences to the same set. You can exclude any removed ASVs from the sequence file with this command:</p>
+<pre><code>qiime feature-table filter-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --i-table deblur_output/deblur_table_final.qza  \
+  --o-filtered-data deblur_output/rep_seqs_final.qza</code></pre>
+<p>Finally, you can make a new summary of the final filtered abundance table:</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_final.qza \
+  --o-visualization deblur_output/deblur_table_final_summary.qzv</code></pre>
+</div>
+</div>
+<div id="s-answers" class="section level2 hasAnchor">
+<h2>16S Answers<a href="module-2-lab-marker-gene-profiling.html#s-answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p>We have 10 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (B-Rtxxx).</p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+<p>The samples we are using are classified into two different groups: Forest or Managed sites. The study we’re looking at does also look at bulk or rhizosphere samples, but we’re just using a small subset of the samples for this workshop.</p>
+<p><strong>Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?</strong></p>
+<p><code>Cutadapt</code> will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the <code>--p-discard-untrimmed</code> option.</p>
+<p><strong>Question 4: How long are our forward reads? Why are there no reverse reads in our file?</strong></p>
+<p>The forward read median length is 405 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.</p>
+<p><strong>Question 5: What would be a good trim length for our reads?</strong></p>
+<p>There is no one right answer for this question, but a trim length of 390 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we’re more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.</p>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p>The mean sequencing depth (frequency) across all denoised samples is 6,669.8 reads.</p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+<p>Sample B-Rt151 has the lowest sequencing depth (4,332 reads).</p>
+<p><strong>Question 8: What is the minimum and maximum sequencing depth across all samples?</strong></p>
+<p>The final minimum sequencing depth is 3,432 and the maximum sequencing depth is 8,650 reads.</p>
+</div>
+<div id="s-1" class="section level2 hasAnchor">
+<h2>2. 18S<a href="module-2-lab-marker-gene-profiling.html#s-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create for Module 2 inside <code>workspace</code> and create a symlink to the raw FASTQ files and the metadata file.</p>
+<pre><code>cd ~/workspace
+mkdir bmb_module2/ bmb_module2/18S_analysis
+cd bmb_module2/18S_analysis
+ln -s ~/CourseData/MIC_data/bmb_raw_data/18S_raw_data raw_data
+ln -s ~/CourseData/MIC_data/bmb_raw_data/Plastisphere_18S_metadata.tsv .</code></pre>
+<p>You will have installed the latest version of QIIME2 in Module 1, so you can activate that environment with the command below:</p>
+<pre><code>conda activate qiime2-amplicon-2025.4</code></pre>
+<p>If you didn’t get to that part, you can use this environment instead:</p>
+<pre><code>conda activate qiime2-amplicon-backup</code></pre>
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+<div id="s-first-steps-1" class="section level2 hasAnchor">
+<h2>2.1. 18S First steps<a href="module-2-lab-marker-gene-profiling.html#s-first-steps-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inspect-raw-data-1" class="section level3 hasAnchor">
+<h3>2.1.1. Inspect raw data<a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
+<pre><code>ls raw_data</code></pre>
+<pre><code>head Plastisphere_18S_metadata.tsv</code></pre>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+</div>
+<div id="import-fastqs-as-qiime2-artifact-1" class="section level3 hasAnchor">
+<h3>2.1.2. Import FASTQs as QIIME2 artifact<a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an “artifact” (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.</p>
+<pre><code>mkdir reads_qza</code></pre>
+<pre><code>qiime tools import \
+  --type SampleData[PairedEndSequencesWithQuality] \
+  --input-path raw_data/ \
+  --output-path reads_qza/reads.qza \
+  --input-format CasavaOneEightSingleLanePerSampleDirFmt</code></pre>
+<p>This might take a minute! If it hasn’t come back up with the command prompt that looks something like <code>(qiime2-amplicon-2025.4) ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/18S_analysis$</code> yet, then it hasn’t finished running yet and you’ll need to be patient :)</p>
+<p>All of the FASTQs are now in the single artifact file reads_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the <code>qiime tools utilities</code> (e.g. <code>peek</code> and <code>view</code>).</p>
+</div>
+<div id="trim-primers-with-cutadapt-1" class="section level3 hasAnchor">
+<h3>2.1.3. Trim primers with cutadapt<a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the <a href="http://cutadapt.readthedocs.io/en/stable/guide.html">cutadapt</a> QIIME 2 plugin. The below primers correspond to the 18S V4 region (eukaryote-specific primer set). You can see more about different primers and the taxa that they target <a href="https://imr.bio/protocols.html">here</a>.</p>
+<pre><code>qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences reads_qza/reads.qza \
+  --p-cores 4 \
+  --p-front-f ATAACAGGTCTGTGATGCCCT \
+  --p-front-r CCTTCYGCAGGTTCACCTAC \
+  --p-discard-untrimmed \
+  --p-no-indels \
+  --o-trimmed-sequences reads_qza/reads_trimmed.qza</code></pre>
+<p>Visualizing your output data is a good idea after any step to make sure nothing unexpected occurred. The following command generates a “visualization” file with the extension QZV.</p>
+<p>We still have a few preprocessing requirements to check off our list before denoising, so we can wait until these steps are complete to visualize our data. However, if you would like to see what paired-end reads look like before joining, run the following command and open the QZV file in <a href="https://view.qiime2.org/">QIIME2 View</a>.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed.qza \
+  --o-visualization reads_qza/reads_trimmed_summary.qzv</code></pre>
+<p>Remember that you can see and download these files on the webpage: <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!)</p>
+<p><strong>Question 3: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?</strong></p>
+</div>
+</div>
+<div id="s-denoising-the-reads-into-amplicon-sequence-variants-1" class="section level2 hasAnchor">
+<h2>2.2. 18S Denoising the reads into amplicon sequence variants<a href="module-2-lab-marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we’ll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found <a href="https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference">here</a>.</p>
+<div id="join-paired-end-reads-1" class="section level3 hasAnchor">
+<h3>2.2.1. Join paired-end reads<a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Forward and reverse reads can be joined with <a href="https://github.com/torognes/vsearch">VSEARCH</a> as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.</p>
+<pre><code>qiime vsearch merge-pairs \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed.qza \
+  --output-dir reads_qza/reads_joined</code></pre>
+</div>
+<div id="filter-out-low-quality-reads-1" class="section level3 hasAnchor">
+<h3>2.2.2. Filter out low-quality reads<a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This command will filter out low-quality reads based on the default options.</p>
+<pre><code>qiime quality-filter q-score \
+  --i-demux reads_qza/reads_joined/merged_sequences.qza \
+  --o-filter-stats filt_stats.qza \
+  --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza</code></pre>
+</div>
+<div id="summarize-joined-and-filtered-reads-1" class="section level3 hasAnchor">
+<h3>2.2.3. Summarize joined and filtered reads<a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is a good idea at this point just to verify that there haven’t been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed_joined_filt.qza \
+  --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
+<p>Now open the file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
+<p><strong>Question 4</strong>: How long are our forward reads? Why are there no reverse reads in our file?</p>
+<p><strong>Question 5</strong>: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+<div id="running-deblur-1" class="section level3 hasAnchor">
+<h3>2.2.4. Running Deblur<a href="module-2-lab-marker-gene-profiling.html#running-deblur-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Running the <a href="https://github.com/biocore/deblur">Deblur</a> workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set –p-min-reads 1, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn’t require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server <a href="http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/">here</a>.</p>
+<p>We’ll go ahead and download the 18S sequences. You can do that by right-clicking on the <code>gb203_pr2_all_10_28_99p_clean_prob-rm.fasta</code> file, and clicking “Copy Link Address”. You can then use the <code>wget</code> command, like we did in Module 1. So your command should look something like:</p>
+<pre><code>wget link-address</code></pre>
+<p>Then you can import this into QIIME:</p>
+<pre><code>qiime tools import \
+   --input-path gb203_pr2_all_10_28_99p_clean_prob-rm.fasta \
+   --output-path gb203_pr2_all_10_28_99p_clean_prob-rm.qza \
+   --type &#39;FeatureData[Sequence]&#39;</code></pre>
+<p>You’ll need to replace X here with the trim length that was decided in Question 5.</p>
+<pre><code>qiime deblur denoise-other \
+   --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \
+   --i-reference-seqs gb203_pr2_all_10_28_99p_clean_prob-rm.qza \
+   --p-trim-length X \
+   --p-sample-stats \
+   --p-jobs-to-start 4 \
+   --p-min-reads 1 \
+   --output-dir deblur_output</code></pre>
+<p><em>Note: this command may take around ten minutes to run.</em></p>
+</div>
+<div id="summarizing-deblur-output-1" class="section level3 hasAnchor">
+<h3>2.2.5. Summarizing Deblur output<a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/table.qza \
+  --o-visualization deblur_output/deblur_table_summary.qzv</code></pre>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+</div>
+</div>
+<div id="s-assign-taxonomy-to-asvs-1" class="section level2 hasAnchor">
+<h2>2.3. 18S Assign taxonomy to ASVs<a href="module-2-lab-marker-gene-profiling.html#s-assign-taxonomy-to-asvs-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the <a href="http://scikit-learn.org/stable/">scikit learn</a> Python library and the <a href="https://www.arb-silva.de/">SILVA</a> or <a href="https://unite.ut.ee/">UNITE</a> databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the <a href="https://docs.qiime2.org/2022.11/data-resources/">QIIME 2 website</a> (silva-138-99-nb-classifier.qza for the latest classifier). Sometimes there are custom classifiers or other specific databases that are good for specific purposes. For 18S, we’re going to be using the <a href="https://pr2-database.org/">PR2 (Protist Ribosomal Reference) database</a>. A custom classifier that we’ve generated is available (<a href="http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/">see downloads</a> and <a href="https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers">commands used to create classifiers</a>).</p>
+<p>We’re going to use the PR2 classifier. As you did above, click on “Copy Link Address” for the file <code>pr2_version_5.1.0_SSU_18S.qza</code> and then use <code>wget</code> to download it. Check how you ran this command before if you’re unsure!</p>
+<div id="run-taxonomic-classification-1" class="section level3 hasAnchor">
+<h3>2.3.1. Run taxonomic classification<a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive commands of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the –p-reads-per-batch option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set –p-n-jobs 1).</p>
+<pre><code>qiime feature-classifier classify-sklearn \
+  --i-reads deblur_output/representative_sequences.qza \
+  --i-classifier pr2_version_5.1.0_SSU_18S.qza \
+  --p-n-jobs 4 \
+  --output-dir taxa</code></pre>
+<p>Unfortunately we don’t actually have enough memory to run this so you’ll see a <code>Killed</code> or <code>Terminated</code> output for this.
+Instead, we’ll copy across the output that we would have got.</p>
+<pre><code>mkdir taxa      
+cp ~/CourseData/MIC_data/bmb_module2/18S/taxa/classification.qza taxa</code></pre>
+<p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
+<pre><code>qiime tools export \
+  --input-path taxa/classification.qza \
+  --output-path taxa</code></pre>
+</div>
+<div id="assess-subset-of-taxonomic-assignments-with-blast-1" class="section level3 hasAnchor">
+<h3>2.3.2 Assess subset of taxonomic assignments with BLAST<a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:</p>
+<pre><code>qiime feature-table tabulate-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --o-visualization deblur_output/representative_sequences.qzv</code></pre>
+<p>This QZV file tabulates the denoised sequences. Clicking on the nucleotide sequence links to a BLASTn search for that sequence. By comparing these BLAST hits with the taxonomic assignment of ASVs generated above you can reassure yourself that the taxonomic assignments overall worked correctly. It’s a good idea to select ~5 ASVs to BLAST for this validation, which should be from taxonomically different groups, such as different phyla, according to the taxonomic classifier.</p>
+<p>You can then check the taxonomy that was assigned to them using your classifier - you can either open up the <code>taxonomy.tsv</code> file and search for the Feature ID/ASV names there, or you can use the <code>grep</code> command like so:</p>
+<pre><code>grep &quot;5ecf17cbc8af149eb7fbec898b841d72&quot; taxa/taxonomy.tsv</code></pre>
+<p>You should see that this sequence has been classified as <code>d__Eukaryota; sg__Archaeplastida; di__Rhodophyta; sd__Eurhodophytina; c__Florideophyceae; o__Ceramiales; f__Rhodomelaceae</code> with confidence ~0.99. If we look at the taxonomy on NCBI BLAST, then we’ll see that some of the top hits are <em>Osmundea pinnatifida</em> (identity 99.34%) and <em>Laurencia filiformis</em> (identity 98.01%). A quick google tells me that both of these are in the family Rhodomelaceae, so it seems pretty reasonable that - with two hits with relatively high identity that are from different genera - our classifier would determine that this ASV can be classified at the family level as Rhodomelaceae.</p>
+<p>Try taking a look at a few more and seeing how they seem.</p>
+</div>
+</div>
+<div id="s-filtering-resultant-table-1" class="section level2 hasAnchor">
+<h2>2.4. 18S Filtering resultant table<a href="module-2-lab-marker-gene-profiling.html#s-filtering-resultant-table-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the <a href="https://docs.qiime2.org/2022.11/tutorials/filtering/">QIIME 2 filtering tutorial</a>.</p>
+<div id="filter-out-rare-asvs-1" class="section level3 hasAnchor">
+<h3>2.4.1. Filter out rare ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (<code>deblur_table_summary.qzv</code>), multiply it by 0.001, and round to the nearest integer.</p>
+<p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
+<pre><code>qiime feature-table filter-features \
+  --i-table deblur_output/table.qza \
+  --p-min-frequency X \
+  --p-min-samples 1 \
+  --o-filtered-table deblur_output/deblur_table_filt.qza</code></pre>
+</div>
+<div id="filter-out-contaminant-and-unclassified-asvs-1" class="section level3 hasAnchor">
+<h3>2.4.2. Filter out contaminant and unclassified ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. Obviously this is different for 18S, so we don’t need to exclude those here. It can also be <strong>sometimes</strong> useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that here we actually don’t have phylum-level classifications because the PR2 database doesn’t use these - it uses levels of domain, supergroup, division, subdivision, class, order, family, genus, and species. So in our taxonomy file you’ll see that these are d, sg, di, sd, c, o, f, g, and s, respectively. We’ll therefore probably want to use the sg__ instead of p__ like we used for 16S data.</p>
+<p>In general though, it can be very informative if your sequencing reads are coming back with significant amounts of unclassified ASVs as it can indicate upstream analysis problems or indicate you are studying a poorly characterized environment where you have a good chance of identifying a lot of novel phyla. Therefore, our recommendation is to not filter out the unclassified sequences by default, but we will do so here.</p>
+<pre><code>qiime taxa filter-table \
+  --i-table deblur_output/deblur_table_filt.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-include sg__ \
+  --o-filtered-table deblur_output/deblur_table_filt_contam.qza</code></pre>
+</div>
+<div id="optional-exclude-low-depth-samples-1" class="section level3 hasAnchor">
+<h3><em>2.4.3. (Optional) Exclude low-depth samples</em><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth &lt; 50 reads).</p>
+<p>Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.</p>
+</div>
+<div id="subset-and-summarize-filtered-table-1" class="section level3 hasAnchor">
+<h3>2.4.4. Subset and summarize filtered table<a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check output after filtering.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_filt_contam.qza \
+  --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
+<p><strong>Question 8: What is the minimum and maximum sequencing depth across all samples?</strong></p>
+<p>Happy? Copy a final table.</p>
+<pre><code>cp deblur_output/deblur_table_filt_contam.qza deblur_output/deblur_table_final.qza</code></pre>
+<p>Once we have our final filtered table we will need to subset the QZA file containing the ASV sequences to the same set. You can exclude any removed ASVs from the sequence file with this command:</p>
+<pre><code>qiime feature-table filter-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --i-table deblur_output/deblur_table_final.qza  \
+  --o-filtered-data deblur_output/rep_seqs_final.qza</code></pre>
+<p>Finally, you can make a new summary of the final filtered abundance table:</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_final.qza \
+  --o-visualization deblur_output/deblur_table_final_summary.qzv</code></pre>
+</div>
+</div>
+<div id="s-answers-1" class="section level2 hasAnchor">
+<h2>18S Answers<a href="module-2-lab-marker-gene-profiling.html#s-answers-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p>We have 12 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (MHxxxx18S).</p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+<p>The samples we are using are classified using two different variables: light and time. These are pieces of plastic that were either incubated in a sunny coastal environment (OpenCoast) or in a cave (Cave; the light variable), and they were incubated for 6h or 28h (time).</p>
+<p><strong>Question 3: What would happen if you ran this exact command on 16S sequences?</strong></p>
+<p><code>Cutadapt</code> will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the <code>--p-discard-untrimmed</code> option.</p>
+<p><strong>Question 4: How long are our forward reads? Why are there no reverse reads in our file?</strong></p>
+<p>The forward read median length is 331 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.</p>
+<p><strong>Question 5: What would be a good trim length for our reads?</strong></p>
+<p>There is no one right answer for this question, but a trim length of 302 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we’re more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.</p>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p>The mean sequencing depth (frequency) across all denoised samples is 6,588.8 reads.</p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+<p>Sample MH28C318S has the lowest sequencing depth (only 27 reads).</p>
+<p><strong>Question 8: What is the minimum and maximum sequencing depth across all samples?</strong></p>
+<p>The final minimum sequencing depth is 7 and the maximum sequencing depth is 12,890 reads.</p>
+</div>
+<div id="its" class="section level2 hasAnchor">
+<h2>3. ITS<a href="module-2-lab-marker-gene-profiling.html#its" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create for Module 2 inside <code>workspace</code> and create a symlink to the raw FASTQ files and the metadata file.</p>
+<pre><code>cd ~/workspace
+mkdir bmb_module2/ bmb_module2/ITS_analysis
+cd bmb_module2/ITS_analysis
+ln -s ~/CourseData/MIC_data/bmb_raw_data/ITS_raw_data raw_data
+ln -s ~/CourseData/MIC_data/bmb_raw_data/pregnancy_ITS_metadata.tsv .</code></pre>
+<p>You will have installed the latest version of QIIME2 in Module 1, so you can activate that environment with the command below:</p>
+<pre><code>conda activate qiime2-amplicon-2025.4</code></pre>
+<p>If you didn’t get to that part, you can use this environment instead:</p>
+<pre><code>conda activate qiime2-amplicon-backup</code></pre>
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+<div id="its-first-steps" class="section level2 hasAnchor">
+<h2>3.1. ITS First steps<a href="module-2-lab-marker-gene-profiling.html#its-first-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inspect-raw-data-2" class="section level3 hasAnchor">
+<h3>3.1.1. Inspect raw data<a href="module-2-lab-marker-gene-profiling.html#inspect-raw-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
+<pre><code>ls raw_data</code></pre>
+<pre><code>head pregnancy_ITS_metadata.tsv</code></pre>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+</div>
+<div id="import-fastqs-as-qiime2-artifact-2" class="section level3 hasAnchor">
+<h3>3.1.2. Import FASTQs as QIIME2 artifact<a href="module-2-lab-marker-gene-profiling.html#import-fastqs-as-qiime2-artifact-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an “artifact” (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.</p>
+<pre><code>mkdir reads_qza</code></pre>
+<pre><code>qiime tools import \
+  --type SampleData[PairedEndSequencesWithQuality] \
+  --input-path raw_data/ \
+  --output-path reads_qza/reads.qza \
+  --input-format CasavaOneEightSingleLanePerSampleDirFmt</code></pre>
+<p>This might take a minute! If it hasn’t come back up with the command prompt that looks something like <code>(qiime2-amplicon-2025.4) ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/ITS_analysis$</code> yet, then it hasn’t finished running yet and you’ll need to be patient :)</p>
+<p>All of the FASTQs are now in the single artifact file reads_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the <code>qiime tools utilities</code> (e.g. <code>peek</code> and <code>view</code>).</p>
+</div>
+<div id="trim-primers-with-cutadapt-2" class="section level3 hasAnchor">
+<h3>3.1.3. Trim primers with cutadapt<a href="module-2-lab-marker-gene-profiling.html#trim-primers-with-cutadapt-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the <a href="http://cutadapt.readthedocs.io/en/stable/guide.html">cutadapt</a> QIIME 2 plugin. The below primers correspond to the 18S V8-V9 region (eukaryote-specific primer set). You can see more about some other primers and the taxa that they target <a href="https://imr.bio/protocols.html">here</a>.</p>
+<pre><code>qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences reads_qza/reads.qza \
+  --p-cores 4 \
+  --p-front-f GCATCGATGAAGAACGCAGC \
+  --p-front-r TCCTCCGCTTATTGATATGC \
+  --p-discard-untrimmed \
+  --p-no-indels \
+  --o-trimmed-sequences reads_qza/reads_trimmed.qza</code></pre>
+<p>Visualizing your output data is a good idea after any step to make sure nothing unexpected occurred. The following command generates a “visualization” file with the extension QZV.</p>
+<p>We still have a few preprocessing requirements to check off our list before denoising, so we can wait until these steps are complete to visualize our data. However, if you would like to see what paired-end reads look like before joining, run the following command and open the QZV file in <a href="https://view.qiime2.org/">QIIME2 View</a>.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed.qza \
+  --o-visualization reads_qza/reads_trimmed_summary.qzv</code></pre>
+<p>Remember that you can see and download these files on the webpage: <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!)</p>
+<p><strong>Question 3: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?</strong></p>
+</div>
+</div>
+<div id="its-denoising-the-reads-into-amplicon-sequence-variants" class="section level2 hasAnchor">
+<h2>3.2. ITS Denoising the reads into amplicon sequence variants<a href="module-2-lab-marker-gene-profiling.html#its-denoising-the-reads-into-amplicon-sequence-variants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we’ll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found <a href="https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference">here</a>.</p>
+<div id="join-paired-end-reads-2" class="section level3 hasAnchor">
+<h3>2.1. Join paired-end reads<a href="module-2-lab-marker-gene-profiling.html#join-paired-end-reads-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Forward and reverse reads can be joined with <a href="https://github.com/torognes/vsearch">VSEARCH</a> as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.</p>
+<pre><code>qiime vsearch merge-pairs \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed.qza \
+  --output-dir reads_qza/reads_joined</code></pre>
+</div>
+<div id="filter-out-low-quality-reads-2" class="section level3 hasAnchor">
+<h3>3.2.2. Filter out low-quality reads<a href="module-2-lab-marker-gene-profiling.html#filter-out-low-quality-reads-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This command will filter out low-quality reads based on the default options.</p>
+<pre><code>qiime quality-filter q-score \
+  --i-demux reads_qza/reads_joined/merged_sequences.qza \
+  --o-filter-stats filt_stats.qza \
+  --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza</code></pre>
+</div>
+<div id="summarize-joined-and-filtered-reads-2" class="section level3 hasAnchor">
+<h3>3.2.3. Summarize joined and filtered reads<a href="module-2-lab-marker-gene-profiling.html#summarize-joined-and-filtered-reads-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is a good idea at this point just to verify that there haven’t been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.</p>
+<pre><code>qiime demux summarize \
+  --i-data reads_qza/reads_trimmed_joined_filt.qza \
+  --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
+<p>Now open the file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
+<p><strong>Question 4</strong>: How long are our forward reads? Why are there no reverse reads in our file?</p>
+<p><strong>Question 5</strong>: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+<div id="running-deblur-2" class="section level3 hasAnchor">
+<h3>3.2.4. Running Deblur<a href="module-2-lab-marker-gene-profiling.html#running-deblur-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Running the <a href="https://github.com/biocore/deblur">Deblur</a> workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set –p-min-reads 1, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn’t require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server <a href="http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/">here</a>.</p>
+<p>We’ll go ahead and download the 18S sequences. You can do that by right-clicking on the <code>UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.fasta</code> file, and clicking “Copy Link Address”. You can then use the <code>wget</code> command, like we did in Module 1. So your command should look something like:</p>
+<pre><code>wget link-address</code></pre>
+<p>Then you can import this into QIIME:</p>
+<pre><code>qiime tools import \
+   --input-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.fasta \
+   --output-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \
+   --type &#39;FeatureData[Sequence]&#39;</code></pre>
+<p>You’ll need to replace X here with the trim length that was decided in Question 5.</p>
+<pre><code>qiime deblur denoise-other \
+   --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \
+   --i-reference-seqs UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \
+   --p-trim-length X \
+   --p-sample-stats \
+   --p-jobs-to-start 4 \
+   --p-min-reads 1 \
+   --output-dir deblur_output</code></pre>
+<p><em>Note: this command may take around ten minutes to run.</em></p>
+</div>
+<div id="summarizing-deblur-output-2" class="section level3 hasAnchor">
+<h3>3.2.5. Summarizing Deblur output<a href="module-2-lab-marker-gene-profiling.html#summarizing-deblur-output-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/table.qza \
+  --o-visualization deblur_output/deblur_table_summary.qzv</code></pre>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+</div>
+</div>
+<div id="its-assign-taxonomy-to-asvs" class="section level2 hasAnchor">
+<h2>3.3. ITS Assign taxonomy to ASVs<a href="module-2-lab-marker-gene-profiling.html#its-assign-taxonomy-to-asvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the <a href="http://scikit-learn.org/stable/">scikit learn</a> Python library and the <a href="https://www.arb-silva.de/">SILVA</a> or <a href="https://unite.ut.ee/">UNITE</a> databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the <a href="https://docs.qiime2.org/2022.11/data-resources/">QIIME 2 website</a> (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well (<a href="http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/">see downloads</a> and <a href="https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers">commands used to create these files</a>).</p>
+<p>We’re going to use one that contains fungal ITS sequences from the UNITE database. As you did above, click on “Copy Link Address” for the file <code>classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza</code> and then use <code>wget</code> to download it. Check how you ran this command before if you’re unsure!</p>
+<div id="run-taxonomic-classification-2" class="section level3 hasAnchor">
+<h3>3.3.1. Run taxonomic classification<a href="module-2-lab-marker-gene-profiling.html#run-taxonomic-classification-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the –p-reads-per-batch option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set –p-n-jobs 1).</p>
+<p><strong>Because of the memory constraints of this workshop, you can copy the output into your folder:</strong></p>
+<p>But here is the code you would use to run the taxonomic classification:</p>
+<pre><code>qiime feature-classifier classify-sklearn \
+  --i-reads deblur_output/representative_sequences.qza \
+  --i-classifier classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza \
+  --p-n-jobs 4 \
+  --output-dir taxa</code></pre>
+<p>Unfortunately we don’t actually have enough memory to run this so you’ll see a <code>Killed</code> output for this.
+Instead, we’ll copy across the output that we would have got.</p>
+<pre><code>mkdir taxa      
+cp ~/CourseData/MIC_data/bmb_module2/ITS/taxa/classification.qza taxa</code></pre>
+<p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
+<pre><code>qiime tools export \
+  --input-path taxa/classification.qza \
+  --output-path taxa</code></pre>
+</div>
+<div id="assess-subset-of-taxonomic-assignments-with-blast-2" class="section level3 hasAnchor">
+<h3>3.3.2. Assess subset of taxonomic assignments with BLAST<a href="module-2-lab-marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:</p>
+<pre><code>qiime feature-table tabulate-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --o-visualization deblur_output/representative_sequences.qzv</code></pre>
+<p>This QZV file tabulates the denoised sequences. Clicking on the nucleotide sequence links to a BLASTn search for that sequence. By comparing these BLAST hits with the taxonomic assignment of ASVs generated above you can reassure yourself that the taxonomic assignments overall worked correctly. It’s a good idea to select ~5 ASVs to BLAST for this validation, which should be from taxonomically different groups, such as different phyla, according to the taxonomic classifier.</p>
+<p>You can then check the taxonomy that was assigned to them using your classifier - you can either open up the <code>taxonomy.tsv</code> file and search for the Feature ID/ASV names there, or you can use the <code>grep</code> command like so:</p>
+<pre><code>grep &quot;af38114da4fce5a55693cb937b8991ad&quot; taxa/taxonomy.tsv</code></pre>
+<p>You should see that this sequence has been classified as <code>k__Fungi;p__Ascomycota;c__Eurotiomycetes;o__Eurotiales;f__Aspergillaceae;g__Aspergillus</code> with confidence ~0.99. If we look at the taxonomy on NCBI BLAST, then we’ll see that the top hits are <em>Aspergillus cristatus</em> and <em>Aspergillus chevalieri</em>, both with 99.67% identity. If it’s just as good a match to two different species within the same genus, it makes sense why we just have the genus-level classification <em>Aspergillus</em> here, and seems reasonable.</p>
+<p>Try taking a look at a few more and seeing how they seem.</p>
+</div>
+</div>
+<div id="its-filtering-resultant-table" class="section level2 hasAnchor">
+<h2>3.4. ITS Filtering resultant table<a href="module-2-lab-marker-gene-profiling.html#its-filtering-resultant-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the <a href="https://docs.qiime2.org/2022.11/tutorials/filtering/">QIIME 2 filtering tutorial</a>.</p>
+<div id="filter-out-rare-asvs-2" class="section level3 hasAnchor">
+<h3>3.4.1. Filter out rare ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-rare-asvs-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (<code>deblur_table_summary.qzv</code>), multiply it by 0.001, and round to the nearest integer.</p>
+<p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
+<pre><code>qiime feature-table filter-features \
+  --i-table deblur_output/table.qza \
+  --p-min-frequency X \
+  --p-min-samples 1 \
+  --o-filtered-table deblur_output/deblur_table_filt.qza</code></pre>
+</div>
+<div id="filter-out-contaminant-and-unclassified-asvs-2" class="section level3 hasAnchor">
+<h3>3.4.2. Filter out contaminant and unclassified ASVs<a href="module-2-lab-marker-gene-profiling.html#filter-out-contaminant-and-unclassified-asvs-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. We don’t really have that issue with ITS data, however. It can also be <strong>sometimes</strong> useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change p__ to be a string that enables phylum-level assignments to be identified or simply omit that line.</p>
+<p>In general though, it can be very informative if your sequencing reads are coming back with significant amounts of unclassified ASVs as it can indicate upstream analysis problems or indicate you are studying a poorly characterized environment where you have a good chance of identifying a lot of novel phyla. Therefore, our recommendation is to not filter out the unclassified sequences by default, but we will do so here.</p>
+<pre><code>qiime taxa filter-table \
+  --i-table deblur_output/deblur_table_filt.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-include p__ \
+  --o-filtered-table deblur_output/deblur_table_filt_contam.qza</code></pre>
+</div>
+<div id="optional-exclude-low-depth-samples-2" class="section level3 hasAnchor">
+<h3><em>3.4.3. (Optional) Exclude low-depth samples</em><a href="module-2-lab-marker-gene-profiling.html#optional-exclude-low-depth-samples-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth &lt; 50 reads).</p>
+<p>Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.</p>
+</div>
+<div id="subset-and-summarize-filtered-table-2" class="section level3 hasAnchor">
+<h3>3.4.4. Subset and summarize filtered table<a href="module-2-lab-marker-gene-profiling.html#subset-and-summarize-filtered-table-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check output after filtering.</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_filt_contam.qza \
+  --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
+<p><strong>Question 8</strong>: What is the minimum and maximum sequencing depth across all samples?</p>
+<p><strong>Question 8 answer</strong>: The final minimum sequencing depth is 192 and the maximum sequencing depth is 80,762 reads. This huge difference from the previous step (where it was actually a different sample that had the lowest depth!) would definitely indicate some problems if this were our own project. This was not a project that I was involved with, and this could just be because the ITS region is more difficult to accurately taxonomically classify than the 16S region, but I would definitely want to do some further investigating as to what is going on. We only removed ASVs that didn’t have phylum-level classifications, so the first thing that I would do is look at the taxonomy.tsv file. If we open this in Excel and sort based on Column B, we can see that 114/961 total ASVs within our samples have only been classified as Fungi (these are the ones that we would have filtered out). If we just have a quick search of a few of these ASVs in the deblur_table_summary.qzv Feature Detail tab, then we’ll see that e.g. <code>87121182b8f0d093e937d915b2b58b22</code> is present in 13 samples at a total frequency of 15,889 reads. Another one, <code>1086009b09b17b9364cb1ae984a552e1</code> is similar; it is present in 18 samples at a total frequency of 35,799 reads. Based on this, I don’t think I’d want to filter these out. So unlike with the other amplicons, I think I’d probably use the unfiltered table here.</p>
+<p>Copy a final table.</p>
+<pre><code>cp deblur_output/deblur_table_filt.qza deblur_output/deblur_table_final.qza</code></pre>
+<p>Once we have our final filtered table we will need to subset the QZA file containing the ASV sequences to the same set. You can exclude any removed ASVs from the sequence file with this command:</p>
+<pre><code>qiime feature-table filter-seqs \
+  --i-data deblur_output/representative_sequences.qza \
+  --i-table deblur_output/deblur_table_final.qza  \
+  --o-filtered-data deblur_output/rep_seqs_final.qza</code></pre>
+<p>Finally, you can make a new summary of the final filtered abundance table:</p>
+<pre><code>qiime feature-table summarize \
+  --i-table deblur_output/deblur_table_final.qza \
+  --o-visualization deblur_output/deblur_table_final_summary.qzv</code></pre>
+</div>
+</div>
+<div id="its-answers" class="section level2 hasAnchor">
+<h2>ITS Answers<a href="module-2-lab-marker-gene-profiling.html#its-answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1: How many samples are there?</strong></p>
+<p>We have 20 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (CRRxxxxxxx).</p>
+<p><strong>Question 2: Into what group(s) are the samples classified?</strong></p>
+<p>The samples we are using are classified into two different groups: below_20 or above_35. The study we’re looking at had information on the age of the pregnant women, so that’s what we’re looking at here. We also have their exact age in these samples.</p>
+<p><strong>Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?</strong></p>
+<p><code>Cutadapt</code> will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the <code>--p-discard-untrimmed</code> option.</p>
+<p><strong>Question 4: How long are our forward reads? Why are there no reverse reads in our file?</strong></p>
+<p>The forward read median length is 364 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.</p>
+<p><strong>Question 5: What would be a good trim length for our reads?</strong></p>
+<p>There is no one right answer for this question, but a trim length of 300 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we’re more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.</p>
+<p><strong>Question 6: What is the mean sequencing depth per sample after denoising?</strong></p>
+<p>The mean sequencing depth (frequency) across all denoised samples is 62,566.6 reads.</p>
+<p><strong>Question 7: Which sample has the least reads?</strong></p>
+<p>Sample CRR1039764 has the lowest sequencing depth (21,453 reads).</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-1-lab-introduction-to-sequencing-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-4-lab-functional-prediction-and-additional-analyses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/cbw-dev/bookdown-template/blob/main/030-module-2.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

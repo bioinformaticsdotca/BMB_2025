@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # (PART) Modules {-}
 
 # Module 4 Lab: Functional prediction and additional analyses
@@ -255,7 +250,7 @@ Take a look at each of these if you want to see what the differences were in eac
 
 **Question 3**: How does the number of genera compare with the number of ASVs?
 
-### 4.1.3 Run MaAsLin3
+## 4.1.3 Run MaAsLin3
 
 Now that we've prepared the phyloseq objects, it's time to run our first differential abundance test. Each of the differential abundance tools expects data to be normalised in a different way (or some of them normalise for you), and we're going to run MaAsLin with rarefied data.
 
@@ -304,7 +299,7 @@ pval_individual (7) qval_individual (8) pval_joint (9) qval_joint (10) error (11
 
 **Question 4**: How many taxa does MaAsLin3 say are significantly differentially abundant?
 
-### 4.1.4 Run ALDEx2
+## 4.1.4 Run ALDEx2
 
 Next, we'll run ALDEx2. Note that here the first step is to normalise the samples using a CLR normalisation, so you can see how both of the methods require similar steps - normalisation and then testing - but this is done in a slightly different way for each. We then use a Kruskal-Wallis test and a GLM ANOVA on the data, and we can do this test with multiple cores (```useMC=2```). You can see that we're again running this separately for each metadata variable, and then saving the outputs as .csv files:
 ```
@@ -325,7 +320,7 @@ Transformations/normalisations of microbiome data are often used to make the usu
 
 **Question 5**: How many taxa does ALDEx2 find to be significantly differentially abundant?
 
-### 4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2
+## 4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2
 
 In order to compare the results that we've got from the three differential abundance tools, we'll want to first import the results and do some manipulations on these tables. 
 
@@ -379,7 +374,7 @@ Note that if you didn't replace the quotation marks with the name of a taxon abo
 
 To explain what we have just done here a little, we're using a function from the microbiome R package - sometimes there can be functions with the same name from multiple R packages, so adding ```microbiome::``` at the start tells R which one we are wanting to use. The first positional argument is the phyloseq object that we are using, and then everything else consists of named arguments: The metadata variable that we'd like to use for the x axis (and making the boxplots), what we'd like on the y axis (this needs to be a taxon that is in the phyloseq object), whether we'd like to map a variable onto the lines, whether we'd like this to be a violin plot rather than a boxplot, whether NAs should be removed, and whether points should be shown in addition to the boxes. 
 
-This ```boxplot_abundance``` function builds upon the R package ggplot2, and we can therefore use additional arguments as we would with ggplot2. These are added with the + and are fairly self explanatory; we have added a title (ggtitle) and a y label (ylab). For the title, we've replaced part of the text with the "\n" which means that a line break has been added in to make this a little more readable. 
+This ```boxplot_abundance``` function builds upon the R package ggplot2, and we can therefore use additional arguments as we would with ggplot2. These are added with the + and are fairly self explanatory; we have added a title (ggtitle) and a y label (ylab). For the title, we've replaced part of the text with the `"\n"` which means that a line break has been added in to make this a little more readable. 
 
 **Question 7**: Did it look like there are differences between the two treatments for the taxon that you plotted?
 
@@ -1537,3 +1532,4 @@ Not applicable.
 
 **Question 8**: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
 Not applicable.
+
