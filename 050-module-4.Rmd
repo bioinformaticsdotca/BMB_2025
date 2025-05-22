@@ -724,13 +724,144 @@ You'll see that these are all quite low abundance (<1% abundance), but they do a
 
 ## 4.3 Constructing and visualising a co-occurrence network
 
-**NOTE: This section is only built for 16S data, but if you feel adventurous you could try to re-write it for 18S or ITS :D**
-
-### 4.3.1 Introduction
+### Introduction
 
 Microbes don’t live in isolation—they form complex ecological communities where interactions between taxa can be cooperative, competitive, or neutral. One way to explore these interactions is through co-occurrence networks, where nodes represent microbial taxa and edges represent inferred associations. To make these networks more biologically meaningful, we need to account for the compositional nature of microbiome data and avoid common pitfalls such as spurious correlations.
 
 In this section, we’ll use the `SpiecEasi` package to construct a sparse inverse covariance network—designed specifically for compositional data—and visualize it using igraph. Before we do that, however, we’ll identify which ASVs are significantly associated with treatment groups using indicator species analysis, and then filter our dataset to include only sufficiently prevalent and abundant taxa. Let's start by identifying those indicator species.
+
+**We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS**. 
+
+### 4.3.1 Prepare data from the end of Module 2
+
+First, we'll create a new directory for whichever dataset we want to use and we'll copy the output from the end of Module 2 into this.
+
+<details>
+  <summary><h3>16S:</h3></summary>
+
+```
+cd ~/workspace
+mkdir bmb_module4 bmb_module4/16S_analysis
+cd bmb_module4/16S_analysis
+ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .
+ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .
+```
+
+#### Read output into R/Phyloseq
+
+Next, we'll go to RStudio on the server. Go to your browser and navigate to:
+```
+http://##.uhn-hpc.ca:8080/
+```
+(where ## is the student number that you have been given).
+
+Enter "ubuntu" as your username and the password that have been given. It takes a little while to load up the first time but should be quicker on subsequent times!
+
+Everything that you're entering in here should be entered into the "Console" part of the page. This is like the Terminal that we've been using on the Server, but it uses the R programming language. Most statistical analyses in bioinformatics will use either R or Python - many bioinformaticians have a preference for one or the other, but most use both. In my opinion, each has different strengths and weaknesses - R has many built in programs and functions, while Python is much more customisable but perhaps has a steeper learning curve. The syntax varies slightly for both (and both are different from the Terminal that we have been using, which is the bash programming language), but there are also many similarities. RStudio is an Integrated Developing Environment (IDE) for R and Python - it is an application that provides further functionality than the R programming language itself. 
+
+#### Importing packages
+
+First of all, we'll import the packages that we'll be using today:
+```
+library(phyloseq)
+library(SpiecEasi)
+library(indicspecies)
+library(igraph)
+```
+You'll notice that in each of these, we use the ```library()``` command, and inside the brackets we give the name of the package. We've already installed these packages for you, but in most cases these could be installed by *e.g.,* ```install.packages("igraph")```. In some cases, they might be installed using another package, BiocManager, *e.g.,* ```BiocManager::install("phyloseq")```. If you're unsure, you can always google how to install a package and you can usually find the code to copy and paste, *e.g.,* "r install phyloseq". You could also try typing ```??phyloseq``` into the console and see what comes up. It should give you some information about that package.
+
+#### Setting variables
+
+Next, we'll set the name of the folder where our results are saved:
+```
+folder = '/home/ubuntu/workspace/bmb_module4/16S_analysis/'
+```
+
+Here, we have defined a variable called "folder" - we always need to be careful that we don't save over these variables by calling something else the same thing, but you can always check these in the "Environment" area in the top right where you should see that "folder" now exists. We could have called this anything, but it's always helpful to name our variables something that is simple and explains what they are, incase someone else is using our code. This is a string, as it is inside the punctuation marks ```' '``` or ```" "```, and this is used in programming to show that we are representing text rather than numbers. These variables can be really useful to avoid having to type in the same information multiple times, which always increases the chances that we'll make a mistake!
+
+#### Read in the feature table
+
+First, we'll read in the feature table. Note that we're calling it ```asv_table```:
+```
+asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)
+```
+Here we're combining a few different things. We're using the ```read.csv``` function - functions are modules of code that accomplish a specific task. We can write them ourselves, they are what is contained in the packages that we imported at the start, or there are several that are built in to R. If you want more information about what a function does as well as the input that it expects and the output that it gives, you can type in ```?read.csv```. 
+
+We're also using the ```paste``` function to add together the full file path of the feature table. We're giving it the ```folder``` variable that we already defined, as well as the additional folder and file name (both as positional arguments), and finally the ```sep=""``` named argument - this tells the ```paste``` function that there should be no spaces or other punctuation between the two parts that are being pasted together. Try running just this part and see what the result is: ```paste(folder, "exports_filtered/feature-table.txt", sep="")``` - note that as we haven't given this a name, it is not saved as a variable. 
+
+Next, we've given the ```sep='\t'``` variable - this time, we're telling the ```read.csv``` function that the file that we're importing is tab-delimited, then we've told it to skip the first line of the file ```skip=1```, and that there is a header ```header=T``` (where T is the same as TRUE). We've skipped the first line because this just reads "# Constructed from biom file" and is not actually data.
+
+#### Manipulate the feature table
+
+We often find in programming that things are not quite in the format that is expected by the packages that we're using, so we'll make a few modifications to ```asv_table```:
+```
+asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner!
+rownames(asv_table_num) = asv_table[,1] #give the matrix row names
+```
+You can see here that I've added ```#``` after the code and have written what each line does. You can use ```#``` to make comments through your code documents, to explain what each line is doing. Here you should also notice that we didn't save over the previous ```asv_table```, but created a new one called ```asv_table_num```. Now, we've just told R that it should be expecting numeric data within this table, and then we gave it the same row names as our previous ```asv_table``` object. 
+
+Next, take a quick look at your sample names within asv_table_num.
+
+This is kind of annoying because it means that the sample names won't match the metadata table, so we'll change those now.
+```
+colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))
+```
+
+#### Get the taxonomy information
+
+You may have noticed that the last column in the initial `asv_table` was our taxonomy information. We'll get that first:
+```
+taxonomy <- data.frame(asv_table[,"taxonomy"])
+rownames(taxonomy) <- asv_table[,1]
+colnames(taxonomy) = c("taxonomy")
+```
+If you print this out by typing ```taxonomy``` or by clicking on this in the "Environment" area, you'll see that we currently only have a single column that contains all of the taxonomy information. 
+
+We want to split this so that we have columns for each of Domain, Phylum, Class, Order, Family, Genus and Species. Luckily, there is already a function that we can use for this:
+```
+taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently!
+```
+You'll see that we tell the ```separate``` function that the data it should use is in the ```taxonomy``` table, the ```col``` (column) is called "taxonomy". The "into" named argument takes a list as input, which is defined in R with the ```c()```, and the ```taxonomy``` column should be split into a new column each time the ```;``` symbol is found. You'll see a warning after running this line, but it still ran so that's fine - it's just telling us that there weren't values for all of Domain/Phylum/Class/Order/Family/Genus/Species for every ASV, which makes sense as not all of them will have a species-level classification.
+
+Again, you can take a look at the results in the "Environment" area. 
+
+#### Read in the metadata
+
+Now we'll read in the metadata. I won't go through each stage step-by-step as hopefully you're getting the idea by now, but I've still added comments to each of the rows:
+```
+metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')
+samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame - again, if you didn't use the 16S data, you have some extra variables here that you will need to include, rather than only column 2, you may need another, too. 
+rownames(samples) = metadata[,1] #add the sample names as row names
+colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here
+```
+
+#### Combine these into a phyloseq object
+
+[Phyloseq](https://joey711.github.io/phyloseq/) is a really useful package that contains many useful functions for analysing microbiome data. While it can be a bit fiddly to get our data into the format that it is expecting (most good packages should give you examples of how data should be formatted to go into them, although it does take a lot of practice to get good at quickly working out how this is different from what you have!), once that it is in this format, the analyses are then very easy to perform. 
+
+```
+ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table
+TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table
+taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table
+SAMPLE = sample_data(samples) #convert samples to a sample_data
+physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object
+physeq #print this out to see what a phyloseq object looks like
+```
+Now, we have combined all of these different parts into one phyloseq object. Note that you can also import a phylogenetic tree to phyloseq, but we won't be using that for this part of the workshop. You can also get each of the individual objects back after performing manipulations, *e.g.,* ```otu_table(physeq)```.
+
+As we typically find that ASVs are not always shared across many samples (and neither would we expect them to be, if they potentially represent species or strain level differences between taxa), we'll collapse the phyloseq object to the genus level. If you're not sure what the different taxonomy levels are called within the phyloseq object, you can always look at ```tax_table(physeq)```.
+
+So we're collapsing at the genus level, which is "ta6":
+```
+physeq_genus = tax_glom(physeq, taxrank="ta6")
+```
+If you take a look at this taxonomy table (```tax_table(physeq_genus)```), you'll notice a lot of missing information (because many environmental ASVs don't have similar taxa within reference databases!), so we can add the full taxonomy information in to the ASV names, so that this is hopefully a little more informative:
+```
+all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')
+taxa_names(physeq_genus) = all_tax
+otu_table(physeq_genus)
+```
+Take a look at each of these if you want to see what the differences were in each step!
 
 ### 4.3.2 Indicator Species Analysis (ISA)
 
@@ -773,8 +904,8 @@ Now that we’ve identified which ASVs are associated with each treatment group,
 Filter by prevalence and abundance
 ```
 cat("Filtering phyloseq object by prevalence and abundance...\n")
-min_prev <- 0.05
-min_abun <- 0.001
+min_prev <- 0.30
+min_abun <- 0.0005
 # Prevalence
 prev_df <- apply(otu_table(physeq), 1, function(x) sum(x > 0) / length(x))
 # Relative abundance
@@ -790,6 +921,8 @@ physeq_filtered <- prune_taxa(keep_taxa, physeq)
 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
 ```
 
+**Question 12**: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?
+
 ### 4.3.4 Contructing the Co-occurrence Network
 
 Now that we've selected our ASVs of focus, we can infer the co-occurrence network using `SpiecEasi`. We’re using the MB (neighborhood selection) method here, and we’ll allow the algorithm to determine the best level of sparsity through cross-validation (via `pulsar`). This will give us a network where each edge represents a direct association between two taxa.
@@ -803,6 +936,8 @@ se.mb.16s <- spiec.easi(physeq_filtered, method = 'mb',
 
 cat("SpiecEasi complete.\n")
 ```
+
+**Question 13**: What other `method` algorithms are available for `SpiecEasi` other than `mb`? Can you find them in the manual? in and online search?
 
 Next, we’ll convert the adjacency matrix from Spiec-Easi into an igraph object and relabel the nodes with the original ASV identifiers. We’ll also match the filtered phyloseq object to the ASVs used in the network and annotate each node with its indicator status.
 
@@ -883,6 +1018,8 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
 dev.off()
 ```
 
+**Question 14**: Can you visualize the `ta2` rank? `ta4` rank?
+
 The Comparative Panel:
 ```
 # --- Panel figure ---
@@ -927,9 +1064,11 @@ More advanced plotting can include adding network statistics as the sizes of the
 | **Eigenvector**    | Taxa connected to other highly connected taxa (influential nodes)         |
 | **PageRank**       | Like eigenvector but more robust—considers quality and quantity of links  |
 
+**Thought Question**: This above table shows how nodes could be statistically linked to ecological principles. If we see an ASV with high/low values in any of these statistics, what does it say about their influence in their community?
+
 Here is `Degree`:
 ```
-Panel figure with degree-based sizing
+# Panel figure with degree-based sizing
 cat("Saving panel figure with degree-based node sizing...\n")
 pdf(paste(folder, "network_panel_degree.pdf", sep=""), width = 18, height = 6)
 par(mfrow = c(1, 2), mar = c(4, 4, 4, 8), xpd = TRUE)
