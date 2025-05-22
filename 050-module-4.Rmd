@@ -1,10 +1,15 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # (PART) Modules {-}
 
 # Module 4 Lab: Functional prediction and additional analyses
 
 This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bioinformaticsdotca.github.io/BMB_2025/) (held in Vancouver, BC, May 26-27).
 
-**Authors**: Robyn Wright and Ryan McLoughlin
+**Authors**: Robyn Wright and Ryan McLaughlin
 
 ## Introduction
 
@@ -39,7 +44,20 @@ You can see full information on PICRUSt2 [here](https://github.com/picrust/picru
 
 These steps can be run separately, but are all wrapped together into a single command for what we'll be running today. 
 
-### Constructing and visualising a co-occurrence network using `XYZ`
+### Constructing and visualising a co-occurrence network using `SPIEC-EASI` (Bonus: we run an indicator species analysis too!!)
+
+Understanding how microbial taxa interact with one another in an environment is a fundamental question in microbial ecology. Co-occurrence network analysis attempts to capture these interactions by estimating associations between taxa across samples. However, it’s important to be cautious here: naive approaches like correlation matrices (e.g., Pearson or Spearman) are prone to false positives due to the compositional nature of microbiome data—where only relative abundances are measured, not absolute counts. This introduces spurious correlations that don’t reflect real biological interactions.
+
+The Sparse InversE Covariance Estimation for Ecological Association Inference (SPIEC-EASI) method was developed to help with these limitations. Rather than relying on correlation, SPIEC-EASI estimates the underlying network by inferring the inverse covariance matrix under the assumption of sparsity—meaning most taxa are not directly interacting. It supports two main models: the neighborhood selection method (mb, or Meinshausen-Bühlmann) and the graphical lasso (glasso). Both use regularization to identify a stable and sparse set of direct associations among taxa. (*NOTE: don't use glasso for today, you need more samples than taxa for glasso to have power.*)
+
+In our analysis today, we’ll use the R implementation of SPIEC-EASI to construct a microbial association network based on a filtered and prevalence-adjusted version of the ASV table from Module 2. Importantly, SPIEC-EASI models are not directional and do not imply causation, but they offer a more robust way to explore ecological structure and *hypothesize* about microbial interactions.
+
+We'll begin by identifying indicator taxa using the `indicspecies` package and the `multipatt()` function, which detects taxa that are significantly associated with particular treatment groups. These indicator taxa are labeled accordingly and carried through the rest of the analysis to visualize their role in the microbial network.
+
+Next, we filter the ASV table to remove rare or low-abundance taxa based on minimum prevalence (30% of samples) and relative abundance (0.05%), ensuring we focus on taxa with sufficient statistical power for robust network inference. `SpiecEasi` is then run using the neighborhood selection (`mb`) method with cross-validation (`pulsar`) to determine the optimal sparsity level. The resulting adjacency matrix is converted into an `igraph` object, and we replace default node names with the original ASV IDs to maintain interpretability. The `phyloseq` object is also pruned to match the taxa used in the network, and we annotate the `tax_table` with indicator group assignments where available.
+
+Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using `pdf()` output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.
+
 
 ## Table of Contents
 
@@ -704,92 +722,115 @@ for(i in 1:length(pathways)) {
 ```
 You'll see that these are all quite low abundance (<1% abundance), but they do all seem to have clear differences between the two treatments. 
 
-### 4.3 Constructing and visualising a co-occurrence network
+## 4.3 Constructing and visualising a co-occurrence network
 
-text will go here :)
+**NOTE: This section is only built for 16S data, but if you feel adventurous you could try to re-write it for 18S or ITS :D**
 
-Here are the commands for spiec-easi:
+### 4.3.1 Introduction
+
+Microbes don’t live in isolation—they form complex ecological communities where interactions between taxa can be cooperative, competitive, or neutral. One way to explore these interactions is through co-occurrence networks, where nodes represent microbial taxa and edges represent inferred associations. To make these networks more biologically meaningful, we need to account for the compositional nature of microbiome data and avoid common pitfalls such as spurious correlations.
+
+In this section, we’ll use the `SpiecEasi` package to construct a sparse inverse covariance network—designed specifically for compositional data—and visualize it using igraph. Before we do that, however, we’ll identify which ASVs are significantly associated with treatment groups using indicator species analysis, and then filter our dataset to include only sufficiently prevalent and abundant taxa. Let's start by identifying those indicator species.
+
+### 4.3.2 Indicator Species Analysis (ISA)
+
+First, let's use `indicspecies` to run an Indicator Species Analysis (ISA) to find some ASVs whose abundance and prevalence suggests they are important for one sample type or another.
 ```
-# === Step 1: Indicator species analysis ===
 cat("Running indicator species analysis...\n")
 
 # Transpose OTU table to samples x taxa
 otu_mat <- as.data.frame(t(otu_table(physeq)))
-
 # Extract treatment vector
 group_vector <- sample_data(physeq)$treatment
-
 # Run multipatt
 set.seed(123)
 indval_res <- multipatt(otu_mat, group_vector, func = "IndVal.g", duleg = TRUE, control = how(nperm = 999))
-
 cat("Indicator species analysis complete.\n")
 print(summary(indval_res))
+```
 
-# Extract significant ASVs
+Once we have run the ISA, we need to extract the significant (pval <= 0.05) ASVs
+```
 sig_hits <- indval_res$sign
 sig_asvs <- rownames(sig_hits)[which(sig_hits$p.value <= 0.05)]
+```
 
-# Assign indicator group based on specificity columns
+Assign indicator group based on specificity columns
+```
 asv_indicator_group <- apply(sig_hits[sig_asvs, c("s.Forest", "s.Managed")], 1, function(x) {
     if (x["s.Forest"] == 1 && x["s.Managed"] == 0) return("Forest")
     if (x["s.Forest"] == 0 && x["s.Managed"] == 1) return("Managed")
     return("Both")
 })
-
 # Named vector of ASV → group
 indicator_vector <- setNames(asv_indicator_group, sig_asvs)
+```
 
-# === Step 2: Filter by prevalence and abundance ===
+### 4.3.3 Abundance and Prevalence filtering
+
+Now that we’ve identified which ASVs are associated with each treatment group, we’ll filter the dataset to remove taxa that are too rare or too low in abundance. This step ensures the network we infer focuses on ecologically relevant players. (*NOTE: the ISA should have dealt with this, but it's good to double-check*)
+
+Filter by prevalence and abundance
+```
 cat("Filtering phyloseq object by prevalence and abundance...\n")
-
 min_prev <- 0.05
 min_abun <- 0.001
-
 # Prevalence
 prev_df <- apply(otu_table(physeq), 1, function(x) sum(x > 0) / length(x))
-
 # Relative abundance
 rel_abun <- transform_sample_counts(physeq, function(x) x / sum(x))
 mean_abun <- taxa_sums(rel_abun) / nsamples(physeq)
-
 # Logical filtering
 keep_taxa <- (prev_df >= min_prev) & (mean_abun >= min_abun)
-
+```
+Now subset the `phyloseq` object we created earlier
+```
 # Subset
 physeq_filtered <- prune_taxa(keep_taxa, physeq)
 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
+```
 
-# === Step 3: Run SpiecEasi ===
+### 4.3.4 Contructing the Co-occurrence Network
+
+Now that we've selected our ASVs of focus, we can infer the co-occurrence network using `SpiecEasi`. We’re using the MB (neighborhood selection) method here, and we’ll allow the algorithm to determine the best level of sparsity through cross-validation (via `pulsar`). This will give us a network where each edge represents a direct association between two taxa.
+
+This part takes some time, be patient!!
+```
 cat("Running SpiecEasi...\n")
-
 se.mb.16s <- spiec.easi(physeq_filtered, method = 'mb',
                         lambda.min.ratio = 1e-2, nlambda = 20,
                         pulsar.params = list(rep.num = 50, ncores = 3))
 
 cat("SpiecEasi complete.\n")
+```
 
-# === Step 4: Extract and rename graph ===
+Next, we’ll convert the adjacency matrix from Spiec-Easi into an igraph object and relabel the nodes with the original ASV identifiers. We’ll also match the filtered phyloseq object to the ASVs used in the network and annotate each node with its indicator status.
+
+```
 ig2.mb <- adj2igraph(getRefit(se.mb.16s))
-
 # Replace numeric node names with actual ASV IDs
 correct_taxa_names <- taxa_names(physeq_filtered)[as.integer(igraph::V(ig2.mb)$name)]
 igraph::V(ig2.mb)$name <- correct_taxa_names
-
 # Prune phyloseq object to match taxa in network
 physeq_net <- prune_taxa(correct_taxa_names, physeq_filtered)
-
 # Add indicator status as a tax_table column (NA if not an indicator)
 indicator_status <- indicator_vector[taxa_names(physeq_net)]
 tax_table(physeq_net) <- cbind(tax_table(physeq_net), Indicator = indicator_status)
+```
 
-# === Step 5: Plot ===
+### 4.3.5 Visualizing Networks
+
+Finally, we’ll visualize the network using `igraph`. First, we’ll color nodes by their indicator status (e.g., Forest, Managed, Not significant), and then generate a second plot colored by taxonomic assignment at the ta3 rank. These two plots will also be combined into a panel figure for comparison.
+
+```
 cat("Plotting network...\n")
 
-# === Shared setup ===
 set.seed(42)
 layout_fr <- layout_with_fr(ig2.mb)
+```
 
+The ISA plot:
+```
 # --- Indicator plot ---
 cat("Saving Indicator network...\n")
 pdf(paste(folder, "network_indicator.pdf", sep=""), width = 7, height = 6)
@@ -813,7 +854,10 @@ legend("topright", inset = c(-0.35, 0), legend = levels(indicator_factor),
        col = colors_ind, pch = 19, pt.cex = 1.5, bty = "n", title = "Indicator")
 
 dev.off()
+```
 
+The Taxonomy Plot:
+```
 # --- ta3 plot ---
 cat("Saving ta3 network...\n")
 pdf(paste(folder, "network_ta3.pdf", sep=""), width = 9, height = 6)
@@ -837,7 +881,10 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
        col = colors_ta3, pch = 19, pt.cex = 1.5, bty = "n", title = "ta3")
 
 dev.off()
+```
 
+The Comparative Panel:
+```
 # --- Panel figure ---
 cat("Saving combined panel figure...\n")
 pdf(paste(folder, "network_panel.pdf", sep=""), width = 18, height = 6)
@@ -866,9 +913,73 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
        col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")
 
 dev.off()
-cat("All plots saved.\n")
 ```
 
+### Bonus: Size by network statistics
+
+More advanced plotting can include adding network statistics as the sizes of the nodes.
+
+| **Metric**         | **Ecological Interpretation**                                             |
+|--------------------|---------------------------------------------------------------------------|
+| **Degree**         | Taxa with many direct associations (potential generalists or hubs)        |
+| **Betweenness**    | Taxa that act as bridges between sub-communities (network bottlenecks)    |
+| **Closeness**      | Taxa that can quickly influence others (central in information flow)      |
+| **Eigenvector**    | Taxa connected to other highly connected taxa (influential nodes)         |
+| **PageRank**       | Like eigenvector but more robust—considers quality and quantity of links  |
+
+Here is `Degree`:
+```
+Panel figure with degree-based sizing
+cat("Saving panel figure with degree-based node sizing...\n")
+pdf(paste(folder, "network_panel_degree.pdf", sep=""), width = 18, height = 6)
+par(mfrow = c(1, 2), mar = c(4, 4, 4, 8), xpd = TRUE)
+
+# Compute node degrees
+node_degree <- degree(ig2.mb, mode = "all")
+scaled_degree <- scales::rescale(node_degree, to = c(3, 10))  # size between 3 and 10
+```
+
+And plot it now:
+```
+# Left panel: Indicator (with degree-based size)
+plot(ig2.mb,
+     layout = layout_fr,
+     vertex.label = NA,
+     vertex.color = node_colors_ind,
+     vertex.size = scaled_degree,
+     edge.color = "gray80",
+     main = "Indicator Status (by degree)")
+legend("topright", inset = c(-0.05, 0), legend = levels(indicator_factor),
+       col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")
+# Add manual legend for node size (degree)
+legend("bottomright", inset = c(-0.05, 0),
+       legend = c("1", "3", "5"),
+       pt.cex = c(1, 3, 5) / 2,  # Adjust to match your scaling
+       pch = 19, col = "gray40",
+       title = "Node Degree",
+       bty = "n")
+
+# Right panel: ta3 (with degree-based size)
+plot(ig2.mb,
+     layout = layout_fr,
+     vertex.label = NA,
+     vertex.color = node_colors_ta3,
+     vertex.size = scaled_degree,
+     edge.color = "gray80",
+     main = "ta3 Taxonomy Rank (by degree)")
+legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
+       col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")
+# Add manual legend for node size (degree)
+legend("bottomright", inset = c(-0.05, 0),
+       legend = c("1", "3", "5"),
+       pt.cex = c(1, 3, 5) / 2,  # Adjust to match your scaling
+       pch = 19, col = "gray40",
+       title = "Node Degree",
+       bty = "n")
+
+dev.off()
+cat("Degree-scaled panel figure saved.\n")
+```
 
 
 ## Answers
