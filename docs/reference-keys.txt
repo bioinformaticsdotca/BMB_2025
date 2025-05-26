@@ -2,7 +2,9 @@ welcome
 awsunix-primer
 course-schedule
 meet-your-faculty
-module-1-lab-introduction-to-sequencing-data-analysis
+module-1
+lecture-slides
+lab-introduction-to-sequencing-data-analysis
 introduction
 log-into-your-aws-instance
 maclinux
@@ -23,7 +25,9 @@ back-to-the-quality-control
 quality-control-on-the-data-that-well-be-using
 install-qiime2
 answers
-module-2-lab-marker-gene-profiling
+module-2
+lecture-slides-1
+lab-marker-gene-profiling
 introduction-1
 s
 s-first-steps

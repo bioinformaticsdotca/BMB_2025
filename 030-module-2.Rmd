@@ -1,6 +1,12 @@
 # (PART) Modules {-}
 
-# Module 2 Lab: Marker gene profiling
+# Module 2 
+
+## Lecture Slides
+
+<iframe src="https://docs.google.com/presentation/d/1FMnRd4Sl0Gr4VGiV4gX-NTxVuyy46OMz/preview" width="640" height="480" allow="autoplay"></iframe>  
+
+## Lab: Marker gene profiling
 
 This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bioinformaticsdotca.github.io/BMB_2025/) (held in Vancouver, BC, May 26-27). It is based on the Amplicon SOP v2 available on the [Microbiome Helper repository](https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2%E2%80%902024.5)) and previous workshops designed by Monica Alvaro Fuss, Diana Haider and Robert Beiko.
 
