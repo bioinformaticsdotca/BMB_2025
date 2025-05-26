@@ -751,9 +751,22 @@ ls raw_data
 head Blueberry_16S_metadata.tsv
 \end{verbatim}
 
-\textbf{Question 1: How many samples are there?}
+\begin{bluebox}
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 1}: How many samples are there?
+\item
+  \textbf{Question 2}: Into what group(s) are the samples classified?
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{1.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact}
 
@@ -773,11 +786,11 @@ qiime tools import \
 
 This might take a minute! If it hasn't come back up with the command prompt that looks something like \texttt{(qiime2-amplicon-2025.4)\ ubuntu@ip-10-0-1-248:\textasciitilde{}/workspace/bmb\_module2/16S\_analysis\$} yet, then it hasn't finished running yet and you'll need to be patient :)
 
-All of the FASTQs are now in the single artifact file~reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the~\texttt{qiime\ tools~utilities} (e.g.~\texttt{peek}~and~\texttt{view}).
+All of the FASTQs are now in the single artifact file reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the \texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
 \subsection{1.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt}
 
-Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the~\href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 16S V6-V8 region (bacteria-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
+Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 16S V6-V8 region (bacteria-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
 \begin{verbatim}
 qiime cutadapt trim-paired \
@@ -802,7 +815,20 @@ qiime demux summarize \
 
 Remember that you can see and download these files on the webpage: \url{http://\#\#.uhn-hpc.ca/} (replace \#\# with your number!)
 
-\textbf{Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?}
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 3}: What would happen if you ran this exact command on V4/V5-amplified sequences?
+\end{itemize}
+
+\end{bluebox}
 
 \section{1.2. 16S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants}
 
@@ -841,13 +867,26 @@ qiime demux summarize \
 
 Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\begin{bluebox}
 
-\textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\item
+  \textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{1.2.4. Running Deblur}\label{running-deblur}
 
-Running the~\href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set~--p-min-reads 1, and is for 16S sequences only. For other amplicon regions, you can either use the~denoise-other~option in the command and specify a reference database of sequences to use for positive filtering (as in the below versions for 18S and ITS) or use DADA2.
+Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set --p-min-reads 1, and is for 16S sequences only. For other amplicon regions, you can either use the denoise-other option in the command and specify a reference database of sequences to use for positive filtering (as in the below versions for 18S and ITS) or use DADA2.
 
 You'll need to replace X here with the trim length that was decided in Question 5.
 
@@ -861,7 +900,16 @@ qiime deblur denoise-16S \
   --output-dir deblur_output
 \end{verbatim}
 
-\emph{Note: this command may take a few minutes to run.}
+\begin{greenbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+This command may take a few minutes to run.
+
+\end{greenbox}
 
 \subsection{1.2.5. Summarizing Deblur output}\label{summarizing-deblur-output}
 
@@ -873,9 +921,22 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_summary.qzv
 \end{verbatim}
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\begin{bluebox}
 
-\textbf{Question 7: Which sample has the least reads?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 6}: What is the mean sequencing depth per sample after denoising?
+\item
+  \textbf{Question 7}: Which sample has the least reads?
+\end{itemize}
+
+\end{bluebox}
 
 \section{1.3. 16S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs}
 
@@ -894,7 +955,7 @@ wget link-address
 
 \subsection{1.3.1. Run taxonomic classification}\label{run-taxonomic-classification}
 
-You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the~--p-reads-per-batch~option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set~--p-n-jobs 1).
+You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set\texttt{-\/-p-n-jobs\ 1}).
 
 \textbf{Because of the memory constraints of this workshop, you can copy the output into your folder:}
 
@@ -908,8 +969,17 @@ qiime feature-classifier classify-sklearn \
   --output-dir taxa
 \end{verbatim}
 
-Unfortunately we don't actually have enough memory to run this so you'll see a \texttt{Killed} output for this.
+\begin{redbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+Unfortunately we don't actually have enough memory to run this so you'll see a ``Killed'' output for this.
 Instead, we'll copy across the output that we would have got.
+
+\end{redbox}
 
 \begin{verbatim}
 mkdir taxa      
@@ -944,7 +1014,7 @@ grep "02fda7604175053e87dc11e2598a89e0" taxa/taxonomy.tsv
 
 \section{1.4. 16S Filtering resultant table}\label{s-filtering-resultant-table}
 
-Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the~\href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
+Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
 \subsection{1.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs}
 
@@ -962,7 +1032,7 @@ qiime feature-table filter-features \
 
 \subsection{1.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs}
 
-Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. It can also be~\textbf{sometimes}~useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change~p\_\_~to be a string that enables phylum-level assignments to be identified or simply omit that line.
+Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. It can also be \textbf{sometimes} useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change \texttt{p\textbackslash{}\_\textbackslash{}\_} to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
 In general though, it can be very informative if your sequencing reads are coming back with significant amounts of unclassified ASVs as it can indicate upstream analysis problems or indicate you are studying a poorly characterized environment where you have a good chance of identifying a lot of novel phyla. Therefore, our recommendation is to not filter out the unclassified sequences by default, but we will do so here.
 
@@ -991,7 +1061,20 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv
 \end{verbatim}
 
-\textbf{Question 8: What is the minimum and maximum sequencing depth across all samples?}
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
+\end{itemize}
+
+\end{bluebox}
 
 Happy? Copy a final table.
 
@@ -1018,35 +1101,35 @@ qiime feature-table summarize \
 
 \section{16S Answers}\label{s-answers}
 
-\textbf{Question 1: How many samples are there?}
+\textbf{Question 1}: How many samples are there?
 
 We have 10 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (B-Rtxxx).
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\textbf{Question 2}: Into what group(s) are the samples classified?
 
 The samples we are using are classified into two different groups: Forest or Managed sites. The study we're looking at does also look at bulk or rhizosphere samples, but we're just using a small subset of the samples for this workshop.
 
-\textbf{Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?}
+\textbf{Question 3}: What would happen if you ran this exact command on V4/V5-amplified sequences?
 
 \texttt{Cutadapt} will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the \texttt{-\/-p-discard-untrimmed} option.
 
-\textbf{Question 4: How long are our forward reads? Why are there no reverse reads in our file?}
+\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
 
 The forward read median length is 405 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.
 
-\textbf{Question 5: What would be a good trim length for our reads?}
+\textbf{Question 5}: What would be a good trim length for our reads?
 
 There is no one right answer for this question, but a trim length of 390 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we're more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\textbf{Question 6}: What is the mean sequencing depth per sample after denoising?
 
 The mean sequencing depth (frequency) across all denoised samples is 6,669.8 reads.
 
-\textbf{Question 7: Which sample has the least reads?}
+\textbf{Question 7}: Which sample has the least reads?
 
 Sample B-Rt151 has the lowest sequencing depth (4,332 reads).
 
-\textbf{Question 8: What is the minimum and maximum sequencing depth across all samples?}
+\textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
 
 The final minimum sequencing depth is 3,432 and the maximum sequencing depth is 8,650 reads.
 
@@ -1090,9 +1173,22 @@ ls raw_data
 head Plastisphere_18S_metadata.tsv
 \end{verbatim}
 
-\textbf{Question 1: How many samples are there?}
+\begin{bluebox}
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 1}: How many samples are there?
+\item
+  \textbf{Question 2}: Into what group(s) are the samples classified?
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{2.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-1}
 
@@ -1112,11 +1208,11 @@ qiime tools import \
 
 This might take a minute! If it hasn't come back up with the command prompt that looks something like \texttt{(qiime2-amplicon-2025.4)\ ubuntu@ip-10-0-1-248:\textasciitilde{}/workspace/bmb\_module2/18S\_analysis\$} yet, then it hasn't finished running yet and you'll need to be patient :)
 
-All of the FASTQs are now in the single artifact file~reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the~\texttt{qiime\ tools~utilities} (e.g.~\texttt{peek}~and~\texttt{view}).
+All of the FASTQs are now in the single artifact file~reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the~\texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
 \subsection{2.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-1}
 
-Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the~\href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V4 region (eukaryote-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
+Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V4 region (eukaryote-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
 \begin{verbatim}
 qiime cutadapt trim-paired \
@@ -1141,7 +1237,20 @@ qiime demux summarize \
 
 Remember that you can see and download these files on the webpage: \url{http://\#\#.uhn-hpc.ca/} (replace \#\# with your number!)
 
-\textbf{Question 3: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?}
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 3}: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
+\end{itemize}
+
+\end{bluebox}
 
 \section{2.2. 18S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants-1}
 
@@ -1180,13 +1289,26 @@ qiime demux summarize \
 
 Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\begin{bluebox}
 
-\textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\item
+  \textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{2.2.4. Running Deblur}\label{running-deblur-1}
 
-Running the~\href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set~--p-min-reads 1, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
+Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set \texttt{-\/-p-min-reads\ 1}, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
 
 We'll go ahead and download the 18S sequences. You can do that by right-clicking on the \texttt{gb203\_pr2\_all\_10\_28\_99p\_clean\_prob-rm.fasta} file, and clicking ``Copy Link Address''. You can then use the \texttt{wget} command, like we did in Module 1. So your command should look something like:
 
@@ -1216,7 +1338,16 @@ qiime deblur denoise-other \
    --output-dir deblur_output
 \end{verbatim}
 
-\emph{Note: this command may take around ten minutes to run.}
+\begin{greenbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+This command may take around ten minutes to run.
+
+\end{greenbox}
 
 \subsection{2.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-1}
 
@@ -1228,9 +1359,22 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_summary.qzv
 \end{verbatim}
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\begin{bluebox}
 
-\textbf{Question 7: Which sample has the least reads?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\item
+  \textbf{Question 7: Which sample has the least reads?}
+\end{itemize}
+
+\end{bluebox}
 
 \section{2.3. 18S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs-1}
 
@@ -1240,7 +1384,7 @@ We're going to use the PR2 classifier. As you did above, click on ``Copy Link Ad
 
 \subsection{2.3.1. Run taxonomic classification}\label{run-taxonomic-classification-1}
 
-You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive commands of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the~--p-reads-per-batch~option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set~--p-n-jobs 1).
+You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive commands of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set \texttt{-\/-p-n-jobs\ 1}).
 
 \begin{verbatim}
 qiime feature-classifier classify-sklearn \
@@ -1250,8 +1394,17 @@ qiime feature-classifier classify-sklearn \
   --output-dir taxa
 \end{verbatim}
 
-Unfortunately we don't actually have enough memory to run this so you'll see a \texttt{Killed} or \texttt{Terminated} output for this.
+\begin{redbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+Unfortunately we don't actually have enough memory to run this so you'll see a ``Killed'' or ``Terminated'' output for this.
 Instead, we'll copy across the output that we would have got.
+
+\end{redbox}
 
 \begin{verbatim}
 mkdir taxa      
@@ -1290,7 +1443,7 @@ Try taking a look at a few more and seeing how they seem.
 
 \section{2.4. 18S Filtering resultant table}\label{s-filtering-resultant-table-1}
 
-Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the~\href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
+Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
 \subsection{2.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-1}
 
@@ -1336,7 +1489,20 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv
 \end{verbatim}
 
-\textbf{Question 8: What is the minimum and maximum sequencing depth across all samples?}
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
+\end{itemize}
+
+\end{bluebox}
 
 Happy? Copy a final table.
 
@@ -1363,35 +1529,35 @@ qiime feature-table summarize \
 
 \section{18S Answers}\label{s-answers-1}
 
-\textbf{Question 1: How many samples are there?}
+\textbf{Question 1}: How many samples are there?
 
 We have 12 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (MHxxxx18S).
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\textbf{Question 2}: Into what group(s) are the samples classified?
 
 The samples we are using are classified using two different variables: light and time. These are pieces of plastic that were either incubated in a sunny coastal environment (OpenCoast) or in a cave (Cave; the light variable), and they were incubated for 6h or 28h (time).
 
-\textbf{Question 3: What would happen if you ran this exact command on 16S sequences?}
+\textbf{Question 3}: What would happen if you ran this exact command on 16S sequences?
 
 \texttt{Cutadapt} will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the \texttt{-\/-p-discard-untrimmed} option.
 
-\textbf{Question 4: How long are our forward reads? Why are there no reverse reads in our file?}
+\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
 
 The forward read median length is 331 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.
 
-\textbf{Question 5: What would be a good trim length for our reads?}
+\textbf{Question 5}: What would be a good trim length for our reads?
 
 There is no one right answer for this question, but a trim length of 302 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we're more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\textbf{Question 6}: What is the mean sequencing depth per sample after denoising?
 
 The mean sequencing depth (frequency) across all denoised samples is 6,588.8 reads.
 
-\textbf{Question 7: Which sample has the least reads?}
+\textbf{Question 7}: Which sample has the least reads?
 
 Sample MH28C318S has the lowest sequencing depth (only 27 reads).
 
-\textbf{Question 8: What is the minimum and maximum sequencing depth across all samples?}
+\textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
 
 The final minimum sequencing depth is 7 and the maximum sequencing depth is 12,890 reads.
 
@@ -1435,9 +1601,22 @@ ls raw_data
 head pregnancy_ITS_metadata.tsv
 \end{verbatim}
 
-\textbf{Question 1: How many samples are there?}
+\begin{bluebox}
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 1}: How many samples are there?
+\item
+  \textbf{Question 2}: Into what group(s) are the samples classified?
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{3.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-2}
 
@@ -1457,11 +1636,11 @@ qiime tools import \
 
 This might take a minute! If it hasn't come back up with the command prompt that looks something like \texttt{(qiime2-amplicon-2025.4)\ ubuntu@ip-10-0-1-248:\textasciitilde{}/workspace/bmb\_module2/ITS\_analysis\$} yet, then it hasn't finished running yet and you'll need to be patient :)
 
-All of the FASTQs are now in the single artifact file~reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the~\texttt{qiime\ tools~utilities} (e.g.~\texttt{peek}~and~\texttt{view}).
+All of the FASTQs are now in the single artifact file \texttt{reads\_qza/reads.qza}. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the \texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
 \subsection{3.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-2}
 
-Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the~\href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V8-V9 region (eukaryote-specific primer set). You can see more about some other primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
+Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V8-V9 region (eukaryote-specific primer set). You can see more about some other primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
 \begin{verbatim}
 qiime cutadapt trim-paired \
@@ -1486,7 +1665,20 @@ qiime demux summarize \
 
 Remember that you can see and download these files on the webpage: \url{http://\#\#.uhn-hpc.ca/} (replace \#\# with your number!)
 
-\textbf{Question 3: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?}
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 3}: What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
+\end{itemize}
+
+\end{bluebox}
 
 \section{3.2. ITS Denoising the reads into amplicon sequence variants}\label{its-denoising-the-reads-into-amplicon-sequence-variants}
 
@@ -1525,13 +1717,26 @@ qiime demux summarize \
 
 Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\begin{bluebox}
 
-\textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
+\item
+  \textbf{Question 5}: What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+\end{itemize}
+
+\end{bluebox}
 
 \subsection{3.2.4. Running Deblur}\label{running-deblur-2}
 
-Running the~\href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set~--p-min-reads 1, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
+Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set \texttt{-\/-p-min-reads\ 1}, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
 
 We'll go ahead and download the 18S sequences. You can do that by right-clicking on the \texttt{UNITE\_sh\_refs\_qiime\_ver8\_99\_s\_all\_02.02.2019.fasta} file, and clicking ``Copy Link Address''. You can then use the \texttt{wget} command, like we did in Module 1. So your command should look something like:
 
@@ -1561,7 +1766,16 @@ qiime deblur denoise-other \
    --output-dir deblur_output
 \end{verbatim}
 
-\emph{Note: this command may take around ten minutes to run.}
+\begin{greenbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+This command may take around ten minutes to run
+
+\end{greenbox}
 
 \subsection{3.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-2}
 
@@ -1573,9 +1787,22 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_summary.qzv
 \end{verbatim}
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\begin{bluebox}
 
-\textbf{Question 7: Which sample has the least reads?}
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 6}: What is the mean sequencing depth per sample after denoising?
+\item
+  \textbf{Question 7}: Which sample has the least reads?
+\end{itemize}
+
+\end{bluebox}
 
 \section{3.3. ITS Assign taxonomy to ASVs}\label{its-assign-taxonomy-to-asvs}
 
@@ -1585,7 +1812,7 @@ We're going to use one that contains fungal ITS sequences from the UNITE databas
 
 \subsection{3.3.1. Run taxonomic classification}\label{run-taxonomic-classification-2}
 
-You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the~--p-reads-per-batch~option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set~--p-n-jobs 1).
+You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set \texttt{-\/-p-n-jobs\ 1}).
 
 \textbf{Because of the memory constraints of this workshop, you can copy the output into your folder:}
 
@@ -1639,7 +1866,7 @@ Try taking a look at a few more and seeing how they seem.
 
 \section{3.4. ITS Filtering resultant table}\label{its-filtering-resultant-table}
 
-Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the~\href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
+Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
 \subsection{3.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-2}
 
@@ -1657,7 +1884,7 @@ qiime feature-table filter-features \
 
 \subsection{3.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs-2}
 
-Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. We don't really have that issue with ITS data, however. It can also be~\textbf{sometimes}~useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change~p\_\_~to be a string that enables phylum-level assignments to be identified or simply omit that line.
+Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. We don't really have that issue with ITS data, however. It can also be \textbf{sometimes} useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change p\_\_ to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
 In general though, it can be very informative if your sequencing reads are coming back with significant amounts of unclassified ASVs as it can indicate upstream analysis problems or indicate you are studying a poorly characterized environment where you have a good chance of identifying a lot of novel phyla. Therefore, our recommendation is to not filter out the unclassified sequences by default, but we will do so here.
 
@@ -1685,9 +1912,20 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv
 \end{verbatim}
 
-\textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
+\begin{bluebox}
 
-\textbf{Question 8 answer}: The final minimum sequencing depth is 192 and the maximum sequencing depth is 80,762 reads. This huge difference from the previous step (where it was actually a different sample that had the lowest depth!) would definitely indicate some problems if this were our own project. This was not a project that I was involved with, and this could just be because the ITS region is more difficult to accurately taxonomically classify than the 16S region, but I would definitely want to do some further investigating as to what is going on. We only removed ASVs that didn't have phylum-level classifications, so the first thing that I would do is look at the taxonomy.tsv file. If we open this in Excel and sort based on Column B, we can see that 114/961 total ASVs within our samples have only been classified as Fungi (these are the ones that we would have filtered out). If we just have a quick search of a few of these ASVs in the deblur\_table\_summary.qzv Feature Detail tab, then we'll see that e.g.~\texttt{87121182b8f0d093e937d915b2b58b22} is present in 13 samples at a total frequency of 15,889 reads. Another one, \texttt{1086009b09b17b9364cb1ae984a552e1} is similar; it is present in 18 samples at a total frequency of 35,799 reads. Based on this, I don't think I'd want to filter these out. So unlike with the other amplicons, I think I'd probably use the unfiltered table here.
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
+\end{itemize}
+
+\end{bluebox}
 
 Copy a final table.
 
@@ -1714,33 +1952,37 @@ qiime feature-table summarize \
 
 \section{ITS Answers}\label{its-answers}
 
-\textbf{Question 1: How many samples are there?}
+\textbf{Question 1}: How many samples are there?
 
 We have 20 samples. The raw data folder contains one fastq.gz file for each set of the forward and reverse sequences (labelled R1 and R2, respectively) for each of the samples (CRRxxxxxxx).
 
-\textbf{Question 2: Into what group(s) are the samples classified?}
+\textbf{Question 2}: Into what group(s) are the samples classified?
 
 The samples we are using are classified into two different groups: below\_20 or above\_35. The study we're looking at had information on the age of the pregnant women, so that's what we're looking at here. We also have their exact age in these samples.
 
-\textbf{Question 3: What would happen if you ran this exact command on V4/V5-amplified sequences?}
+\textbf{Question 3}: What would happen if you ran this exact command on V4/V5-amplified sequences?
 
 \texttt{Cutadapt} will only trim reads that match the specified primer sequence. Therefore, most reads would be discarded because we are including the \texttt{-\/-p-discard-untrimmed} option.
 
-\textbf{Question 4: How long are our forward reads? Why are there no reverse reads in our file?}
+\textbf{Question 4}: How long are our forward reads? Why are there no reverse reads in our file?
 
 The forward read median length is 364 nucleotides. There are no reverse reads because forward and reverse reads were merged into one sequence during read joining.
 
-\textbf{Question 5: What would be a good trim length for our reads?}
+\textbf{Question 5}: What would be a good trim length for our reads?
 
 There is no one right answer for this question, but a trim length of 300 nucleotides will maintain most of our sequences apart from any that are really short. You could choose a different length, but this will give different answers further on. Typically, this choice is a trade-off between maintaining a longer sequence length where we're more likely to get finer-resolution taxonomic classification, or trimming more so that we retain more sequences.
 
-\textbf{Question 6: What is the mean sequencing depth per sample after denoising?}
+\textbf{Question 6}: What is the mean sequencing depth per sample after denoising?
 
 The mean sequencing depth (frequency) across all denoised samples is 62,566.6 reads.
 
-\textbf{Question 7: Which sample has the least reads?}
+\textbf{Question 7}: Which sample has the least reads?
 
 Sample CRR1039764 has the lowest sequencing depth (21,453 reads).
+
+\textbf{Question 8}: What is the minimum and maximum sequencing depth across all samples?
+
+\textbf{Question 8 answer}: The final minimum sequencing depth is 192 and the maximum sequencing depth is 80,762 reads. This huge difference from the previous step (where it was actually a different sample that had the lowest depth!) would definitely indicate some problems if this were our own project. This was not a project that I was involved with, and this could just be because the ITS region is more difficult to accurately taxonomically classify than the 16S region, but I would definitely want to do some further investigating as to what is going on. We only removed ASVs that didn't have phylum-level classifications, so the first thing that I would do is look at the taxonomy.tsv file. If we open this in Excel and sort based on Column B, we can see that 114/961 total ASVs within our samples have only been classified as Fungi (these are the ones that we would have filtered out). If we just have a quick search of a few of these ASVs in the deblur\_table\_summary.qzv Feature Detail tab, then we'll see that e.g.~\texttt{87121182b8f0d093e937d915b2b58b22} is present in 13 samples at a total frequency of 15,889 reads. Another one, \texttt{1086009b09b17b9364cb1ae984a552e1} is similar; it is present in 18 samples at a total frequency of 35,799 reads. Based on this, I don't think I'd want to filter these out. So unlike with the other amplicons, I think I'd probably use the unfiltered table here.
 
 \part{Modules}\label{part-modules-2}
 
