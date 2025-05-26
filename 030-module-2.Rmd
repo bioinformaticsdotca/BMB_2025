@@ -23,27 +23,6 @@ You can jump to one of the below sections for the commands needed for processing
 
 In Module 2 we will cover the basics of marker gene analysis from raw reads to filtered feature table. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version 2025.4), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the [QIIME 2 user documentation](https://qiime2.org/), along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within [QIIME2 View](https://view.qiime2.org/).
 
-## Table of Contents
-
-1.  [16S analysis](#1-16S)
-    1.  [16S First steps](#11-16S-First-steps)
-    2.  [16S Denoising reads into amplicon sequence variants](#12-16S-denoising-the-reads-into-amplicon-sequence-variants)
-    3.  [16S Assign taxonomy to ASVs](#13-16S-assign-taxonomy-to-asvs)
-    4.  [16S Filtering resultant table](#14-16S-filtering-resultant-table)
-    5.  [16S Answers](#16S-Answers)
-2. [18S analysis](#2-18S)
-    1. [18S First steps](#21-18S-First-steps)
-    2. [18S Denoising reads into amplicon sequence variants](#22-18S-denoising-the-reads-into-amplicon-sequence-variants)
-    3. [18S Assign taxonomy to ASVs](#23-18S-assign-taxonomy-to-asvs)
-    4. [18S Filtering resultant table](#24-18S-filtering-resultant-table)
-    5. [18S Answers](#18S-Answers)
-3. [ITS analysis](#3-ITS)
-    1. [ITS First steps](#31-ITS-First-steps)
-    2. [ITS Denoising reads into amplicon sequence variants](#32-ITS-denoising-the-reads-into-amplicon-sequence-variants)
-    3. [ITS Assign taxonomy to ASVs](#33-ITS-assign-taxonomy-to-asvs)
-    4. [ITS Filtering resultant table](#34-ITS-filtering-resultant-table)
-    5. [ITS Answers](#ITS-Answers)
-
 ## 1. 16S
 
 Create a directory for Module 2 inside `workspace` and create a symlink to the raw FASTQ files and the metadata file.

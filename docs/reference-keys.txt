@@ -25,7 +25,6 @@ install-qiime2
 answers
 module-2-lab-marker-gene-profiling
 introduction-1
-table-of-contents
 s
 s-first-steps
 inspect-raw-data
@@ -87,7 +86,7 @@ optional-exclude-low-depth-samples-2
 subset-and-summarize-filtered-table-2
 its-answers
 module-3-microbiome-statistics-and-visualizations
-table-of-contents-1
+table-of-contents
 introduction-2
 build-tree-with-sepp-qiime-2-plugin
 rarefaction-curves
@@ -106,7 +105,6 @@ introduction-3
 differential-abundance-testing-with-maaslin3-and-aldex2
 functional-prediction-with-picrust2
 constructing-and-visualising-a-co-occurrence-network-using-spiec-easi-bonus-we-run-an-indicator-species-analysis-too
-table-of-contents-2
 differential-abundance-analysis-using-maaslin3-and-aldex2
 prepare-data-from-the-end-of-module-2
 read-output-into-rphyloseq

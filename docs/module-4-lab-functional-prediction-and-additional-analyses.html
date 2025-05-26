@@ -179,7 +179,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html"><i class="fa fa-check"></i>Module 2 Lab: Marker gene profiling</a>
 <ul>
 <li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
 <li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s"><i class="fa fa-check"></i>1. 16S</a></li>
 <li class="chapter" data-level="" data-path="module-2-lab-marker-gene-profiling.html"><a href="module-2-lab-marker-gene-profiling.html#s-first-steps"><i class="fa fa-check"></i>1.1. 16S First steps</a>
 <ul>
@@ -268,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>IV Modules</b></span></li>
 <li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html"><i class="fa fa-check"></i>Module 3: Microbiome statistics and visualizations</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html#table-of-contents-1"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
 <li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html#build-tree-with-sepp-qiime-2-plugin"><i class="fa fa-check"></i>1. Build tree with SEPP QIIME 2 plugin</a></li>
 <li class="chapter" data-level="" data-path="module-3-microbiome-statistics-and-visualizations.html"><a href="module-3-microbiome-statistics-and-visualizations.html#rarefaction-curves"><i class="fa fa-check"></i>2. Generate rarefaction curves</a></li>
@@ -294,7 +293,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#functional-prediction-with-picrust2"><i class="fa fa-check"></i>Functional prediction with PICRUSt2</a></li>
 <li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#constructing-and-visualising-a-co-occurrence-network-using-spiec-easi-bonus-we-run-an-indicator-species-analysis-too"><i class="fa fa-check"></i>Constructing and visualising a co-occurrence network using <code>SPIEC-EASI</code> (Bonus: we run an indicator species analysis too!!)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#table-of-contents-2"><i class="fa fa-check"></i>Table of Contents</a></li>
 <li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-analysis-using-maaslin3-and-aldex2"><i class="fa fa-check"></i>4.1 Differential abundance analysis using MaAsLin3 and ALDEx2</a>
 <ul>
 <li class="chapter" data-level="" data-path="module-4-lab-functional-prediction-and-additional-analyses.html"><a href="module-4-lab-functional-prediction-and-additional-analyses.html#prepare-data-from-the-end-of-module-2"><i class="fa fa-check"></i>4.1.1 Prepare data from the end of Module 2</a></li>
@@ -403,13 +401,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Next, we filter the ASV table to remove rare or low-abundance taxa based on minimum prevalence (30% of samples) and relative abundance (0.05%), ensuring we focus on taxa with sufficient statistical power for robust network inference. <code>SpiecEasi</code> is then run using the neighborhood selection (<code>mb</code>) method with cross-validation (<code>pulsar</code>) to determine the optimal sparsity level. The resulting adjacency matrix is converted into an <code>igraph</code> object, and we replace default node names with the original ASV IDs to maintain interpretability. The <code>phyloseq</code> object is also pruned to match the taxa used in the network, and we annotate the <code>tax_table</code> with indicator group assignments where available.</p>
 <p>Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using <code>pdf()</code> output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.</p>
 </div>
-</div>
-<div id="table-of-contents-2" class="section level2 hasAnchor">
-<h2>Table of Contents<a href="module-4-lab-functional-prediction-and-additional-analyses.html#table-of-contents-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="#id_41-Differential-abundance-analysis-using-MaAsLin3-and-ALDEx2">4.1 Differential abundance testing with MaAsLin3 and ALDEx2</a><br />
-<a href="#id_42-Functional-prediction-with-PICRUSt2">4.2 Functional prediction with PICRUSt2</a><br />
-<a href="#id_43-Constructing-and-visualising-a-co-occurrence-network">4.3 Constructing and visualising a co-occurrence network</a><br />
-<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#answers">Answers</a></p>
 </div>
 <div id="differential-abundance-analysis-using-maaslin3-and-aldex2" class="section level2 hasAnchor">
 <h2>4.1 Differential abundance analysis using MaAsLin3 and ALDEx2<a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-analysis-using-maaslin3-and-aldex2" class="anchor-section" aria-label="Anchor link to header"></a></h2>

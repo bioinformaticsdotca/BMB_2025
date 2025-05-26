@@ -53,14 +53,6 @@ Next, we filter the ASV table to remove rare or low-abundance taxa based on mini
 
 Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using `pdf()` output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.
 
-
-## Table of Contents
-
-[4.1 Differential abundance testing with MaAsLin3 and ALDEx2](#41-Differential-abundance-analysis-using-MaAsLin3-and-ALDEx2)\
-[4.2 Functional prediction with PICRUSt2](#42-Functional-prediction-with-PICRUSt2)\
-[4.3 Constructing and visualising a co-occurrence network](#43-Constructing-and-visualising-a-co-occurrence-network)\
-[Answers](#answers)
-
 ## 4.1 Differential abundance analysis using MaAsLin3 and ALDEx2
 
 **You can use whichever amplicon you like for this! We've given instructions for 16S, but you can hopefully work out how to modify these commands for 18S or ITS :)**. 

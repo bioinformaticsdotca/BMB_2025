@@ -643,64 +643,6 @@ You can jump to one of the below sections for the commands needed for processing
 
 In Module 2 we will cover the basics of marker gene analysis from raw reads to filtered feature table. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version 2025.4), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the \href{https://qiime2.org/}{QIIME 2 user documentation}, along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within \href{https://view.qiime2.org/}{QIIME2 View}.
 
-\section{Table of Contents}\label{table-of-contents}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \hyperref[1-16S]{16S analysis}
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \tightlist
-  \item
-    \hyperref[11-16S-First-steps]{16S First steps}
-  \item
-    \hyperref[12-16S-denoising-the-reads-into-amplicon-sequence-variants]{16S Denoising reads into amplicon sequence variants}
-  \item
-    \hyperref[13-16S-assign-taxonomy-to-asvs]{16S Assign taxonomy to ASVs}
-  \item
-    \hyperref[14-16S-filtering-resultant-table]{16S Filtering resultant table}
-  \item
-    \hyperref[16S-Answers]{16S Answers}
-  \end{enumerate}
-\item
-  \hyperref[2-18S]{18S analysis}
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \tightlist
-  \item
-    \hyperref[21-18S-First-steps]{18S First steps}
-  \item
-    \hyperref[22-18S-denoising-the-reads-into-amplicon-sequence-variants]{18S Denoising reads into amplicon sequence variants}
-  \item
-    \hyperref[23-18S-assign-taxonomy-to-asvs]{18S Assign taxonomy to ASVs}
-  \item
-    \hyperref[24-18S-filtering-resultant-table]{18S Filtering resultant table}
-  \item
-    \hyperref[18S-Answers]{18S Answers}
-  \end{enumerate}
-\item
-  \hyperref[3-ITS]{ITS analysis}
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \tightlist
-  \item
-    \hyperref[31-ITS-First-steps]{ITS First steps}
-  \item
-    \hyperref[32-ITS-denoising-the-reads-into-amplicon-sequence-variants]{ITS Denoising reads into amplicon sequence variants}
-  \item
-    \hyperref[33-ITS-assign-taxonomy-to-asvs]{ITS Assign taxonomy to ASVs}
-  \item
-    \hyperref[34-ITS-filtering-resultant-table]{ITS Filtering resultant table}
-  \item
-    \hyperref[ITS-Answers]{ITS Answers}
-  \end{enumerate}
-\end{enumerate}
-
 \section{1. 16S}\label{s}
 
 Create a directory for Module 2 inside \texttt{workspace} and create a symlink to the raw FASTQ files and the metadata file.
@@ -1740,7 +1682,7 @@ Material by Juan Santana
 
 This tutorial is part of the 2025 Canadian Bioinformatics Workshops Beginner Microbiome Analysis (Vancouver, BC, May 26-27). It is based on the Amplicon SOP v2 available on the \href{https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2022.11)}{Microbiome Helper repository} and previous workshops designed by Diana Haider, Robert Beiko and Monica Alvaro Fuss.
 
-\section{Table of Contents}\label{table-of-contents-1}
+\section{Table of Contents}\label{table-of-contents}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2305,13 +2247,6 @@ We'll begin by identifying indicator taxa using the \texttt{indicspecies} packag
 Next, we filter the ASV table to remove rare or low-abundance taxa based on minimum prevalence (30\% of samples) and relative abundance (0.05\%), ensuring we focus on taxa with sufficient statistical power for robust network inference. \texttt{SpiecEasi} is then run using the neighborhood selection (\texttt{mb}) method with cross-validation (\texttt{pulsar}) to determine the optimal sparsity level. The resulting adjacency matrix is converted into an \texttt{igraph} object, and we replace default node names with the original ASV IDs to maintain interpretability. The \texttt{phyloseq} object is also pruned to match the taxa used in the network, and we annotate the \texttt{tax\_table} with indicator group assignments where available.
 
 Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using \texttt{pdf()} output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.
-
-\section{Table of Contents}\label{table-of-contents-2}
-
-\hyperref[41-Differential-abundance-analysis-using-MaAsLin3-and-ALDEx2]{4.1 Differential abundance testing with MaAsLin3 and ALDEx2}\\
-\hyperref[42-Functional-prediction-with-PICRUSt2]{4.2 Functional prediction with PICRUSt2}\\
-\hyperref[43-Constructing-and-visualising-a-co-occurrence-network]{4.3 Constructing and visualising a co-occurrence network}\\
-\hyperref[answers]{Answers}
 
 \section{4.1 Differential abundance analysis using MaAsLin3 and ALDEx2}\label{differential-abundance-analysis-using-maaslin3-and-aldex2}
 
