@@ -6,27 +6,6 @@ This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bio
 
 **Author**: Robyn Wright
 
-## Table of Contents
-
-[Introduction](#introduction)\
-[1.1 Log into your AWS instance](#11-log-into-your-aws-instance)\
-[1.2 Creating directories and moving around on the command line](#12-creating-directories-and-moving-around-on-the-command-line)\
-[1.3 Use wget to download files](#13-use-wget-to-download-files)\
-[1.4 Move these files to the directories](#14-move-these-files-to-the-directories)\
-[1.5 Zip and unzip these files](s#15-zip-and-unzip-these-files)\
-[1.6 Create new tar archive of files](#16-create-new-tar-archive-of-files)\
-[1.7 Unzip tar archive](#17-unzip-tar-archive)\
-[1.8 Look at fasta and fastq files with less](#18-look-at-fasta-and-fastq-files-with-less)\
-[1.9 Installing programs to the server](#19-installing-programs-to-the-server)\
-[1.10 Conda environments](#110-conda-environments)\
-[1.11 Install fastqc and multiqc](#111-install-fastqc-and-multiqc)\
-[1.12 Perform quality control on fastq files](#112-perform-quality-control-on-fastq-files)\
-[1.13 htop - looking at the number of processes we have available or running](#113-htop---looking-at-the-number-of-processes-we-have-available-or-running)\
-[1.14 Back to the quality control](#114-back-to-the-quality-control)\
-[1.15 Quality control on the data that we'll be using](s#115-quality-control-on-the-data-that-well-be-using)\
-[1.16 Install QIIME2](#116-install-qiime2)\
-[Answers](#answers)
-
 ## Introduction
 
 In this module, we're going to be learning the basics of moving around on the command line, creating directories, zipping and unzipping folders, making tar archives and installing programs on a server. We'll also be downloading files to the server, investigating the format of fasta and fastq files, and looking at the quality of sequenced samples. 
