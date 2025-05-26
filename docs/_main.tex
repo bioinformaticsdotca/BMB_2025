@@ -212,7 +212,16 @@ This tutorial is part of the 2025 CBW \href{https://bioinformaticsdotca.github.i
 
 In this module, we're going to be learning the basics of moving around on the command line, creating directories, zipping and unzipping folders, making tar archives and installing programs on a server. We'll also be downloading files to the server, investigating the format of fasta and fastq files, and looking at the quality of sequenced samples.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them. \textbf{You might want to keep the answers open in another tab!}
+
+\end{bluebox}
 
 \section{1.1 Log into your AWS instance}\label{log-into-your-aws-instance}
 
@@ -390,7 +399,19 @@ You should see that the fastq file has 4 lines for each sequence, while the fast
 To count the number of lines in a file, we can use the \texttt{less} command again, with some additional information: \texttt{less\ test\_data/206538.fastq\ \textbar{}\ wc\ -l}
 
 You should see that this file contains 63,048 lines.
-\textbf{Question 1}: How many sequences does this mean that there are? Remember that you can just use \texttt{less\ test\_data/206538.fastq} to look at the file.
+
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\textbf{Question 1}: How many sequences does this mean that there are?
+
+\end{bluebox}
+
+Remember that you can just use \texttt{less\ test\_data/206538.fastq} to look at the file.
 
 Now do the same for the fasta file: \texttt{less\ test\_data/206538.fasta\ \textbar{}\ wc\ -l}.
 
@@ -398,7 +419,18 @@ You should see that the fasta file contains half the number of lines as the fast
 
 In most programming languages, you have ``positional'' arguments and ``named'' arguments. Positional arguments need to be included in the proper position, or order. The order of positional arguments is defined within the program. Named or keyword arguments are given or passed to the program only after the name is given. In the case above, the \texttt{-c\ "\textgreater{}"} is a named argument and the file name \texttt{test\_data\_fasta/206538.fasta} is a positional argument.
 
-\textbf{Question 2}: What happens if you try to do the same thing with ``@'' for the fastq file? Why is this? Remember to look at the fastq file with the \texttt{less} command for clues, or try running it without the \texttt{-c} argument.
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\textbf{Question 2}: What happens if you try to do the same thing with ``@'' for the fastq file? Why is this?
+
+\end{bluebox}
+
+Remember to look at the fastq file with the \texttt{less} command for clues, or try running it without the \texttt{-c} argument.
 
 \section{1.9 Installing programs to the server}\label{installing-programs-to-the-server}
 
@@ -494,12 +526,31 @@ So we've given as arguments:
 Now look at \texttt{multiqc.html}.
 
 There are some questions here to help you look at the files and interpret these:
-- \textbf{Question 3}: What is the GC\% of the samples?
-- \textbf{Question 4}: What \% of the samples are duplicate reads? Is this what you expected?
-- \textbf{Question 5}: Now look at the Sequence Counts section. Which sample has the most reads?
-- \textbf{Question 6}: How many unique and duplicate reads are in sample 206536?
-- \textbf{Question 7}: Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?
-- \textbf{Question 8}: Look at the top overrepresented sequence. If you want to see what it is, paste it into the ``Enter accession number(s), gi(s), or FASTA sequence(s)'' box \href{https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome}{here} and click on the blue ``BLAST'' button at the bottom of the page.\\
+
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 3}: What is the GC\% of the samples?
+\item
+  \textbf{Question 4}: What \% of the samples are duplicate reads? Is this what you expected?
+\item
+  \textbf{Question 5}: Now look at the Sequence Counts section. Which sample has the most reads?
+\item
+  \textbf{Question 6}: How many unique and duplicate reads are in sample 206536?
+\item
+  \textbf{Question 7}: Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?
+\item
+  \textbf{Question 8}: Look at the top overrepresented sequence. If you want to see what it is, paste it into the ``Enter accession number(s), gi(s), or FASTA sequence(s)'' box \href{https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome}{here} and click on the blue ``BLAST'' button at the bottom of the page.
+\end{itemize}
+
+\end{bluebox}
 
 \section{1.15 Quality control on the data that we'll be using}\label{quality-control-on-the-data-that-well-be-using}
 
@@ -534,10 +585,27 @@ multiqc fastqc_out_16S --filename multiqc_16S.html
 \end{verbatim}
 
 Note that files with \_R1 are forward reads and those with \_R2 are reverse.
-- \textbf{Question 9}: What do you notice between the R1 and R2 files? Why do you think that might be?
-- \textbf{Question 10}: Do all of the samples have the same number of reads in the forward and reverse files?
-- \textbf{Question 11}: When you look at the Sequence Quality Histograms you'll see two clusters. If you hover over the lines you can see the sample names. What do you notice?
-- \textbf{Question 12}: Have a look again at the top overrepresented sequence. What is it?
+
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Question 9}: What do you notice between the R1 and R2 files? Why do you think that might be?
+\item
+  \textbf{Question 10}: Do all of the samples have the same number of reads in the forward and reverse files?
+\item
+  \textbf{Question 11}: When you look at the Sequence Quality Histograms you'll see two clusters. If you hover over the lines you can see the sample names. What do you notice?
+\item
+  \textbf{Question 12}: Have a look again at the top overrepresented sequence. What is it?
+\end{itemize}
+
+\end{bluebox}
 
 \section{1.16 Install QIIME2}\label{install-qiime2}
 

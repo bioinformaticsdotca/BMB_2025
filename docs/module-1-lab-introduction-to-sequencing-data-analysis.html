@@ -370,7 +370,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction" class="section level2 hasAnchor">
 <h2>Introduction<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this module, we’re going to be learning the basics of moving around on the command line, creating directories, zipping and unzipping folders, making tar archives and installing programs on a server. We’ll also be downloading files to the server, investigating the format of fasta and fastq files, and looking at the quality of sequenced samples.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>NOTE!</strong></p>
+</div>
 <p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them. <strong>You might want to keep the answers open in another tab!</strong></p>
+</div>
 </div>
 <div id="log-into-your-aws-instance" class="section level2 hasAnchor">
 <h2>1.1 Log into your AWS instance<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#log-into-your-aws-instance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -477,12 +482,24 @@ scp -r -i CBW.pem ubuntu@##.uhn-hpc.ca:/home/ubuntu/workspace/bmb_module1/test_d
 <p>Now you can open the files with a text editor like TextEdit (Mac) or Notepad (Windows).
 You should see that the fastq file has 4 lines for each sequence, while the fasta only has two. The fasta has a first line that starts with “&gt;” that contains the sequence name and description, and the second line contains the actual DNA sequence (DNA in this case, but this file format could also contain RNA or protein sequences). fastq files start the same, with the first line containing the sequence name and description (but starting with an “@” symbol instead), and the second containing the sequence. The third line then contains a “+” character, and the fourth contains quality information about each base of the sequence (and should contain the same number of characters as the sequence). You can read more about the quality information that the symbols encode <a href="https://en.wikipedia.org/wiki/FASTQ_format">here</a>.</p>
 <p>To count the number of lines in a file, we can use the <code>less</code> command again, with some additional information: <code>less test_data/206538.fastq | wc -l</code></p>
-<p>You should see that this file contains 63,048 lines.
-<strong>Question 1</strong>: How many sequences does this mean that there are? Remember that you can just use <code>less test_data/206538.fastq</code> to look at the file.</p>
+<p>You should see that this file contains 63,048 lines.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<p><strong>Question 1</strong>: How many sequences does this mean that there are?</p>
+</div>
+<p>Remember that you can just use <code>less test_data/206538.fastq</code> to look at the file.</p>
 <p>Now do the same for the fasta file: <code>less test_data/206538.fasta | wc -l</code>.</p>
 <p>You should see that the fasta file contains half the number of lines as the fastq file. Sometimes you’ll find that the sequences with a fasta file are split across multiple lines, in which case, simply counting the number of lines wouldn’t work, so there are also other ways to count the number of sequences in a file, and these can be adapted for other purposes, too. E.g.: <code>grep -c "&gt;" test_data_fasta/206538.fasta</code> - the <code>grep</code> command pulls out every occurrence of a phrase (or “string”, as it’s usually called in programming) and the <code>-c</code> argument tells it to count these. What happens if you don’t use the <code>-c</code> argument? Why do you think this happened?</p>
 <p>In most programming languages, you have “positional” arguments and “named” arguments. Positional arguments need to be included in the proper position, or order. The order of positional arguments is defined within the program. Named or keyword arguments are given or passed to the program only after the name is given. In the case above, the <code>-c "&gt;"</code> is a named argument and the file name <code>test_data_fasta/206538.fasta</code> is a positional argument.</p>
-<p><strong>Question 2</strong>: What happens if you try to do the same thing with “@” for the fastq file? Why is this? Remember to look at the fastq file with the <code>less</code> command for clues, or try running it without the <code>-c</code> argument.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<p><strong>Question 2</strong>: What happens if you try to do the same thing with “@” for the fastq file? Why is this?</p>
+</div>
+<p>Remember to look at the fastq file with the <code>less</code> command for clues, or try running it without the <code>-c</code> argument.</p>
 </div>
 <div id="installing-programs-to-the-server" class="section level2 hasAnchor">
 <h2>1.9 Installing programs to the server<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#installing-programs-to-the-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -543,14 +560,20 @@ Any time you are logged out and you log back in, you’ll need to reactivate the
 - <code>fastqc_out</code>: the folder that contains the fastqc output.
 - <code>--filename multiqc.html</code>: the file name to save the output as.</p>
 <p>Now look at <code>multiqc.html</code>.</p>
-<p>There are some questions here to help you look at the files and interpret these:
-- <strong>Question 3</strong>: What is the GC% of the samples?
-- <strong>Question 4</strong>: What % of the samples are duplicate reads? Is this what you expected?
-- <strong>Question 5</strong>: Now look at the Sequence Counts section. Which sample has the most reads?
-- <strong>Question 6</strong>: How many unique and duplicate reads are in sample 206536?
-- <strong>Question 7</strong>: Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?
-- <strong>Question 8</strong>: Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.<br />
-</p>
+<p>There are some questions here to help you look at the files and interpret these:</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<ul>
+<li><strong>Question 3</strong>: What is the GC% of the samples?</li>
+<li><strong>Question 4</strong>: What % of the samples are duplicate reads? Is this what you expected?</li>
+<li><strong>Question 5</strong>: Now look at the Sequence Counts section. Which sample has the most reads?</li>
+<li><strong>Question 6</strong>: How many unique and duplicate reads are in sample 206536?</li>
+<li><strong>Question 7</strong>: Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?</li>
+<li><strong>Question 8</strong>: Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.</li>
+</ul>
+</div>
 </div>
 <div id="quality-control-on-the-data-that-well-be-using" class="section level2 hasAnchor">
 <h2>1.15 Quality control on the data that we’ll be using<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#quality-control-on-the-data-that-well-be-using" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -565,11 +588,18 @@ Any time you are logged out and you log back in, you’ll need to reactivate the
 <p>Note that fastqc can run on zipped or unzipped files.</p>
 <p>And finally, run multiqc again:</p>
 <pre><code>multiqc fastqc_out_16S --filename multiqc_16S.html</code></pre>
-<p>Note that files with _R1 are forward reads and those with _R2 are reverse.
-- <strong>Question 9</strong>: What do you notice between the R1 and R2 files? Why do you think that might be?
-- <strong>Question 10</strong>: Do all of the samples have the same number of reads in the forward and reverse files?
-- <strong>Question 11</strong>: When you look at the Sequence Quality Histograms you’ll see two clusters. If you hover over the lines you can see the sample names. What do you notice?
-- <strong>Question 12</strong>: Have a look again at the top overrepresented sequence. What is it?</p>
+<p>Note that files with _R1 are forward reads and those with _R2 are reverse.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<ul>
+<li><strong>Question 9</strong>: What do you notice between the R1 and R2 files? Why do you think that might be?</li>
+<li><strong>Question 10</strong>: Do all of the samples have the same number of reads in the forward and reverse files?</li>
+<li><strong>Question 11</strong>: When you look at the Sequence Quality Histograms you’ll see two clusters. If you hover over the lines you can see the sample names. What do you notice?</li>
+<li><strong>Question 12</strong>: Have a look again at the top overrepresented sequence. What is it?</li>
+</ul>
+</div>
 </div>
 <div id="install-qiime2" class="section level2 hasAnchor">
 <h2>1.16 Install QIIME2<a href="module-1-lab-introduction-to-sequencing-data-analysis.html#install-qiime2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
