@@ -10,14 +10,14 @@ This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bio
 
 Modules 2 and 3 provide a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi. 
 
-In this tutorial, you can choose between using:
-- 16S dataset from wild blueberry, *Vaccinium angustifolium* (soil microbiome)
-    -   [Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats](https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R)
-    -   [Metagenomic Functional Shifts to Plant Induced Environmental Changes](https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50)
-- 18S dataset from plastics incubated in a coastal marine environment (plastisphere)
-    - [Microbial pioneers of plastic colonisation in coastal seawaters](https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050)
-- ITS2 dataset from stool samples from pregnant women (gut microbiome)
-    - [Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health](https://gut.bmj.com/content/73/8/1302.long)
+In this tutorial, you can choose between using:\
+**16S dataset from wild blueberry, *Vaccinium angustifolium* (soil microbiome)**\
+  - [Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats](https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R)\
+  - [Metagenomic Functional Shifts to Plant Induced Environmental Changes](https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50)\
+**18S dataset from plastics incubated in a coastal marine environment (plastisphere)**\
+  - [Microbial pioneers of plastic colonisation in coastal seawaters](https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050)\
+**ITS2 dataset from stool samples from pregnant women (gut microbiome)**\
+  - [Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health](https://gut.bmj.com/content/73/8/1302.long)
 
 You can jump to one of the below sections for the commands needed for processing each of these amplicons. We recommend choosing one of them - 16S is the most widely used and also allows you to easily generate a phylogenetic tree. If you have never done any amplicon analysis before then we recommend choosing the 16S dataset. 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.22)  26 MAY 2025 09:39
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.22)  26 MAY 2025 09:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1002,13 +1002,13 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 1083--1083
 
 
 [41]
+
+[42]
 Overfull \hbox (33.0pt too wide) in paragraph at lines 1146--1146
 []\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/Plastisphere_18S_metadata.tsv .[] 
  []
 
 
-
-[42]
 
 [43]
 Underfull \hbox (badness 7522) in paragraph at lines 1209--1210
@@ -1079,13 +1079,13 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 1511--1511
 
 
 [52]
+
+[53]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 1574--1574
 []\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/pregnancy_ITS_metadata.tsv .[] 
  []
 
 
-
-[53]
 
 [54]
 Underfull \hbox (badness 7522) in paragraph at lines 1637--1638
@@ -1167,13 +1167,13 @@ Overfull \hbox (347.17001pt too wide) in paragraph at lines 1863--1864
 
 
 [61]
+
+[62]
 Overfull \hbox (22.5pt too wide) in paragraph at lines 1913--1913
 []  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
  []
 
 
-
-[62]
 Overfull \hbox (48.75pt too wide) in paragraph at lines 1934--1934
 []\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt.qza deblur_output/deblur_table_final.qza[] 
  []
@@ -1184,14 +1184,18 @@ Overfull \hbox (48.75pt too wide) in paragraph at lines 1934--1934
 
 [64]
 
-[65
+[65]
+
+[66
 
 ]
 
-[66]
+[67]
+
+[68]
 Chapter 4.
 
-LaTeX Warning: Hyper reference `build-tree' on page 67 undefined on input line 2001.
+LaTeX Warning: Hyper reference `build-tree' on page 69 undefined on input line 2001.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2001--2003
@@ -1235,7 +1239,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2015--2017
 
 
 
-[67
+[69
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
@@ -1244,23 +1248,23 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 68 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
- []
-
-[68]
-
-LaTeX Warning: Hyper reference `9-considerations-for-18s-and-its-data' on page 69 undefined on input line 2096.
-
-
-
-[69]
-
-
-Overfull \hbox (33.95064pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 70 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
  []
 
 [70]
+
+LaTeX Warning: Hyper reference `9-considerations-for-18s-and-its-data' on page 71 undefined on input line 2096.
+
+
+
+[71]
+
+
+Overfull \hbox (33.95064pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 72 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
+ []
+
+[72]
 Overfull \hbox (9.89206pt too wide) in paragraph at lines 2151--2152
 []\TU/lmr/m/it/10 Hint:To analyze other alpha diversity metrics, simply replace \TU/lmtt/m/it/10 shannon_vector.qza
  []
@@ -1269,29 +1273,15 @@ Overfull \hbox (9.89206pt too wide) in paragraph at lines 2151--2152
 
 
 Overfull \hbox (82.67343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.5.  3. CALCULATING DIVERSITY METRICS AND GENERATING ORDINATION PLOTS \TU/lmr/m/n/10 71
+\TU/lmr/m/sl/10 4.5.  3. CALCULATING DIVERSITY METRICS AND GENERATING ORDINATION PLOTS \TU/lmr/m/n/10 73
  []
 
-[71]
+[73]
 Overfull \hbox (15.53pt too wide) in paragraph at lines 2169--2170
 []\TU/lmr/m/n/10 This will produce a file called \TU/lmtt/m/n/10 alpha-diversity.tsv \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 exported_shannon/
  []
 
 
-
-
-Overfull \hbox (33.95064pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 72 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
- []
-
-[72]
-
-
-Overfull \hbox (50.86455pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.7.  5. IDENTIFYING DIFFERENTIALLY ABUNDANT FEATURES WITH ANCOM \TU/lmr/m/n/10 73
- []
-
-[73]
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
@@ -1301,16 +1291,11 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
 [74]
 
 
-Overfull \hbox (23.19344pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.8.  6. IDENTIFYING SHARED FEATURES ACROSS GROUPS OF SAMPLES \TU/lmr/m/n/10 75
+Overfull \hbox (50.86455pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.7.  5. IDENTIFYING DIFFERENTIALLY ABUNDANT FEATURES WITH ANCOM \TU/lmr/m/n/10 75
  []
 
 [75]
-Overfull \hbox (71.81001pt too wide) in paragraph at lines 2340--2341
-[]\TU/lmr/m/n/10 Your sequences will be saved as \TU/lmtt/m/n/10 dna-sequences.fasta \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 deblur_output_16S_exported
- []
-
-
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
@@ -1319,7 +1304,17 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
 
 [76]
 
+
+Overfull \hbox (23.19344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.8.  6. IDENTIFYING SHARED FEATURES ACROSS GROUPS OF SAMPLES \TU/lmr/m/n/10 77
+ []
+
 [77]
+Overfull \hbox (71.81001pt too wide) in paragraph at lines 2340--2341
+[]\TU/lmr/m/n/10 Your sequences will be saved as \TU/lmtt/m/n/10 dna-sequences.fasta \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 deblur_output_16S_exported
+ []
+
+
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
@@ -1327,11 +1322,6 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [78]
-Underfull \hbox (badness 1112) in paragraph at lines 2476--2477
-\TU/lmr/m/n/10 Repeat the same commands shown above, but make sure you use the
- []
-
-
 
 [79]
 
@@ -1341,30 +1331,32 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [80]
+Underfull \hbox (badness 1112) in paragraph at lines 2476--2477
+\TU/lmr/m/n/10 Repeat the same commands shown above, but make sure you use the
+ []
 
-[81
 
-]
+
+[81]
+
+
+Overfull \hbox (33.95064pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 82 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
+ []
 
 [82]
-Chapter 5.
-
 
 [83
 
 ]
 
-
-Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 84 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
- []
-
 [84]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2547.
+Chapter 5.
 
 
-[85]
+[85
+
+]
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
@@ -1372,6 +1364,18 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [86]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2547.
+
+
+[87]
+
+
+Overfull \hbox (97.41454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 88 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+ []
+
+[88]
 Overfull \hbox (101.25pt too wide) in paragraph at lines 2577--2577
 []\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
  []
@@ -1403,21 +1407,21 @@ Overfull \hbox (117.0pt too wide) in paragraph at lines 2597--2597
 
 
 
-[87]
+[89]
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 88 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 90 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[88]
+[90]
 Overfull \hbox (295.5pt too wide) in paragraph at lines 2665--2665
 []\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
 
-[89]
+[91]
 Overfull \hbox (1277.25pt too wide) in paragraph at lines 2682--2682
 []\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
  []
@@ -1441,10 +1445,10 @@ Overfull \hbox (1266.75pt too wide) in paragraph at lines 2712--2712
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 90 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 92 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[90]
+[92]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 2727--2727
 []\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
  []
@@ -1486,7 +1490,7 @@ Overfull \hbox (75.0pt too wide) in paragraph at lines 2740--2740
 
 
 
-[91]
+[93]
 Overfull \hbox (542.25pt too wide) in paragraph at lines 2758--2758
 []\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
  []
@@ -1500,10 +1504,10 @@ Overfull \hbox (390.0pt too wide) in paragraph at lines 2773--2773
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 92 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 94 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[92]
+[94]
 Overfull \hbox (174.75pt too wide) in paragraph at lines 2785--2785
 []\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
  []
@@ -1520,7 +1524,7 @@ Overfull \hbox (38.25pt too wide) in paragraph at lines 2806--2806
 
 
 
-[93]
+[95]
 Overfull \hbox (274.5pt too wide) in paragraph at lines 2827--2827
 []\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
  []
@@ -1529,10 +1533,10 @@ Overfull \hbox (274.5pt too wide) in paragraph at lines 2827--2827
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 94 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[94]
+[96]
 Overfull \hbox (164.25pt too wide) in paragraph at lines 2853--2853
 []\TU/lmtt/m/n/10 maaslin = read.csv(paste(folder, "maaslin3_treatment/significant_results.tsv", sep=""), sep="\t")[] 
  []
@@ -1551,10 +1555,10 @@ Overfull \hbox (90.75pt too wide) in paragraph at lines 2853--2853
 
 
 Overfull \hbox (164.23123pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.6.  4.1.5 COMBINE AND PLOT DIFFERENTIAL ABUNDANCE RESULTS FROM MAASLIN3 AND ALDEX2 \TU/lmr/m/n/10 95
+\TU/lmr/m/sl/10 5.6.  4.1.5 COMBINE AND PLOT DIFFERENTIAL ABUNDANCE RESULTS FROM MAASLIN3 AND ALDEX2 \TU/lmr/m/n/10 97
  []
 
-[95]
+[97]
 Overfull \hbox (106.5pt too wide) in paragraph at lines 2886--2886
 []\TU/lmtt/m/n/10 physeq_relabun  = transform_sample_counts(physeq_genus, function(x) (x / sum(x))*100 )[] 
  []
@@ -1568,10 +1572,10 @@ Overfull \hbox (846.75pt too wide) in paragraph at lines 2900--2900
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[96]
+[98]
 Overfull \hbox (537.0pt too wide) in paragraph at lines 2918--2918
 []  \TU/lmtt/m/n/10 print(microbiome::boxplot_abundance(physeq_relabun, x='treatment', y=overlap[i]) + ggtitle(str_replace(overlap[i], ';f__', '\nf__')) + ylab('Relative abundance (%)'))[] 
  []
@@ -1580,10 +1584,10 @@ Overfull \hbox (537.0pt too wide) in paragraph at lines 2918--2918
 
 
 Overfull \hbox (164.23123pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.6.  4.1.5 COMBINE AND PLOT DIFFERENTIAL ABUNDANCE RESULTS FROM MAASLIN3 AND ALDEX2 \TU/lmr/m/n/10 97
+\TU/lmr/m/sl/10 5.6.  4.1.5 COMBINE AND PLOT DIFFERENTIAL ABUNDANCE RESULTS FROM MAASLIN3 AND ALDEX2 \TU/lmr/m/n/10 99
  []
 
-[97]
+[99]
 Overfull \hbox (54.0pt too wide) in paragraph at lines 2969--2969
 []\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/deblur_output/ .[] 
  []
@@ -1601,18 +1605,18 @@ Overfull \hbox (117.0pt too wide) in paragraph at lines 2969--2969
 
 
 
-Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+Overfull \hbox (102.41454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[98]
+[100]
 Underfull \hbox (badness 1325) in paragraph at lines 3017--3018
 []\TU/lmr/m/n/10 This will be exported as a .fasta file, which you can look at in the
  []
 
 
 
-[99]
+[101]
 Overfull \hbox (552.75pt too wide) in paragraph at lines 3065--3065
 []\TU/lmtt/m/n/10 picrust2_pipeline.py -s exports_filtered/dna-sequences.fasta -i exports_filtered/feature-table.biom -o picrust2_out_pipeline_filtered -p 4 -t sepp --in_traits EC --verbose[] 
  []
@@ -1621,10 +1625,10 @@ Overfull \hbox (552.75pt too wide) in paragraph at lines 3065--3065
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[100]
+[102]
 Overfull \hbox (309.24202pt too wide) in paragraph at lines 3094--3095
 []\TU/lmr/m/n/10 Finally, the files that we are likely most interested in are \TU/lmtt/m/n/10 picrust2_out_pipeline_filtered/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz
  []
@@ -1636,7 +1640,7 @@ Overfull \hbox (33.12pt too wide) in paragraph at lines 3094--3095
 
 
 
-[101]
+[103]
 Overfull \hbox (395.25pt too wide) in paragraph at lines 3109--3109
 []\TU/lmtt/m/n/10 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)[] 
  []
@@ -1695,10 +1699,10 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 3143--3143
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[102]
+[104]
 Overfull \hbox (132.75pt too wide) in paragraph at lines 3152--3152
 []\TU/lmtt/m/n/10 PWY = otu_table(pwy_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
  []
@@ -1755,7 +1759,7 @@ Overfull \hbox (1083.0pt too wide) in paragraph at lines 3185--3185
 
 
 
-[103]
+[105]
 Overfull \hbox (390.0pt too wide) in paragraph at lines 3210--3210
 []\TU/lmtt/m/n/10 physeq_rare_pwy = rarefy_even_depth(physeq_pwy, sample.size = min(sample_sums(physeq_pwy)), replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
  []
@@ -1784,10 +1788,10 @@ Overfull \hbox (80.25pt too wide) in paragraph at lines 3236--3236
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[104]
+[106]
 Overfull \hbox (337.5pt too wide) in paragraph at lines 3244--3244
 []\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_pwy_top_100), sample_data(physeq_pwy_top_100)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
  []
@@ -1809,7 +1813,7 @@ Underfull \hbox (badness 1314) in paragraph at lines 3255--3256
 
 
 
-[105]
+[107]
 Overfull \hbox (731.25pt too wide) in paragraph at lines 3286--3286
 []\TU/lmtt/m/n/10 microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=single_pathway, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(single_pathway) + ylab('Relative abundance (%)')[] 
  []
@@ -1828,10 +1832,10 @@ Underfull \hbox (badness 3019) in paragraph at lines 3300--3300
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[106]
+[108]
 Overfull \hbox (101.25pt too wide) in paragraph at lines 3322--3322
 []\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
  []
@@ -1845,10 +1849,10 @@ Overfull \hbox (117.0pt too wide) in paragraph at lines 3322--3322
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 107
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 109
  []
 
-[107]
+[109]
 Overfull \hbox (295.5pt too wide) in paragraph at lines 3367--3367
 []\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
@@ -1857,10 +1861,10 @@ Overfull \hbox (295.5pt too wide) in paragraph at lines 3367--3367
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[108]
+[110]
 Overfull \hbox (1277.25pt too wide) in paragraph at lines 3382--3382
 []\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
  []
@@ -1879,10 +1883,10 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 3392--3392
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 109
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 111
  []
 
-[109]
+[111]
 Overfull \hbox (1266.75pt too wide) in paragraph at lines 3410--3410
 []\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently![] 
  []
@@ -1911,10 +1915,10 @@ Overfull \hbox (353.25pt too wide) in paragraph at lines 3425--3425
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 112 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[110]
+[112]
 Overfull \hbox (132.75pt too wide) in paragraph at lines 3438--3438
 []\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
  []
@@ -1943,10 +1947,10 @@ Overfull \hbox (542.25pt too wide) in paragraph at lines 3456--3456
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 111
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 113
  []
 
-[111]
+[113]
 Overfull \hbox (216.75pt too wide) in paragraph at lines 3476--3476
 []\TU/lmtt/m/n/10 indval_res <- multipatt(otu_mat, group_vector, func = "IndVal.g", duleg = TRUE, control = how(nperm = 999))[] 
  []
@@ -1970,10 +1974,10 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 3495--3495
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 112 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 114 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[112]
+[114]
 Overfull \hbox (43.5pt too wide) in paragraph at lines 3514--3514
 []\TU/lmtt/m/n/10 prev_df <- apply(otu_table(physeq), 1, function(x) sum(x > 0) / length(x))[] 
  []
@@ -2002,10 +2006,10 @@ Overfull \hbox (101.25pt too wide) in paragraph at lines 3555--3555
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 113
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 115
  []
 
-[113]
+[115]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 3555--3555
 []\TU/lmtt/m/n/10 # Add indicator status as a tax_table column (NA if not an indicator)[] 
  []
@@ -2039,10 +2043,10 @@ Overfull \hbox (75.0pt too wide) in paragraph at lines 3594--3594
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 114 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 116 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[114]
+[116]
 Overfull \hbox (12.0pt too wide) in paragraph at lines 3622--3622
 []\TU/lmtt/m/n/10 pdf(paste(folder, "network_ta3.pdf", sep=""), width = 9, height = 6)[] 
  []
@@ -2071,10 +2075,10 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 3657--3657
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 115
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 117
  []
 
-[115]
+[117]
 Overfull \hbox (75.0pt too wide) in paragraph at lines 3657--3657
 []       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")[] 
  []
@@ -2098,10 +2102,10 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 3696--3696
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 116 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 118 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[116]
+[118]
 Overfull \hbox (101.25pt too wide) in paragraph at lines 3696--3696
 []\TU/lmtt/m/n/10 scaled_degree <- scales::rescale(node_degree, to = c(3, 10))  # size between 3 and 10[] 
  []
@@ -2130,17 +2134,17 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 3739--3739
 
 
 Overfull \hbox (42.95453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 117
+\TU/lmr/m/sl/10 5.8.  4.3 CONSTRUCTING AND VISUALISING A CO-OCCURRENCE NETWORK \TU/lmr/m/n/10 119
  []
 
-[117]
+[119]
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 118 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 120 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[118]
+[120]
 Overfull \hbox (295.5pt too wide) in paragraph at lines 3808--3808
 []\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
@@ -2152,7 +2156,7 @@ Overfull \hbox (1.5pt too wide) in paragraph at lines 3815--3815
 
 
 
-[119]
+[121]
 Overfull \hbox (610.5pt too wide) in paragraph at lines 3829--3829
 []\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Supergroup", "Division", "Subdivision", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ")[] 
  []
@@ -2201,10 +2205,10 @@ Overfull \hbox (253.5pt too wide) in paragraph at lines 3870--3870
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 120 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 122 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[120]
+[122]
 Overfull \hbox (174.75pt too wide) in paragraph at lines 3881--3881
 []\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
  []
@@ -2226,7 +2230,7 @@ Overfull \hbox (17.25pt too wide) in paragraph at lines 3936--3936
 
 
 
-[121]
+[123]
 Overfull \hbox (12.0pt too wide) in paragraph at lines 3936--3936
 []                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_time', sep=""),[] 
  []
@@ -2245,17 +2249,17 @@ Overfull \hbox (248.25pt too wide) in paragraph at lines 3950--3950
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 122 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 124 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[122]
+[124]
 Overfull \hbox (295.5pt too wide) in paragraph at lines 4019--4019
 []\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
 
-[123]
+[125]
 Overfull \hbox (1.5pt too wide) in paragraph at lines 4026--4026
 []\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
  []
@@ -2304,10 +2308,10 @@ Overfull \hbox (542.25pt too wide) in paragraph at lines 4073--4073
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 124 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 126 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[124]
+[126]
 Overfull \hbox (253.5pt too wide) in paragraph at lines 4081--4081
 []\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
  []
@@ -2334,7 +2338,7 @@ Overfull \hbox (38.25pt too wide) in paragraph at lines 4145--4145
 
 
 
-[125]
+[127]
 Overfull \hbox (33.0pt too wide) in paragraph at lines 4145--4145
 []                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_category', sep=""),[] 
  []
@@ -2368,14 +2372,14 @@ Overfull \hbox (27.75pt too wide) in paragraph at lines 4169--4169
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 126 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+\TU/lmr/m/n/10 128 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
  []
 
-[126]
+[128]
 No file _main.bbl.
 
 
-[127] (./_main.aux)
+[129] (./_main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-29>
@@ -2385,12 +2389,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17643 strings out of 472247
- 322886 string characters out of 5528794
- 860466 words of memory out of 5000000
- 43947 multiletter control sequences out of 15000+600000
- 633316 words of font info for 98 fonts, out of 8000000 for 9000
+ 17645 strings out of 472247
+ 322941 string characters out of 5528794
+ 860470 words of memory out of 5000000
+ 43948 multiletter control sequences out of 15000+600000
+ 633324 words of font info for 99 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,7n,114p,2123b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on _main.pdf (127 pages).
+Output written on _main.pdf (129 pages).
