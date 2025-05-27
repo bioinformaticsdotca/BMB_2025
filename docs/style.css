@@ -26,23 +26,25 @@ pre code {
 }
 .redbox {
   padding: 1em;
-  background: #F39A9D;
-  color: white;
-  border: 2px solid #EF6569;
+  background: #FADBD8; /* Lighter, less saturated red */
+  color: #5D0005;     /* Dark red for text */
+  border: 2px solid #C0392B; /* Stronger red for border */
   border-radius: 10px;
 }
+
 .bluebox {
   padding: 1em;
-  background: #ACD2ED;
-  color: white;
-  border: 2px solid #80C2F1;
+  background: #D6EAF8; /* Lighter, less saturated blue */
+  color: #1A237E;     /* Dark blue for text */
+  border: 2px solid #2980B9; /* Stronger blue for border */
   border-radius: 10px;
 }
+
 .greenbox {
   padding: 1em;
-  background: #8DB580;
-  color: white;
-  border: 2px solid #65B64A;
+  background: #D5F5E3; /* Lighter, less saturated green */
+  color: #0D3D00;     /* Dark green for text */
+  border: 2px solid #229954; /* Stronger green for border */
   border-radius: 10px;
 }
 
