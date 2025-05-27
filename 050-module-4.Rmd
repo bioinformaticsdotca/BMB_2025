@@ -14,7 +14,14 @@ This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bio
 
 In this module, we'll be taking a look at three of the major ways in which we use amplicon sequencing data to learn about microbial communities; (1) identifying taxa that are significantly differentially abundant between different sample groups, (2) predicting the functional capabilities of these communities based on the taxa that are present, and (3) constructing and visualising a co-occurrence network. 
 
+:::: {.redbox data-latex=""}
+::: {.center data-latex=""}
+**BEFORE YOU START!**
+:::
+
 **There is likely more in this module than you can get through in the time provided, so we suggest that you choose which of these is of most interest to you, and start there.** You can always come back and do some of the others if you are finished in time. PICRUSt2 is really only appropriate for 16S data, so if you used one of the other datasets then you can either copy across the 16S output or do one of the other sections of this lab. Ask one of us for help if you need it! You can read some information on each of these sections below before deciding which to run. 
+
+::::
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. As with the previous modules, you'll find the [answers](#answers) at the bottom of this page, but no one will be marking them. 
 
@@ -168,7 +175,14 @@ We're also using the ```paste``` function to add together the full file path of 
 
 Next, we've given the ```sep='\t'``` variable - this time, we're telling the ```read.csv``` function that the file that we're importing is tab-delimited, then we've told it to skip the first line of the file ```skip=1```, and that there is a header ```header=T``` (where T is the same as TRUE). We've skipped the first line because this just reads "# Constructed from biom file" and is not actually data.
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
+
+::::
 
 ##### Manipulate the feature table
 
@@ -181,7 +195,14 @@ You can see here that I've added ```#``` after the code and have written what ea
 
 Next, take a quick look at your sample names within asv_table_num.
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 2**: Are they the same as you remember - any different punctuation?
+
+::::
 
 This is kind of annoying because it means that the sample names won't match the metadata table, so we'll change those now.
 ```
@@ -244,7 +265,14 @@ otu_table(physeq_genus)
 ```
 Take a look at each of these if you want to see what the differences were in each step!
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 3**: How does the number of genera compare with the number of ASVs?
+
+::::
 
 ### 4.1.3 Run MaAsLin3
 
@@ -293,7 +321,14 @@ MaAsLin will save the results into a folder, so you can take a look in these fol
 There are a lot of columns in the output; you'll see some of the ones we're interested in are: (1) the genus ("feature"), (2) the metadata variable being tested ("metadata"), (3) for categorical features, the specific feature level for which the coefficient and significance of association is being reported ("value"), (4) the model effect size/coefficient value ("coef"), (5) the standard error from the model ("stderr"), (6) 
 pval_individual (7) qval_individual (8) pval_joint (9) qval_joint (10) error (11) model (12) N (13) N_not_zero
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 4**: How many taxa does MaAsLin3 say are significantly differentially abundant?
+
+::::
 
 ### 4.1.4 Run ALDEx2
 
@@ -305,7 +340,14 @@ write.csv(kw.test, paste(folder, "ALDEx2_taxa.csv", sep=""))
 ```
 If you take a look at these results files then you'll see that we have 4 columns: kw.ep, kw.eBH, glm.ep, glm.eBH - the p-values and Benjamini-Hochberg (BH)-corrected p-values for the Kruskal-Wallis and GLM ANOVA tests between the sample groups. There are several other options for testing within the ALDEx2 R package (including aldex.ttest and aldex.glm), but in this case, we can use the GLM ANOVA results for parametric tests and the Kruskal-Wallis results for non-parametric tests. We could also use aldex.effect to see the magnitude of the differences between groups. 
 
-**Note**: parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don't need to run this next part, but can do if you like.
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**NOTE!**
+:::
+
+Parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don't need to run this next part, but can do if you like.
+
+::::
 
 ```
 shapiro.test(as.data.frame(otu_table(physeq_genus))$"B-Rt96")
@@ -314,7 +356,14 @@ shapiro.test(as.data.frame(otu_table(physeq_genus_clr))$"B-Rt96")
 ```
 Transformations/normalisations of microbiome data are often used to make the usually non-normal microbiome data normal, however, in this case, it is not normal (significant p-value so the null hypothesis that the data are normal can be rejected - they are not normal). This means that we should use the Kruskal-Wallis test results. 
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 5**: How many taxa does ALDEx2 find to be significantly differentially abundant?
+
+::::
 
 ### 4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2
 
@@ -332,7 +381,14 @@ Maaslin3 compares both abundance and prevalence, but as it is the only one to do
 maaslin = maaslin[maaslin$model == 'abundance', ]
 ```
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 6**: Are there any taxa left? Is that what you expected?
+
+::::
 
 Now we'll do the same for ALDEx2 (although here we don't need to do the renaming):
 ```
@@ -372,7 +428,14 @@ To explain what we have just done here a little, we're using a function from the
 
 This ```boxplot_abundance``` function builds upon the R package ggplot2, and we can therefore use additional arguments as we would with ggplot2. These are added with the + and are fairly self explanatory; we have added a title (ggtitle) and a y label (ylab). For the title, we've replaced part of the text with the `"\n"` which means that a line break has been added in to make this a little more readable. 
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 7**: Did it look like there are differences between the two treatments for the taxon that you plotted?
+
+::::
 
 ##### Plot DA all taxa
 
@@ -384,9 +447,14 @@ for(i in 1:length(overlap)) {
 ```
 Now, if you press the forward and back buttons in the "Plots" pane, you can scroll through all of the taxa that we've identified as differentially abundant by one of the tests. You'll probably be able to see that a lot of these taxa are really only found in one of the treatments and not the other, so it's fairly clear why they're coming up as being significantly different. 
 
-###### For loops
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**For loops**
+:::
 
 For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. If you already know about for loops, feel free to skip ahead to section 2.8. 
+
+::::
 
 It is easiest to explain by showing you, so try running this:
 ```
@@ -410,7 +478,14 @@ For loops can get incredibly complicated, can do lots of things, and can be nest
 
 ###### Back to the results
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 8**: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
+
+::::
 
 ### 4.2 Functional prediction with PICRUSt2
 
@@ -551,11 +626,26 @@ Read in the pathways file as a feature table:
 folder = '/home/ubuntu/workspace/bmb_module4/16S_analysis/'
 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)
 ```
-**Hint**: You'll need to unzip the ```picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz``` file before you can start.
+
+:::: {.redbox data-latex=""}
+::: {.center data-latex=""}
+**HINT!**
+:::
+
+You'll need to unzip the 'picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz' file before you can start.
+
+::::
 
 Take a look at pwy_table. Does that look right? Compare it with `path_abun_unstrat.tsv`. We just copied this code from when we were reading in our taxa file above. 
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 9**: What do you think might be wrong with it? 
+
+::::
 
 OK, so modify this line of code to fix it and let's try that again:
 ```
@@ -624,8 +714,15 @@ Now try running the above `plot_ordination` function again. Hopefully you'll see
 
 You should notice that we've chosen to colour and shape the samples by treatment. If you had more than one sample variable here, you could choose colour for one and shape for the other.
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Question 10**: Can you see differences between the samples based on the metadata variables?\
 **Question 11**: What are these differences like compared with those seen in the taxonomy data? 
+
+::::
 
 #### 4.2.4 Run PICRUSt2 differential abundance
 
@@ -721,7 +818,14 @@ Microbes don’t live in isolation—they form complex ecological communities wh
 
 In this section, we’ll use the `SpiecEasi` package to construct a sparse inverse covariance network—designed specifically for compositional data—and visualize it using igraph. Before we do that, however, we’ll identify which ASVs are significantly associated with treatment groups using indicator species analysis, and then filter our dataset to include only sufficiently prevalent and abundant taxa. Let's start by identifying those indicator species.
 
-**We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS**. 
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**NOTE!**
+:::
+
+**We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS**.  
+
+::::
 
 #### 4.3.1 Prepare data from the end of Module 2
 
@@ -912,7 +1016,14 @@ physeq_filtered <- prune_taxa(keep_taxa, physeq)
 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
 ```
 
-**Question 12**: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
+**Question 12**: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do? 
+
+::::
 
 #### 4.3.4 Contructing the Co-occurrence Network
 
@@ -928,7 +1039,14 @@ se.mb.16s <- spiec.easi(physeq_filtered, method = 'mb',
 cat("SpiecEasi complete.\n")
 ```
 
-**Question 13**: What other `method` algorithms are available for `SpiecEasi` other than `mb`? Can you find them in the manual? in and online search?
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
+**Question 13**: What other 'method' algorithms are available for 'SpiecEasi' other than 'mb'? Can you find them in the manual? in an online search?
+
+::::
 
 Next, we’ll convert the adjacency matrix from Spiec-Easi into an igraph object and relabel the nodes with the original ASV identifiers. We’ll also match the filtered phyloseq object to the ASVs used in the network and annotate each node with its indicator status.
 
@@ -1009,7 +1127,14 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
 dev.off()
 ```
 
-**Question 14**: Can you visualize the `ta2` rank? `ta4` rank?
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
+**Question 14**: Can you visualize the 'ta2' rank? 'ta4' rank?
+
+::::
 
 The Comparative Panel:
 ```
@@ -1055,7 +1180,14 @@ More advanced plotting can include adding network statistics as the sizes of the
 | **Eigenvector**    | Taxa connected to other highly connected taxa (influential nodes)         |
 | **PageRank**       | Like eigenvector but more robust—considers quality and quantity of links  |
 
+:::: {.bluebox data-latex=""}
+::: {.center data-latex=""}
+**QUESTION!**
+:::
+
 **Thought Question**: This above table shows how nodes could be statistically linked to ecological principles. If we see an ASV with high/low values in any of these statistics, what does it say about their influence in their community?
+
+::::
 
 Here is `Degree`:
 ```

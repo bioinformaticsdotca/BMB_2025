@@ -128,7 +128,6 @@ run-aldex2
 combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2
 plot-da-single-taxon
 plot-da-all-taxa
-for-loops
 back-to-the-results
 functional-prediction-with-picrust2-1
 filter-input-for-picrust2

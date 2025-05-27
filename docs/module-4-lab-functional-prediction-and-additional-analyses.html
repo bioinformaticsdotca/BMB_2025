@@ -283,7 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction-3" class="section level3 hasAnchor">
 <h3>Introduction<a href="module-4-lab-functional-prediction-and-additional-analyses.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this module, we’ll be taking a look at three of the major ways in which we use amplicon sequencing data to learn about microbial communities; (1) identifying taxa that are significantly differentially abundant between different sample groups, (2) predicting the functional capabilities of these communities based on the taxa that are present, and (3) constructing and visualising a co-occurrence network.</p>
+<div class="redbox">
+<div class="center">
+<p><strong>BEFORE YOU START!</strong></p>
+</div>
 <p><strong>There is likely more in this module than you can get through in the time provided, so we suggest that you choose which of these is of most interest to you, and start there.</strong> You can always come back and do some of the others if you are finished in time. PICRUSt2 is really only appropriate for 16S data, so if you used one of the other datasets then you can either copy across the 16S output or do one of the other sections of this lab. Ask one of us for help if you need it! You can read some information on each of these sections below before deciding which to run.</p>
+</div>
 <p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. As with the previous modules, you’ll find the <a href="module-1.html#answers">answers</a> at the bottom of this page, but no one will be marking them.</p>
 <div id="differential-abundance-testing-with-maaslin3-and-aldex2" class="section level4 hasAnchor">
 <h4>Differential abundance testing with MaAsLin3 and ALDEx2<a href="module-4-lab-functional-prediction-and-additional-analyses.html#differential-abundance-testing-with-maaslin3-and-aldex2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -402,7 +407,12 @@ random_number = 12345</code></pre>
 <p>Here we’re combining a few different things. We’re using the <code>read.csv</code> function - functions are modules of code that accomplish a specific task. We can write them ourselves, they are what is contained in the packages that we imported at the start, or there are several that are built in to R. If you want more information about what a function does as well as the input that it expects and the output that it gives, you can type in <code>?read.csv</code>.</p>
 <p>We’re also using the <code>paste</code> function to add together the full file path of the feature table. We’re giving it the <code>folder</code> variable that we already defined, as well as the additional folder and file name (both as positional arguments), and finally the <code>sep=""</code> named argument - this tells the <code>paste</code> function that there should be no spaces or other punctuation between the two parts that are being pasted together. Try running just this part and see what the result is: <code>paste(folder, "exports_filtered/feature-table.txt", sep="")</code> - note that as we haven’t given this a name, it is not saved as a variable.</p>
 <p>Next, we’ve given the <code>sep='\t'</code> variable - this time, we’re telling the <code>read.csv</code> function that the file that we’re importing is tab-delimited, then we’ve told it to skip the first line of the file <code>skip=1</code>, and that there is a header <code>header=T</code> (where T is the same as TRUE). We’ve skipped the first line because this just reads “# Constructed from biom file” and is not actually data.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 1</strong>: Type in <code>asv_table</code> or look at it in the “Environment” area in the top right. How many rows are there? Does this make sense to you?</p>
+</div>
 </div>
 <div id="manipulate-the-feature-table" class="section level5 hasAnchor">
 <h5>Manipulate the feature table<a href="module-4-lab-functional-prediction-and-additional-analyses.html#manipulate-the-feature-table" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -411,7 +421,12 @@ random_number = 12345</code></pre>
 rownames(asv_table_num) = asv_table[,1] #give the matrix row names</code></pre>
 <p>You can see here that I’ve added <code>#</code> after the code and have written what each line does. You can use <code>#</code> to make comments through your code documents, to explain what each line is doing. Here you should also notice that we didn’t save over the previous <code>asv_table</code>, but created a new one called <code>asv_table_num</code>. Now, we’ve just told R that it should be expecting numberic data within this table, and then we gave it the same row names as our previous <code>asv_table</code> object.</p>
 <p>Next, take a quick look at your sample names within asv_table_num.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 2</strong>: Are they the same as you remember - any different punctuation?</p>
+</div>
 <p>This is kind of annoying because it means that the sample names won’t match the metadata table, so we’ll change those now.</p>
 <pre><code>colnames(asv_table_num) = gsub(&quot;B.&quot;, &quot;B-&quot;, colnames(asv_table_num))</code></pre>
 </div>
@@ -453,7 +468,12 @@ physeq #print this out to see what a phyloseq object looks like</code></pre>
 taxa_names(physeq_genus) = all_tax
 otu_table(physeq_genus)</code></pre>
 <p>Take a look at each of these if you want to see what the differences were in each step!</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 3</strong>: How does the number of genera compare with the number of ASVs?</p>
+</div>
 </div>
 </div>
 </div>
@@ -490,7 +510,12 @@ metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)</code></pr
 <p>MaAsLin will save the results into a folder, so you can take a look in these folders and look at the <code>all_results.tsv</code> as well as <code>significant_results.tsv</code> files. You’ll see that <code>significant_results.tsv</code> is just a subsection of <code>all_results.tsv</code> - have a look at one of these files. It also makes some nice plots for you of the significant results - have a look through these and see if you can work out what they’re showing you.</p>
 <p>There are a lot of columns in the output; you’ll see some of the ones we’re interested in are: (1) the genus (“feature”), (2) the metadata variable being tested (“metadata”), (3) for categorical features, the specific feature level for which the coefficient and significance of association is being reported (“value”), (4) the model effect size/coefficient value (“coef”), (5) the standard error from the model (“stderr”), (6)
 pval_individual (7) qval_individual (8) pval_joint (9) qval_joint (10) error (11) model (12) N (13) N_not_zero</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 4</strong>: How many taxa does MaAsLin3 say are significantly differentially abundant?</p>
+</div>
 </div>
 <div id="run-aldex2" class="section level3 hasAnchor">
 <h3>4.1.4 Run ALDEx2<a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-aldex2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -499,12 +524,22 @@ pval_individual (7) qval_individual (8) pval_joint (9) qval_joint (10) error (11
 kw.test &lt;- aldex.kw(x, useMC=2, verbose=FALSE)
 write.csv(kw.test, paste(folder, &quot;ALDEx2_taxa.csv&quot;, sep=&quot;&quot;))</code></pre>
 <p>If you take a look at these results files then you’ll see that we have 4 columns: kw.ep, kw.eBH, glm.ep, glm.eBH - the p-values and Benjamini-Hochberg (BH)-corrected p-values for the Kruskal-Wallis and GLM ANOVA tests between the sample groups. There are several other options for testing within the ALDEx2 R package (including aldex.ttest and aldex.glm), but in this case, we can use the GLM ANOVA results for parametric tests and the Kruskal-Wallis results for non-parametric tests. We could also use aldex.effect to see the magnitude of the differences between groups.</p>
-<p><strong>Note</strong>: parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don’t need to run this next part, but can do if you like.</p>
+<div class="greenbox">
+<div class="center">
+<p><strong>NOTE!</strong></p>
+</div>
+<p>Parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don’t need to run this next part, but can do if you like.</p>
+</div>
 <pre><code>shapiro.test(as.data.frame(otu_table(physeq_genus))$&quot;B-Rt96&quot;)
 physeq_genus_clr = microbiome::transform(physeq_genus, &quot;clr&quot;)
 shapiro.test(as.data.frame(otu_table(physeq_genus_clr))$&quot;B-Rt96&quot;)</code></pre>
 <p>Transformations/normalisations of microbiome data are often used to make the usually non-normal microbiome data normal, however, in this case, it is not normal (significant p-value so the null hypothesis that the data are normal can be rejected - they are not normal). This means that we should use the Kruskal-Wallis test results.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 5</strong>: How many taxa does ALDEx2 find to be significantly differentially abundant?</p>
+</div>
 </div>
 <div id="combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2" class="section level3 hasAnchor">
 <h3>4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2<a href="module-4-lab-functional-prediction-and-additional-analyses.html#combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -515,7 +550,12 @@ maaslin$feature = gsub(&quot;\\g__Palsa.187&quot;, &quot;g__Palsa-187&quot;, maa
 maaslin$feature = gsub(&quot;\\.&quot;, &quot;;&quot;, maaslin$feature) #replace any remaining . with ;</code></pre>
 <p>Maaslin3 compares both abundance and prevalence, but as it is the only one to do prevalence, we will just look at abundance for now so we’ll filter the table:</p>
 <pre><code>maaslin = maaslin[maaslin$model == &#39;abundance&#39;, ]</code></pre>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 6</strong>: Are there any taxa left? Is that what you expected?</p>
+</div>
 <p>Now we’ll do the same for ALDEx2 (although here we don’t need to do the renaming):</p>
 <pre><code>aldex = read.csv(paste(folder, &quot;ALDEx2_taxa.csv&quot;, sep=&quot;&quot;))
 aldex = aldex[aldex$kw.eBH &lt;= 0.2, ]</code></pre>
@@ -535,7 +575,12 @@ aldex = aldex[aldex$kw.eBH &lt;= 0.2, ]</code></pre>
 <p>Note that if you didn’t replace the quotation marks with the name of a taxon above, then you will get an error message! Otherwise, you should see the plot pop up in the “Plots” section on the bottom right of the window.</p>
 <p>To explain what we have just done here a little, we’re using a function from the microbiome R package - sometimes there can be functions with the same name from multiple R packages, so adding <code>microbiome::</code> at the start tells R which one we are wanting to use. The first positional argument is the phyloseq object that we are using, and then everything else consists of named arguments: The metadata variable that we’d like to use for the x axis (and making the boxplots), what we’d like on the y axis (this needs to be a taxon that is in the phyloseq object), whether we’d like to map a variable onto the lines, whether we’d like this to be a violin plot rather than a boxplot, whether NAs should be removed, and whether points should be shown in addition to the boxes.</p>
 <p>This <code>boxplot_abundance</code> function builds upon the R package ggplot2, and we can therefore use additional arguments as we would with ggplot2. These are added with the + and are fairly self explanatory; we have added a title (ggtitle) and a y label (ylab). For the title, we’ve replaced part of the text with the <code>"\n"</code> which means that a line break has been added in to make this a little more readable.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 7</strong>: Did it look like there are differences between the two treatments for the taxon that you plotted?</p>
+</div>
 </div>
 <div id="plot-da-all-taxa" class="section level5 hasAnchor">
 <h5>Plot DA all taxa<a href="module-4-lab-functional-prediction-and-additional-analyses.html#plot-da-all-taxa" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -544,9 +589,12 @@ aldex = aldex[aldex$kw.eBH &lt;= 0.2, ]</code></pre>
   print(microbiome::boxplot_abundance(physeq_relabun, x=&#39;treatment&#39;, y=overlap[i]) + ggtitle(str_replace(overlap[i], &#39;;f__&#39;, &#39;\nf__&#39;)) + ylab(&#39;Relative abundance (%)&#39;))
 }</code></pre>
 <p>Now, if you press the forward and back buttons in the “Plots” pane, you can scroll through all of the taxa that we’ve identified as differentially abundant by one of the tests. You’ll probably be able to see that a lot of these taxa are really only found in one of the treatments and not the other, so it’s fairly clear why they’re coming up as being significantly different.</p>
-<div id="for-loops" class="section level6 hasAnchor">
-<h6>For loops<a href="module-4-lab-functional-prediction-and-additional-analyses.html#for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="greenbox">
+<div class="center">
+<p><strong>For loops</strong></p>
+</div>
 <p>For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. If you already know about for loops, feel free to skip ahead to section 2.8.</p>
+</div>
 <p>It is easiest to explain by showing you, so try running this:</p>
 <pre><code>print(overlap)
 print(length(overlap))</code></pre>
@@ -559,10 +607,14 @@ print(length(overlap))</code></pre>
 <p>You should see that now, a number is printed out, and then that number item from the list is also printed out after it. The for loop is telling us that for every value of i between 1 and the length(overlap), print out i and then print out the i’th item in the list. You can use this for accessing particular items in lists, too, <em>e.g.</em>, <code>overlap[2]</code>.</p>
 <p>This is a really simple example, but you can see how in the loop above, we just replaced <code>single_taxon</code>, from when we just plotted one taxon, with <code>overlap[i]</code> within the loop, so that it would change each time.</p>
 <p>For loops can get incredibly complicated, can do lots of things, and can be nested inside other for loops, but we won’t be doing anything more on them for now!</p>
-</div>
 <div id="back-to-the-results" class="section level6 hasAnchor">
 <h6>Back to the results<a href="module-4-lab-functional-prediction-and-additional-analyses.html#back-to-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 8</strong>: Are there any taxa that you’re surprised to see are significantly differentially abundant? Why?</p>
+</div>
 </div>
 </div>
 </div>
@@ -650,9 +702,19 @@ biom convert \
 <p>Read in the pathways file as a feature table:</p>
 <pre><code>folder = &#39;/home/ubuntu/workspace/bmb_module4/16S_analysis/&#39;
 pwy_table &lt;- read.csv(paste(folder, &quot;picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;, skip=1, header=T)</code></pre>
-<p><strong>Hint</strong>: You’ll need to unzip the <code>picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz</code> file before you can start.</p>
+<div class="redbox">
+<div class="center">
+<p><strong>HINT!</strong></p>
+</div>
+<p>You’ll need to unzip the ‘picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz’ file before you can start.</p>
+</div>
 <p>Take a look at pwy_table. Does that look right? Compare it with <code>path_abun_unstrat.tsv</code>. We just copied this code from when we were reading in our taxa file above.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 9</strong>: What do you think might be wrong with it?</p>
+</div>
 <p>OK, so modify this line of code to fix it and let’s try that again:</p>
 <pre><code>pwy_table &lt;- read.csv(paste(folder, &quot;picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv&quot;, sep=&quot;&quot;), sep=&#39;\t&#39;, skip=1, header=T)</code></pre>
 <p>Manipulate the feature table:</p>
@@ -693,8 +755,13 @@ plot_ordination(physeq_pwy_relabun, ps.ord, type=&quot;samples&quot;, color=&quo
 <pre><code>sample_data(physeq_pwy_relabun)$second_column = &#39;fake_data&#39;</code></pre>
 <p>Now try running the above <code>plot_ordination</code> function again. Hopefully you’ll see that it works now! It’s annoying when we have to find work-arounds like this, but it happens reasonably often.</p>
 <p>You should notice that we’ve chosen to colour and shape the samples by treatment. If you had more than one sample variable here, you could choose colour for one and shape for the other.</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 10</strong>: Can you see differences between the samples based on the metadata variables?<br />
 <strong>Question 11</strong>: What are these differences like compared with those seen in the taxonomy data?</p>
+</div>
 </div>
 <div id="run-picrust2-differential-abundance" class="section level4 hasAnchor">
 <h4>4.2.4 Run PICRUSt2 differential abundance<a href="module-4-lab-functional-prediction-and-additional-analyses.html#run-picrust2-differential-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -761,7 +828,12 @@ aldex = aldex[aldex$kw.eBH &lt;= 0.2, ]</code></pre>
 <h4>Introduction<a href="module-4-lab-functional-prediction-and-additional-analyses.html#introduction-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Microbes don’t live in isolation—they form complex ecological communities where interactions between taxa can be cooperative, competitive, or neutral. One way to explore these interactions is through co-occurrence networks, where nodes represent microbial taxa and edges represent inferred associations. To make these networks more biologically meaningful, we need to account for the compositional nature of microbiome data and avoid common pitfalls such as spurious correlations.</p>
 <p>In this section, we’ll use the <code>SpiecEasi</code> package to construct a sparse inverse covariance network—designed specifically for compositional data—and visualize it using igraph. Before we do that, however, we’ll identify which ASVs are significantly associated with treatment groups using indicator species analysis, and then filter our dataset to include only sufficiently prevalent and abundant taxa. Let’s start by identifying those indicator species.</p>
+<div class="greenbox">
+<div class="center">
+<p><strong>NOTE!</strong></p>
+</div>
 <p><strong>We would HIGHLY suggest you use 16S for this section, but if you’re feeling adventurous you can see if you can get it to run for 18S or ITS</strong>.</p>
+</div>
 </div>
 <div id="prepare-data-from-the-end-of-module-2-1" class="section level4 hasAnchor">
 <h4>4.3.1 Prepare data from the end of Module 2<a href="module-4-lab-functional-prediction-and-additional-analyses.html#prepare-data-from-the-end-of-module-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -902,7 +974,12 @@ keep_taxa &lt;- (prev_df &gt;= min_prev) &amp; (mean_abun &gt;= min_abun)</code>
 <pre><code># Subset
 physeq_filtered &lt;- prune_taxa(keep_taxa, physeq)
 cat(&quot;Remaining taxa after filtering:&quot;, ntaxa(physeq_filtered), &quot;\n&quot;)</code></pre>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Question 12</strong>: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?</p>
+</div>
 </div>
 <div id="contructing-the-co-occurrence-network" class="section level4 hasAnchor">
 <h4>4.3.4 Contructing the Co-occurrence Network<a href="module-4-lab-functional-prediction-and-additional-analyses.html#contructing-the-co-occurrence-network" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -914,7 +991,12 @@ se.mb.16s &lt;- spiec.easi(physeq_filtered, method = &#39;mb&#39;,
                         pulsar.params = list(rep.num = 50, ncores = 3))
 
 cat(&quot;SpiecEasi complete.\n&quot;)</code></pre>
-<p><strong>Question 13</strong>: What other <code>method</code> algorithms are available for <code>SpiecEasi</code> other than <code>mb</code>? Can you find them in the manual? in and online search?</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<p><strong>Question 13</strong>: What other ‘method’ algorithms are available for ‘SpiecEasi’ other than ‘mb’? Can you find them in the manual? in an online search?</p>
+</div>
 <p>Next, we’ll convert the adjacency matrix from Spiec-Easi into an igraph object and relabel the nodes with the original ASV identifiers. We’ll also match the filtered phyloseq object to the ASVs used in the network and annotate each node with its indicator status.</p>
 <pre><code>ig2.mb &lt;- adj2igraph(getRefit(se.mb.16s))
 # Replace numeric node names with actual ASV IDs
@@ -981,7 +1063,12 @@ legend(&quot;topright&quot;, inset = c(-0.18, 0), legend = levels(ta3_factor),
        col = colors_ta3, pch = 19, pt.cex = 1.5, bty = &quot;n&quot;, title = &quot;ta3&quot;)
 
 dev.off()</code></pre>
-<p><strong>Question 14</strong>: Can you visualize the <code>ta2</code> rank? <code>ta4</code> rank?</p>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
+<p><strong>Question 14</strong>: Can you visualize the ‘ta2’ rank? ‘ta4’ rank?</p>
+</div>
 <p>The Comparative Panel:</p>
 <pre><code># --- Panel figure ---
 cat(&quot;Saving combined panel figure...\n&quot;)
@@ -1049,7 +1136,12 @@ dev.off()</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="bluebox">
+<div class="center">
+<p><strong>QUESTION!</strong></p>
+</div>
 <p><strong>Thought Question</strong>: This above table shows how nodes could be statistically linked to ecological principles. If we see an ASV with high/low values in any of these statistics, what does it say about their influence in their community?</p>
+</div>
 <p>Here is <code>Degree</code>:</p>
 <pre><code># Panel figure with degree-based sizing
 cat(&quot;Saving panel figure with degree-based node sizing...\n&quot;)
@@ -1424,42 +1516,42 @@ Not applicable.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/cbw-dev/bookdown-template/blob/main/050-module-4.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/cbw-dev/bookdown-template/blob/main/050-module-4.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

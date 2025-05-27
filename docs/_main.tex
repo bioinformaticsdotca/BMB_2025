@@ -2535,7 +2535,16 @@ This tutorial is part of the 2025 CBW \href{https://bioinformaticsdotca.github.i
 
 In this module, we'll be taking a look at three of the major ways in which we use amplicon sequencing data to learn about microbial communities; (1) identifying taxa that are significantly differentially abundant between different sample groups, (2) predicting the functional capabilities of these communities based on the taxa that are present, and (3) constructing and visualising a co-occurrence network.
 
+\begin{redbox}
+
+\begin{center}
+\textbf{BEFORE YOU START!}
+
+\end{center}
+
 \textbf{There is likely more in this module than you can get through in the time provided, so we suggest that you choose which of these is of most interest to you, and start there.} You can always come back and do some of the others if you are finished in time. PICRUSt2 is really only appropriate for 16S data, so if you used one of the other datasets then you can either copy across the 16S output or do one of the other sections of this lab. Ask one of us for help if you need it! You can read some information on each of these sections below before deciding which to run.
+
+\end{redbox}
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. As with the previous modules, you'll find the \hyperref[answers]{answers} at the bottom of this page, but no one will be marking them.
 
@@ -2690,7 +2699,16 @@ We're also using the \texttt{paste} function to add together the full file path 
 
 Next, we've given the \texttt{sep=\textquotesingle{}\textbackslash{}t\textquotesingle{}} variable - this time, we're telling the \texttt{read.csv} function that the file that we're importing is tab-delimited, then we've told it to skip the first line of the file \texttt{skip=1}, and that there is a header \texttt{header=T} (where T is the same as TRUE). We've skipped the first line because this just reads ``\# Constructed from biom file'' and is not actually data.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 1}: Type in \texttt{asv\_table} or look at it in the ``Environment'' area in the top right. How many rows are there? Does this make sense to you?
+
+\end{bluebox}
 
 \paragraph{Manipulate the feature table}\label{manipulate-the-feature-table}
 
@@ -2705,7 +2723,16 @@ You can see here that I've added \texttt{\#} after the code and have written wha
 
 Next, take a quick look at your sample names within asv\_table\_num.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 2}: Are they the same as you remember - any different punctuation?
+
+\end{bluebox}
 
 This is kind of annoying because it means that the sample names won't match the metadata table, so we'll change those now.
 
@@ -2779,7 +2806,16 @@ otu_table(physeq_genus)
 
 Take a look at each of these if you want to see what the differences were in each step!
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 3}: How does the number of genera compare with the number of ASVs?
+
+\end{bluebox}
 
 \subsection{4.1.3 Run MaAsLin3}\label{run-maaslin3}
 
@@ -2834,7 +2870,16 @@ MaAsLin will save the results into a folder, so you can take a look in these fol
 There are a lot of columns in the output; you'll see some of the ones we're interested in are: (1) the genus (``feature''), (2) the metadata variable being tested (``metadata''), (3) for categorical features, the specific feature level for which the coefficient and significance of association is being reported (``value''), (4) the model effect size/coefficient value (``coef''), (5) the standard error from the model (``stderr''), (6)
 pval\_individual (7) qval\_individual (8) pval\_joint (9) qval\_joint (10) error (11) model (12) N (13) N\_not\_zero
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 4}: How many taxa does MaAsLin3 say are significantly differentially abundant?
+
+\end{bluebox}
 
 \subsection{4.1.4 Run ALDEx2}\label{run-aldex2}
 
@@ -2848,7 +2893,16 @@ write.csv(kw.test, paste(folder, "ALDEx2_taxa.csv", sep=""))
 
 If you take a look at these results files then you'll see that we have 4 columns: kw.ep, kw.eBH, glm.ep, glm.eBH - the p-values and Benjamini-Hochberg (BH)-corrected p-values for the Kruskal-Wallis and GLM ANOVA tests between the sample groups. There are several other options for testing within the ALDEx2 R package (including aldex.ttest and aldex.glm), but in this case, we can use the GLM ANOVA results for parametric tests and the Kruskal-Wallis results for non-parametric tests. We could also use aldex.effect to see the magnitude of the differences between groups.
 
-\textbf{Note}: parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don't need to run this next part, but can do if you like.
+\begin{greenbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
+Parametric tests make assumptions about the distribution of the population that the samples are taken from (typically that it is normally distributed), while non-parametric tests are distribution free and can be used for non-normal variables. Microbiome data are not typically normally distributed, but we can test this. You don't need to run this next part, but can do if you like.
+
+\end{greenbox}
 
 \begin{verbatim}
 shapiro.test(as.data.frame(otu_table(physeq_genus))$"B-Rt96")
@@ -2858,7 +2912,16 @@ shapiro.test(as.data.frame(otu_table(physeq_genus_clr))$"B-Rt96")
 
 Transformations/normalisations of microbiome data are often used to make the usually non-normal microbiome data normal, however, in this case, it is not normal (significant p-value so the null hypothesis that the data are normal can be rejected - they are not normal). This means that we should use the Kruskal-Wallis test results.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 5}: How many taxa does ALDEx2 find to be significantly differentially abundant?
+
+\end{bluebox}
 
 \subsection{4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2}\label{combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2}
 
@@ -2878,7 +2941,16 @@ Maaslin3 compares both abundance and prevalence, but as it is the only one to do
 maaslin = maaslin[maaslin$model == 'abundance', ]
 \end{verbatim}
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 6}: Are there any taxa left? Is that what you expected?
+
+\end{bluebox}
 
 Now we'll do the same for ALDEx2 (although here we don't need to do the renaming):
 
@@ -2925,7 +2997,16 @@ To explain what we have just done here a little, we're using a function from the
 
 This \texttt{boxplot\_abundance} function builds upon the R package ggplot2, and we can therefore use additional arguments as we would with ggplot2. These are added with the + and are fairly self explanatory; we have added a title (ggtitle) and a y label (ylab). For the title, we've replaced part of the text with the \texttt{"\textbackslash{}n"} which means that a line break has been added in to make this a little more readable.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 7}: Did it look like there are differences between the two treatments for the taxon that you plotted?
+
+\end{bluebox}
 
 \paragraph{Plot DA all taxa}\label{plot-da-all-taxa}
 
@@ -2939,9 +3020,16 @@ for(i in 1:length(overlap)) {
 
 Now, if you press the forward and back buttons in the ``Plots'' pane, you can scroll through all of the taxa that we've identified as differentially abundant by one of the tests. You'll probably be able to see that a lot of these taxa are really only found in one of the treatments and not the other, so it's fairly clear why they're coming up as being significantly different.
 
-\subparagraph{For loops}\label{for-loops}
+\begin{greenbox}
+
+\begin{center}
+\textbf{For loops}
+
+\end{center}
 
 For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. If you already know about for loops, feel free to skip ahead to section 2.8.
+
+\end{greenbox}
 
 It is easiest to explain by showing you, so try running this:
 
@@ -2969,7 +3057,16 @@ For loops can get incredibly complicated, can do lots of things, and can be nest
 
 \subparagraph{Back to the results}\label{back-to-the-results}
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 8}: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
+
+\end{bluebox}
 
 \subsection{4.2 Functional prediction with PICRUSt2}\label{functional-prediction-with-picrust2-1}
 
@@ -3128,11 +3225,29 @@ folder = '/home/ubuntu/workspace/bmb_module4/16S_analysis/'
 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)
 \end{verbatim}
 
-\textbf{Hint}: You'll need to unzip the \texttt{picrust2\_out\_pipeline\_filtered/pathways\_out/path\_abun\_unstrat.tsv.gz} file before you can start.
+\begin{redbox}
+
+\begin{center}
+\textbf{HINT!}
+
+\end{center}
+
+You'll need to unzip the `picrust2\_out\_pipeline\_filtered/pathways\_out/path\_abun\_unstrat.tsv.gz' file before you can start.
+
+\end{redbox}
 
 Take a look at pwy\_table. Does that look right? Compare it with \texttt{path\_abun\_unstrat.tsv}. We just copied this code from when we were reading in our taxa file above.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 9}: What do you think might be wrong with it?
+
+\end{bluebox}
 
 OK, so modify this line of code to fix it and let's try that again:
 
@@ -3214,8 +3329,17 @@ Now try running the above \texttt{plot\_ordination} function again. Hopefully yo
 
 You should notice that we've chosen to colour and shape the samples by treatment. If you had more than one sample variable here, you could choose colour for one and shape for the other.
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 10}: Can you see differences between the samples based on the metadata variables?\\
 \textbf{Question 11}: What are these differences like compared with those seen in the taxonomy data?
+
+\end{bluebox}
 
 \subsubsection{4.2.4 Run PICRUSt2 differential abundance}\label{run-picrust2-differential-abundance}
 
@@ -3325,7 +3449,16 @@ Microbes don't live in isolation---they form complex ecological communities wher
 
 In this section, we'll use the \texttt{SpiecEasi} package to construct a sparse inverse covariance network---designed specifically for compositional data---and visualize it using igraph. Before we do that, however, we'll identify which ASVs are significantly associated with treatment groups using indicator species analysis, and then filter our dataset to include only sufficiently prevalent and abundant taxa. Let's start by identifying those indicator species.
 
+\begin{greenbox}
+
+\begin{center}
+\textbf{NOTE!}
+
+\end{center}
+
 \textbf{We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS}.
+
+\end{greenbox}
 
 \subsubsection{4.3.1 Prepare data from the end of Module 2}\label{prepare-data-from-the-end-of-module-2-1}
 
@@ -3541,7 +3674,16 @@ physeq_filtered <- prune_taxa(keep_taxa, physeq)
 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
 \end{verbatim}
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Question 12}: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?
+
+\end{bluebox}
 
 \subsubsection{4.3.4 Contructing the Co-occurrence Network}\label{contructing-the-co-occurrence-network}
 
@@ -3558,7 +3700,16 @@ se.mb.16s <- spiec.easi(physeq_filtered, method = 'mb',
 cat("SpiecEasi complete.\n")
 \end{verbatim}
 
-\textbf{Question 13}: What other \texttt{method} algorithms are available for \texttt{SpiecEasi} other than \texttt{mb}? Can you find them in the manual? in and online search?
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\textbf{Question 13}: What other `method' algorithms are available for `SpiecEasi' other than `mb'? Can you find them in the manual? in an online search?
+
+\end{bluebox}
 
 Next, we'll convert the adjacency matrix from Spiec-Easi into an igraph object and relabel the nodes with the original ASV identifiers. We'll also match the filtered phyloseq object to the ASVs used in the network and annotate each node with its indicator status.
 
@@ -3641,7 +3792,16 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
 dev.off()
 \end{verbatim}
 
-\textbf{Question 14}: Can you visualize the \texttt{ta2} rank? \texttt{ta4} rank?
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
+\textbf{Question 14}: Can you visualize the `ta2' rank? `ta4' rank?
+
+\end{bluebox}
 
 The Comparative Panel:
 
@@ -3700,7 +3860,16 @@ More advanced plotting can include adding network statistics as the sizes of the
 \textbf{PageRank} & Like eigenvector but more robust---considers quality and quantity of links \\
 \end{longtable}
 
+\begin{bluebox}
+
+\begin{center}
+\textbf{QUESTION!}
+
+\end{center}
+
 \textbf{Thought Question}: This above table shows how nodes could be statistically linked to ecological principles. If we see an ASV with high/low values in any of these statistics, what does it say about their influence in their community?
+
+\end{bluebox}
 
 Here is \texttt{Degree}:
 
