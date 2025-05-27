@@ -180,7 +180,7 @@ Next, we've given the ```sep='\t'``` variable - this time, we're telling the ```
 **QUESTION!**
 :::
 
-**Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
+**Question 1**: Type in 'asv_table' or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
 
 ::::
 
