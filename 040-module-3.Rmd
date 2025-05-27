@@ -68,7 +68,7 @@ Throughout this module, there are some questions aimed to help your understandin
 [SEPP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5904434/) (SATé-enabled Phylogenetic Placement) is a tool used to place short DNA sequences—such as 16S rRNA amplicon sequence variants (ASVs)—into an existing, high-quality reference phylogenetic tree. This is particularly helpful when you are working with microbiome data and want to infer evolutionary relationships more accurately. We will use QIIME 2's `q2-fragment-insertion` plugin to place ASVs derived from our **16S data** into a reference phylogenetic tree using the command below.
 
 ```{bash,eval=FALSE}
-qiime fragment-insertion sepp
+qiime fragment-insertion sepp \
   --i-representative-sequences deblur_output/rep_seqs_final.qza \
   --i-reference-database ~/CourseData/MIC_data/bmb_module3/16S_analysis/sepp-refs-gg-13-8.qza \
   --o-tree asvs-tree.qza \
