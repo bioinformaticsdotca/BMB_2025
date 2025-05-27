@@ -2,7 +2,9 @@
 
 # Module 1 
 
-## Lecture Slides
+## Lecture
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/S2KEB4uaOJE?si=0szhzuADFW0upO00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/1O12p5cEe1FHYtzRceEz9Sv4p2qbu8a0l/preview" width="640" height="480" allow="autoplay"></iframe>  
 
@@ -12,7 +14,7 @@ This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bio
 
 **Author**: Robyn Wright
 
-## Introduction
+### Introduction
 
 In this module, we're going to be learning the basics of moving around on the command line, creating directories, zipping and unzipping folders, making tar archives and installing programs on a server. We'll also be downloading files to the server, investigating the format of fasta and fastq files, and looking at the quality of sequenced samples. 
 
@@ -23,11 +25,11 @@ In this module, we're going to be learning the basics of moving around on the co
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them. **You might want to keep the answers open in another tab!**
 ::::
 
-## 1.1 Log into your AWS instance
+### 1.1 Log into your AWS instance
 
 Hopefully you were able to attend the session on Friday where we went over this, but I’ve added the instructions below as a reminder. You can also follow the instructions [here](https://github.com/bioinformaticsdotca/AWS_stuff/blob/master/Logging_into_the_Amazon_cloud.md).
 
-### Mac/Linux
+#### Mac/Linux
 
 First off, you’ll need to save the .pem key file that you’ve been given.
 
@@ -57,7 +59,7 @@ where ## is your assigned student number. Again, make sure you replace CBW.pem w
 
 It will then probably ask you if you’re sure you want to connect. Type “yes” and press enter. Now you should see something like ```(base) ubuntu@ip-10-0-1-199:~$``` to the left of your cursor. Great, you’re connected!
 
-### Windows
+#### Windows
 
 First off, you’ll need to save the .ppk key file that you’ve been given.
 
@@ -76,10 +78,11 @@ Now, click on the “Session” category again. In the “Saved sessions” fiel
 
 Now that Putty is set up, all you have to do is start putty and double-click on “Amazon node” to login. Now you should see something like ```(base) ubuntu@ip-10-0-1-199:~$``` to the left of your cursor. Great, you’re connected!
 
-## 1.2 Creating directories and moving around on the command line
+### 1.2 Creating directories and moving around on the command line
 
 Now that we're logged in, we're going to get familiar with what's on the server. First of all, type ```ls``` and press enter. You should see five things printed out:\
 ```CourseData  R  anaconda3  bin  workspace```\
+
 These are all directories/folders on the server. Think of these like you would the directories on your own computer, e.g. "My Documents" and "Downloads". The ```ls``` command is just telling the server to list out the files/directories in the directory that we're currently in. 
 
 Next, type in ```pwd``` and press enter. The ```pwd``` command tells you which directory you're currently in, so we can see that we're in ```/home/ubuntu```. 
@@ -93,7 +96,7 @@ Now let's change to the directory we just made:\
 If you use the ```ls``` command, you should see that it's empty. Now what happens if we want to go back to the ```workspace``` directory? We can use ```cd ..```, which will take us up one level. Try that and then use the ```ls``` command again. You should see the folder that you made. If you use ```cd``` on it's own, then it'll take you back to where you started. Try it and then use the ```pwd``` command. Now to get back to the directory we created for this module, use: ```cd ~/workspace/bmb_module1```.
 Note that any time you log out from the server (or lose connection/time out and get logged out), you will need to change back to the directory that you're working from. Use the ```pwd``` command once more to check that you're in the right place (```/home/ubuntu/workspace/bmb_module1```). 
 
-## 1.3 Use wget to download files
+### 1.3 Use wget to download files
 
 Now we're going to download some files to use. There are a lot of different data repositories available online, but we're going to use some data from the Human Microbiome Project. This repository is quite straightforward because all we need is a link to the data and we can download it, but other repositories require their own programs and file formats for downloading which can make them quite complicated (and frustrating, if you don't know what you're doing!) to use. You can see the webpage that we're taking the files from [here](https://www.ibdmdb.org/downloads/html/rawfiles_16s_2018-01-08.html).
 
@@ -110,7 +113,7 @@ You should see some progress bars come up, but these files aren't very big so th
 206534.fastq.gz  206536.fastq.gz  206538.fastq.gz
 ```
 
-## 1.4 Move these files to the directories
+### 1.4 Move these files to the directories
 
 When we downloaded these, we didn't make a directory to put them in, so let's do that now so that we can tidy them up a bit:
 ```
@@ -128,7 +131,7 @@ mv *.fastq.gz test_data/
 ```
 The asterisk (```*```) acts as a wildcard, and anything that ends in ```.fastq.gz``` will be moved using this command. If you take a look in ```test_data``` again using the ```ls``` command, you should see all three files in there now, and not in your current directory. Another useful thing that you can do with the ```ls``` command is add another argument to get some information about the files: ```ls -lh test_data/```. When you run this, you should see who has permission to read/write to the files, the author and the owner of the files, the size of the files, and when they were created. The ```-l``` is what is telling this to give you the information, and adding the ```h``` converts this into "human" readable format. Try using it without the ```h``` - you'll see that the file sizes are in bytes instead of megabytes (MB/M).
 
-## 1.5 Zip and unzip these files
+### 1.5 Zip and unzip these files
 
 You might have noticed the ```.gz``` on the end of the files indicating that they're zipped (or compressed). Sometimes when we run bioinformatics programs they can uncompress the files within the program, but other times we need to uncompress (unzip) them first. These are quite small files so you might think it's unnecessary to zip/compress them, but often we have thousands of sequencing data files and they can each be hundreds of gigabytes (GB) or even terabytes (TB) in size, so it becomes quite important to keep them compressed until we need them. 
 
@@ -142,7 +145,7 @@ What happens if you try to run this on a file that is already zipped? ```gzip te
 Let's unzip all of the files now: ```gunzip test_data/*```
 See that we can use the asterisk (```*```) again as a wildcard and it will unzip every file in the ```test_data``` directory. Take a look at the directory with ```ls``` or ```ls -lh``` if you like. Remember to add the directory name!
 
-## 1.6 Create new tar archive of files
+### 1.6 Create new tar archive of files
 
 There are several different ways of compressing files - there is ```gzip```/```gunzip``` that we just used, but we can also package up multiple files inside a directory together. We'll be using the ```tar``` command for this, and as you can see if you run ```tar --help```, you'll see that there are lots of options available for this. Let's try it out with the ```test_data``` directory:
 ```tar -czvf test_data.tar.gz test_data/```
@@ -153,13 +156,13 @@ If you now run ```ls -lh```, you should see that the tar archive (```test_data.t
 
 Usually we'll make a tar archive because we want to keep our files but save some space, so let's delete the original folder: ```rm -r test_data/```. Hopefully by now you're getting the hang of how these commands work. The ```rm``` command is for removing files - you should always be really careful when using it because it won't ask you if you're sure like your regular computer would, and most servers don't have a "recycle bin" for the files to be sent to, so if you remove them, they're gone for good. The ```-r``` argument is for removing a directory rather than just a file. 
 
-## 1.7 Unzip tar archive
+### 1.7 Unzip tar archive
 
 If we need to use the data that we zipped into the tar archive again, we'll need to unzip - or extract - it. 
 
 To unzip the tar archive, we can do that like so: ```tar -xvf test_data.tar.gz```. Note that we just replaced the ```cz``` with ```x``` for "extract". You should be able to see the files back in ```test_data``` with the ```ls``` command.
 
-## 1.8 Look at fasta and fastq files with less
+### 1.8 Look at fasta and fastq files with less
 
 Now we're going to take a look at these files. Let's look at ```206538``` first: ```less test_data/206538.fastq```. You can scroll through the file, and remember to press ```q``` when you want to stop looking at the file. If you want to look at it again, press the up arrow key to run the ```less``` command again. You can always press the up arrow to go back through the commands that you've run previously. If you've typed something wrong and want to start again, press ```ctrl```+```c``` to get back to a blank command prompt. 
 
@@ -213,7 +216,7 @@ In most programming languages, you have "positional" arguments and "named" argum
 
 Remember to look at the fastq file with the ```less``` command for clues, or try running it without the ```-c``` argument.
 
-## 1.9 Installing programs to the server
+### 1.9 Installing programs to the server
 
 Now we're going to learn how to install programs to the server. A lot of the commands we have just used (like ```grep``` and ```less```) are standard ones that will be installed on most servers, but frequently we will need to install other programs (usually called "packages"), too. The packages that we use are often not as stable as those that we download and use on our laptops (like Microsoft Word or Adobe Acrobat Reader) and so they sometimes depend on a particular version of another package. It frequently takes more time to install packages than it does to run them, and any bioinformatician will tell you how frustrating it can be. Anaconda can help to manage this, although it doesn't overcome these problems entirely! 
 
@@ -228,7 +231,7 @@ bash Anaconda3-2024.10-1-Linux-x86_64.sh
 #now close and reopen the window - you'll need to log back in the same way as you did before!
 ```
 
-## 1.10 Conda environments
+### 1.10 Conda environments
 
 Anaconda, or conda, allows us to have separate "environments" for installing packages into. This means that if one package requires version 3.1 of another package, but another requires version 2.9, they won't interfere with each other. Often when we're installing new packages or starting a new project, we'll make a new environment. This also helps us to keep track of which versions of a package we've used for a specific project. The environment is essentially a directory that contains a collection of packages that you've installed, so that other packages know where to access the package that they need to use. We're going to make a new environment to install some packages into:
 ```
@@ -242,7 +245,7 @@ You'll need to press ```y``` at some point, to confirm that you want to install 
 Now we can "activate" this environment like this: ```conda activate bmb_module1```.
 Any time you are logged out and you log back in, you'll need to reactivate the environment if you want to be working from it. If you want to see the other environments that are installed and available, you can run ```conda info --envs```. You'll see that we've already installed a lot of environments that we'll be using over the next few days. While it would be great to be able to get you to install all of this for yourself, it can take quite a long time to install some packages so we've set most of them up already. If you want to see how we did that, you can see most of that [here](https://github.com/LangilleLab/microbiome_helper/wiki/CBW-2024:-Initial-setup-of-environments).
 
-## 1.11 Install fastqc and multiqc
+### 1.11 Install fastqc and multiqc
 
 Now we'll install the packages that we want to use. Usually if there's a package that you're interested in, for example we'll be using one called "fastqc", you can just google "conda install fastqc" and you should see an anaconda.org page as one of the top hits, telling you how to install it. Sometimes you'll also see bioconda documentation, or a "package recipe" and this might give more details if you're struggling to install it. We'll install fastqc like this:
 ```
@@ -260,7 +263,7 @@ Confirm this again with ```y```
 
 As you might have guessed from the "qc" in both of these names, we'll be using them for Quality Control of the sequence data. 
 
-## 1.12 Perform quality control on fastq files
+### 1.12 Perform quality control on fastq files
 
 First we'll be running fastqc, and to do that, we'll first make a directory for the output to go: ```mkdir fastqc_out```
 
@@ -273,7 +276,7 @@ Here the arguments that we're giving ```fastqc``` are:
 - ```test_data/*.fastq```: the fastq files that we want to check the quality of.
 - ```-o fastqc_out```: the folder to save the output to. 
 
-## 1.13 htop - looking at the number of processes we have available or running
+### 1.13 htop - looking at the number of processes we have available or running
 
 Try running ```htop```. This is an interactive viewer that shows you the processes that are running on your computer/server. There are a lot of different bits of information that this is showing us - you can see all of that [here](https://monovm.com/blog/what-is-htop-and-what-does-it-do/#:~:text=Htop%20is%20an%20interactive%20system,system%20processes%20can%20be%20viewed.), but the key things for us are:
 - The CPUs (labelled 0, 1, 2, 3 at the top left) - this shows the percentage of the CPU being used for each core, and the number of cores shown here is the number of different processes/threads that we have available to us. In our case, this is 4. 
@@ -282,7 +285,7 @@ Try running ```htop```. This is an interactive viewer that shows you the process
 
 When you're done looking at this, press ```F10``` (on a Mac this is ```fn```+```F10```) to exit from this screen. 
 
-## 1.14 Back to the quality control
+### 1.14 Back to the quality control
 
 Now take a look at one of the .html files in ```bmb_module1/fastqc_out/``` (note that you'll need to download it as you did above, and if you still have the webpage open, you will need to refresh it).
 
@@ -312,7 +315,7 @@ There are some questions here to help you look at the files and interpret these:
 
 ::::
 
-## 1.15 Quality control on the data that we'll be using
+### 1.15 Quality control on the data that we'll be using
 
 Next, if you have time, you can try running the quality control on the data that we're going to be using for the other modules.
 
@@ -351,7 +354,7 @@ Note that files with _R1 are forward reads and those with _R2 are reverse.
 
 ::::
 
-## 1.16 Install QIIME2
+### 1.16 Install QIIME2
 
 For the final part of this module, we're going to install the program (QIIME2) that we'll be using for the rest of today and some of tomorrow. 
 
@@ -386,7 +389,7 @@ And now we can remove the file that we used to install it:
 rm qiime2-amplicon-ubuntu-latest-conda.yml
 ```
 
-## Answers
+### Answers
 
 **Question 1**: How many sequences does this mean that there are? Remember that you can just use ```less test_data/206538.fastq``` to look at the file. \
 Each sequences is spread across four different lines, so there are 63,048/4 = 15,762 sequences.

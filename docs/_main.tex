@@ -203,7 +203,7 @@ Coming soon!
 
 \chapter{Module 1}\label{module-1}
 
-\section{Lecture Slides}\label{lecture-slides}
+\section{Lecture}\label{lecture}
 
 \section{Lab: Introduction to sequencing data analysis}\label{lab-introduction-to-sequencing-data-analysis}
 
@@ -211,7 +211,7 @@ This tutorial is part of the 2025 CBW \href{https://bioinformaticsdotca.github.i
 
 \textbf{Author}: Robyn Wright
 
-\section{Introduction}\label{introduction}
+\subsection{Introduction}\label{introduction}
 
 In this module, we're going to be learning the basics of moving around on the command line, creating directories, zipping and unzipping folders, making tar archives and installing programs on a server. We'll also be downloading files to the server, investigating the format of fasta and fastq files, and looking at the quality of sequenced samples.
 
@@ -226,11 +226,11 @@ Throughout this module, there are some questions aimed to help your understandin
 
 \end{bluebox}
 
-\section{1.1 Log into your AWS instance}\label{log-into-your-aws-instance}
+\subsection{1.1 Log into your AWS instance}\label{log-into-your-aws-instance}
 
 Hopefully you were able to attend the session on Friday where we went over this, but I've added the instructions below as a reminder. You can also follow the instructions \href{https://github.com/bioinformaticsdotca/AWS_stuff/blob/master/Logging_into_the_Amazon_cloud.md}{here}.
 
-\subsection{Mac/Linux}\label{maclinux}
+\subsubsection{Mac/Linux}\label{maclinux}
 
 First off, you'll need to save the .pem key file that you've been given.
 
@@ -262,7 +262,7 @@ where \#\# is your assigned student number. Again, make sure you replace CBW.pem
 
 It will then probably ask you if you're sure you want to connect. Type ``yes'' and press enter. Now you should see something like \texttt{(base)\ ubuntu@ip-10-0-1-199:\textasciitilde{}\$} to the left of your cursor. Great, you're connected!
 
-\subsection{Windows}\label{windows}
+\subsubsection{Windows}\label{windows}
 
 First off, you'll need to save the .ppk key file that you've been given.
 
@@ -282,10 +282,11 @@ Now, click on the ``Session'' category again. In the ``Saved sessions'' field, t
 
 Now that Putty is set up, all you have to do is start putty and double-click on ``Amazon node'' to login. Now you should see something like \texttt{(base)\ ubuntu@ip-10-0-1-199:\textasciitilde{}\$} to the left of your cursor. Great, you're connected!
 
-\section{1.2 Creating directories and moving around on the command line}\label{creating-directories-and-moving-around-on-the-command-line}
+\subsection{1.2 Creating directories and moving around on the command line}\label{creating-directories-and-moving-around-on-the-command-line}
 
 Now that we're logged in, we're going to get familiar with what's on the server. First of all, type \texttt{ls} and press enter. You should see five things printed out:\\
 \texttt{CourseData\ \ R\ \ anaconda3\ \ bin\ \ workspace}\strut \\
+
 These are all directories/folders on the server. Think of these like you would the directories on your own computer, e.g.~``My Documents'' and ``Downloads''. The \texttt{ls} command is just telling the server to list out the files/directories in the directory that we're currently in.
 
 Next, type in \texttt{pwd} and press enter. The \texttt{pwd} command tells you which directory you're currently in, so we can see that we're in \texttt{/home/ubuntu}.
@@ -299,7 +300,7 @@ Now let's change to the directory we just made:\\
 If you use the \texttt{ls} command, you should see that it's empty. Now what happens if we want to go back to the \texttt{workspace} directory? We can use \texttt{cd\ ..}, which will take us up one level. Try that and then use the \texttt{ls} command again. You should see the folder that you made. If you use \texttt{cd} on it's own, then it'll take you back to where you started. Try it and then use the \texttt{pwd} command. Now to get back to the directory we created for this module, use: \texttt{cd\ \textasciitilde{}/workspace/bmb\_module1}.
 Note that any time you log out from the server (or lose connection/time out and get logged out), you will need to change back to the directory that you're working from. Use the \texttt{pwd} command once more to check that you're in the right place (\texttt{/home/ubuntu/workspace/bmb\_module1}).
 
-\section{1.3 Use wget to download files}\label{use-wget-to-download-files}
+\subsection{1.3 Use wget to download files}\label{use-wget-to-download-files}
 
 Now we're going to download some files to use. There are a lot of different data repositories available online, but we're going to use some data from the Human Microbiome Project. This repository is quite straightforward because all we need is a link to the data and we can download it, but other repositories require their own programs and file formats for downloading which can make them quite complicated (and frustrating, if you don't know what you're doing!) to use. You can see the webpage that we're taking the files from \href{https://www.ibdmdb.org/downloads/html/rawfiles_16s_2018-01-08.html}{here}.
 
@@ -319,7 +320,7 @@ You should see some progress bars come up, but these files aren't very big so th
 206534.fastq.gz  206536.fastq.gz  206538.fastq.gz
 \end{verbatim}
 
-\section{1.4 Move these files to the directories}\label{move-these-files-to-the-directories}
+\subsection{1.4 Move these files to the directories}\label{move-these-files-to-the-directories}
 
 When we downloaded these, we didn't make a directory to put them in, so let's do that now so that we can tidy them up a bit:
 
@@ -343,7 +344,7 @@ mv *.fastq.gz test_data/
 
 The asterisk (\texttt{*}) acts as a wildcard, and anything that ends in \texttt{.fastq.gz} will be moved using this command. If you take a look in \texttt{test\_data} again using the \texttt{ls} command, you should see all three files in there now, and not in your current directory. Another useful thing that you can do with the \texttt{ls} command is add another argument to get some information about the files: \texttt{ls\ -lh\ test\_data/}. When you run this, you should see who has permission to read/write to the files, the author and the owner of the files, the size of the files, and when they were created. The \texttt{-l} is what is telling this to give you the information, and adding the \texttt{h} converts this into ``human'' readable format. Try using it without the \texttt{h} - you'll see that the file sizes are in bytes instead of megabytes (MB/M).
 
-\section{1.5 Zip and unzip these files}\label{zip-and-unzip-these-files}
+\subsection{1.5 Zip and unzip these files}\label{zip-and-unzip-these-files}
 
 You might have noticed the \texttt{.gz} on the end of the files indicating that they're zipped (or compressed). Sometimes when we run bioinformatics programs they can uncompress the files within the program, but other times we need to uncompress (unzip) them first. These are quite small files so you might think it's unnecessary to zip/compress them, but often we have thousands of sequencing data files and they can each be hundreds of gigabytes (GB) or even terabytes (TB) in size, so it becomes quite important to keep them compressed until we need them.
 
@@ -357,7 +358,7 @@ What happens if you try to run this on a file that is already zipped? \texttt{gz
 Let's unzip all of the files now: \texttt{gunzip\ test\_data/*}
 See that we can use the asterisk (\texttt{*}) again as a wildcard and it will unzip every file in the \texttt{test\_data} directory. Take a look at the directory with \texttt{ls} or \texttt{ls\ -lh} if you like. Remember to add the directory name!
 
-\section{1.6 Create new tar archive of files}\label{create-new-tar-archive-of-files}
+\subsection{1.6 Create new tar archive of files}\label{create-new-tar-archive-of-files}
 
 There are several different ways of compressing files - there is \texttt{gzip}/\texttt{gunzip} that we just used, but we can also package up multiple files inside a directory together. We'll be using the \texttt{tar} command for this, and as you can see if you run \texttt{tar\ -\/-help}, you'll see that there are lots of options available for this. Let's try it out with the \texttt{test\_data} directory:
 \texttt{tar\ -czvf\ test\_data.tar.gz\ test\_data/}
@@ -368,13 +369,13 @@ If you now run \texttt{ls\ -lh}, you should see that the tar archive (\texttt{te
 
 Usually we'll make a tar archive because we want to keep our files but save some space, so let's delete the original folder: \texttt{rm\ -r\ test\_data/}. Hopefully by now you're getting the hang of how these commands work. The \texttt{rm} command is for removing files - you should always be really careful when using it because it won't ask you if you're sure like your regular computer would, and most servers don't have a ``recycle bin'' for the files to be sent to, so if you remove them, they're gone for good. The \texttt{-r} argument is for removing a directory rather than just a file.
 
-\section{1.7 Unzip tar archive}\label{unzip-tar-archive}
+\subsection{1.7 Unzip tar archive}\label{unzip-tar-archive}
 
 If we need to use the data that we zipped into the tar archive again, we'll need to unzip - or extract - it.
 
 To unzip the tar archive, we can do that like so: \texttt{tar\ -xvf\ test\_data.tar.gz}. Note that we just replaced the \texttt{cz} with \texttt{x} for ``extract''. You should be able to see the files back in \texttt{test\_data} with the \texttt{ls} command.
 
-\section{1.8 Look at fasta and fastq files with less}\label{look-at-fasta-and-fastq-files-with-less}
+\subsection{1.8 Look at fasta and fastq files with less}\label{look-at-fasta-and-fastq-files-with-less}
 
 Now we're going to take a look at these files. Let's look at \texttt{206538} first: \texttt{less\ test\_data/206538.fastq}. You can scroll through the file, and remember to press \texttt{q} when you want to stop looking at the file. If you want to look at it again, press the up arrow key to run the \texttt{less} command again. You can always press the up arrow to go back through the commands that you've run previously. If you've typed something wrong and want to start again, press \texttt{ctrl}+\texttt{c} to get back to a blank command prompt.
 
@@ -435,7 +436,7 @@ In most programming languages, you have ``positional'' arguments and ``named'' a
 
 Remember to look at the fastq file with the \texttt{less} command for clues, or try running it without the \texttt{-c} argument.
 
-\section{1.9 Installing programs to the server}\label{installing-programs-to-the-server}
+\subsection{1.9 Installing programs to the server}\label{installing-programs-to-the-server}
 
 Now we're going to learn how to install programs to the server. A lot of the commands we have just used (like \texttt{grep} and \texttt{less}) are standard ones that will be installed on most servers, but frequently we will need to install other programs (usually called ``packages''), too. The packages that we use are often not as stable as those that we download and use on our laptops (like Microsoft Word or Adobe Acrobat Reader) and so they sometimes depend on a particular version of another package. It frequently takes more time to install packages than it does to run them, and any bioinformatician will tell you how frustrating it can be. Anaconda can help to manage this, although it doesn't overcome these problems entirely!
 
@@ -451,7 +452,7 @@ bash Anaconda3-2024.10-1-Linux-x86_64.sh
 #now close and reopen the window - you'll need to log back in the same way as you did before!
 \end{verbatim}
 
-\section{1.10 Conda environments}\label{conda-environments}
+\subsection{1.10 Conda environments}\label{conda-environments}
 
 Anaconda, or conda, allows us to have separate ``environments'' for installing packages into. This means that if one package requires version 3.1 of another package, but another requires version 2.9, they won't interfere with each other. Often when we're installing new packages or starting a new project, we'll make a new environment. This also helps us to keep track of which versions of a package we've used for a specific project. The environment is essentially a directory that contains a collection of packages that you've installed, so that other packages know where to access the package that they need to use. We're going to make a new environment to install some packages into:
 
@@ -466,7 +467,7 @@ You'll need to press \texttt{y} at some point, to confirm that you want to insta
 Now we can ``activate'' this environment like this: \texttt{conda\ activate\ bmb\_module1}.
 Any time you are logged out and you log back in, you'll need to reactivate the environment if you want to be working from it. If you want to see the other environments that are installed and available, you can run \texttt{conda\ info\ -\/-envs}. You'll see that we've already installed a lot of environments that we'll be using over the next few days. While it would be great to be able to get you to install all of this for yourself, it can take quite a long time to install some packages so we've set most of them up already. If you want to see how we did that, you can see most of that \href{https://github.com/LangilleLab/microbiome_helper/wiki/CBW-2024:-Initial-setup-of-environments}{here}.
 
-\section{1.11 Install fastqc and multiqc}\label{install-fastqc-and-multiqc}
+\subsection{1.11 Install fastqc and multiqc}\label{install-fastqc-and-multiqc}
 
 Now we'll install the packages that we want to use. Usually if there's a package that you're interested in, for example we'll be using one called ``fastqc'', you can just google ``conda install fastqc'' and you should see an anaconda.org page as one of the top hits, telling you how to install it. Sometimes you'll also see bioconda documentation, or a ``package recipe'' and this might give more details if you're struggling to install it. We'll install fastqc like this:
 
@@ -488,7 +489,7 @@ Confirm this again with \texttt{y}
 
 As you might have guessed from the ``qc'' in both of these names, we'll be using them for Quality Control of the sequence data.
 
-\section{1.12 Perform quality control on fastq files}\label{perform-quality-control-on-fastq-files}
+\subsection{1.12 Perform quality control on fastq files}\label{perform-quality-control-on-fastq-files}
 
 First we'll be running fastqc, and to do that, we'll first make a directory for the output to go: \texttt{mkdir\ fastqc\_out}
 
@@ -503,7 +504,7 @@ Here the arguments that we're giving \texttt{fastqc} are:
 - \texttt{test\_data/*.fastq}: the fastq files that we want to check the quality of.
 - \texttt{-o\ fastqc\_out}: the folder to save the output to.
 
-\section{1.13 htop - looking at the number of processes we have available or running}\label{htop---looking-at-the-number-of-processes-we-have-available-or-running}
+\subsection{1.13 htop - looking at the number of processes we have available or running}\label{htop---looking-at-the-number-of-processes-we-have-available-or-running}
 
 Try running \texttt{htop}. This is an interactive viewer that shows you the processes that are running on your computer/server. There are a lot of different bits of information that this is showing us - you can see all of that \href{https://monovm.com/blog/what-is-htop-and-what-does-it-do/\#:~:text=Htop\%20is\%20an\%20interactive\%20system,system\%20processes\%20can\%20be\%20viewed.}{here}, but the key things for us are:
 - The CPUs (labelled 0, 1, 2, 3 at the top left) - this shows the percentage of the CPU being used for each core, and the number of cores shown here is the number of different processes/threads that we have available to us. In our case, this is 4.
@@ -512,7 +513,7 @@ Try running \texttt{htop}. This is an interactive viewer that shows you the proc
 
 When you're done looking at this, press \texttt{F10} (on a Mac this is \texttt{fn}+\texttt{F10}) to exit from this screen.
 
-\section{1.14 Back to the quality control}\label{back-to-the-quality-control}
+\subsection{1.14 Back to the quality control}\label{back-to-the-quality-control}
 
 Now take a look at one of the .html files in \texttt{bmb\_module1/fastqc\_out/} (note that you'll need to download it as you did above, and if you still have the webpage open, you will need to refresh it).
 
@@ -555,7 +556,7 @@ There are some questions here to help you look at the files and interpret these:
 
 \end{bluebox}
 
-\section{1.15 Quality control on the data that we'll be using}\label{quality-control-on-the-data-that-well-be-using}
+\subsection{1.15 Quality control on the data that we'll be using}\label{quality-control-on-the-data-that-well-be-using}
 
 Next, if you have time, you can try running the quality control on the data that we're going to be using for the other modules.
 
@@ -610,7 +611,7 @@ Note that files with \_R1 are forward reads and those with \_R2 are reverse.
 
 \end{bluebox}
 
-\section{1.16 Install QIIME2}\label{install-qiime2}
+\subsection{1.16 Install QIIME2}\label{install-qiime2}
 
 For the final part of this module, we're going to install the program (QIIME2) that we'll be using for the rest of today and some of tomorrow.
 
@@ -651,7 +652,7 @@ And now we can remove the file that we used to install it:
 rm qiime2-amplicon-ubuntu-latest-conda.yml
 \end{verbatim}
 
-\section{Answers}\label{answers}
+\subsection{Answers}\label{answers}
 
 \textbf{Question 1}: How many sequences does this mean that there are? Remember that you can just use \texttt{less\ test\_data/206538.fastq} to look at the file.\\
 Each sequences is spread across four different lines, so there are 63,048/4 = 15,762 sequences.
@@ -689,11 +690,9 @@ The group of lines with lower mean quality scores corresponds to the reverse (R2
 \textbf{Question 12}: Have a look again at the top overrepresented sequence. What is it?\\
 \emph{Bradyrhizobium} sp. is the top hit (that isn't all N's), and the second hit is also \emph{Bradyrhizobium} sp.
 
-\part{Modules}\label{part-modules-1}
-
 \chapter{Module 2}\label{module-2}
 
-\section{Lecture Slides}\label{lecture-slides-1}
+\section{Lecture}\label{lecture-1}
 
 \section{Lab: Marker gene profiling}\label{lab-marker-gene-profiling}
 
@@ -701,7 +700,7 @@ This tutorial is part of the 2025 CBW \href{https://bioinformaticsdotca.github.i
 
 \textbf{Author}: Robyn Wright
 
-\section{Introduction}\label{introduction-1}
+\subsection{Introduction}\label{introduction-1}
 
 Modules 2 and 3 provide a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi.
 
@@ -727,7 +726,7 @@ You can jump to one of the below sections for the commands needed for processing
 
 In Module 2 we will cover the basics of marker gene analysis from raw reads to filtered feature table. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version 2025.4), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the \href{https://qiime2.org/}{QIIME 2 user documentation}, along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within \href{https://view.qiime2.org/}{QIIME2 View}.
 
-\section{1. 16S}\label{s}
+\subsection{1. 16S}\label{s}
 
 Create a directory for Module 2 inside \texttt{workspace} and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -753,9 +752,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-\section{1.1. 16S First steps}\label{s-first-steps}
+\subsection{1.1. 16S First steps}\label{s-first-steps}
 
-\subsection{1.1.1. Inspect raw data}\label{inspect-raw-data}
+\subsubsection{1.1.1. Inspect raw data}\label{inspect-raw-data}
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -784,7 +783,7 @@ head Blueberry_16S_metadata.tsv
 
 \end{bluebox}
 
-\subsection{1.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact}
+\subsubsection{1.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact}
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e.~a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an ``artifact'' (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -804,7 +803,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the \texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
-\subsection{1.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt}
+\subsubsection{1.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt}
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 16S V6-V8 region (bacteria-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
@@ -846,11 +845,11 @@ Remember that you can see and download these files on the webpage: \url{http://\
 
 \end{bluebox}
 
-\section{1.2. 16S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants}
+\subsection{1.2. 16S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants}
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found \href{https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference}{here}.
 
-\subsection{1.2.1. Join paired-end reads}\label{join-paired-end-reads}
+\subsubsection{1.2.1. Join paired-end reads}\label{join-paired-end-reads}
 
 Forward and reverse reads can be joined with~\href{https://github.com/torognes/vsearch}{VSEARCH}~as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -860,7 +859,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 \end{verbatim}
 
-\subsection{1.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads}
+\subsubsection{1.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads}
 
 This command will filter out low-quality reads based on the default options.
 
@@ -871,7 +870,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 \end{verbatim}
 
-\subsection{1.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads}
+\subsubsection{1.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads}
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -900,7 +899,7 @@ Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at th
 
 \end{bluebox}
 
-\subsection{1.2.4. Running Deblur}\label{running-deblur}
+\subsubsection{1.2.4. Running Deblur}\label{running-deblur}
 
 Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set --p-min-reads 1, and is for 16S sequences only. For other amplicon regions, you can either use the denoise-other option in the command and specify a reference database of sequences to use for positive filtering (as in the below versions for 18S and ITS) or use DADA2.
 
@@ -927,7 +926,7 @@ This command may take a few minutes to run.
 
 \end{greenbox}
 
-\subsection{1.2.5. Summarizing Deblur output}\label{summarizing-deblur-output}
+\subsubsection{1.2.5. Summarizing Deblur output}\label{summarizing-deblur-output}
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -954,7 +953,7 @@ qiime feature-table summarize \
 
 \end{bluebox}
 
-\section{1.3. 16S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs}
+\subsection{1.3. 16S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs}
 
 \begin{verbatim}
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/qiime2-2020.8_classifiers) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)):
@@ -969,7 +968,7 @@ We're going to use the Greengenes2 classifier. We can download that from the FTP
 wget link-address
 \end{verbatim}
 
-\subsection{1.3.1. Run taxonomic classification}\label{run-taxonomic-classification}
+\subsubsection{1.3.1. Run taxonomic classification}\label{run-taxonomic-classification}
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set\texttt{-\/-p-n-jobs\ 1}).
 
@@ -1010,7 +1009,7 @@ qiime tools export \
   --output-path taxa
 \end{verbatim}
 
-\subsection{1.3.2 Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast}
+\subsubsection{1.3.2 Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast}
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -1028,11 +1027,11 @@ You can then check the taxonomy that was assigned to them using your classifier 
 grep "02fda7604175053e87dc11e2598a89e0" taxa/taxonomy.tsv
 \end{verbatim}
 
-\section{1.4. 16S Filtering resultant table}\label{s-filtering-resultant-table}
+\subsection{1.4. 16S Filtering resultant table}\label{s-filtering-resultant-table}
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
-\subsection{1.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs}
+\subsubsection{1.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs}
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1\% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1\% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (\texttt{deblur\_table\_summary.qzv}), multiply it by 0.001, and round to the nearest integer.
 
@@ -1046,7 +1045,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 \end{verbatim}
 
-\subsection{1.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs}
+\subsubsection{1.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs}
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. It can also be \textbf{sometimes} useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change \texttt{p\textbackslash{}\_\textbackslash{}\_} to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
@@ -1061,13 +1060,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 \end{verbatim}
 
-\subsection{\texorpdfstring{\emph{1.4.3. (Optional) Exclude low-depth samples}}{1.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples}
+\subsubsection{\texorpdfstring{\emph{1.4.3. (Optional) Exclude low-depth samples}}{1.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples}
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g.~depth \textless{} 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-\subsection{1.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table}
+\subsubsection{1.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table}
 
 Check output after filtering.
 
@@ -1115,7 +1114,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 \end{verbatim}
 
-\section{16S Answers}\label{s-answers}
+\subsection{16S Answers}\label{s-answers}
 
 \textbf{Question 1}: How many samples are there?
 
@@ -1149,7 +1148,7 @@ Sample B-Rt151 has the lowest sequencing depth (4,332 reads).
 
 The final minimum sequencing depth is 3,432 and the maximum sequencing depth is 8,650 reads.
 
-\section{2. 18S}\label{s-1}
+\subsection{2. 18S}\label{s-1}
 
 Create for Module 2 inside \texttt{workspace} and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -1175,9 +1174,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-\section{2.1. 18S First steps}\label{s-first-steps-1}
+\subsection{2.1. 18S First steps}\label{s-first-steps-1}
 
-\subsection{2.1.1. Inspect raw data}\label{inspect-raw-data-1}
+\subsubsection{2.1.1. Inspect raw data}\label{inspect-raw-data-1}
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -1206,7 +1205,7 @@ head Plastisphere_18S_metadata.tsv
 
 \end{bluebox}
 
-\subsection{2.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-1}
+\subsubsection{2.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-1}
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e.~a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an ``artifact'' (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -1226,7 +1225,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file~reads\_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the~\texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
-\subsection{2.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-1}
+\subsubsection{2.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-1}
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V4 region (eukaryote-specific primer set). You can see more about different primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
@@ -1268,11 +1267,11 @@ Remember that you can see and download these files on the webpage: \url{http://\
 
 \end{bluebox}
 
-\section{2.2. 18S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants-1}
+\subsection{2.2. 18S Denoising the reads into amplicon sequence variants}\label{s-denoising-the-reads-into-amplicon-sequence-variants-1}
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found \href{https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference}{here}.
 
-\subsection{2.2.1. Join paired-end reads}\label{join-paired-end-reads-1}
+\subsubsection{2.2.1. Join paired-end reads}\label{join-paired-end-reads-1}
 
 Forward and reverse reads can be joined with~\href{https://github.com/torognes/vsearch}{VSEARCH}~as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -1282,7 +1281,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 \end{verbatim}
 
-\subsection{2.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads-1}
+\subsubsection{2.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads-1}
 
 This command will filter out low-quality reads based on the default options.
 
@@ -1293,7 +1292,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 \end{verbatim}
 
-\subsection{2.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads-1}
+\subsubsection{2.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads-1}
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -1322,7 +1321,7 @@ Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at th
 
 \end{bluebox}
 
-\subsection{2.2.4. Running Deblur}\label{running-deblur-1}
+\subsubsection{2.2.4. Running Deblur}\label{running-deblur-1}
 
 Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set \texttt{-\/-p-min-reads\ 1}, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
 
@@ -1365,7 +1364,7 @@ This command may take around ten minutes to run.
 
 \end{greenbox}
 
-\subsection{2.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-1}
+\subsubsection{2.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-1}
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -1392,13 +1391,13 @@ qiime feature-table summarize \
 
 \end{bluebox}
 
-\section{2.3. 18S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs-1}
+\subsection{2.3. 18S Assign taxonomy to ASVs}\label{s-assign-taxonomy-to-asvs-1}
 
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the \href{http://scikit-learn.org/stable/}{scikit learn} Python library and the \href{https://www.arb-silva.de/}{SILVA} or \href{https://unite.ut.ee/}{UNITE} databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the~\href{https://docs.qiime2.org/2022.11/data-resources/}{QIIME 2 website}~(silva-138-99-nb-classifier.qza~for the latest classifier). Sometimes there are custom classifiers or other specific databases that are good for specific purposes. For 18S, we're going to be using the \href{https://pr2-database.org/}{PR2 (Protist Ribosomal Reference) database}. A custom classifier that we've generated is available (\href{http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/}{see downloads} and \href{https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers}{commands used to create classifiers}).
 
 We're going to use the PR2 classifier. As you did above, click on ``Copy Link Address'' for the file \texttt{pr2\_version\_5.1.0\_SSU\_18S.qza} and then use \texttt{wget} to download it. Check how you ran this command before if you're unsure!
 
-\subsection{2.3.1. Run taxonomic classification}\label{run-taxonomic-classification-1}
+\subsubsection{2.3.1. Run taxonomic classification}\label{run-taxonomic-classification-1}
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive commands of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set \texttt{-\/-p-n-jobs\ 1}).
 
@@ -1435,7 +1434,7 @@ qiime tools export \
   --output-path taxa
 \end{verbatim}
 
-\subsection{2.3.2 Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast-1}
+\subsubsection{2.3.2 Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast-1}
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -1457,11 +1456,11 @@ You should see that this sequence has been classified as \texttt{d\_\_Eukaryota;
 
 Try taking a look at a few more and seeing how they seem.
 
-\section{2.4. 18S Filtering resultant table}\label{s-filtering-resultant-table-1}
+\subsection{2.4. 18S Filtering resultant table}\label{s-filtering-resultant-table-1}
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
-\subsection{2.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-1}
+\subsubsection{2.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-1}
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1\% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1\% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (\texttt{deblur\_table\_summary.qzv}), multiply it by 0.001, and round to the nearest integer.
 
@@ -1475,7 +1474,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 \end{verbatim}
 
-\subsection{2.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs-1}
+\subsubsection{2.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs-1}
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. Obviously this is different for 18S, so we don't need to exclude those here. It can also be~\textbf{sometimes}~useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that here we actually don't have phylum-level classifications because the PR2 database doesn't use these - it uses levels of domain, supergroup, division, subdivision, class, order, family, genus, and species. So in our taxonomy file you'll see that these are d, sg, di, sd, c, o, f, g, and s, respectively. We'll therefore probably want to use the sg\_\_ instead of p\_\_ like we used for 16S data.
 
@@ -1489,13 +1488,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 \end{verbatim}
 
-\subsection{\texorpdfstring{\emph{2.4.3. (Optional) Exclude low-depth samples}}{2.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples-1}
+\subsubsection{\texorpdfstring{\emph{2.4.3. (Optional) Exclude low-depth samples}}{2.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples-1}
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g.~depth \textless{} 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-\subsection{2.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table-1}
+\subsubsection{2.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table-1}
 
 Check output after filtering.
 
@@ -1543,7 +1542,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 \end{verbatim}
 
-\section{18S Answers}\label{s-answers-1}
+\subsection{18S Answers}\label{s-answers-1}
 
 \textbf{Question 1}: How many samples are there?
 
@@ -1577,7 +1576,7 @@ Sample MH28C318S has the lowest sequencing depth (only 27 reads).
 
 The final minimum sequencing depth is 7 and the maximum sequencing depth is 12,890 reads.
 
-\section{3. ITS}\label{its}
+\subsection{3. ITS}\label{its}
 
 Create for Module 2 inside \texttt{workspace} and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -1603,9 +1602,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-\section{3.1. ITS First steps}\label{its-first-steps}
+\subsection{3.1. ITS First steps}\label{its-first-steps}
 
-\subsection{3.1.1. Inspect raw data}\label{inspect-raw-data-2}
+\subsubsection{3.1.1. Inspect raw data}\label{inspect-raw-data-2}
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -1634,7 +1633,7 @@ head pregnancy_ITS_metadata.tsv
 
 \end{bluebox}
 
-\subsection{3.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-2}
+\subsubsection{3.1.2. Import FASTQs as QIIME2 artifact}\label{import-fastqs-as-qiime2-artifact-2}
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e.~a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an ``artifact'' (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -1654,7 +1653,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file \texttt{reads\_qza/reads.qza}. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the \texttt{qiime\ tools\ utilities} (e.g.~\texttt{peek} and \texttt{view}).
 
-\subsection{3.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-2}
+\subsubsection{3.1.3. Trim primers with cutadapt}\label{trim-primers-with-cutadapt-2}
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the \href{http://cutadapt.readthedocs.io/en/stable/guide.html}{cutadapt}~QIIME 2 plugin. The below primers correspond to the 18S V8-V9 region (eukaryote-specific primer set). You can see more about some other primers and the taxa that they target \href{https://imr.bio/protocols.html}{here}.
 
@@ -1696,11 +1695,11 @@ Remember that you can see and download these files on the webpage: \url{http://\
 
 \end{bluebox}
 
-\section{3.2. ITS Denoising the reads into amplicon sequence variants}\label{its-denoising-the-reads-into-amplicon-sequence-variants}
+\subsection{3.2. ITS Denoising the reads into amplicon sequence variants}\label{its-denoising-the-reads-into-amplicon-sequence-variants}
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found \href{https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference}{here}.
 
-\subsection{2.1. Join paired-end reads}\label{join-paired-end-reads-2}
+\subsubsection{2.1. Join paired-end reads}\label{join-paired-end-reads-2}
 
 Forward and reverse reads can be joined with~\href{https://github.com/torognes/vsearch}{VSEARCH}~as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -1710,7 +1709,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 \end{verbatim}
 
-\subsection{3.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads-2}
+\subsubsection{3.2.2. Filter out low-quality reads}\label{filter-out-low-quality-reads-2}
 
 This command will filter out low-quality reads based on the default options.
 
@@ -1721,7 +1720,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 \end{verbatim}
 
-\subsection{3.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads-2}
+\subsubsection{3.2.3. Summarize joined and filtered reads}\label{summarize-joined-and-filtered-reads-2}
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -1750,7 +1749,7 @@ Now open the file in \href{https://view.qiime2.org/}{QIIME2 View} and look at th
 
 \end{bluebox}
 
-\subsection{3.2.4. Running Deblur}\label{running-deblur-2}
+\subsubsection{3.2.4. Running Deblur}\label{running-deblur-2}
 
 Running the \href{https://github.com/biocore/deblur}{Deblur}~workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set \texttt{-\/-p-min-reads\ 1}, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server \href{http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/}{here}.
 
@@ -1793,7 +1792,7 @@ This command may take around ten minutes to run
 
 \end{greenbox}
 
-\subsection{3.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-2}
+\subsubsection{3.2.5. Summarizing Deblur output}\label{summarizing-deblur-output-2}
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -1820,13 +1819,13 @@ qiime feature-table summarize \
 
 \end{bluebox}
 
-\section{3.3. ITS Assign taxonomy to ASVs}\label{its-assign-taxonomy-to-asvs}
+\subsection{3.3. ITS Assign taxonomy to ASVs}\label{its-assign-taxonomy-to-asvs}
 
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the \href{http://scikit-learn.org/stable/}{scikit learn} Python library and the \href{https://www.arb-silva.de/}{SILVA} or \href{https://unite.ut.ee/}{UNITE} databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the~\href{https://docs.qiime2.org/2022.11/data-resources/}{QIIME 2 website}~(silva-138-99-nb-classifier.qza~for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well (\href{http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/}{see downloads}~and~\href{https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers}{commands used to create these files}).
 
 We're going to use one that contains fungal ITS sequences from the UNITE database. As you did above, click on ``Copy Link Address'' for the file \texttt{classifier\_fungi\_ITS\_sh\_taxonomy\_sh\_taxonomy\_qiime\_ver10\_99\_04.04.2024\_dev.qza} and then use \texttt{wget} to download it. Check how you ran this command before if you're unsure!
 
-\subsection{3.3.1. Run taxonomic classification}\label{run-taxonomic-classification-2}
+\subsubsection{3.3.1. Run taxonomic classification}\label{run-taxonomic-classification-2}
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the \texttt{-\/-p-reads-per-batch} option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g.~set \texttt{-\/-p-n-jobs\ 1}).
 
@@ -1858,7 +1857,7 @@ qiime tools export \
   --output-path taxa
 \end{verbatim}
 
-\subsection{3.3.2. Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast-2}
+\subsubsection{3.3.2. Assess subset of taxonomic assignments with BLAST}\label{assess-subset-of-taxonomic-assignments-with-blast-2}
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -1880,11 +1879,11 @@ You should see that this sequence has been classified as \texttt{k\_\_Fungi;p\_\
 
 Try taking a look at a few more and seeing how they seem.
 
-\section{3.4. ITS Filtering resultant table}\label{its-filtering-resultant-table}
+\subsection{3.4. ITS Filtering resultant table}\label{its-filtering-resultant-table}
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the \href{https://docs.qiime2.org/2022.11/tutorials/filtering/}{QIIME 2 filtering tutorial}.
 
-\subsection{3.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-2}
+\subsubsection{3.4.1. Filter out rare ASVs}\label{filter-out-rare-asvs-2}
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1\% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1\% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (\texttt{deblur\_table\_summary.qzv}), multiply it by 0.001, and round to the nearest integer.
 
@@ -1898,7 +1897,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 \end{verbatim}
 
-\subsection{3.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs-2}
+\subsubsection{3.4.2. Filter out contaminant and unclassified ASVs}\label{filter-out-contaminant-and-unclassified-asvs-2}
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. We don't really have that issue with ITS data, however. It can also be \textbf{sometimes} useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g.~possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change p\_\_ to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
@@ -1912,13 +1911,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 \end{verbatim}
 
-\subsection{\texorpdfstring{\emph{3.4.3. (Optional) Exclude low-depth samples}}{3.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples-2}
+\subsubsection{\texorpdfstring{\emph{3.4.3. (Optional) Exclude low-depth samples}}{3.4.3. (Optional) Exclude low-depth samples}}\label{optional-exclude-low-depth-samples-2}
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g.~depth \textless{} 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-\subsection{3.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table-2}
+\subsubsection{3.4.4. Subset and summarize filtered table}\label{subset-and-summarize-filtered-table-2}
 
 Check output after filtering.
 
@@ -1966,7 +1965,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 \end{verbatim}
 
-\section{ITS Answers}\label{its-answers}
+\subsection{ITS Answers}\label{its-answers}
 
 \textbf{Question 1}: How many samples are there?
 
@@ -2000,15 +1999,17 @@ Sample CRR1039764 has the lowest sequencing depth (21,453 reads).
 
 \textbf{Question 8 answer}: The final minimum sequencing depth is 192 and the maximum sequencing depth is 80,762 reads. This huge difference from the previous step (where it was actually a different sample that had the lowest depth!) would definitely indicate some problems if this were our own project. This was not a project that I was involved with, and this could just be because the ITS region is more difficult to accurately taxonomically classify than the 16S region, but I would definitely want to do some further investigating as to what is going on. We only removed ASVs that didn't have phylum-level classifications, so the first thing that I would do is look at the taxonomy.tsv file. If we open this in Excel and sort based on Column B, we can see that 114/961 total ASVs within our samples have only been classified as Fungi (these are the ones that we would have filtered out). If we just have a quick search of a few of these ASVs in the deblur\_table\_summary.qzv Feature Detail tab, then we'll see that e.g.~\texttt{87121182b8f0d093e937d915b2b58b22} is present in 13 samples at a total frequency of 15,889 reads. Another one, \texttt{1086009b09b17b9364cb1ae984a552e1} is similar; it is present in 18 samples at a total frequency of 35,799 reads. Based on this, I don't think I'd want to filter these out. So unlike with the other amplicons, I think I'd probably use the unfiltered table here.
 
-\part{Modules}\label{part-modules-2}
-
 \chapter{Module 3: Microbiome statistics and visualizations}\label{module-3-microbiome-statistics-and-visualizations}
+
+\section{Lecture}\label{lecture-2}
+
+\section{Lab}\label{lab}
 
 Material by Juan Santana
 
 This tutorial is part of the 2025 Canadian Bioinformatics Workshops Beginner Microbiome Analysis (Vancouver, BC, May 26-27). It is based on the Amplicon SOP v2 available on the \href{https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2022.11)}{Microbiome Helper repository} and previous workshops designed by Diana Haider, Robert Beiko and Monica Alvaro Fuss.
 
-\section{Table of Contents}\label{table-of-contents}
+\subsection{Table of Contents}\label{table-of-contents}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2033,7 +2034,7 @@ This tutorial is part of the 2025 Canadian Bioinformatics Workshops Beginner Mic
   \hyperref[18s-its]{Considerations for 18S and ITS data}
 \end{enumerate}
 
-\section{Introduction}\label{introduction-2}
+\subsection{Introduction}\label{introduction-2}
 
 Modules 2 and 3 offer a step-by-step walkthrough of an end-to-end pipeline for analyzing high-throughput marker gene data using the command-line interface. Commonly used marker genes in microbiome research include 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) region for fungi.
 
@@ -2085,7 +2086,7 @@ When you are finished this tutorial you can deactivate the conda environment usi
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-\section{\texorpdfstring{1. Build tree with \protect\hypertarget{build-tree}{}\href{https://amplicon-docs.qiime2.org/en/latest/references/plugins/fragment-insertion.html\#q2-plugin-fragment-insertion}{SEPP QIIME 2 plugin}}{1. Build tree with SEPP QIIME 2 plugin}}\label{build-tree-with-sepp-qiime-2-plugin}
+\subsection{\texorpdfstring{1. Build tree with \protect\hypertarget{build-tree}{}\href{https://amplicon-docs.qiime2.org/en/latest/references/plugins/fragment-insertion.html\#q2-plugin-fragment-insertion}{SEPP QIIME 2 plugin}}{1. Build tree with SEPP QIIME 2 plugin}}\label{build-tree-with-sepp-qiime-2-plugin}
 
 \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5904434/}{SEPP} (SATé-enabled Phylogenetic Placement) is a tool used to place short DNA sequences---such as 16S rRNA amplicon sequence variants (ASVs)---into an existing, high-quality reference phylogenetic tree. This is particularly helpful when you are working with microbiome data and want to infer evolutionary relationships more accurately. We will use QIIME 2's \texttt{q2-fragment-insertion} plugin to place ASVs derived from our \textbf{16S data} into a reference phylogenetic tree using the command below.
 
@@ -2111,7 +2112,7 @@ Throughout this module, there are some questions aimed to help your understandin
 
 High-quality reference phylogenetic trees can be downloaded from \href{https://docs.qiime2.org/2024.10/data-resources/}{QIIME2's data resources}. However, it is important to ensure that the reference tree used for sequence placement matches the same reference database used for taxonomic classification (e.g., Greengenes or SILVA). In our workflow, we use \texttt{sepp-refs-gg-13-8.qza}, as our sequences were classified using the Greengenes database. Alternatively, custom reference files can be specified for placing other types of amplicons. However, for marker genes such as \textbf{18S and ITS}, the recommended approach is to construct a \emph{de novo} phylogenetic tree, as outlined in section 9. \hyperref[9-considerations-for-18s-and-its-data]{Considerations for 18S and ITS data} and and further detailed in the \href{https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2022.11)}{Microbiome Helper repository}.
 
-\section{2. Generate rarefaction curves}\label{rarefaction-curves}
+\subsection{2. Generate rarefaction curves}\label{rarefaction-curves}
 
 After inferring ASVs from our sequence reads, we can generate \textbf{rarefaction curves} to evaluate whether our sequencing depth was sufficient to capture most of the microbial diversity in each sample. The command below will generate these plots. The \texttt{-\/-p-max-depth} parameter sets the maximum sequencing depth to sample across. Inspect the \texttt{deblur\_table\_final\_summary.qzv} file (created in Module 2) using \href{https://view.qiime2.org/}{QIIME2 View} to determine this number. For our 16S dataset, the sample with the highest number of reads contains 8,650 sequences, so we'll use that as the max depth.
 
@@ -2130,7 +2131,7 @@ This will produce a \texttt{.qzv} file that can be opened in QIIME 2 View to exp
 
 \textbf{Question 1: What is a good rarefaction depth for diversity analysis?}
 
-\section{3. Calculating diversity metrics and generating ordination plots}\label{diversity-ordination}
+\subsection{3. Calculating diversity metrics and generating ordination plots}\label{diversity-ordination}
 
 QIIME 2 can calculate commonly used alpha and beta diversity metrics---including Faith's Phylogenetic Diversity, Shannon diversity, and UniFrac distances---using a single command. Ordination plots (e.g., PCoA plots based on weighted UniFrac distances) are also generated automatically. Before calculating these metrics, QIIME 2 rarefies all samples to the same sequencing depth to ensure fair comparisons. The \texttt{-\/-p-sampling-depth} parameter defines this cutoff. Any samples with fewer reads than this threshold will be excluded from the analysis. Based on the rarefaction curves we generated earlier, we determined that the lowest reasonable sequencing depth across all samples is \textbf{3,432} reads. Using this value ensures we retain all samples while still capturing most of the microbial diversity.
 
@@ -2204,7 +2205,7 @@ This will produce a \texttt{.qzv} file containing PERMANOVA results and boxplots
 
 \textbf{Question 4: what do you mean I'm getting an error message? It should be working fine, it worked last time! I can't see what I'm doing wro\ldots{} oooooh there we go, I see now :)}
 
-\section{4. Generate stacked bar chart of taxa relative abundances}\label{stacked-bar-chart}
+\subsection{4. Generate stacked bar chart of taxa relative abundances}\label{stacked-bar-chart}
 
 A useful way to visualize the composition of microbial communities across samples is through interactive stacked bar charts of taxonomic relative abundances. This type of plot allows you to explore differences in microbial composition at various taxonomic levels (e.g., phylum, genus) across experimental groups. You can generate the visualization using the command below.
 
@@ -2224,7 +2225,7 @@ The interactive \texttt{.qzv} file generated with this command can be inspected 
 
 \textbf{Question 5: can you identify any patterns between the metadata groups?}
 
-\section{5. Identifying differentially abundant features with ANCOM}\label{ancom}
+\subsection{5. Identifying differentially abundant features with ANCOM}\label{ancom}
 
 \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4450248/}{ANCOM} (Analysis of Composition of Microbiomes) is a statistical method used to identify taxa (or features) that differ significantly in relative abundance between sample groups. ANCOM is robust to the compositional nature of microbiome data and does not assume a particular distribution for the features. However, ANCOM requires that all features in the table be non-zero, so a pseudocount (commonly set to 1) must first be added to avoid issues with zeros in the count matrix. The command below creates a new feature table where a count of 1 is added to all zero entries.
 
@@ -2281,7 +2282,7 @@ The resultant \texttt{.qzv} barplot will show you features significantly enriche
 
 \textbf{Question 6: Does ANCOM identify any differentially abundant taxa between any of the metadata groups? If so, which one(s)? Is the output from ANCOM-BC any different?}
 
-\section{6. Identifying shared features across groups of samples}\label{core-microbiome}
+\subsection{6. Identifying shared features across groups of samples}\label{core-microbiome}
 
 The core microbiome refers to the set of microbial taxa consistently found across a group of samples or within specific treatment groups. Identifying core taxa helps understand the stable and potentially important microbes in your system. In QIIME2 we can filter features by prevalence across samples using the command below. \texttt{-p-min-fraction\ 0.8} means features must be present in 80\% of samples to be considered ``core''.
 
@@ -2308,7 +2309,7 @@ This will output a feature table summary with the fraction of the ASVs shared ac
 
 We can then run \texttt{qiime\ feature-table\ core-features} on the filtered table \texttt{table\_managed.qza} to identify shared ASVs across ``Managed'' samples.
 
-\section{7. Heatmaps}\label{heatmaps}
+\subsection{7. Heatmaps}\label{heatmaps}
 
 Heatmaps visualize abundance patterns of taxa across samples or groups, allowing easy spotting of taxa that vary in abundance or co-occur across conditions. We can generate these heatmaps using \texttt{qiime\ feature-table\ heatmap}. However, raw feature tables at the ASV level often contain thousands of features, which can make heatmaps visually overwhelming and difficult to interpret. To create a clearer and more interpretable heatmap, you can collapse your feature table to a higher taxonomic rank, such as genus or family, before visualization, using the command below. \texttt{-\/-p-level} sets the taxonomic rank, here we will collapse at the Class level.
 
@@ -2339,7 +2340,7 @@ Now we generate the heatmap using the collapsed class-level table.
 
 Open the resulting \texttt{heatmap\_class.qzv} in QIIME 2 View to interactively explore taxa abundance patterns across samples.
 
-\section{8. Exporting data from QIIME 2 for use in other software}\label{exporting-data}
+\subsection{8. Exporting data from QIIME 2 for use in other software}\label{exporting-data}
 
 While QIIME 2 offers a wide range of tools for microbial community analysis, you may want to perform additional custom analyses in software like R, Python, or MATLAB. To do so, you'll need to export your QIIME 2 artifacts into formats that are compatible with these platforms.
 
@@ -2400,7 +2401,7 @@ To export the tree of your ASVs in a \texttt{.nwk} format, use the command below
 \end{Highlighting}
 \end{Shaded}
 
-\section{9. Considerations for 18S and ITS data}\label{18s-its}
+\subsection{9. Considerations for 18S and ITS data}\label{18s-its}
 
 Most of the analyses described in this tutorial apply equally to 18S and ITS datasets, \textbf{with one key exception}: building a phylogenetic tree. Unlike 16S data, 18S and ITS amplicons generally lack a universally accepted reference phylogeny. Therefore, we must generate \emph{de novo} phylogenetic trees.
 
@@ -2424,7 +2425,7 @@ To start, create symbolic links to the relevant data folders for your 18S and IT
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Building a de novo tree for 18S}\label{building-a-de-novo-tree-for-18s}
+\subsubsection{Building a de novo tree for 18S}\label{building-a-de-novo-tree-for-18s}
 
 First, we'll need to make a \emph{de novo} multiple-sequence alignment of the ASVs using \href{https://mafft.cbrc.jp/alignment/software/}{MAFFT}.
 
@@ -2487,13 +2488,13 @@ Let's rename the tree and place it in our analysis folder.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Building the ITS tree}\label{building-the-its-tree}
+\subsubsection{Building the ITS tree}\label{building-the-its-tree}
 
 Repeat the same commands shown above, but make sure you use the \texttt{deblur\_output} from the ITS analysis. This will generate a \emph{de novo} tree for your ITS dataset.
 
 Once you have generated or linked the \emph{de novo} trees for your 18S and ITS data, you can proceed with all downstream analyses --- including diversity metrics, ordinations, and statistical testing --- just as you would with 16S data.
 
-\section{Answers}\label{answers-1}
+\subsection{Answers}\label{answers-1}
 
 \textbf{Question 1: What is a good rarefaction depth for diversity analysis?}
 
@@ -2519,15 +2520,17 @@ Because stacked barcharts are limited in their analytical capabilities, it is ha
 
 One ASVs is identified as differentially abundant between forest and managed environments using ANCOM. You can look up the identity of each ASV in the taxonomy.tsv file. With ANCOM-BC many more ASVs are identified as diferentially abundant.
 
-\part{Modules}\label{part-modules-3}
-
 \chapter{Module 4 Lab: Functional prediction and additional analyses}\label{module-4-lab-functional-prediction-and-additional-analyses}
 
 This tutorial is part of the 2025 CBW \href{https://bioinformaticsdotca.github.io/BMB_2025/}{Beginner Microbiome Analysis} (held in Vancouver, BC, May 26-27).
 
 \textbf{Authors}: Robyn Wright and Ryan McLaughlin
 
-\section{Introduction}\label{introduction-3}
+\section{Lecture}\label{lecture-3}
+
+\section{Lab}\label{lab-1}
+
+\subsection{Introduction}\label{introduction-3}
 
 In this module, we'll be taking a look at three of the major ways in which we use amplicon sequencing data to learn about microbial communities; (1) identifying taxa that are significantly differentially abundant between different sample groups, (2) predicting the functional capabilities of these communities based on the taxa that are present, and (3) constructing and visualising a co-occurrence network.
 
@@ -2535,7 +2538,7 @@ In this module, we'll be taking a look at three of the major ways in which we us
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. As with the previous modules, you'll find the \hyperref[answers]{answers} at the bottom of this page, but no one will be marking them.
 
-\subsection{Differential abundance testing with MaAsLin3 and ALDEx2}\label{differential-abundance-testing-with-maaslin3-and-aldex2}
+\subsubsection{Differential abundance testing with MaAsLin3 and ALDEx2}\label{differential-abundance-testing-with-maaslin3-and-aldex2}
 
 Tens (if not more) of tools have been used for differential abundance testing of microbiome samples - identifying taxa that differ in abundance between sample groups (for example, treatment versus control) or with variables of interest (for example, correlations with pH or blood metabolite measurements). While these tools/methods have often been used interchangeably in the literature, there are large differences in the performance of different tools even on the same sample group. There have now been several large scale comparisons of different tools (\emph{e.g.,} \href{https://link.springer.com/article/10.1186/s13059-020-02104-1}{Calgaro \emph{et al.}}, \href{https://link.springer.com/article/10.1186/s40168-016-0208-8}{Thorsen \emph{et al.}}), and our lab also carried one out (published \href{https://www.nature.com/articles/s41467-022-28034-z}{here}). While these studies have typically found that different methods lead to different biases in the results, as there is no one single \emph{best} method for determining differentially abundant taxa, the best practice that we have for overcoming these issues currently is to use multiple differential abundance tests, report these clearly, and focus on the taxa that are identified by multiple tests.
 
@@ -2543,7 +2546,7 @@ For these purposes, we have chosen to use two tools today, MaAsLin3 (\href{https
 
 In this tutorial, we'll be running both of these tools on the output from Module 2, and then we'll combine the results and look at the taxa that are identified. We can then apply this to the PICRUSt2 output, too.
 
-\subsection{Functional prediction with PICRUSt2}\label{functional-prediction-with-picrust2}
+\subsubsection{Functional prediction with PICRUSt2}\label{functional-prediction-with-picrust2}
 
 PICRUSt2 is a tool that predicts the functional capacity of a microbial community based on the taxa that are present in amplicon sequencing data. The first iteration of \href{https://www.nature.com/articles/nbt.2676}{PICRUSt} (\textbf{P}hylogenetic \textbf{I}nvestigation of \textbf{C}ommunities by \textbf{R}econstruction of \textbf{U}nobserved \textbf{St}ates) was developed by Morgan (and many other collaborators) during his postdoc. This was expanded and improved upon to make \href{https://www.nature.com/articles/s41587-020-0548-6}{PICRUSt2} by a previous PhD student in the lab, \href{https://www.gavindouglas.ca/}{Gavin Douglas} (currently a postdoc at North Carolina State University), and Morgan and I (Robyn) have \href{https://academic.oup.com/bioinformatics/article/41/5/btaf269/8121151}{recently updated the database used by PICRUSt2} to improve the functional predictions.
 
@@ -2560,7 +2563,7 @@ You can see full information on PICRUSt2 \href{https://github.com/picrust/picrus
 
 These steps can be run separately, but are all wrapped together into a single command for what we'll be running today.
 
-\subsection{\texorpdfstring{Constructing and visualising a co-occurrence network using \texttt{SPIEC-EASI} (Bonus: we run an indicator species analysis too!!)}{Constructing and visualising a co-occurrence network using SPIEC-EASI (Bonus: we run an indicator species analysis too!!)}}\label{constructing-and-visualising-a-co-occurrence-network-using-spiec-easi-bonus-we-run-an-indicator-species-analysis-too}
+\subsubsection{\texorpdfstring{Constructing and visualising a co-occurrence network using \texttt{SPIEC-EASI} (Bonus: we run an indicator species analysis too!!)}{Constructing and visualising a co-occurrence network using SPIEC-EASI (Bonus: we run an indicator species analysis too!!)}}\label{constructing-and-visualising-a-co-occurrence-network-using-spiec-easi-bonus-we-run-an-indicator-species-analysis-too}
 
 Understanding how microbial taxa interact with one another in an environment is a fundamental question in microbial ecology. Co-occurrence network analysis attempts to capture these interactions by estimating associations between taxa across samples. However, it's important to be cautious here: naive approaches like correlation matrices (e.g., Pearson or Spearman) are prone to false positives due to the compositional nature of microbiome data---where only relative abundances are measured, not absolute counts. This introduces spurious correlations that don't reflect real biological interactions.
 
@@ -2574,11 +2577,11 @@ Next, we filter the ASV table to remove rare or low-abundance taxa based on mini
 
 Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using \texttt{pdf()} output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.
 
-\section{4.1 Differential abundance analysis using MaAsLin3 and ALDEx2}\label{differential-abundance-analysis-using-maaslin3-and-aldex2}
+\subsection{4.1 Differential abundance analysis using MaAsLin3 and ALDEx2}\label{differential-abundance-analysis-using-maaslin3-and-aldex2}
 
 \textbf{You can use whichever amplicon you like for this! We've given instructions for 16S, but you can hopefully work out how to modify these commands for 18S or ITS :)}.
 
-\subsection{4.1.1 Prepare data from the end of Module 2}\label{prepare-data-from-the-end-of-module-2}
+\subsubsection{4.1.1 Prepare data from the end of Module 2}\label{prepare-data-from-the-end-of-module-2}
 
 First, we'll create a new directory for whichever dataset we want to use and we'll copy the output from the end of Module 2 into this.
 
@@ -2612,7 +2615,7 @@ ln -s ~/CourseData/MIC_data/bmb_module3/output/ITS_analysis/deblur_output_export
 ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/pregnancy_ITS_metadata.tsv .
 \end{verbatim}
 
-\section{4.1.2 Read output into R/Phyloseq}\label{read-output-into-rphyloseq}
+\subsection{4.1.2 Read output into R/Phyloseq}\label{read-output-into-rphyloseq}
 
 Next, we'll go to RStudio on the server. Go to your browser and navigate to:
 
@@ -2626,7 +2629,7 @@ Enter ``ubuntu'' as your username and the password that have been given. It take
 
 Everything that you're entering in here should be entered into the ``Console'' part of the page. This is like the Terminal that we've been using on the Server, but it uses the R programming language. Most statistical analyses in bioinformatics will use either R or Python - many bioinformaticians have a preference for one or the other, but most use both. In my opinion, each has different strengths and weaknesses - R has many built in programs and functions, while Python is much more customisable but perhaps has a steeper learning curve. The syntax varies slightly for both (and both are different from the Terminal that we have been using, which is the bash programming language), but there are also many similarities. RStudio is an Integrated Developing Environment (IDE) for R and Python - it is an application that provides further functionality than the R programming language itself.
 
-\subsection{Importing packages}\label{importing-packages}
+\subsubsection{Importing packages}\label{importing-packages}
 
 First of all, we'll import the packages that we'll be using today:
 
@@ -2649,7 +2652,7 @@ You'll notice that in each of these, we use the \texttt{library()} command, and 
 
 If you've used the 18S or the ITS datasets, I'm assuming that you'd like to challenge yourself a little more and I've made this code and explanation for 16S, but you'll need to figure out some of the changes to make for 18S/ITS. If you're struggling, you can find the full working code in the \hyperref[answers]{Answers}, but without any of the explanation that we have up here.
 
-\subsubsection{Setting variables}\label{setting-variables}
+\paragraph{Setting variables}\label{setting-variables}
 
 Next, we'll set the name of the folder where our results are saved:
 
@@ -2672,7 +2675,7 @@ You should see how these are different by how they show in the ``Environment'' a
 
 Now that we've explained the basics, we can read in some of our data.
 
-\subsubsection{Read in the feature table}\label{read-in-the-feature-table}
+\paragraph{Read in the feature table}\label{read-in-the-feature-table}
 
 First, we'll read in the feature table. Note that we're calling it \texttt{asv\_table}:
 
@@ -2688,7 +2691,7 @@ Next, we've given the \texttt{sep=\textquotesingle{}\textbackslash{}t\textquotes
 
 \textbf{Question 1}: Type in \texttt{asv\_table} or look at it in the ``Environment'' area in the top right. How many rows are there? Does this make sense to you?
 
-\subsubsection{Manipulate the feature table}\label{manipulate-the-feature-table}
+\paragraph{Manipulate the feature table}\label{manipulate-the-feature-table}
 
 We often find in programming that things are not quite in the format that is expected by the packages that we're using, so we'll make a few modifications to \texttt{asv\_table}:
 
@@ -2709,7 +2712,7 @@ This is kind of annoying because it means that the sample names won't match the 
 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))
 \end{verbatim}
 
-\subsubsection{Get the taxonomy information}\label{get-the-taxonomy-information}
+\paragraph{Get the taxonomy information}\label{get-the-taxonomy-information}
 
 You may have noticed that the last column in the initial \texttt{asv\_table} was our taxonomy information. We'll get that first:
 
@@ -2731,7 +2734,7 @@ You'll see that we tell the \texttt{separate} function that the data it should u
 
 Again, you can take a look at the results in the ``Environment'' area.
 
-\subsubsection{Read in the metadata}\label{read-in-the-metadata}
+\paragraph{Read in the metadata}\label{read-in-the-metadata}
 
 Now we'll read in the metadata. I won't go through each stage step-by-step as hopefully you're getting the idea by now, but I've still added comments to each of the rows:
 
@@ -2742,7 +2745,7 @@ rownames(samples) = metadata[,1] #add the sample names as row names
 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here
 \end{verbatim}
 
-\subsubsection{Combine these into a phyloseq object}\label{combine-these-into-a-phyloseq-object}
+\paragraph{Combine these into a phyloseq object}\label{combine-these-into-a-phyloseq-object}
 
 \href{https://joey711.github.io/phyloseq/}{Phyloseq} is a really useful package that contains many useful functions for analysing microbiome data. While it can be a bit fiddly to get our data into the format that it is expecting (most good packages should give you examples of how data should be formatted to go into them, although it does take a lot of practice to get good at quickly working out how this is different from what you have!), once that it is in this format, the analyses are then very easy to perform.
 
@@ -2777,7 +2780,7 @@ Take a look at each of these if you want to see what the differences were in eac
 
 \textbf{Question 3}: How does the number of genera compare with the number of ASVs?
 
-\section{4.1.3 Run MaAsLin3}\label{run-maaslin3}
+\subsection{4.1.3 Run MaAsLin3}\label{run-maaslin3}
 
 Now that we've prepared the phyloseq objects, it's time to run our first differential abundance test. Each of the differential abundance tools expects data to be normalised in a different way (or some of them normalise for you), and we're going to run MaAsLin with rarefied data.
 
@@ -2832,7 +2835,7 @@ pval\_individual (7) qval\_individual (8) pval\_joint (9) qval\_joint (10) error
 
 \textbf{Question 4}: How many taxa does MaAsLin3 say are significantly differentially abundant?
 
-\section{4.1.4 Run ALDEx2}\label{run-aldex2}
+\subsection{4.1.4 Run ALDEx2}\label{run-aldex2}
 
 Next, we'll run ALDEx2. Note that here the first step is to normalise the samples using a CLR normalisation, so you can see how both of the methods require similar steps - normalisation and then testing - but this is done in a slightly different way for each. We then use a Kruskal-Wallis test and a GLM ANOVA on the data, and we can do this test with multiple cores (\texttt{useMC=2}). You can see that we're again running this separately for each metadata variable, and then saving the outputs as .csv files:
 
@@ -2856,7 +2859,7 @@ Transformations/normalisations of microbiome data are often used to make the usu
 
 \textbf{Question 5}: How many taxa does ALDEx2 find to be significantly differentially abundant?
 
-\section{4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2}\label{combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2}
+\subsection{4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2}\label{combine-and-plot-differential-abundance-results-from-maaslin3-and-aldex2}
 
 In order to compare the results that we've got from the three differential abundance tools, we'll want to first import the results and do some manipulations on these tables.
 
@@ -2901,7 +2904,7 @@ And now we'll convert the physeq\_genus phyloseq object to relative abundance us
 physeq_relabun  = transform_sample_counts(physeq_genus, function(x) (x / sum(x))*100 )
 \end{verbatim}
 
-\subsubsection{Plot DA single taxon}\label{plot-da-single-taxon}
+\paragraph{Plot DA single taxon}\label{plot-da-single-taxon}
 
 Next we can look at plotting the abundance of a single taxon. Have a look at the list of taxa (\texttt{overlap}). Replace the empty quotation marks below with one of these:
 
@@ -2923,7 +2926,7 @@ This \texttt{boxplot\_abundance} function builds upon the R package ggplot2, and
 
 \textbf{Question 7}: Did it look like there are differences between the two treatments for the taxon that you plotted?
 
-\subsubsection{Plot DA all taxa}\label{plot-da-all-taxa}
+\paragraph{Plot DA all taxa}\label{plot-da-all-taxa}
 
 We can also make the same plots within a for loop:
 
@@ -2935,7 +2938,7 @@ for(i in 1:length(overlap)) {
 
 Now, if you press the forward and back buttons in the ``Plots'' pane, you can scroll through all of the taxa that we've identified as differentially abundant by one of the tests. You'll probably be able to see that a lot of these taxa are really only found in one of the treatments and not the other, so it's fairly clear why they're coming up as being significantly different.
 
-\paragraph{For loops}\label{for-loops}
+\subparagraph{For loops}\label{for-loops}
 
 For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. If you already know about for loops, feel free to skip ahead to section 2.8.
 
@@ -2963,13 +2966,13 @@ This is a really simple example, but you can see how in the loop above, we just 
 
 For loops can get incredibly complicated, can do lots of things, and can be nested inside other for loops, but we won't be doing anything more on them for now!
 
-\paragraph{Back to the results}\label{back-to-the-results}
+\subparagraph{Back to the results}\label{back-to-the-results}
 
 \textbf{Question 8}: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
 
-\section{4.2 Functional prediction with PICRUSt2}\label{functional-prediction-with-picrust2-1}
+\subsection{4.2 Functional prediction with PICRUSt2}\label{functional-prediction-with-picrust2-1}
 
-\subsection{4.2.1 Filter input for PICRUSt2}\label{filter-input-for-picrust2}
+\subsubsection{4.2.1 Filter input for PICRUSt2}\label{filter-input-for-picrust2}
 
 As PICRUSt2 can take quite a long time to run, we want to do some filtering on the files so that we'll have fewer ASVs. Usually we might investigate several different cutoffs for the minimum number of times an ASV should occur to be included, or the minimum prevalence of ASVs, but for the purposes of this workshop, we'll just use 50 for the minimum frequency of an ASV and 2 for the minimum number of samples that it must occur in.
 
@@ -3038,7 +3041,7 @@ Finally, we'll deactivate the conda environment:
 conda deactivate
 \end{verbatim}
 
-\subsection{4.2.2 Start running PICRUSt2}\label{start-running-picrust2}
+\subsubsection{4.2.2 Start running PICRUSt2}\label{start-running-picrust2}
 
 PICRUSt2 can take quite a long time to run - for PICRUSt2, as well as other programs that may take a while, there are several tools that are pre-installed on most Linux systems that we can use to make sure that our program carries on running even if we get disconnected from the server. One of the most frequently used ones is called \texttt{tmux}. To activate it, just type in \texttt{tmux} and press enter. It should take a second to start up, and then load up with a similar looking command prompt to previously, but with a coloured bar at the bottom of the screen.
 
@@ -3091,7 +3094,7 @@ You can see that here the options we're setting are:
 
 You might want to move on to something else while PICRUSt2 runs, as it's likely to take a little while (\textasciitilde20 mins).
 
-\subsection{4.2.3 Read PICRUSt2 output into R/Phyloseq}\label{read-picrust2-output-into-rphyloseq}
+\subsubsection{4.2.3 Read PICRUSt2 output into R/Phyloseq}\label{read-picrust2-output-into-rphyloseq}
 
 Once it's run, we can come back to the output.
 
@@ -3181,7 +3184,7 @@ PWY_int = otu_table(pwy_table_num, taxa_are_rows = TRUE)
 physeq_pwy_int = phyloseq(PWY_int, SAMPLE) #make a new phyloseq object with this
 \end{verbatim}
 
-\subsection{4.2.3 Look at PICRUSt2 alpha and beta diversity}\label{look-at-picrust2-alpha-and-beta-diversity}
+\subsubsection{4.2.3 Look at PICRUSt2 alpha and beta diversity}\label{look-at-picrust2-alpha-and-beta-diversity}
 
 Now we will just take a quick look at these to see how they compare with the analyses that we did in Module 3 based on the taxonomy data.
 
@@ -3213,7 +3216,7 @@ You should notice that we've chosen to colour and shape the samples by treatment
 \textbf{Question 10}: Can you see differences between the samples based on the metadata variables?\\
 \textbf{Question 11}: What are these differences like compared with those seen in the taxonomy data?
 
-\subsection{4.2.4 Run PICRUSt2 differential abundance}\label{run-picrust2-differential-abundance}
+\subsubsection{4.2.4 Run PICRUSt2 differential abundance}\label{run-picrust2-differential-abundance}
 
 Now we'll try running the differential abundance tests.
 
@@ -3259,7 +3262,7 @@ kw.test <- aldex.kw(x, useMC=2, verbose=FALSE)
 write.csv(kw.test, paste(folder, "ALDEx2_pathway.csv", sep=""))
 \end{verbatim}
 
-\subsection{4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2}\label{combine-and-plot-picrust2-differential-abundance-results-from-maaslin3-and-aldex2}
+\subsubsection{4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2}\label{combine-and-plot-picrust2-differential-abundance-results-from-maaslin3-and-aldex2}
 
 Import the MaAsLin results:
 
@@ -3287,7 +3290,7 @@ ALDEx2 doesn't find anything to be differentially abundant. This means that ther
 pathways = maaslin$feature
 \end{verbatim}
 
-\subsection{Plot DA single pathway}\label{plot-da-single-pathway}
+\subsubsection{Plot DA single pathway}\label{plot-da-single-pathway}
 
 Next we can look at plotting the abundance of a single pathways. Have a look at the list of pathways (\texttt{pathways}). Replace the empty quotation marks below with one of these:
 
@@ -3301,7 +3304,7 @@ Now make the boxplot:
 microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=single_pathway, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(single_pathway) + ylab('Relative abundance (%)')
 \end{verbatim}
 
-\subsection{Plot DA all pathways}\label{plot-da-all-pathways}
+\subsubsection{Plot DA all pathways}\label{plot-da-all-pathways}
 
 Now make all of the boxplots:
 
@@ -3313,9 +3316,9 @@ for(i in 1:length(pathways)) {
 
 You'll see that these are all quite low abundance (\textless1\% abundance), but they do all seem to have clear differences between the two treatments.
 
-\section{4.3 Constructing and visualising a co-occurrence network}\label{constructing-and-visualising-a-co-occurrence-network}
+\subsection{4.3 Constructing and visualising a co-occurrence network}\label{constructing-and-visualising-a-co-occurrence-network}
 
-\subsection{Introduction}\label{introduction-4}
+\subsubsection{Introduction}\label{introduction-4}
 
 Microbes don't live in isolation---they form complex ecological communities where interactions between taxa can be cooperative, competitive, or neutral. One way to explore these interactions is through co-occurrence networks, where nodes represent microbial taxa and edges represent inferred associations. To make these networks more biologically meaningful, we need to account for the compositional nature of microbiome data and avoid common pitfalls such as spurious correlations.
 
@@ -3323,7 +3326,7 @@ In this section, we'll use the \texttt{SpiecEasi} package to construct a sparse 
 
 \textbf{We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS}.
 
-\subsection{4.3.1 Prepare data from the end of Module 2}\label{prepare-data-from-the-end-of-module-2-1}
+\subsubsection{4.3.1 Prepare data from the end of Module 2}\label{prepare-data-from-the-end-of-module-2-1}
 
 First, we'll create a new directory for whichever dataset we want to use and we'll copy the output from the end of Module 2 into this.
 
@@ -3337,7 +3340,7 @@ ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_export
 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .
 \end{verbatim}
 
-\subsubsection{Read output into R/Phyloseq}\label{read-output-into-rphyloseq-1}
+\paragraph{Read output into R/Phyloseq}\label{read-output-into-rphyloseq-1}
 
 Next, we'll go to RStudio on the server. Go to your browser and navigate to:
 
@@ -3351,7 +3354,7 @@ Enter ``ubuntu'' as your username and the password that have been given. It take
 
 Everything that you're entering in here should be entered into the ``Console'' part of the page. This is like the Terminal that we've been using on the Server, but it uses the R programming language. Most statistical analyses in bioinformatics will use either R or Python - many bioinformaticians have a preference for one or the other, but most use both. In my opinion, each has different strengths and weaknesses - R has many built in programs and functions, while Python is much more customisable but perhaps has a steeper learning curve. The syntax varies slightly for both (and both are different from the Terminal that we have been using, which is the bash programming language), but there are also many similarities. RStudio is an Integrated Developing Environment (IDE) for R and Python - it is an application that provides further functionality than the R programming language itself.
 
-\subsubsection{Importing packages}\label{importing-packages-1}
+\paragraph{Importing packages}\label{importing-packages-1}
 
 First of all, we'll import the packages that we'll be using today:
 
@@ -3364,7 +3367,7 @@ library(igraph)
 
 You'll notice that in each of these, we use the \texttt{library()} command, and inside the brackets we give the name of the package. We've already installed these packages for you, but in most cases these could be installed by \emph{e.g.,} \texttt{install.packages("igraph")}. In some cases, they might be installed using another package, BiocManager, \emph{e.g.,} \texttt{BiocManager::install("phyloseq")}. If you're unsure, you can always google how to install a package and you can usually find the code to copy and paste, \emph{e.g.,} ``r install phyloseq''. You could also try typing \texttt{??phyloseq} into the console and see what comes up. It should give you some information about that package.
 
-\subsubsection{Setting variables}\label{setting-variables-1}
+\paragraph{Setting variables}\label{setting-variables-1}
 
 Next, we'll set the name of the folder where our results are saved:
 
@@ -3374,7 +3377,7 @@ folder = '/home/ubuntu/workspace/bmb_module4/16S_analysis/'
 
 Here, we have defined a variable called ``folder'' - we always need to be careful that we don't save over these variables by calling something else the same thing, but you can always check these in the ``Environment'' area in the top right where you should see that ``folder'' now exists. We could have called this anything, but it's always helpful to name our variables something that is simple and explains what they are, incase someone else is using our code. This is a string, as it is inside the punctuation marks \texttt{\textquotesingle{}\ \textquotesingle{}} or \texttt{"\ "}, and this is used in programming to show that we are representing text rather than numbers. These variables can be really useful to avoid having to type in the same information multiple times, which always increases the chances that we'll make a mistake!
 
-\subsubsection{Read in the feature table}\label{read-in-the-feature-table-1}
+\paragraph{Read in the feature table}\label{read-in-the-feature-table-1}
 
 First, we'll read in the feature table. Note that we're calling it \texttt{asv\_table}:
 
@@ -3388,7 +3391,7 @@ We're also using the \texttt{paste} function to add together the full file path 
 
 Next, we've given the \texttt{sep=\textquotesingle{}\textbackslash{}t\textquotesingle{}} variable - this time, we're telling the \texttt{read.csv} function that the file that we're importing is tab-delimited, then we've told it to skip the first line of the file \texttt{skip=1}, and that there is a header \texttt{header=T} (where T is the same as TRUE). We've skipped the first line because this just reads ``\# Constructed from biom file'' and is not actually data.
 
-\subsubsection{Manipulate the feature table}\label{manipulate-the-feature-table-1}
+\paragraph{Manipulate the feature table}\label{manipulate-the-feature-table-1}
 
 We often find in programming that things are not quite in the format that is expected by the packages that we're using, so we'll make a few modifications to \texttt{asv\_table}:
 
@@ -3407,7 +3410,7 @@ This is kind of annoying because it means that the sample names won't match the 
 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))
 \end{verbatim}
 
-\subsubsection{Get the taxonomy information}\label{get-the-taxonomy-information-1}
+\paragraph{Get the taxonomy information}\label{get-the-taxonomy-information-1}
 
 You may have noticed that the last column in the initial \texttt{asv\_table} was our taxonomy information. We'll get that first:
 
@@ -3429,7 +3432,7 @@ You'll see that we tell the \texttt{separate} function that the data it should u
 
 Again, you can take a look at the results in the ``Environment'' area.
 
-\subsubsection{Read in the metadata}\label{read-in-the-metadata-1}
+\paragraph{Read in the metadata}\label{read-in-the-metadata-1}
 
 Now we'll read in the metadata. I won't go through each stage step-by-step as hopefully you're getting the idea by now, but I've still added comments to each of the rows:
 
@@ -3440,7 +3443,7 @@ rownames(samples) = metadata[,1] #add the sample names as row names
 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here
 \end{verbatim}
 
-\subsubsection{Combine these into a phyloseq object}\label{combine-these-into-a-phyloseq-object-1}
+\paragraph{Combine these into a phyloseq object}\label{combine-these-into-a-phyloseq-object-1}
 
 \href{https://joey711.github.io/phyloseq/}{Phyloseq} is a really useful package that contains many useful functions for analysing microbiome data. While it can be a bit fiddly to get our data into the format that it is expecting (most good packages should give you examples of how data should be formatted to go into them, although it does take a lot of practice to get good at quickly working out how this is different from what you have!), once that it is in this format, the analyses are then very easy to perform.
 
@@ -3473,7 +3476,7 @@ otu_table(physeq_genus)
 
 Take a look at each of these if you want to see what the differences were in each step!
 
-\subsection{4.3.2 Indicator Species Analysis (ISA)}\label{indicator-species-analysis-isa}
+\subsubsection{4.3.2 Indicator Species Analysis (ISA)}\label{indicator-species-analysis-isa}
 
 First, let's use \texttt{indicspecies} to run an Indicator Species Analysis (ISA) to find some ASVs whose abundance and prevalence suggests they are important for one sample type or another.
 
@@ -3510,7 +3513,7 @@ asv_indicator_group <- apply(sig_hits[sig_asvs, c("s.Forest", "s.Managed")], 1, 
 indicator_vector <- setNames(asv_indicator_group, sig_asvs)
 \end{verbatim}
 
-\subsection{4.3.3 Abundance and Prevalence filtering}\label{abundance-and-prevalence-filtering}
+\subsubsection{4.3.3 Abundance and Prevalence filtering}\label{abundance-and-prevalence-filtering}
 
 Now that we've identified which ASVs are associated with each treatment group, we'll filter the dataset to remove taxa that are too rare or too low in abundance. This step ensures the network we infer focuses on ecologically relevant players. (\emph{NOTE: the ISA should have dealt with this, but it's good to double-check})
 
@@ -3539,7 +3542,7 @@ cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
 
 \textbf{Question 12}: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?
 
-\subsection{4.3.4 Contructing the Co-occurrence Network}\label{contructing-the-co-occurrence-network}
+\subsubsection{4.3.4 Contructing the Co-occurrence Network}\label{contructing-the-co-occurrence-network}
 
 Now that we've selected our ASVs of focus, we can infer the co-occurrence network using \texttt{SpiecEasi}. We're using the MB (neighborhood selection) method here, and we'll allow the algorithm to determine the best level of sparsity through cross-validation (via \texttt{pulsar}). This will give us a network where each edge represents a direct association between two taxa.
 
@@ -3570,7 +3573,7 @@ indicator_status <- indicator_vector[taxa_names(physeq_net)]
 tax_table(physeq_net) <- cbind(tax_table(physeq_net), Indicator = indicator_status)
 \end{verbatim}
 
-\subsection{4.3.5 Visualizing Networks}\label{visualizing-networks}
+\subsubsection{4.3.5 Visualizing Networks}\label{visualizing-networks}
 
 Finally, we'll visualize the network using \texttt{igraph}. First, we'll color nodes by their indicator status (e.g., Forest, Managed, Not significant), and then generate a second plot colored by taxonomic assignment at the ta3 rank. These two plots will also be combined into a panel figure for comparison.
 
@@ -3672,7 +3675,7 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
 dev.off()
 \end{verbatim}
 
-\subsection{Bonus: Size by network statistics}\label{bonus-size-by-network-statistics}
+\subsubsection{Bonus: Size by network statistics}\label{bonus-size-by-network-statistics}
 
 More advanced plotting can include adding network statistics as the sizes of the nodes.
 
@@ -3754,9 +3757,9 @@ dev.off()
 cat("Degree-scaled panel figure saved.\n")
 \end{verbatim}
 
-\section{Answers}\label{answers-2}
+\subsection{Answers}\label{answers-2}
 
-\subsection{Answers 16S differential abundance and PICRUSt2}\label{answers-16s-differential-abundance-and-picrust2}
+\subsubsection{Answers 16S differential abundance and PICRUSt2}\label{answers-16s-differential-abundance-and-picrust2}
 
 \textbf{Question 1}: Type in \texttt{asv\_table} or look at it in the ``Environment'' area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the \texttt{feature\_table.txt}, but without the \texttt{\#\ Constructed\ from\ biom\ file} line.
@@ -3790,11 +3793,11 @@ Yes - Shannon and Simpson diversity seems to be slightly higher in Managed than 
 
 \textbf{Question 11}: What are these differences like compared with those seen in the taxonomy data?
 
-\subsection{Answers 18S differential abundance}\label{answers-18s-differential-abundance}
+\subsubsection{Answers 18S differential abundance}\label{answers-18s-differential-abundance}
 
 See below for the answers to questions!
 
-\subsubsection{Code needed}\label{code-needed}
+\paragraph{Code needed}\label{code-needed}
 
 Importing packages:
 
@@ -3977,7 +3980,7 @@ aldex_time = aldex_time[aldex_time$kw.eBH <= 0.2, ]
 
 None of these are significant either :(
 
-\subsubsection{18S Answers to questions}\label{s-answers-to-questions}
+\paragraph{18S Answers to questions}\label{s-answers-to-questions}
 
 \textbf{Question 1}: Type in \texttt{asv\_table} or look at it in the ``Environment'' area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the \texttt{feature\_table.txt}, but without the \texttt{\#\ Constructed\ from\ biom\ file} line.
@@ -4003,9 +4006,9 @@ Not applicable.
 \textbf{Question 8}: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
 Not applicable.
 
-\subsection{Answers ITS differential abundance}\label{answers-its-differential-abundance}
+\subsubsection{Answers ITS differential abundance}\label{answers-its-differential-abundance}
 
-\subsubsection{Code needed}\label{code-needed-1}
+\paragraph{Code needed}\label{code-needed-1}
 
 Importing packages:
 
@@ -4186,7 +4189,7 @@ aldex_category = aldex_category[aldex_category$kw.eBH <= 0.2, ]
 
 None of these are significant either :(
 
-\subsubsection{ITS Answers to questions}\label{its-answers-to-questions}
+\paragraph{ITS Answers to questions}\label{its-answers-to-questions}
 
 \textbf{Question 1}: Type in \texttt{asv\_table} or look at it in the ``Environment'' area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the \texttt{feature\_table.txt}, but without the \texttt{\#\ Constructed\ from\ biom\ file} line.

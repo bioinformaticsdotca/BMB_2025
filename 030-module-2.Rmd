@@ -1,8 +1,8 @@
-# (PART) Modules {-}
-
 # Module 2 
 
-## Lecture Slides
+## Lecture
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/FXvIaiFB5UY?si=-qpbM-w1umCxPvTT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/1FMnRd4Sl0Gr4VGiV4gX-NTxVuyy46OMz/preview" width="640" height="480" allow="autoplay"></iframe>  
 
@@ -12,7 +12,7 @@ This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bio
 
 **Author**: Robyn Wright
 
-## Introduction
+### Introduction
 
 Modules 2 and 3 provide a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi.
 
@@ -36,7 +36,7 @@ You can jump to one of the below sections for the commands needed for processing
 
 In Module 2 we will cover the basics of marker gene analysis from raw reads to filtered feature table. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version 2025.4), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the [QIIME 2 user documentation](https://qiime2.org/), along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within [QIIME2 View](https://view.qiime2.org/).
 
-## 1. 16S
+### 1. 16S
 
 Create a directory for Module 2 inside `workspace` and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -61,9 +61,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-## 1.1. 16S First steps
+### 1.1. 16S First steps
 
-### 1.1.1. Inspect raw data
+#### 1.1.1. Inspect raw data
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -85,7 +85,7 @@ head Blueberry_16S_metadata.tsv
 
 ::::
 
-### 1.1.2. Import FASTQs as QIIME2 artifact
+#### 1.1.2. Import FASTQs as QIIME2 artifact
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an "artifact" (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -105,7 +105,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file reads_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the `qiime tools utilities` (e.g. `peek` and `view`).
 
-### 1.1.3. Trim primers with cutadapt
+#### 1.1.3. Trim primers with cutadapt
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the [cutadapt](http://cutadapt.readthedocs.io/en/stable/guide.html) QIIME 2 plugin. The below primers correspond to the 16S V6-V8 region (bacteria-specific primer set). You can see more about different primers and the taxa that they target [here](https://imr.bio/protocols.html). 
 
@@ -141,11 +141,11 @@ Remember that you can see and download these files on the webpage: http://##.uhn
 
 ::::
 
-## 1.2. 16S Denoising the reads into amplicon sequence variants
+### 1.2. 16S Denoising the reads into amplicon sequence variants
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found [here](https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference).
 
-### 1.2.1. Join paired-end reads
+#### 1.2.1. Join paired-end reads
 
 Forward and reverse reads can be joined with [VSEARCH](https://github.com/torognes/vsearch) as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -155,7 +155,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 ```
 
-### 1.2.2. Filter out low-quality reads
+#### 1.2.2. Filter out low-quality reads
 
 This command will filter out low-quality reads based on the default options.
 
@@ -166,7 +166,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 ```
 
-### 1.2.3. Summarize joined and filtered reads
+#### 1.2.3. Summarize joined and filtered reads
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -188,7 +188,7 @@ Now open the file in [QIIME2 View](https://view.qiime2.org/) and look at the Ove
 
 ::::
 
-### 1.2.4. Running Deblur
+#### 1.2.4. Running Deblur
 
 Running the [Deblur](https://github.com/biocore/deblur) workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set --p-min-reads 1, and is for 16S sequences only. For other amplicon regions, you can either use the denoise-other option in the command and specify a reference database of sequences to use for positive filtering (as in the below versions for 18S and ITS) or use DADA2.
 
@@ -213,7 +213,7 @@ This command may take a few minutes to run.
 
 ::::
 
-### 1.2.5. Summarizing Deblur output
+#### 1.2.5. Summarizing Deblur output
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -233,7 +233,7 @@ qiime feature-table summarize \
 
 ::::
 
-## 1.3. 16S Assign taxonomy to ASVs
+### 1.3. 16S Assign taxonomy to ASVs
 
 ```
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/qiime2-2020.8_classifiers) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)):
@@ -246,7 +246,7 @@ We're going to use the Greengenes2 classifier. We can download that from the FTP
 wget link-address
 ```
 
-### 1.3.1. Run taxonomic classification
+#### 1.3.1. Run taxonomic classification
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the `--p-reads-per-batch` option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set`--p-n-jobs 1`).
 
@@ -285,7 +285,7 @@ qiime tools export \
   --output-path taxa
 ```
 
-### 1.3.2 Assess subset of taxonomic assignments with BLAST
+#### 1.3.2 Assess subset of taxonomic assignments with BLAST
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -302,11 +302,11 @@ You can then check the taxonomy that was assigned to them using your classifier 
 grep "02fda7604175053e87dc11e2598a89e0" taxa/taxonomy.tsv
 ```
 
-## 1.4. 16S Filtering resultant table
+### 1.4. 16S Filtering resultant table
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the [QIIME 2 filtering tutorial](https://docs.qiime2.org/2022.11/tutorials/filtering/).
 
-### 1.4.1. Filter out rare ASVs
+#### 1.4.1. Filter out rare ASVs
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (```deblur_table_summary.qzv```), multiply it by 0.001, and round to the nearest integer.
 
@@ -320,7 +320,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 ```
 
-### 1.4.2. Filter out contaminant and unclassified ASVs
+#### 1.4.2. Filter out contaminant and unclassified ASVs
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. It can also be **sometimes** useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change `p\_\_` to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
@@ -335,13 +335,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 ```
 
-### *1.4.3. (Optional) Exclude low-depth samples*
+#### *1.4.3. (Optional) Exclude low-depth samples*
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth \< 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-### 1.4.4. Subset and summarize filtered table
+#### 1.4.4. Subset and summarize filtered table
 
 Check output after filtering.
 
@@ -383,7 +383,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 ```
 
-## 16S Answers
+### 16S Answers
 
 **Question 1**: How many samples are there?
 
@@ -417,7 +417,7 @@ Sample B-Rt151 has the lowest sequencing depth (4,332 reads).
 
 The final minimum sequencing depth is 3,432 and the maximum sequencing depth is 8,650 reads.
 
-## 2. 18S
+### 2. 18S
 
 Create for Module 2 inside `workspace` and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -442,9 +442,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-## 2.1. 18S First steps
+### 2.1. 18S First steps
 
-### 2.1.1. Inspect raw data
+#### 2.1.1. Inspect raw data
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -466,7 +466,7 @@ head Plastisphere_18S_metadata.tsv
 
 ::::
 
-### 2.1.2. Import FASTQs as QIIME2 artifact
+#### 2.1.2. Import FASTQs as QIIME2 artifact
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an "artifact" (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -486,7 +486,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file reads_qza/reads.qza. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the `qiime tools utilities` (e.g. `peek` and `view`).
 
-### 2.1.3. Trim primers with cutadapt
+#### 2.1.3. Trim primers with cutadapt
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the [cutadapt](http://cutadapt.readthedocs.io/en/stable/guide.html) QIIME 2 plugin. The below primers correspond to the 18S V4 region (eukaryote-specific primer set). You can see more about different primers and the taxa that they target [here](https://imr.bio/protocols.html). 
 
@@ -522,11 +522,11 @@ Remember that you can see and download these files on the webpage: http://##.uhn
 
 ::::
 
-## 2.2. 18S Denoising the reads into amplicon sequence variants
+### 2.2. 18S Denoising the reads into amplicon sequence variants
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found [here](https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference).
 
-### 2.2.1. Join paired-end reads
+#### 2.2.1. Join paired-end reads
 
 Forward and reverse reads can be joined with [VSEARCH](https://github.com/torognes/vsearch) as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -536,7 +536,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 ```
 
-### 2.2.2. Filter out low-quality reads
+#### 2.2.2. Filter out low-quality reads
 
 This command will filter out low-quality reads based on the default options.
 
@@ -547,7 +547,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 ```
 
-### 2.2.3. Summarize joined and filtered reads
+#### 2.2.3. Summarize joined and filtered reads
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -569,7 +569,7 @@ Now open the file in [QIIME2 View](https://view.qiime2.org/) and look at the Ove
 
 ::::
 
-### 2.2.4. Running Deblur
+#### 2.2.4. Running Deblur
 
 Running the [Deblur](https://github.com/biocore/deblur) workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set `--p-min-reads 1`, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server [here](http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/). 
 
@@ -608,7 +608,7 @@ This command may take around ten minutes to run.
 
 ::::
 
-### 2.2.5. Summarizing Deblur output
+#### 2.2.5. Summarizing Deblur output
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -628,13 +628,13 @@ qiime feature-table summarize \
 
 ::::
 
-## 2.3. 18S Assign taxonomy to ASVs
+### 2.3. 18S Assign taxonomy to ASVs
 
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Sometimes there are custom classifiers or other specific databases that are good for specific purposes. For 18S, we're going to be using the [PR2 (Protist Ribosomal Reference) database](https://pr2-database.org/). A custom classifier that we've generated is available ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/) and [commands used to create classifiers](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)). 
 
 We're going to use the PR2 classifier. As you did above, click on "Copy Link Address" for the file `pr2_version_5.1.0_SSU_18S.qza` and then use `wget` to download it. Check how you ran this command before if you're unsure!
 
-### 2.3.1. Run taxonomic classification
+#### 2.3.1. Run taxonomic classification
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive commands of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the `--p-reads-per-batch` option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set `--p-n-jobs 1`).
 
@@ -669,7 +669,7 @@ qiime tools export \
   --output-path taxa
 ```
 
-### 2.3.2 Assess subset of taxonomic assignments with BLAST
+#### 2.3.2 Assess subset of taxonomic assignments with BLAST
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -690,11 +690,11 @@ You should see that this sequence has been classified as `d__Eukaryota; sg__Arch
 
 Try taking a look at a few more and seeing how they seem. 
 
-## 2.4. 18S Filtering resultant table
+### 2.4. 18S Filtering resultant table
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the [QIIME 2 filtering tutorial](https://docs.qiime2.org/2022.11/tutorials/filtering/).
 
-### 2.4.1. Filter out rare ASVs
+#### 2.4.1. Filter out rare ASVs
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (```deblur_table_summary.qzv```), multiply it by 0.001, and round to the nearest integer.
 
@@ -708,7 +708,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 ```
 
-### 2.4.2. Filter out contaminant and unclassified ASVs
+#### 2.4.2. Filter out contaminant and unclassified ASVs
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. Obviously this is different for 18S, so we don't need to exclude those here. It can also be **sometimes** useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that here we actually don't have phylum-level classifications because the PR2 database doesn't use these - it uses levels of domain, supergroup, division, subdivision, class, order, family, genus, and species. So in our taxonomy file you'll see that these are d, sg, di, sd, c, o, f, g, and s, respectively. We'll therefore probably want to use the sg\_\_ instead of p\_\_ like we used for 16S data. 
 
@@ -722,13 +722,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 ```
 
-### *2.4.3. (Optional) Exclude low-depth samples*
+#### *2.4.3. (Optional) Exclude low-depth samples*
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth \< 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-### 2.4.4. Subset and summarize filtered table
+#### 2.4.4. Subset and summarize filtered table
 
 Check output after filtering.
 
@@ -770,7 +770,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 ```
 
-## 18S Answers
+### 18S Answers
 
 **Question 1**: How many samples are there?
 
@@ -804,7 +804,7 @@ Sample MH28C318S has the lowest sequencing depth (only 27 reads).
 
 The final minimum sequencing depth is 7 and the maximum sequencing depth is 12,890 reads.
 
-## 3. ITS
+### 3. ITS
 
 Create for Module 2 inside `workspace` and create a symlink to the raw FASTQ files and the metadata file.
 
@@ -829,9 +829,9 @@ conda activate qiime2-amplicon-backup
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-## 3.1. ITS First steps
+### 3.1. ITS First steps
 
-### 3.1.1. Inspect raw data
+#### 3.1.1. Inspect raw data
 
 First, let's take a look at the directory containing our raw reads as well as our metadata file.
 
@@ -853,7 +853,7 @@ head pregnancy_ITS_metadata.tsv
 
 ::::
 
-### 3.1.2. Import FASTQs as QIIME2 artifact
+#### 3.1.2. Import FASTQs as QIIME2 artifact
 
 To standardize QIIME 2 analyses and to keep track of provenance (i.e. a list of what commands were previously run to produce a file) a special format is used for all QIIME 2 input and output files called an "artifact" (with the extension QZA). The first step is to import the raw reads as a QZA file. We will first create a new directory.
 
@@ -873,7 +873,7 @@ This might take a minute! If it hasn't come back up with the command prompt that
 
 All of the FASTQs are now in the single artifact file `reads_qza/reads.qza`. This file format can be a little confusing at first, but it is actually just a zipped folder. You can manipulate and explore these files better with the `qiime tools utilities` (e.g. `peek` and `view`).
 
-### 3.1.3. Trim primers with cutadapt
+#### 3.1.3. Trim primers with cutadapt
 
 Screen out reads that do not begin with primer sequence and remove primer sequence from reads using the [cutadapt](http://cutadapt.readthedocs.io/en/stable/guide.html) QIIME 2 plugin. The below primers correspond to the 18S V8-V9 region (eukaryote-specific primer set). You can see more about some other primers and the taxa that they target [here](https://imr.bio/protocols.html). 
 
@@ -909,11 +909,11 @@ Remember that you can see and download these files on the webpage: http://##.uhn
 
 ::::
 
-## 3.2. ITS Denoising the reads into amplicon sequence variants
+### 3.2. ITS Denoising the reads into amplicon sequence variants
 
 Different denoising tools require different levels of preprocessing before the actual denoising happens. For example, DADA2 performs read joining and quality filtering as part of the denoising step itself, and can be run directly after trimming the primers. Due to speed considerations, we'll be using Deblur instead, which requires that these steps be carried out separately. Guidelines for running DADA2 can be found [here](https://github.com/LangilleLab/microbiome_helper/wiki/QIIME2-DADA2-Quick-Reference).
 
-### 2.1. Join paired-end reads
+#### 2.1. Join paired-end reads
 
 Forward and reverse reads can be joined with [VSEARCH](https://github.com/torognes/vsearch) as shown below. This will generate QZA files for both the joined/merged sequences and unmerged sequences.
 
@@ -923,7 +923,7 @@ qiime vsearch merge-pairs \
   --output-dir reads_qza/reads_joined
 ```
 
-### 3.2.2. Filter out low-quality reads
+#### 3.2.2. Filter out low-quality reads
 
 This command will filter out low-quality reads based on the default options.
 
@@ -934,7 +934,7 @@ qiime quality-filter q-score \
   --o-filtered-sequences reads_qza/reads_trimmed_joined_filt.qza
 ```
 
-### 3.2.3. Summarize joined and filtered reads
+#### 3.2.3. Summarize joined and filtered reads
 
 It is a good idea at this point just to verify that there haven't been any substantial losses of reads, before going through the whole ASV process, at either the joining or quality-filtering steps above. You will also need to select a length to trim back to that maintains the largest/acceptable quantity of reads during denoising.
 
@@ -956,7 +956,7 @@ Now open the file in [QIIME2 View](https://view.qiime2.org/) and look at the Ove
 
 ::::
 
-### 3.2.4. Running Deblur
+#### 3.2.4. Running Deblur
 
 Running the [Deblur](https://github.com/biocore/deblur) workflow will correct the raw reads into amplicon sequence variants (ASVs). This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. Note that the below command will retain singletons, which would have been filtered out unless we set `--p-min-reads 1`, and is for 16S sequences only. While for 16S there is a denoise-16S option that doesn't require any reference sequences, for other amplicon regions (like 18S and ITS), you can use the denoise-other option and specify a reference database of sequences to use for positive filtering. We keep these files available for others on our lab server [here](http://kronos.pharmacology.dal.ca/public_files/MH/deblur_non16S_ref/). 
 
@@ -995,7 +995,7 @@ This command may take around ten minutes to run
 
 ::::
 
-### 3.2.5. Summarizing Deblur output
+#### 3.2.5. Summarizing Deblur output
 
 Once a denoising pipeline has been run you can summarize the output table with the below command, which will create a visualization artifact for you to view. We will use this visualization later to determine the the cut-offs for filtering the table below, but for now you should mainly take a look at the visualization to ensure that sufficient reads have been retained after running deblur. This denoising tool filters out reads that either do match to known noise or that do not match with low similarity to the expected amplicon region. If your samples have very low depth after running deblur (compared to the input read depth) this could be a red flag that either you ran the tool incorrectly, you have a lot of noise in your data, or that deblur is inappropriate for your dataset.
 
@@ -1015,13 +1015,13 @@ qiime feature-table summarize \
 
 ::::
 
-## 3.3. ITS Assign taxonomy to ASVs
+### 3.3. ITS Assign taxonomy to ASVs
 
 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/scikit-learn_v1.4.2_classifiers/) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)).
 
 We're going to use one that contains fungal ITS sequences from the UNITE database. As you did above, click on "Copy Link Address" for the file `classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza` and then use `wget` to download it. Check how you ran this command before if you're unsure!
 
-### 3.3.1. Run taxonomic classification
+#### 3.3.1. Run taxonomic classification
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the `--p-reads-per-batch` option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set `--p-n-jobs 1`).
 
@@ -1053,7 +1053,7 @@ qiime tools export \
   --output-path taxa
 ```
 
-### 3.3.2. Assess subset of taxonomic assignments with BLAST
+#### 3.3.2. Assess subset of taxonomic assignments with BLAST
 
 The performance of the taxonomic classification is difficult to assess without a gold-standard reference, but nonetheless one basic sanity check is to compare the taxonomic assignments with the top BLASTn hits for certain ASVs. First, generate a QZV file for the denoised representative sequences in QIIME 2 by running:
 
@@ -1074,11 +1074,11 @@ You should see that this sequence has been classified as `k__Fungi;p__Ascomycota
 
 Try taking a look at a few more and seeing how they seem. 
 
-## 3.4. ITS Filtering resultant table
+### 3.4. ITS Filtering resultant table
 
 Filtering the denoised table is an important step of microbiome data analysis. You can see more details on this process in the [QIIME 2 filtering tutorial](https://docs.qiime2.org/2022.11/tutorials/filtering/).
 
-### 3.4.1. Filter out rare ASVs
+#### 3.4.1. Filter out rare ASVs
 
 Based on the summary visualization created in step 2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.5 (```deblur_table_summary.qzv```), multiply it by 0.001, and round to the nearest integer.
 
@@ -1092,7 +1092,7 @@ qiime feature-table filter-features \
   --o-filtered-table deblur_output/deblur_table_filt.qza
 ```
 
-### 3.4.2. Filter out contaminant and unclassified ASVs
+#### 3.4.2. Filter out contaminant and unclassified ASVs
 
 Once we have assigned taxonomy to our ASVs we can use that information to remove ASVs which are likely contaminants or noise based on the taxonomic labels. Two common contaminants in 16S sequencing data are mitochondrial and chloroplast 16S sequences, which can be removed by excluding any ASV which contains those terms in its taxonomic label. We don't really have that issue with ITS data, however. It can also be **sometimes** useful to exclude any ASV that is unclassified at the phylum level since these sequences could be noise (e.g. possible chimeric sequences). Note that if your data has not been classified against the default database you may need to change p\_\_ to be a string that enables phylum-level assignments to be identified or simply omit that line.
 
@@ -1106,13 +1106,13 @@ qiime taxa filter-table \
   --o-filtered-table deblur_output/deblur_table_filt_contam.qza
 ```
 
-### *3.4.3. (Optional) Exclude low-depth samples*
+#### *3.4.3. (Optional) Exclude low-depth samples*
 
 Often certain samples will have quite low depth after these filtering steps, which can be excluded from downstream analyses since they will largely add noise. There is no single cut-off that works best for all datasets, but researchers often use minimum cut-offs within the range of 1000 to 4000 reads. You can also use a cut-off much lower than this if you want to retain all samples except those that failed entirely (e.g. depth \< 50 reads).
 
 Ideally you would choose this cut-off after visualizing rarefaction curves to determine at what read depth the richness of your samples plateaus and choose a cut-off as close to this plateau as possible while retaining sufficient sample size for your analyses. We learn more about rarefaction curves in Module 3.
 
-### 3.4.4. Subset and summarize filtered table
+#### 3.4.4. Subset and summarize filtered table
 
 Check output after filtering.
 
@@ -1154,7 +1154,7 @@ qiime feature-table summarize \
   --o-visualization deblur_output/deblur_table_final_summary.qzv
 ```
 
-## ITS Answers
+### ITS Answers
 
 **Question 1**: How many samples are there?
 

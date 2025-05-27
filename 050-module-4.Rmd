@@ -1,12 +1,16 @@
-# (PART) Modules {-}
-
 # Module 4 Lab: Functional prediction and additional analyses
 
 This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bioinformaticsdotca.github.io/BMB_2025/) (held in Vancouver, BC, May 26-27).
 
 **Authors**: Robyn Wright and Ryan McLaughlin
 
-## Introduction
+## Lecture
+
+<iframe src="https://docs.google.com/presentation/d/1uBqBhbRo66_Etj5wYTGjf9sqsdmy-E0s/preview" width="640" height="480" allow="autoplay"></iframe>  
+
+## Lab
+
+### Introduction
 
 In this module, we'll be taking a look at three of the major ways in which we use amplicon sequencing data to learn about microbial communities; (1) identifying taxa that are significantly differentially abundant between different sample groups, (2) predicting the functional capabilities of these communities based on the taxa that are present, and (3) constructing and visualising a co-occurrence network. 
 
@@ -14,7 +18,7 @@ In this module, we'll be taking a look at three of the major ways in which we us
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. As with the previous modules, you'll find the [answers](#answers) at the bottom of this page, but no one will be marking them. 
 
-### Differential abundance testing with MaAsLin3 and ALDEx2
+#### Differential abundance testing with MaAsLin3 and ALDEx2
 
 Tens (if not more) of tools have been used for differential abundance testing of microbiome samples - identifying taxa that differ in abundance between sample groups (for example, treatment versus control) or with variables of interest (for example, correlations with pH or blood metabolite measurements). While these tools/methods have often been used interchangeably in the literature, there are large differences in the performance of different tools even on the same sample group. There have now been several large scale comparisons of different tools (*e.g.,* [Calgaro *et al.*](https://link.springer.com/article/10.1186/s13059-020-02104-1), [Thorsen *et al.*](https://link.springer.com/article/10.1186/s40168-016-0208-8)), and our lab also carried one out (published [here](https://www.nature.com/articles/s41467-022-28034-z)). While these studies have typically found that different methods lead to different biases in the results, as there is no one single *best* method for determining differentially abundant taxa, the best practice that we have for overcoming these issues currently is to use multiple differential abundance tests, report these clearly, and focus on the taxa that are identified by multiple tests. 
 
@@ -22,7 +26,7 @@ For these purposes, we have chosen to use two tools today, MaAsLin3 ([preprint](
 
 In this tutorial, we'll be running both of these tools on the output from Module 2, and then we'll combine the results and look at the taxa that are identified. We can then apply this to the PICRUSt2 output, too. 
 
-### Functional prediction with PICRUSt2
+#### Functional prediction with PICRUSt2
 
 PICRUSt2 is a tool that predicts the functional capacity of a microbial community based on the taxa that are present in amplicon sequencing data. The first iteration of [PICRUSt](https://www.nature.com/articles/nbt.2676) (**P**hylogenetic **I**nvestigation of **C**ommunities by **R**econstruction of **U**nobserved **St**ates) was developed by Morgan (and many other collaborators) during his postdoc. This was expanded and improved upon to make [PICRUSt2](https://www.nature.com/articles/s41587-020-0548-6) by a previous PhD student in the lab, [Gavin Douglas](https://www.gavindouglas.ca/) (currently a postdoc at North Carolina State University), and Morgan and I (Robyn) have [recently updated the database used by PICRUSt2](https://academic.oup.com/bioinformatics/article/41/5/btaf269/8121151) to improve the functional predictions. 
 
@@ -39,7 +43,7 @@ You can see full information on PICRUSt2 [here](https://github.com/picrust/picru
 
 These steps can be run separately, but are all wrapped together into a single command for what we'll be running today. 
 
-### Constructing and visualising a co-occurrence network using `SPIEC-EASI` (Bonus: we run an indicator species analysis too!!)
+#### Constructing and visualising a co-occurrence network using `SPIEC-EASI` (Bonus: we run an indicator species analysis too!!)
 
 Understanding how microbial taxa interact with one another in an environment is a fundamental question in microbial ecology. Co-occurrence network analysis attempts to capture these interactions by estimating associations between taxa across samples. However, it’s important to be cautious here: naive approaches like correlation matrices (e.g., Pearson or Spearman) are prone to false positives due to the compositional nature of microbiome data—where only relative abundances are measured, not absolute counts. This introduces spurious correlations that don’t reflect real biological interactions.
 
@@ -53,11 +57,11 @@ Next, we filter the ASV table to remove rare or low-abundance taxa based on mini
 
 Finally, the network is visualized using two separate layouts: one colored by indicator status (e.g., Forest, Managed, or Not Significant), and the other by a taxonomic rank (ta3). Both are saved as standalone PDF plots and also combined into a side-by-side panel figure for direct comparison. These visualizations use the Fruchterman-Reingold layout for reproducible positioning and are saved using `pdf()` output with customized legends for clarity. This approach allows us to not only explore the overall structure of microbial associations but also see how treatment-associated or taxonomically distinct taxa are embedded within the broader ecological network.
 
-## 4.1 Differential abundance analysis using MaAsLin3 and ALDEx2
+### 4.1 Differential abundance analysis using MaAsLin3 and ALDEx2
 
 **You can use whichever amplicon you like for this! We've given instructions for 16S, but you can hopefully work out how to modify these commands for 18S or ITS :)**. 
 
-### 4.1.1 Prepare data from the end of Module 2
+#### 4.1.1 Prepare data from the end of Module 2
 
 First, we'll create a new directory for whichever dataset we want to use and we'll copy the output from the end of Module 2 into this.
 
@@ -100,7 +104,7 @@ ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/pregnancy_ITS_metada
 
 </details>
 
-## 4.1.2 Read output into R/Phyloseq
+### 4.1.2 Read output into R/Phyloseq
 
 Next, we'll go to RStudio on the server. Go to your browser and navigate to:
 ```
@@ -112,7 +116,7 @@ Enter "ubuntu" as your username and the password that have been given. It takes 
 
 Everything that you're entering in here should be entered into the "Console" part of the page. This is like the Terminal that we've been using on the Server, but it uses the R programming language. Most statistical analyses in bioinformatics will use either R or Python - many bioinformaticians have a preference for one or the other, but most use both. In my opinion, each has different strengths and weaknesses - R has many built in programs and functions, while Python is much more customisable but perhaps has a steeper learning curve. The syntax varies slightly for both (and both are different from the Terminal that we have been using, which is the bash programming language), but there are also many similarities. RStudio is an Integrated Developing Environment (IDE) for R and Python - it is an application that provides further functionality than the R programming language itself. 
 
-### Importing packages
+#### Importing packages
 
 First of all, we'll import the packages that we'll be using today:
 ```
@@ -133,7 +137,7 @@ You'll notice that in each of these, we use the ```library()``` command, and ins
 
 If you've used the 18S or the ITS datasets, I'm assuming that you'd like to challenge yourself a little more and I've made this code and explanation for 16S, but you'll need to figure out some of the changes to make for 18S/ITS. If you're struggling, you can find the full working code in the [Answers](#answers), but without any of the explanation that we have up here.
 
-#### Setting variables
+##### Setting variables
 
 Next, we'll set the name of the folder where our results are saved:
 ```
@@ -152,7 +156,7 @@ You should see how these are different by how they show in the "Environment" are
 
 Now that we've explained the basics, we can read in some of our data.
 
-#### Read in the feature table
+##### Read in the feature table
 
 First, we'll read in the feature table. Note that we're calling it ```asv_table```:
 ```
@@ -166,7 +170,7 @@ Next, we've given the ```sep='\t'``` variable - this time, we're telling the ```
 
 **Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
 
-#### Manipulate the feature table
+##### Manipulate the feature table
 
 We often find in programming that things are not quite in the format that is expected by the packages that we're using, so we'll make a few modifications to ```asv_table```:
 ```
@@ -184,7 +188,7 @@ This is kind of annoying because it means that the sample names won't match the 
 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))
 ```
 
-#### Get the taxonomy information
+##### Get the taxonomy information
 
 You may have noticed that the last column in the initial `asv_table` was our taxonomy information. We'll get that first:
 ```
@@ -202,7 +206,7 @@ You'll see that we tell the ```separate``` function that the data it should use 
 
 Again, you can take a look at the results in the "Environment" area. 
 
-#### Read in the metadata
+##### Read in the metadata
 
 Now we'll read in the metadata. I won't go through each stage step-by-step as hopefully you're getting the idea by now, but I've still added comments to each of the rows:
 ```
@@ -212,7 +216,7 @@ rownames(samples) = metadata[,1] #add the sample names as row names
 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here
 ```
 
-#### Combine these into a phyloseq object
+##### Combine these into a phyloseq object
 
 [Phyloseq](https://joey711.github.io/phyloseq/) is a really useful package that contains many useful functions for analysing microbiome data. While it can be a bit fiddly to get our data into the format that it is expecting (most good packages should give you examples of how data should be formatted to go into them, although it does take a lot of practice to get good at quickly working out how this is different from what you have!), once that it is in this format, the analyses are then very easy to perform. 
 
@@ -242,7 +246,7 @@ Take a look at each of these if you want to see what the differences were in eac
 
 **Question 3**: How does the number of genera compare with the number of ASVs?
 
-## 4.1.3 Run MaAsLin3
+### 4.1.3 Run MaAsLin3
 
 Now that we've prepared the phyloseq objects, it's time to run our first differential abundance test. Each of the differential abundance tools expects data to be normalised in a different way (or some of them normalise for you), and we're going to run MaAsLin with rarefied data.
 
@@ -291,7 +295,7 @@ pval_individual (7) qval_individual (8) pval_joint (9) qval_joint (10) error (11
 
 **Question 4**: How many taxa does MaAsLin3 say are significantly differentially abundant?
 
-## 4.1.4 Run ALDEx2
+### 4.1.4 Run ALDEx2
 
 Next, we'll run ALDEx2. Note that here the first step is to normalise the samples using a CLR normalisation, so you can see how both of the methods require similar steps - normalisation and then testing - but this is done in a slightly different way for each. We then use a Kruskal-Wallis test and a GLM ANOVA on the data, and we can do this test with multiple cores (```useMC=2```). You can see that we're again running this separately for each metadata variable, and then saving the outputs as .csv files:
 ```
@@ -312,7 +316,7 @@ Transformations/normalisations of microbiome data are often used to make the usu
 
 **Question 5**: How many taxa does ALDEx2 find to be significantly differentially abundant?
 
-## 4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2
+### 4.1.5 Combine and plot differential abundance results from MaAsLin3 and ALDEx2
 
 In order to compare the results that we've got from the three differential abundance tools, we'll want to first import the results and do some manipulations on these tables. 
 
@@ -351,7 +355,7 @@ And now we'll convert the physeq_genus phyloseq object to relative abundance usi
 physeq_relabun  = transform_sample_counts(physeq_genus, function(x) (x / sum(x))*100 )
 ```
 
-#### Plot DA single taxon
+##### Plot DA single taxon
 
 Next we can look at plotting the abundance of a single taxon. Have a look at the list of taxa (```overlap```). Replace the empty quotation marks below with one of these:
 ```
@@ -370,7 +374,7 @@ This ```boxplot_abundance``` function builds upon the R package ggplot2, and we 
 
 **Question 7**: Did it look like there are differences between the two treatments for the taxon that you plotted?
 
-#### Plot DA all taxa
+##### Plot DA all taxa
 
 We can also make the same plots within a for loop:
 ```
@@ -380,7 +384,7 @@ for(i in 1:length(overlap)) {
 ```
 Now, if you press the forward and back buttons in the "Plots" pane, you can scroll through all of the taxa that we've identified as differentially abundant by one of the tests. You'll probably be able to see that a lot of these taxa are really only found in one of the treatments and not the other, so it's fairly clear why they're coming up as being significantly different. 
 
-##### For loops
+###### For loops
 
 For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. If you already know about for loops, feel free to skip ahead to section 2.8. 
 
@@ -404,13 +408,13 @@ This is a really simple example, but you can see how in the loop above, we just 
 
 For loops can get incredibly complicated, can do lots of things, and can be nested inside other for loops, but we won't be doing anything more on them for now!
 
-##### Back to the results
+###### Back to the results
 
 **Question 8**: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
 
-## 4.2 Functional prediction with PICRUSt2
+### 4.2 Functional prediction with PICRUSt2
 
-### 4.2.1 Filter input for PICRUSt2
+#### 4.2.1 Filter input for PICRUSt2
 
 As PICRUSt2 can take quite a long time to run, we want to do some filtering on the files so that we'll have fewer ASVs. Usually we might investigate several different cutoffs for the minimum number of times an ASV should occur to be included, or the minimum prevalence of ASVs, but for the purposes of this workshop, we'll just use 50 for the minimum frequency of an ASV and 2 for the minimum number of samples that it must occur in.
 
@@ -471,7 +475,7 @@ Finally, we'll deactivate the conda environment:
 conda deactivate
 ```
 
-### 4.2.2 Start running PICRUSt2
+#### 4.2.2 Start running PICRUSt2
 
 PICRUSt2 can take quite a long time to run - for PICRUSt2, as well as other programs that may take a while, there are several tools that are pre-installed on most Linux systems that we can use to make sure that our program carries on running even if we get disconnected from the server. One of the most frequently used ones is called ```tmux```. To activate it, just type in ```tmux``` and press enter. It should take a second to start up, and then load up with a similar looking command prompt to previously, but with a coloured bar at the bottom of the screen.
 
@@ -517,7 +521,7 @@ You can see that here the options we're setting are:
 You might want to move on to something else while PICRUSt2 runs, as it's likely to take a little while (~20 mins). 
 
 
-### 4.2.3 Read PICRUSt2 output into R/Phyloseq
+#### 4.2.3 Read PICRUSt2 output into R/Phyloseq
 
 Once it's run, we can come back to the output. 
 
@@ -597,7 +601,7 @@ PWY_int = otu_table(pwy_table_num, taxa_are_rows = TRUE)
 physeq_pwy_int = phyloseq(PWY_int, SAMPLE) #make a new phyloseq object with this
 ```
 
-### 4.2.3 Look at PICRUSt2 alpha and beta diversity
+#### 4.2.3 Look at PICRUSt2 alpha and beta diversity
 
 Now we will just take a quick look at these to see how they compare with the analyses that we did in Module 3 based on the taxonomy data. 
 
@@ -623,7 +627,7 @@ You should notice that we've chosen to colour and shape the samples by treatment
 **Question 10**: Can you see differences between the samples based on the metadata variables?\
 **Question 11**: What are these differences like compared with those seen in the taxonomy data? 
 
-### 4.2.4 Run PICRUSt2 differential abundance
+#### 4.2.4 Run PICRUSt2 differential abundance
 
 Now we'll try running the differential abundance tests. 
 
@@ -665,7 +669,7 @@ kw.test <- aldex.kw(x, useMC=2, verbose=FALSE)
 write.csv(kw.test, paste(folder, "ALDEx2_pathway.csv", sep=""))
 ```
 
-### 4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2
+#### 4.2.5 Combine and plot PICRUSt2 differential abundance results from MaAsLin3 and ALDEx2
 
 Import the MaAsLin results:
 ```
@@ -687,7 +691,7 @@ ALDEx2 doesn't find anything to be differentially abundant. This means that ther
 pathways = maaslin$feature
 ```
 
-### Plot DA single pathway
+#### Plot DA single pathway
 
 Next we can look at plotting the abundance of a single pathways. Have a look at the list of pathways (```pathways```). Replace the empty quotation marks below with one of these:
 ```
@@ -699,7 +703,7 @@ Now make the boxplot:
 microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=single_pathway, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(single_pathway) + ylab('Relative abundance (%)')
 ```
 
-### Plot DA all pathways
+#### Plot DA all pathways
 
 Now make all of the boxplots:
 ```
@@ -709,9 +713,9 @@ for(i in 1:length(pathways)) {
 ```
 You'll see that these are all quite low abundance (<1% abundance), but they do all seem to have clear differences between the two treatments. 
 
-## 4.3 Constructing and visualising a co-occurrence network
+### 4.3 Constructing and visualising a co-occurrence network
 
-### Introduction
+#### Introduction
 
 Microbes don’t live in isolation—they form complex ecological communities where interactions between taxa can be cooperative, competitive, or neutral. One way to explore these interactions is through co-occurrence networks, where nodes represent microbial taxa and edges represent inferred associations. To make these networks more biologically meaningful, we need to account for the compositional nature of microbiome data and avoid common pitfalls such as spurious correlations.
 
@@ -719,7 +723,7 @@ In this section, we’ll use the `SpiecEasi` package to construct a sparse inver
 
 **We would HIGHLY suggest you use 16S for this section, but if you're feeling adventurous you can see if you can get it to run for 18S or ITS**. 
 
-### 4.3.1 Prepare data from the end of Module 2
+#### 4.3.1 Prepare data from the end of Module 2
 
 First, we'll create a new directory for whichever dataset we want to use and we'll copy the output from the end of Module 2 into this.
 
@@ -734,7 +738,7 @@ ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_export
 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .
 ```
 
-#### Read output into R/Phyloseq
+##### Read output into R/Phyloseq
 
 Next, we'll go to RStudio on the server. Go to your browser and navigate to:
 ```
@@ -746,7 +750,7 @@ Enter "ubuntu" as your username and the password that have been given. It takes 
 
 Everything that you're entering in here should be entered into the "Console" part of the page. This is like the Terminal that we've been using on the Server, but it uses the R programming language. Most statistical analyses in bioinformatics will use either R or Python - many bioinformaticians have a preference for one or the other, but most use both. In my opinion, each has different strengths and weaknesses - R has many built in programs and functions, while Python is much more customisable but perhaps has a steeper learning curve. The syntax varies slightly for both (and both are different from the Terminal that we have been using, which is the bash programming language), but there are also many similarities. RStudio is an Integrated Developing Environment (IDE) for R and Python - it is an application that provides further functionality than the R programming language itself. 
 
-#### Importing packages
+##### Importing packages
 
 First of all, we'll import the packages that we'll be using today:
 ```
@@ -757,7 +761,7 @@ library(igraph)
 ```
 You'll notice that in each of these, we use the ```library()``` command, and inside the brackets we give the name of the package. We've already installed these packages for you, but in most cases these could be installed by *e.g.,* ```install.packages("igraph")```. In some cases, they might be installed using another package, BiocManager, *e.g.,* ```BiocManager::install("phyloseq")```. If you're unsure, you can always google how to install a package and you can usually find the code to copy and paste, *e.g.,* "r install phyloseq". You could also try typing ```??phyloseq``` into the console and see what comes up. It should give you some information about that package.
 
-#### Setting variables
+##### Setting variables
 
 Next, we'll set the name of the folder where our results are saved:
 ```
@@ -766,7 +770,7 @@ folder = '/home/ubuntu/workspace/bmb_module4/16S_analysis/'
 
 Here, we have defined a variable called "folder" - we always need to be careful that we don't save over these variables by calling something else the same thing, but you can always check these in the "Environment" area in the top right where you should see that "folder" now exists. We could have called this anything, but it's always helpful to name our variables something that is simple and explains what they are, incase someone else is using our code. This is a string, as it is inside the punctuation marks ```' '``` or ```" "```, and this is used in programming to show that we are representing text rather than numbers. These variables can be really useful to avoid having to type in the same information multiple times, which always increases the chances that we'll make a mistake!
 
-#### Read in the feature table
+##### Read in the feature table
 
 First, we'll read in the feature table. Note that we're calling it ```asv_table```:
 ```
@@ -778,7 +782,7 @@ We're also using the ```paste``` function to add together the full file path of 
 
 Next, we've given the ```sep='\t'``` variable - this time, we're telling the ```read.csv``` function that the file that we're importing is tab-delimited, then we've told it to skip the first line of the file ```skip=1```, and that there is a header ```header=T``` (where T is the same as TRUE). We've skipped the first line because this just reads "# Constructed from biom file" and is not actually data.
 
-#### Manipulate the feature table
+##### Manipulate the feature table
 
 We often find in programming that things are not quite in the format that is expected by the packages that we're using, so we'll make a few modifications to ```asv_table```:
 ```
@@ -794,7 +798,7 @@ This is kind of annoying because it means that the sample names won't match the 
 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))
 ```
 
-#### Get the taxonomy information
+##### Get the taxonomy information
 
 You may have noticed that the last column in the initial `asv_table` was our taxonomy information. We'll get that first:
 ```
@@ -812,7 +816,7 @@ You'll see that we tell the ```separate``` function that the data it should use 
 
 Again, you can take a look at the results in the "Environment" area. 
 
-#### Read in the metadata
+##### Read in the metadata
 
 Now we'll read in the metadata. I won't go through each stage step-by-step as hopefully you're getting the idea by now, but I've still added comments to each of the rows:
 ```
@@ -822,7 +826,7 @@ rownames(samples) = metadata[,1] #add the sample names as row names
 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here
 ```
 
-#### Combine these into a phyloseq object
+##### Combine these into a phyloseq object
 
 [Phyloseq](https://joey711.github.io/phyloseq/) is a really useful package that contains many useful functions for analysing microbiome data. While it can be a bit fiddly to get our data into the format that it is expecting (most good packages should give you examples of how data should be formatted to go into them, although it does take a lot of practice to get good at quickly working out how this is different from what you have!), once that it is in this format, the analyses are then very easy to perform. 
 
@@ -850,7 +854,7 @@ otu_table(physeq_genus)
 ```
 Take a look at each of these if you want to see what the differences were in each step!
 
-### 4.3.2 Indicator Species Analysis (ISA)
+#### 4.3.2 Indicator Species Analysis (ISA)
 
 First, let's use `indicspecies` to run an Indicator Species Analysis (ISA) to find some ASVs whose abundance and prevalence suggests they are important for one sample type or another.
 ```
@@ -884,7 +888,7 @@ asv_indicator_group <- apply(sig_hits[sig_asvs, c("s.Forest", "s.Managed")], 1, 
 indicator_vector <- setNames(asv_indicator_group, sig_asvs)
 ```
 
-### 4.3.3 Abundance and Prevalence filtering
+#### 4.3.3 Abundance and Prevalence filtering
 
 Now that we’ve identified which ASVs are associated with each treatment group, we’ll filter the dataset to remove taxa that are too rare or too low in abundance. This step ensures the network we infer focuses on ecologically relevant players. (*NOTE: the ISA should have dealt with this, but it's good to double-check*)
 
@@ -910,7 +914,7 @@ cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")
 
 **Question 12**: We say the ISA should filter out ASVs with low prevalence and abundance, but why? What does an ISA do?
 
-### 4.3.4 Contructing the Co-occurrence Network
+#### 4.3.4 Contructing the Co-occurrence Network
 
 Now that we've selected our ASVs of focus, we can infer the co-occurrence network using `SpiecEasi`. We’re using the MB (neighborhood selection) method here, and we’ll allow the algorithm to determine the best level of sparsity through cross-validation (via `pulsar`). This will give us a network where each edge represents a direct association between two taxa.
 
@@ -940,7 +944,7 @@ indicator_status <- indicator_vector[taxa_names(physeq_net)]
 tax_table(physeq_net) <- cbind(tax_table(physeq_net), Indicator = indicator_status)
 ```
 
-### 4.3.5 Visualizing Networks
+#### 4.3.5 Visualizing Networks
 
 Finally, we’ll visualize the network using `igraph`. First, we’ll color nodes by their indicator status (e.g., Forest, Managed, Not significant), and then generate a second plot colored by taxonomic assignment at the ta3 rank. These two plots will also be combined into a panel figure for comparison.
 
@@ -1039,7 +1043,7 @@ legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),
 dev.off()
 ```
 
-### Bonus: Size by network statistics
+#### Bonus: Size by network statistics
 
 More advanced plotting can include adding network statistics as the sizes of the nodes.
 
@@ -1108,9 +1112,9 @@ cat("Degree-scaled panel figure saved.\n")
 ```
 
 
-## Answers
+### Answers
 
-### Answers 16S differential abundance and PICRUSt2
+#### Answers 16S differential abundance and PICRUSt2
 
 **Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the ```feature_table.txt```, but without the ```# Constructed from biom file``` line.
@@ -1144,11 +1148,11 @@ Yes - Shannon and Simpson diversity seems to be slightly higher in Managed than 
 
 **Question 11**: What are these differences like compared with those seen in the taxonomy data? 
 
-### Answers 18S differential abundance
+#### Answers 18S differential abundance
 
 See below for the answers to questions!
 
-#### Code needed
+##### Code needed
 
 Importing packages:
 ```
@@ -1311,7 +1315,7 @@ aldex_time = aldex_time[aldex_time$kw.eBH <= 0.2, ]
 
 None of these are significant either :(
 
-#### 18S Answers to questions
+##### 18S Answers to questions
 
 **Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the ```feature_table.txt```, but without the ```# Constructed from biom file``` line.
@@ -1337,9 +1341,9 @@ Not applicable.
 **Question 8**: Are there any taxa that you're surprised to see are significantly differentially abundant? Why?
 Not applicable.
 
-### Answers ITS differential abundance
+#### Answers ITS differential abundance
 
-#### Code needed
+##### Code needed
 
 Importing packages:
 ```
@@ -1499,7 +1503,7 @@ aldex_category = aldex_category[aldex_category$kw.eBH <= 0.2, ]
 ```
 None of these are significant either :(
 
-#### ITS Answers to questions
+##### ITS Answers to questions
 
 **Question 1**: Type in ```asv_table``` or look at it in the "Environment" area in the top right. How many rows are there? Does this make sense to you?
 There should be the same number of rows as there were in the ```feature_table.txt```, but without the ```# Constructed from biom file``` line.

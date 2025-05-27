@@ -3,7 +3,7 @@ awsunix-primer
 course-schedule
 meet-your-faculty
 module-1
-lecture-slides
+lecture
 lab-introduction-to-sequencing-data-analysis
 introduction
 log-into-your-aws-instance
@@ -26,7 +26,7 @@ quality-control-on-the-data-that-well-be-using
 install-qiime2
 answers
 module-2
-lecture-slides-1
+lecture-1
 lab-marker-gene-profiling
 introduction-1
 s
@@ -90,6 +90,8 @@ optional-exclude-low-depth-samples-2
 subset-and-summarize-filtered-table-2
 its-answers
 module-3-microbiome-statistics-and-visualizations
+lecture-2
+lab
 table-of-contents
 introduction-2
 build-tree-with-sepp-qiime-2-plugin
@@ -105,6 +107,8 @@ building-a-de-novo-tree-for-18s
 building-the-its-tree
 answers-1
 module-4-lab-functional-prediction-and-additional-analyses
+lecture-3
+lab-1
 introduction-3
 differential-abundance-testing-with-maaslin3-and-aldex2
 functional-prediction-with-picrust2

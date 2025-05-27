@@ -1,11 +1,17 @@
-# (PART) Modules {-}
-
 # Module 3: Microbiome statistics and visualizations
+
+## Lecture
+
+
+
+<iframe src="https://docs.google.com/presentation/d/1-tBI6s4nj7JWZYIJ2skOrDg8XdM2c00k/preview" width="640" height="480" allow="autoplay"></iframe>  
+
+## Lab
 Material by Juan Santana
 
 This tutorial is part of the 2025 Canadian Bioinformatics Workshops Beginner Microbiome Analysis (Vancouver, BC, May 26-27). It is based on the Amplicon SOP v2 available on the [Microbiome Helper repository](https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2022.11)) and previous workshops designed by Diana Haider, Robert Beiko and Monica Alvaro Fuss.
 
-## Table of Contents
+### Table of Contents
 
 1. [Build tree](#build-tree)  
 2. [Generate rarefaction curves](#rarefaction-curves)  
@@ -17,7 +23,7 @@ This tutorial is part of the 2025 Canadian Bioinformatics Workshops Beginner Mic
 8. [Exporting data from QIIME 2 for use in other software](#exporting-data)  
 9. [Considerations for 18S and ITS data](#18s-its)  
 
-## Introduction
+### Introduction
 
 Modules 2 and 3 offer a step-by-step walkthrough of an end-to-end pipeline for analyzing high-throughput marker gene data using the command-line interface. Commonly used marker genes in microbiome research include 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) region for fungi.
 
@@ -57,7 +63,7 @@ conda deactivate
 
 Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You'll find the answers at the bottom of this page, but no one will be marking them.
 
-##  1. Build tree with [SEPP QIIME 2 plugin](https://amplicon-docs.qiime2.org/en/latest/references/plugins/fragment-insertion.html#q2-plugin-fragment-insertion){#build-tree}
+###  1. Build tree with [SEPP QIIME 2 plugin](https://amplicon-docs.qiime2.org/en/latest/references/plugins/fragment-insertion.html#q2-plugin-fragment-insertion){#build-tree}
 
 [SEPP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5904434/) (SATé-enabled Phylogenetic Placement) is a tool used to place short DNA sequences—such as 16S rRNA amplicon sequence variants (ASVs)—into an existing, high-quality reference phylogenetic tree. This is particularly helpful when you are working with microbiome data and want to infer evolutionary relationships more accurately. We will use QIIME 2's `q2-fragment-insertion` plugin to place ASVs derived from our **16S data** into a reference phylogenetic tree using the command below.
 
@@ -80,7 +86,7 @@ ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/insertion-placements
 High-quality reference phylogenetic trees can be downloaded from [QIIME2's data resources](https://docs.qiime2.org/2024.10/data-resources/). However, it is important to ensure that the reference tree used for sequence placement matches the same reference database used for taxonomic classification (e.g., Greengenes or SILVA). In our workflow, we use `sepp-refs-gg-13-8.qza`, as our sequences were classified using the Greengenes database. Alternatively, custom reference files can be specified for placing other types of amplicons. However, for marker genes such as **18S and ITS**, the recommended approach is to construct a *de novo* phylogenetic tree, as outlined in section 9.  [Considerations for 18S and ITS data](#9-considerations-for-18s-and-its-data) and and further detailed in the  [Microbiome Helper repository](https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2022.11)).
 
 
-## 2. Generate rarefaction curves {#rarefaction-curves}
+### 2. Generate rarefaction curves {#rarefaction-curves}
 
 After inferring ASVs from our sequence reads, we can generate **rarefaction curves** to evaluate whether our sequencing depth was sufficient to capture most of the microbial diversity in each sample. The command below will generate these plots. The `--p-max-depth` parameter sets the maximum sequencing depth to sample across. Inspect the `deblur_table_final_summary.qzv` file (created in Module 2) using [QIIME2 View](https://view.qiime2.org/) to determine this number. For our 16S dataset, the sample with the highest number of reads contains 8,650 sequences, so we’ll use that as the max depth.
 
@@ -96,7 +102,7 @@ This will produce a `.qzv` file that can be opened in QIIME 2 View to explore th
 
 **Question 1: What is a good rarefaction depth for diversity analysis?**
 
-## 3. Calculating diversity metrics and generating ordination plots{#diversity-ordination}
+### 3. Calculating diversity metrics and generating ordination plots{#diversity-ordination}
 
 QIIME 2 can calculate commonly used alpha and beta diversity metrics—including Faith’s Phylogenetic Diversity, Shannon diversity, and UniFrac distances—using a single command. Ordination plots (e.g., PCoA plots based on weighted UniFrac distances) are also generated automatically. Before calculating these metrics, QIIME 2 rarefies all samples to the same sequencing depth to ensure fair comparisons. The `--p-sampling-depth` parameter defines this cutoff. Any samples with fewer reads than this threshold will be excluded from the analysis. Based on the rarefaction curves we generated earlier, we determined that the lowest reasonable sequencing depth across all samples is **3,432** reads. Using this value ensures we retain all samples while still capturing most of the microbial diversity.
 
@@ -160,7 +166,7 @@ This will produce a `.qzv` file containing PERMANOVA results and boxplots for vi
 
 **Question 4: what do you mean I'm getting an error message? It should be working fine, it worked last time! I can't see what I'm doing wro... oooooh there we go, I see now :)**
 
-## 4. Generate stacked bar chart of taxa relative abundances{#stacked-bar-chart}
+### 4. Generate stacked bar chart of taxa relative abundances{#stacked-bar-chart}
 
 A useful way to visualize the composition of microbial communities across samples is through interactive stacked bar charts of taxonomic relative abundances. This type of plot allows you to explore differences in microbial composition at various taxonomic levels (e.g., phylum, genus) across experimental groups. You can generate the visualization using the command below.
 
@@ -178,7 +184,7 @@ The interactive `.qzv` file generated with this command can be inspected with th
 
 **Question 5: can you identify any patterns between the metadata groups?**
 
-## 5. Identifying differentially abundant features with ANCOM{#ancom}
+### 5. Identifying differentially abundant features with ANCOM{#ancom}
 
 [ANCOM](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4450248/) (Analysis of Composition of Microbiomes) is a statistical method used to identify taxa (or features) that differ significantly in relative abundance between sample groups. ANCOM is robust to the compositional nature of microbiome data and does not assume a particular distribution for the features. However, ANCOM requires that all features in the table be non-zero, so a pseudocount (commonly set to 1) must first be added to avoid issues with zeros in the count matrix. The command below creates a new feature table where a count of 1 is added to all zero entries.
 
@@ -227,7 +233,7 @@ The resultant `.qzv` barplot will show you features significantly enriched in on
 
 **Question 6: Does ANCOM identify any differentially abundant taxa between any of the metadata groups? If so, which one(s)? Is the output from ANCOM-BC any different?**
 
-## 6. Identifying shared features across groups of samples{#core-microbiome}
+### 6. Identifying shared features across groups of samples{#core-microbiome}
 
 The core microbiome refers to the set of microbial taxa consistently found across a group of samples or within specific treatment groups. Identifying core taxa helps understand the stable and potentially important microbes in your system. In QIIME2 we can filter features by prevalence across samples using the command below. `-p-min-fraction 0.8` means features must be present in 80% of samples to be considered “core”.
 
@@ -250,7 +256,7 @@ qiime feature-table filter-samples \
 
 We can then run `qiime feature-table core-features` on the filtered table `table_managed.qza` to identify shared ASVs across "Managed" samples. 
 
-## 7. Heatmaps{#heatmaps}
+### 7. Heatmaps{#heatmaps}
 
 Heatmaps visualize abundance patterns of taxa across samples or groups, allowing easy spotting of taxa that vary in abundance or co-occur across conditions. We can generate these heatmaps using `qiime feature-table heatmap`. However, raw feature tables at the ASV level often contain thousands of features, which can make heatmaps visually overwhelming and difficult to interpret. To create a clearer and more interpretable heatmap, you can collapse your feature table to a higher taxonomic rank, such as genus or family, before visualization, using the command below. `--p-level` sets the taxonomic rank, here we will collapse at the Class level.
 
@@ -277,7 +283,7 @@ qiime feature-table heatmap \
 ```
 Open the resulting `heatmap_class.qzv` in QIIME 2 View to interactively explore taxa abundance patterns across samples.
 
-## 8. Exporting data from QIIME 2 for use in other software{#exporting-data}
+### 8. Exporting data from QIIME 2 for use in other software{#exporting-data}
 
 While QIIME 2 offers a wide range of tools for microbial community analysis, you may want to perform additional custom analyses in software like R, Python, or MATLAB. To do so, you'll need to export your QIIME 2 artifacts into formats that are compatible with these platforms.
 
@@ -332,7 +338,7 @@ qiime tools export \
 ```
 
 
-## 9. Considerations for 18S and ITS data{#18s-its}
+### 9. Considerations for 18S and ITS data{#18s-its}
 
 Most of the analyses described in this tutorial apply equally to 18S and ITS datasets, **with one key exception**: building a phylogenetic tree. Unlike 16S data, 18S and ITS amplicons generally lack a universally accepted reference phylogeny. Therefore, we must generate *de novo* phylogenetic trees.
 
@@ -354,7 +360,7 @@ ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/taxa .
 ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/pregnancy_ITS_metadata.tsv .
 ```
 
-### Building a de novo tree for 18S
+#### Building a de novo tree for 18S
 
 First, we'll need to make a *de novo* multiple-sequence alignment of the ASVs using [MAFFT](https://mafft.cbrc.jp/alignment/software/).
 
@@ -404,13 +410,13 @@ cd ~/workspace/bmb_module3/ITS_analysis
 ln -s ~/CourseData/MIC_data/bmb_module3/output/ITS_analysis/asvs-tree.qza .
 ```
 
-### Building the ITS tree
+#### Building the ITS tree
 
 Repeat the same commands shown above, but make sure you use the `deblur_output` from the ITS analysis. This will generate a *de novo* tree for your ITS dataset.
 
 Once you have generated or linked the *de novo* trees for your 18S and ITS data, you can proceed with all downstream analyses — including diversity metrics, ordinations, and statistical testing — just as you would with 16S data.
 
-## Answers
+### Answers
 
 **Question 1: What is a good rarefaction depth for diversity analysis?**
 
