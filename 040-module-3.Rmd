@@ -2,7 +2,7 @@
 
 ## Lecture
 
-
+<iframe width="640" height="360" src="https://www.youtube.com/embed/7JfbbQHK_48?si=UAtdEKR9yaOuPPCg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/1-tBI6s4nj7JWZYIJ2skOrDg8XdM2c00k/preview" width="640" height="480" allow="autoplay"></iframe>  
 

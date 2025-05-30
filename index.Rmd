@@ -23,3 +23,8 @@ Welcome to CBW’s Beginner Microbiome Analysis Workshop!
 ## AWS/UNIX primer
 
 [You can find the schedule and materials for the AWS/UNIX primer here.](https://bioinformaticsdotca.github.io/AWS_2025)
+
+## Class Photo
+
+<iframe src="https://drive.google.com/file/d/1Bkmsukt06UJmlgqHGxzKcc-ScILu-7Zw/preview" width="100%" height="600" allow="autoplay"></iframe>
+

@@ -1,5 +1,6 @@
 welcome
 awsunix-primer
+class-photo
 course-schedule
 meet-your-faculty
 module-1

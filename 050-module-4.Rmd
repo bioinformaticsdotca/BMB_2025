@@ -1,14 +1,16 @@
 # Module 4 Lab: Functional prediction and additional analyses
 
-This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bioinformaticsdotca.github.io/BMB_2025/) (held in Vancouver, BC, May 26-27).
-
-**Authors**: Robyn Wright and Ryan McLaughlin
-
 ## Lecture
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/TfYfE8ES-fk?si=gLFL_xcH-ImYRk8S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/1uBqBhbRo66_Etj5wYTGjf9sqsdmy-E0s/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
+
+This tutorial is part of the 2025 CBW [Beginner Microbiome Analysis](https://bioinformaticsdotca.github.io/BMB_2025/) (held in Vancouver, BC, May 26-27).
+
+**Authors**: Robyn Wright and Ryan McLaughlin
 
 ### Introduction
 
