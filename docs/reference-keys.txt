@@ -2,7 +2,16 @@ welcome
 awsunix-primer
 class-photo
 course-schedule
+aws-setup-instructions
+data-downloads
+amazon-machine-image
 meet-your-faculty
+morgan-langille
+robyn-wright
+ryan-j.-mclaughlin
+juan-santana
+tony-liu
+zhibin-lu
 module-1
 lecture
 lab-introduction-to-sequencing-data-analysis

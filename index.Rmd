@@ -16,8 +16,6 @@ favicon: img/favicon.ico
 
 # Welcome
 
-<!-- NOTE: Go to the README.md to help understand what to fill in for this workshop template! -->
-
 Welcome to CBW’s Beginner Microbiome Analysis Workshop!
 
 ## AWS/UNIX primer

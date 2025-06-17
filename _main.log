@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.20)  29 MAY 2025 17:56
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.20)  17 JUN 2025 00:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -727,121 +727,116 @@ Chapter 1.
 [7
 
 ]
+Overfull \hbox (3.285pt too wide) in paragraph at lines 206--219
+\TU/lmr/m/n/10 AMB_notebooks.tar: []$[][][][][] [] [] [] [][][][][][][][][][] [] [][] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][][][][][][][][] []
+ []
+
+
 
 [8]
 
-[9
+[9]
+
+[10]
+
+[11]
+
+[12
 
 ]
 
-[10]
+[13]
+
+[14]
 Chapter 2.
 
 
-[11
+[15
 
 ]
-Underfull \hbox (badness 2426) in paragraph at lines 265--266
+Underfull \hbox (badness 2426) in paragraph at lines 355--356
 \TU/lmr/m/n/10 “yes” and press enter. Now you should see something like \TU/lmtt/m/n/10 (base)
  []
 
 
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
-
- []
-
-
-
-[13]
-Overfull \hbox (153.75pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206534.fastq.gz[] 
- []
-
-
-Overfull \hbox (153.75pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206536.fastq.gz[] 
- []
-
-
-Overfull \hbox (153.75pt too wide) in paragraph at lines 317--317
-[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206538.fastq.gz[] 
- []
-
-
-
-[14]
-
-[15]
-
 [16]
-Overfull \hbox (111.33502pt too wide) in paragraph at lines 384--386
-\TU/lmr/m/n/10 across the same files in \TU/lmtt/m/n/10 fasta \TU/lmr/m/n/10 format: \TU/lmtt/m/n/10 cp -r ~/CourseData/MIC_data/bmb_module1/test_data_fasta/
- []
+Underfull \hbox (badness 10000) in paragraph at lines 379--381
 
-
-Overfull \hbox (20.12502pt too wide) in paragraph at lines 387--388
-[]\TU/lmr/m/n/10 Take a look at the same file in \TU/lmtt/m/n/10 fasta \TU/lmr/m/n/10 format: \TU/lmtt/m/n/10 less test_data_fasta/206538.fasta 
  []
 
 
 
 [17]
-Overfull \hbox (138.0pt too wide) in paragraph at lines 398--398
-[]\TU/lmtt/m/n/10 scp -r -i CBW.pem ubuntu@##.uhn-hpc.ca:/home/ubuntu/workspace/bmb_module1/test_data_fasta/ .[] 
+Overfull \hbox (153.75pt too wide) in paragraph at lines 407--407
+[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206534.fastq.gz[] 
  []
 
 
-Overfull \hbox (106.5pt too wide) in paragraph at lines 398--398
-[]\TU/lmtt/m/n/10 scp -r -i CBW.pem ubuntu@##.uhn-hpc.ca:/home/ubuntu/workspace/bmb_module1/test_data/ .[] 
+Overfull \hbox (153.75pt too wide) in paragraph at lines 407--407
+[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206536.fastq.gz[] 
+ []
+
+
+Overfull \hbox (153.75pt too wide) in paragraph at lines 407--407
+[]\TU/lmtt/m/n/10 wget https://g-227ca.190ebd.75bc.data.globus.org/ibdmdb/raw/HMP2/16S/2018-01-08/206538.fastq.gz[] 
  []
 
 
 
 [18]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 455--455
+
+[19]
+
+[20]
+Overfull \hbox (111.33502pt too wide) in paragraph at lines 474--476
+\TU/lmr/m/n/10 across the same files in \TU/lmtt/m/n/10 fasta \TU/lmr/m/n/10 format: \TU/lmtt/m/n/10 cp -r ~/CourseData/MIC_data/bmb_module1/test_data_fasta/
+ []
+
+
+Overfull \hbox (20.12502pt too wide) in paragraph at lines 477--478
+[]\TU/lmr/m/n/10 Take a look at the same file in \TU/lmtt/m/n/10 fasta \TU/lmr/m/n/10 format: \TU/lmtt/m/n/10 less test_data_fasta/206538.fasta 
+ []
+
+
+
+[21]
+Overfull \hbox (138.0pt too wide) in paragraph at lines 488--488
+[]\TU/lmtt/m/n/10 scp -r -i CBW.pem ubuntu@##.uhn-hpc.ca:/home/ubuntu/workspace/bmb_module1/test_data_fasta/ .[] 
+ []
+
+
+Overfull \hbox (106.5pt too wide) in paragraph at lines 488--488
+[]\TU/lmtt/m/n/10 scp -r -i CBW.pem ubuntu@##.uhn-hpc.ca:/home/ubuntu/workspace/bmb_module1/test_data/ .[] 
+ []
+
+
+
+[22]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 545--545
 []\TU/lmtt/m/n/10 curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 455--455
+Overfull \hbox (43.5pt too wide) in paragraph at lines 545--545
 []\TU/lmtt/m/n/10 #hold down enter key until you get to the end of the agreement, or press q[] 
  []
 
 
-Overfull \hbox (143.25pt too wide) in paragraph at lines 455--455
+Overfull \hbox (143.25pt too wide) in paragraph at lines 545--545
 []\TU/lmtt/m/n/10 #now close and reopen the window - you'll need to log back in the same way as you did before![] 
  []
 
 
 
-[19]
-Underfull \hbox (badness 3713) in paragraph at lines 469--471
+[23]
+Underfull \hbox (badness 3713) in paragraph at lines 559--561
 []\TU/lmr/m/n/10 Now we can “activate” this environment like this: \TU/lmtt/m/n/10 conda activate
  []
 
 
-Overfull \hbox (9.53pt too wide) in paragraph at lines 482--483
+Overfull \hbox (9.53pt too wide) in paragraph at lines 572--573
 \TU/lmtt/m/n/10 /home/ubuntu/CourseData/MIC_data/.conda/envs/bmb_module1/bin/fastqc\TU/lmr/m/n/10 . 
- []
-
-
-
-[20]
-
-[21]
-
-[22]
-
-[23]
-Overfull \hbox (384.75pt too wide) in paragraph at lines 635--635
-[]\TU/lmtt/m/n/10 wget https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.4/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml[] 
- []
-
-
-Overfull \hbox (122.25pt too wide) in paragraph at lines 641--641
-[]\TU/lmtt/m/n/10 conda env create -n qiime2-amplicon-2025.4 --file qiime2-amplicon-ubuntu-latest-conda.yml[] 
  []
 
 
@@ -851,104 +846,99 @@ Overfull \hbox (122.25pt too wide) in paragraph at lines 641--641
 [25]
 
 [26]
-Chapter 3.
+
+[27]
+Overfull \hbox (384.75pt too wide) in paragraph at lines 725--725
+[]\TU/lmtt/m/n/10 wget https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.4/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml[] 
+ []
 
 
-[27
-
-]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 741--741
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/Blueberry_16S_metadata.tsv .[] 
+Overfull \hbox (122.25pt too wide) in paragraph at lines 731--731
+[]\TU/lmtt/m/n/10 conda env create -n qiime2-amplicon-2025.4 --file qiime2-amplicon-ubuntu-latest-conda.yml[] 
  []
 
 
 
 [28]
-Underfull \hbox (badness 7522) in paragraph at lines 804--805
-\TU/lmr/m/n/10 mand prompt that looks something like \TU/lmtt/m/n/10 (qiime2-amplicon-2025.4)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
-\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/16S_analysis$ \TU/lmr/m/n/10 yet,
- []
-
-
 
 [29]
 
 [30]
-
-[31]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 883--883
-[]  \TU/lmtt/m/n/10 --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv[] 
- []
+Chapter 3.
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 918--918
-[]  \TU/lmtt/m/n/10 --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \[] 
+[31
+
+]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 831--831
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/Blueberry_16S_metadata.tsv .[] 
  []
 
 
 
 [32]
-Overfull \hbox (6259.5pt too wide) in paragraph at lines 965--965
-[]\TU/lmtt/m/n/10 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/qiime2-2020.8_classifiers) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)):[] 
+Underfull \hbox (badness 7522) in paragraph at lines 894--895
+\TU/lmr/m/n/10 mand prompt that looks something like \TU/lmtt/m/n/10 (qiime2-amplicon-2025.4)
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 965--965
-[]\TU/lmtt/m/n/10 -   Full ITS - fungi only (classifier_sh_refs_qiime_ver9_99_s_27.10.2022_ITS.qza)[] 
- []
-
-
-Overfull \hbox (122.25pt too wide) in paragraph at lines 965--965
-[]\TU/lmtt/m/n/10 -   Full ITS - all eukaryotes (classifier_sh_refs_qiime_ver9_99_s_all_27.10.2022_ITS.qza)[] 
- []
-
-
-Overfull \hbox (11.4889pt too wide) in paragraph at lines 967--968
-\TU/lmr/m/n/10 FTP site []here[] - click on the folder \TU/lmtt/m/n/10 sklearn-1.4.2-compatible-nb-classifiers/\TU/lmr/m/n/10 ,
- []
-
-
-Overfull \hbox (39.51999pt too wide) in paragraph at lines 967--968
-\TU/lmr/m/n/10 and then copy the link for the \TU/lmtt/m/n/10 2022.10.backbone.full-length.nb.sklearn-1.4.2.qza
+Underfull \hbox (badness 10000) in paragraph at lines 894--895
+\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/16S_analysis$ \TU/lmr/m/n/10 yet,
  []
 
 
 
 [33]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 987--987
-[]  \TU/lmtt/m/n/10 --i-classifier 2022.10.backbone.full-length.nb.sklearn-1.4.2.qza \[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 1004--1004
-[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/16S/taxa/classification.qza taxa[] 
- []
-
-
 
 [34]
 
 [35]
-
-[36]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 1079--1079
-[]  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 973--973
+[]  \TU/lmtt/m/n/10 --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 1100--1100
-[]\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt_contam.qza deblur_output/deblur_table_final.qza[] 
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1008--1008
+[]  \TU/lmtt/m/n/10 --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \[] 
+ []
+
+
+
+[36]
+Overfull \hbox (6259.5pt too wide) in paragraph at lines 1055--1055
+[]\TU/lmtt/m/n/10 You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in the [scikit learn](http://scikit-learn.org/stable/) Python library and the [SILVA](https://www.arb-silva.de/) or [UNITE](https://unite.ut.ee/) databases. This approach requires that a classifier be trained in advance on a reference database. We recommend users use a widely used classifier to help ensure there are no unexpected issues with the Naive-Bayes model. We previously maintained primer-specific classifiers, which theoretically can provide more accurate classifications, but we no longer do this due to concerns regarding issues with the trained models that are difficult to catch if only a couple people are running them. The full-length 16S/18S classifier can be downloaded from the [QIIME 2 website](https://docs.qiime2.org/2022.11/data-resources/) (silva-138-99-nb-classifier.qza for the latest classifier). Custom classifiers for the ITS region that we have generated from the UNITE database are available as well ([see downloads](http://kronos.pharmacology.dal.ca/public_files/MH/taxa_classifiers/qiime2-2020.8_classifiers) and [commands used to create these files](https://github.com/LangilleLab/microbiome_helper/wiki/Creating-QIIME-2-Taxonomic-Classifiers)):[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1055--1055
+[]\TU/lmtt/m/n/10 -   Full ITS - fungi only (classifier_sh_refs_qiime_ver9_99_s_27.10.2022_ITS.qza)[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 1055--1055
+[]\TU/lmtt/m/n/10 -   Full ITS - all eukaryotes (classifier_sh_refs_qiime_ver9_99_s_all_27.10.2022_ITS.qza)[] 
+ []
+
+
+Overfull \hbox (11.4889pt too wide) in paragraph at lines 1057--1058
+\TU/lmr/m/n/10 FTP site []here[] - click on the folder \TU/lmtt/m/n/10 sklearn-1.4.2-compatible-nb-classifiers/\TU/lmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (39.51999pt too wide) in paragraph at lines 1057--1058
+\TU/lmr/m/n/10 and then copy the link for the \TU/lmtt/m/n/10 2022.10.backbone.full-length.nb.sklearn-1.4.2.qza
  []
 
 
 
 [37]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 1163--1163
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/Plastisphere_18S_metadata.tsv .[] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1077--1077
+[]  \TU/lmtt/m/n/10 --i-classifier 2022.10.backbone.full-length.nb.sklearn-1.4.2.qza \[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1094--1094
+[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/16S/taxa/classification.qza taxa[] 
  []
 
 
@@ -956,251 +946,236 @@ Overfull \hbox (33.0pt too wide) in paragraph at lines 1163--1163
 [38]
 
 [39]
-Underfull \hbox (badness 7522) in paragraph at lines 1226--1227
-\TU/lmr/m/n/10 mand prompt that looks something like \TU/lmtt/m/n/10 (qiime2-amplicon-2025.4)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1226--1227
-\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/18S_analysis$ \TU/lmr/m/n/10 yet,
- []
-
-
 
 [40]
-
-[41]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1305--1305
-[]  \TU/lmtt/m/n/10 --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv[] 
- []
-
-
-
-[42]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1356--1356
-[]   \TU/lmtt/m/n/10 --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \[] 
- []
-
-
-
-[43]
-
-[44]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 1429--1429
-[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/18S/taxa/classification.qza taxa[] 
- []
-
-
-
-[45]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 1457--1458
-\TU/lmtt/m/n/10 sg__Archaeplastida; di__Rhodophyta; sd__Eurhodophytina; c__Florideophyceae;
- []
-
-
-
-[46]
-
-[47]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 1507--1507
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1169--1169
 []  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 1528--1528
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1190--1190
 []\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt_contam.qza deblur_output/deblur_table_final.qza[] 
  []
 
 
 
-[48]
-
-[49]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 1591--1591
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/pregnancy_ITS_metadata.tsv .[] 
+[41]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1253--1253
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/Plastisphere_18S_metadata.tsv .[] 
  []
 
 
 
-[50]
-Underfull \hbox (badness 7522) in paragraph at lines 1654--1655
+[42]
+
+[43]
+Underfull \hbox (badness 7522) in paragraph at lines 1316--1317
 \TU/lmr/m/n/10 mand prompt that looks something like \TU/lmtt/m/n/10 (qiime2-amplicon-2025.4)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1654--1655
-\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/ITS_analysis$ \TU/lmr/m/n/10 yet,
+Underfull \hbox (badness 10000) in paragraph at lines 1316--1317
+\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/18S_analysis$ \TU/lmr/m/n/10 yet,
  []
 
 
 
-[51]
+[44]
 
-[52]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1733--1733
+[45]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1395--1395
 []  \TU/lmtt/m/n/10 --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv[] 
  []
 
 
 
-[53]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 1771--1771
-[]   \TU/lmtt/m/n/10 --input-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.fasta \[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1771--1771
-[]   \TU/lmtt/m/n/10 --output-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1784--1784
+[46]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1446--1446
 []   \TU/lmtt/m/n/10 --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 1784--1784
-[]   \TU/lmtt/m/n/10 --i-reference-seqs UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \[] 
+
+[47]
+
+[48]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1519--1519
+[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/18S/taxa/classification.qza taxa[] 
+ []
+
+
+
+[49]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1547--1548
+\TU/lmtt/m/n/10 sg__Archaeplastida; di__Rhodophyta; sd__Eurhodophytina; c__Florideophyceae;
+ []
+
+
+
+[50]
+
+[51]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1597--1597
+[]  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1618--1618
+[]\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt_contam.qza deblur_output/deblur_table_final.qza[] 
+ []
+
+
+
+[52]
+
+[53]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1681--1681
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_raw_data/pregnancy_ITS_metadata.tsv .[] 
  []
 
 
 
 [54]
-Underfull \hbox (badness 1838) in paragraph at lines 1828--1829
-[]\TU/lmr/m/n/10 We’re going to use one that contains fungal ITS sequences from the
+Underfull \hbox (badness 7522) in paragraph at lines 1744--1745
+\TU/lmr/m/n/10 mand prompt that looks something like \TU/lmtt/m/n/10 (qiime2-amplicon-2025.4)
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 1828--1829
-\TU/lmtt/m/n/10 classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza
+Underfull \hbox (badness 10000) in paragraph at lines 1744--1745
+\TU/lmtt/m/n/10 ubuntu@ip-10-0-1-248:~/workspace/bmb_module2/ITS_analysis$ \TU/lmr/m/n/10 yet,
  []
 
 
 
 [55]
-Overfull \hbox (164.25pt too wide) in paragraph at lines 1844--1844
-[]  \TU/lmtt/m/n/10 --i-classifier classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza \[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 1852--1852
-[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/ITS/taxa/classification.qza taxa[] 
- []
-
-
 
 [56]
-Overfull \hbox (347.17001pt too wide) in paragraph at lines 1880--1881
-[]\TU/lmr/m/n/10 You should see that this sequence has been classified as \TU/lmtt/m/n/10 k__Fungi;p__Ascomycota;c__Eurotiomycetes;o__Eurotiales;f__Aspergillaceae;g__Aspergillus
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1823--1823
+[]  \TU/lmtt/m/n/10 --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv[] 
  []
 
 
 
 [57]
-
-[58]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 1930--1930
-[]  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1861--1861
+[]   \TU/lmtt/m/n/10 --input-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.fasta \[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 1951--1951
-[]\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt.qza deblur_output/deblur_table_final.qza[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1861--1861
+[]   \TU/lmtt/m/n/10 --output-path UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1874--1874
+[]   \TU/lmtt/m/n/10 --i-demultiplexed-seqs reads_qza/reads_trimmed_joined_filt.qza \[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1874--1874
+[]   \TU/lmtt/m/n/10 --i-reference-seqs UNITE_sh_refs_qiime_ver8_99_s_all_02.02.2019.qza \[] 
+ []
+
+
+
+[58]
+Underfull \hbox (badness 1838) in paragraph at lines 1918--1919
+[]\TU/lmr/m/n/10 We’re going to use one that contains fungal ITS sequences from the
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 1918--1919
+\TU/lmtt/m/n/10 classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza
  []
 
 
 
 [59]
+Overfull \hbox (164.25pt too wide) in paragraph at lines 1934--1934
+[]  \TU/lmtt/m/n/10 --i-classifier classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza \[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1942--1942
+[]\TU/lmtt/m/n/10 cp ~/CourseData/MIC_data/bmb_module2/ITS/taxa/classification.qza taxa[] 
+ []
+
+
 
 [60]
+Overfull \hbox (347.17001pt too wide) in paragraph at lines 1970--1971
+[]\TU/lmr/m/n/10 You should see that this sequence has been classified as \TU/lmtt/m/n/10 k__Fungi;p__Ascomycota;c__Eurotiomycetes;o__Eurotiales;f__Aspergillaceae;g__Aspergillus
+ []
+
+
 
 [61]
 
-[62
-
-]
-Chapter 4.
-
-LaTeX Warning: Hyper reference `build-tree' on page 63 undefined on input line 2020.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2020--2022
-
+[62]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2020--2020
+[]  \TU/lmtt/m/n/10 --o-visualization deblur_output/deblur_table_filt_contam_summary.qzv[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2022--2024
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2024--2026
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2026--2028
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2028--2030
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2030--2032
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2032--2034
-
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2041--2041
+[]\TU/lmtt/m/n/10 cp deblur_output/deblur_table_filt.qza deblur_output/deblur_table_final.qza[] 
  []
 
 
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 2034--2036
-
- []
-
-
-
-
-Overfull \hbox (33.95064pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 64 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
- []
 
 [64]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2065.
-
 
 [65]
 
-LaTeX Warning: Hyper reference `9-considerations-for-18s-and-its-data' on page 66 undefined on input line 2115.
+[66
+
+]
+Chapter 4.
+
+LaTeX Warning: Hyper reference `build-tree' on page 67 undefined on input line 2110.
 
 
-Underfull \vbox (badness 1577) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 2110--2112
 
-
-
-
-Overfull \hbox (33.95064pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 66 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
  []
 
-[66]
-Overfull \hbox (9.89206pt too wide) in paragraph at lines 2170--2171
-[]\TU/lmr/m/it/10 Hint:To analyze other alpha diversity metrics, simply replace \TU/lmtt/m/it/10 shannon_vector.qza
+
+Underfull \hbox (badness 10000) in paragraph at lines 2112--2114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2114--2116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2116--2118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2118--2120
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2120--2122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2124
+
  []
 
 
 
 [67]
-Overfull \hbox (15.53pt too wide) in paragraph at lines 2188--2189
-[]\TU/lmr/m/n/10 This will produce a file called \TU/lmtt/m/n/10 alpha-diversity.tsv \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 exported_shannon/
+Underfull \hbox (badness 10000) in paragraph at lines 2124--2126
+
  []
 
 
@@ -1211,8 +1186,18 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [68]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2155.
+
 
 [69]
+
+LaTeX Warning: Hyper reference `9-considerations-for-18s-and-its-data' on page 70 undefined on input line 2205.
+
+
+Underfull \vbox (badness 1577) has occurred while \output is active []
+
+
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
@@ -1220,10 +1205,15 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [70]
+Overfull \hbox (9.89206pt too wide) in paragraph at lines 2260--2261
+[]\TU/lmr/m/it/10 Hint:To analyze other alpha diversity metrics, simply replace \TU/lmtt/m/it/10 shannon_vector.qza
+ []
+
+
 
 [71]
-Overfull \hbox (71.81001pt too wide) in paragraph at lines 2359--2360
-[]\TU/lmr/m/n/10 Your sequences will be saved as \TU/lmtt/m/n/10 dna-sequences.fasta \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 deblur_output_16S_exported
+Overfull \hbox (15.53pt too wide) in paragraph at lines 2278--2279
+[]\TU/lmr/m/n/10 This will produce a file called \TU/lmtt/m/n/10 alpha-diversity.tsv \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 exported_shannon/
  []
 
 
@@ -1243,13 +1233,13 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [74]
-Underfull \hbox (badness 1112) in paragraph at lines 2495--2496
-\TU/lmr/m/n/10 Repeat the same commands shown above, but make sure you use the
+
+[75]
+Overfull \hbox (71.81001pt too wide) in paragraph at lines 2449--2450
+[]\TU/lmr/m/n/10 Your sequences will be saved as \TU/lmtt/m/n/10 dna-sequences.fasta \TU/lmr/m/n/10 inside the \TU/lmtt/m/n/10 deblur_output_16S_exported
  []
 
 
-
-[75]
 
 
 Overfull \hbox (33.95064pt too wide) has occurred while \output is active
@@ -1257,60 +1247,35 @@ Overfull \hbox (33.95064pt too wide) has occurred while \output is active
  []
 
 [76]
-Chapter 5.
+
+[77]
 
 
-[77
-
-]
-
-
-Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 78 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+Overfull \hbox (33.95064pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 78 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
  []
 
 [78]
+Underfull \hbox (badness 1112) in paragraph at lines 2585--2586
+\TU/lmr/m/n/10 Repeat the same commands shown above, but make sure you use the
+ []
+
+
 
 [79]
 
 
-Overfull \hbox (97.41454pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+Overfull \hbox (33.95064pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 3: MICROBIOME STATISTICS AND VISUALIZATIONS
  []
 
 [80]
-Overfull \hbox (101.25pt too wide) in paragraph at lines 2607--2607
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
- []
+Chapter 5.
 
 
-Overfull \hbox (117.0pt too wide) in paragraph at lines 2607--2607
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
- []
+[81
 
-
-Overfull \hbox (101.25pt too wide) in paragraph at lines 2617--2617
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/18S_analysis/deblur_output_exported/ .[] 
- []
-
-
-Overfull \hbox (132.75pt too wide) in paragraph at lines 2617--2617
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/18S_analysis/Plastisphere_18S_metadata.tsv .[] 
- []
-
-
-Overfull \hbox (101.25pt too wide) in paragraph at lines 2627--2627
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/ITS_analysis/deblur_output_exported/ .[] 
- []
-
-
-Overfull \hbox (117.0pt too wide) in paragraph at lines 2627--2627
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/pregnancy_ITS_metadata.tsv .[] 
- []
-
-
-
-[81]
+]
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
@@ -1318,28 +1283,8 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [82]
-Overfull \hbox (295.5pt too wide) in paragraph at lines 2695--2695
-[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
- []
-
-
 
 [83]
-Overfull \hbox (1277.25pt too wide) in paragraph at lines 2721--2721
-[]\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 2721--2721
-[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2742--2742
-[]\TU/lmtt/m/n/10 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))[] 
- []
-
-
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
@@ -1347,58 +1292,38 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [84]
-Overfull \hbox (1266.75pt too wide) in paragraph at lines 2760--2760
-[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently![] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2775--2775
-[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
  []
 
 
-Overfull \hbox (972.75pt too wide) in paragraph at lines 2775--2775
-[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame - again, if you didn't use the 16S data, you have some extra variables here that you will need to include, rather than only column 2, you may need another, too.[] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2707--2707
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/18S_analysis/deblur_output_exported/ .[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2775--2775
-[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2707--2707
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/18S_analysis/Plastisphere_18S_metadata.tsv .[] 
  []
 
 
-Overfull \hbox (353.25pt too wide) in paragraph at lines 2775--2775
-[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here[] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2717--2717
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/ITS_analysis/deblur_output_exported/ .[] 
  []
 
 
-Overfull \hbox (132.75pt too wide) in paragraph at lines 2788--2788
-[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2788--2788
-[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2717--2717
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/ITS_analysis/pregnancy_ITS_metadata.tsv .[] 
  []
 
 
 
 [85]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2788--2788
-[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 2788--2788
-[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
- []
-
-
-Overfull \hbox (542.25pt too wide) in paragraph at lines 2806--2806
-[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
- []
-
-
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
@@ -1406,30 +1331,25 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [86]
-Overfull \hbox (390.0pt too wide) in paragraph at lines 2830--2830
-[]\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = min(sample_sums(physeq_genus)), replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
- []
-
-
-Overfull \hbox (174.75pt too wide) in paragraph at lines 2842--2842
-[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2842--2842
-[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
- []
-
-
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2863--2863
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_treatment', sep=""),[] 
+Overfull \hbox (295.5pt too wide) in paragraph at lines 2785--2785
+[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
 
 [87]
-Overfull \hbox (274.5pt too wide) in paragraph at lines 2893--2893
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
+Overfull \hbox (1277.25pt too wide) in paragraph at lines 2811--2811
+[]\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 2811--2811
+[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2832--2832
+[]\TU/lmtt/m/n/10 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))[] 
  []
 
 
@@ -1440,20 +1360,55 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [88]
+Overfull \hbox (1266.75pt too wide) in paragraph at lines 2850--2850
+[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently![] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2865--2865
+[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
+ []
+
+
+Overfull \hbox (972.75pt too wide) in paragraph at lines 2865--2865
+[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame - again, if you didn't use the 16S data, you have some extra variables here that you will need to include, rather than only column 2, you may need another, too.[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2865--2865
+[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
+ []
+
+
+Overfull \hbox (353.25pt too wide) in paragraph at lines 2865--2865
+[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2878--2878
+[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2878--2878
+[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
+ []
+
+
 
 [89]
-Overfull \hbox (164.25pt too wide) in paragraph at lines 2937--2937
-[]\TU/lmtt/m/n/10 maaslin = read.csv(paste(folder, "maaslin3_treatment/significant_results.tsv", sep=""), sep="\t")[] 
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2878--2878
+[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
  []
 
 
-Overfull \hbox (458.25pt too wide) in paragraph at lines 2937--2937
-[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\g__Palsa.187", "g__Palsa-187", maaslin$feature) #replace anything matching g__Palsa.187 in the feature column with g__Palsa-187[] 
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2878--2878
+[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2937--2937
-[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\.", ";", maaslin$feature) #replace any remaining . with ;[] 
+Overfull \hbox (542.25pt too wide) in paragraph at lines 2896--2896
+[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
  []
 
 
@@ -1464,20 +1419,30 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [90]
-Overfull \hbox (106.5pt too wide) in paragraph at lines 2979--2979
-[]\TU/lmtt/m/n/10 physeq_relabun  = transform_sample_counts(physeq_genus, function(x) (x / sum(x))*100 )[] 
+Overfull \hbox (390.0pt too wide) in paragraph at lines 2920--2920
+[]\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = min(sample_sums(physeq_genus)), replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
  []
 
 
-Overfull \hbox (846.75pt too wide) in paragraph at lines 2993--2993
-[]\TU/lmtt/m/n/10 microbiome::boxplot_abundance(physeq_relabun, x='treatment', y=single_taxon, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(str_replace(single_taxon, ';f__', '\nf__')) + ylab('Relative abundance (%)')[] 
+Overfull \hbox (174.75pt too wide) in paragraph at lines 2932--2932
+[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2932--2932
+[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2953--2953
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_treatment', sep=""),[] 
  []
 
 
 
 [91]
-Overfull \hbox (537.0pt too wide) in paragraph at lines 3020--3020
-[]  \TU/lmtt/m/n/10 print(microbiome::boxplot_abundance(physeq_relabun, x='treatment', y=overlap[i]) + ggtitle(str_replace(overlap[i], ';f__', '\nf__')) + ylab('Relative abundance (%)'))[] 
+Overfull \hbox (274.5pt too wide) in paragraph at lines 2983--2983
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
  []
 
 
@@ -1488,25 +1453,20 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [92]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3087--3087
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/deblur_output/ .[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3087--3087
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/taxa/ .[] 
- []
-
-
-Overfull \hbox (117.0pt too wide) in paragraph at lines 3087--3087
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
- []
-
-
 
 [93]
-Underfull \hbox (badness 1325) in paragraph at lines 3135--3136
-[]\TU/lmr/m/n/10 This will be exported as a .fasta file, which you can look at in the
+Overfull \hbox (164.25pt too wide) in paragraph at lines 3027--3027
+[]\TU/lmtt/m/n/10 maaslin = read.csv(paste(folder, "maaslin3_treatment/significant_results.tsv", sep=""), sep="\t")[] 
+ []
+
+
+Overfull \hbox (458.25pt too wide) in paragraph at lines 3027--3027
+[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\g__Palsa.187", "g__Palsa-187", maaslin$feature) #replace anything matching g__Palsa.187 in the feature column with g__Palsa-187[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3027--3027
+[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\.", ";", maaslin$feature) #replace any remaining . with ;[] 
  []
 
 
@@ -1517,13 +1477,23 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [94]
-Overfull \hbox (552.75pt too wide) in paragraph at lines 3183--3183
-[]\TU/lmtt/m/n/10 picrust2_pipeline.py -s exports_filtered/dna-sequences.fasta -i exports_filtered/feature-table.biom -o picrust2_out_pipeline_filtered -p 4 -t sepp --in_traits EC --verbose[] 
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3069--3069
+[]\TU/lmtt/m/n/10 physeq_relabun  = transform_sample_counts(physeq_genus, function(x) (x / sum(x))*100 )[] 
+ []
+
+
+Overfull \hbox (846.75pt too wide) in paragraph at lines 3083--3083
+[]\TU/lmtt/m/n/10 microbiome::boxplot_abundance(physeq_relabun, x='treatment', y=single_taxon, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(str_replace(single_taxon, ';f__', '\nf__')) + ylab('Relative abundance (%)')[] 
  []
 
 
 
 [95]
+Overfull \hbox (537.0pt too wide) in paragraph at lines 3110--3110
+[]  \TU/lmtt/m/n/10 print(microbiome::boxplot_abundance(physeq_relabun, x='treatment', y=overlap[i]) + ggtitle(str_replace(overlap[i], ';f__', '\nf__')) + ylab('Relative abundance (%)'))[] 
+ []
+
+
 
 
 Overfull \hbox (97.41454pt too wide) has occurred while \output is active
@@ -1531,110 +1501,25 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [96]
-Overfull \hbox (309.24202pt too wide) in paragraph at lines 3212--3213
-[]\TU/lmr/m/n/10 Finally, the files that we are likely most interested in are \TU/lmtt/m/n/10 picrust2_out_pipeline_filtered/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3177--3177
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/deblur_output/ .[] 
  []
 
 
-Overfull \hbox (33.12pt too wide) in paragraph at lines 3212--3213
-\TU/lmr/m/n/10 and \TU/lmtt/m/n/10 picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz\TU/lmr/m/n/10 . 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3177--3177
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/taxa/ .[] 
  []
 
 
-Overfull \hbox (395.25pt too wide) in paragraph at lines 3227--3227
-[]\TU/lmtt/m/n/10 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)[] 
- []
-
-
-Overfull \hbox (89.84pt too wide) in paragraph at lines 3236--3237
-[]\TU/lmr/m/n/10 You’ll need to unzip the ‘picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz’
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 3240--3241
-[]\TU/lmr/m/n/10 Take a look at pwy_table. Does that look right? Compare it with
+Overfull \hbox (117.0pt too wide) in paragraph at lines 3177--3177
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
  []
 
 
 
 [97]
-Overfull \hbox (395.25pt too wide) in paragraph at lines 3257--3257
-[]\TU/lmtt/m/n/10 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)[] 
- []
-
-
-Overfull \hbox (117.0pt too wide) in paragraph at lines 3264--3264
-[]\TU/lmtt/m/n/10 pwy_table_num = data.matrix(pwy_table[,2:11]) #convert the ASV table to a numeric matrix[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 3264--3264
-[]\TU/lmtt/m/n/10 rownames(pwy_table_num) = pwy_table[,1] #give the matrix row names[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3270--3270
-[]\TU/lmtt/m/n/10 colnames(pwy_table_num) = gsub("B.", "B-", colnames(pwy_table_num))[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3279--3279
-[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
- []
-
-
-Overfull \hbox (127.5pt too wide) in paragraph at lines 3279--3279
-[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3279--3279
-[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3279--3279
-[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense[] 
- []
-
-
-Overfull \hbox (132.75pt too wide) in paragraph at lines 3288--3288
-[]\TU/lmtt/m/n/10 PWY = otu_table(pwy_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
- []
-
-
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3288--3288
-[]\TU/lmtt/m/n/10 physeq_pwy = phyloseq(PWY, SAMPLE) #combine these all to make a phyloseq object[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3288--3288
-[]\TU/lmtt/m/n/10 physeq_pwy #print this out to see what a phyloseq object looks like[] 
- []
-
-
-Overfull \hbox (111.75pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 physeq_pwy_relabun = transform_sample_counts(physeq_pwy, function(x) (x / sum(x))*100 )[] 
- []
-
-
-Overfull \hbox (174.75pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 top_100_abun <- names(sort(taxa_sums(physeq_pwy_relabun), TRUE)[1:100]) #get most abundant pathways[] 
- []
-
-
-Overfull \hbox (279.75pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 physeq_pwy_top_100 = prune_taxa(top_100_abun, physeq_pwy) #now filter the table to have only the most abundant pathways[] 
- []
-
-
-Overfull \hbox (342.75pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 otu_table(physeq_pwy_top_100) = round(otu_table(physeq_pwy_top_100)) #round the abundance table so that everything is whole numbers[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 mode(pwy_table_num) = "integer" #convert the table to integers (whole numbers)[] 
+Underfull \hbox (badness 1325) in paragraph at lines 3225--3226
+[]\TU/lmr/m/n/10 This will be exported as a .fasta file, which you can look at in the
  []
 
 
@@ -1645,53 +1530,13 @@ Overfull \hbox (97.41454pt too wide) has occurred while \output is active
  []
 
 [98]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3302--3302
-[]\TU/lmtt/m/n/10 physeq_pwy_int = phyloseq(PWY_int, SAMPLE) #make a new phyloseq object with this[] 
- []
-
-
-Overfull \hbox (216.75pt too wide) in paragraph at lines 3312--3312
-[]\TU/lmtt/m/n/10 plot_richness(physeq_pwy_int, x="treatment", measures=c("Observed", "Simpson", "Shannon")) + geom_boxplot()[] 
- []
-
-
-Overfull \hbox (1083.0pt too wide) in paragraph at lines 3321--3321
-[]\TU/lmtt/m/n/10 plot_ordination(physeq_pwy_relabun, ps.ord, type="samples", color="treatment", shape="treatment") + geom_point(size=10, alpha=0.1) + geom_point(size=5) + stat_ellipse(type = "t", linetype = 2) + theme(text = element_text(size = 20)) +  ggtitle("Bray-Curtis dissimilarity")[] 
+Overfull \hbox (552.75pt too wide) in paragraph at lines 3273--3273
+[]\TU/lmtt/m/n/10 picrust2_pipeline.py -s exports_filtered/dna-sequences.fasta -i exports_filtered/feature-table.biom -o picrust2_out_pipeline_filtered -p 4 -t sepp --in_traits EC --verbose[] 
  []
 
 
 
 [99]
-Overfull \hbox (390.0pt too wide) in paragraph at lines 3355--3355
-[]\TU/lmtt/m/n/10 physeq_rare_pwy = rarefy_even_depth(physeq_pwy, sample.size = min(sample_sums(physeq_pwy)), replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3355--3355
-[]\TU/lmtt/m/n/10 physeq_rare_pwy_top_100 = prune_taxa(top_100_abun, physeq_rare_pwy)[] 
- []
-
-
-Overfull \hbox (195.75pt too wide) in paragraph at lines 3362--3362
-[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare_pwy)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
- []
-
-
-Overfull \hbox (38.25pt too wide) in paragraph at lines 3362--3362
-[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare_pwy), stringsAsFactors = F)[] 
- []
-
-
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3381--3381
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_pathway_treatment', sep=""),[] 
- []
-
-
-Overfull \hbox (337.5pt too wide) in paragraph at lines 3389--3389
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_pwy_top_100), sample_data(physeq_pwy_top_100)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
- []
-
-
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
@@ -1699,30 +1544,110 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [100]
-Overfull \hbox (206.25pt too wide) in paragraph at lines 3398--3398
-[]\TU/lmtt/m/n/10 maaslin = read.csv(paste(folder, "maaslin3_pathway_treatment/significant_results.tsv", sep=""), sep="\t")[] 
+Overfull \hbox (309.24202pt too wide) in paragraph at lines 3302--3303
+[]\TU/lmr/m/n/10 Finally, the files that we are likely most interested in are \TU/lmtt/m/n/10 picrust2_out_pipeline_filtered/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz
  []
 
 
-Overfull \hbox (148.5pt too wide) in paragraph at lines 3398--3398
-[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\.", "-", maaslin$feature) #replace any . in the pathway names with -[] 
+Overfull \hbox (33.12pt too wide) in paragraph at lines 3302--3303
+\TU/lmr/m/n/10 and \TU/lmtt/m/n/10 picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz\TU/lmr/m/n/10 . 
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 3400--3401
-\TU/lmr/m/n/10 MaAsLin3 does carry out differential abundance testing based on both
+Overfull \hbox (395.25pt too wide) in paragraph at lines 3317--3317
+[]\TU/lmtt/m/n/10 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
-Overfull \hbox (731.25pt too wide) in paragraph at lines 3431--3431
-[]\TU/lmtt/m/n/10 microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=single_pathway, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(single_pathway) + ylab('Relative abundance (%)')[] 
+Overfull \hbox (89.84pt too wide) in paragraph at lines 3326--3327
+[]\TU/lmr/m/n/10 You’ll need to unzip the ‘picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv.gz’
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 3330--3331
+[]\TU/lmr/m/n/10 Take a look at pwy_table. Does that look right? Compare it with
  []
 
 
 
 [101]
-Overfull \hbox (411.0pt too wide) in paragraph at lines 3441--3441
-[]  \TU/lmtt/m/n/10 print(microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=pathways[i]) + ggtitle(pathways[i]) + ylab('Relative abundance (%)'))[] 
+Overfull \hbox (395.25pt too wide) in paragraph at lines 3347--3347
+[]\TU/lmtt/m/n/10 pwy_table <- read.csv(paste(folder, "picrust2_out_pipeline_filtered/pathways_out/path_abun_unstrat.tsv", sep=""), sep='\t', skip=1, header=T)[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 3354--3354
+[]\TU/lmtt/m/n/10 pwy_table_num = data.matrix(pwy_table[,2:11]) #convert the ASV table to a numeric matrix[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3354--3354
+[]\TU/lmtt/m/n/10 rownames(pwy_table_num) = pwy_table[,1] #give the matrix row names[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3360--3360
+[]\TU/lmtt/m/n/10 colnames(pwy_table_num) = gsub("B.", "B-", colnames(pwy_table_num))[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3369--3369
+[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
+ []
+
+
+Overfull \hbox (127.5pt too wide) in paragraph at lines 3369--3369
+[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3369--3369
+[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3369--3369
+[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 3378--3378
+[]\TU/lmtt/m/n/10 PWY = otu_table(pwy_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3378--3378
+[]\TU/lmtt/m/n/10 physeq_pwy = phyloseq(PWY, SAMPLE) #combine these all to make a phyloseq object[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3378--3378
+[]\TU/lmtt/m/n/10 physeq_pwy #print this out to see what a phyloseq object looks like[] 
+ []
+
+
+Overfull \hbox (111.75pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 physeq_pwy_relabun = transform_sample_counts(physeq_pwy, function(x) (x / sum(x))*100 )[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 top_100_abun <- names(sort(taxa_sums(physeq_pwy_relabun), TRUE)[1:100]) #get most abundant pathways[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 physeq_pwy_top_100 = prune_taxa(top_100_abun, physeq_pwy) #now filter the table to have only the most abundant pathways[] 
+ []
+
+
+Overfull \hbox (342.75pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 otu_table(physeq_pwy_top_100) = round(otu_table(physeq_pwy_top_100)) #round the abundance table so that everything is whole numbers[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 mode(pwy_table_num) = "integer" #convert the table to integers (whole numbers)[] 
  []
 
 
@@ -1733,20 +1658,50 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [102]
-Overfull \hbox (101.25pt too wide) in paragraph at lines 3476--3476
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3392--3392
+[]\TU/lmtt/m/n/10 physeq_pwy_int = phyloseq(PWY_int, SAMPLE) #make a new phyloseq object with this[] 
  []
 
 
-Overfull \hbox (117.0pt too wide) in paragraph at lines 3476--3476
-[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
+Overfull \hbox (216.75pt too wide) in paragraph at lines 3402--3402
+[]\TU/lmtt/m/n/10 plot_richness(physeq_pwy_int, x="treatment", measures=c("Observed", "Simpson", "Shannon")) + geom_boxplot()[] 
+ []
+
+
+Overfull \hbox (1083.0pt too wide) in paragraph at lines 3411--3411
+[]\TU/lmtt/m/n/10 plot_ordination(physeq_pwy_relabun, ps.ord, type="samples", color="treatment", shape="treatment") + geom_point(size=10, alpha=0.1) + geom_point(size=5) + stat_ellipse(type = "t", linetype = 2) + theme(text = element_text(size = 20)) +  ggtitle("Bray-Curtis dissimilarity")[] 
  []
 
 
 
 [103]
-Overfull \hbox (295.5pt too wide) in paragraph at lines 3521--3521
-[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
+Overfull \hbox (390.0pt too wide) in paragraph at lines 3445--3445
+[]\TU/lmtt/m/n/10 physeq_rare_pwy = rarefy_even_depth(physeq_pwy, sample.size = min(sample_sums(physeq_pwy)), replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3445--3445
+[]\TU/lmtt/m/n/10 physeq_rare_pwy_top_100 = prune_taxa(top_100_abun, physeq_rare_pwy)[] 
+ []
+
+
+Overfull \hbox (195.75pt too wide) in paragraph at lines 3452--3452
+[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare_pwy)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3452--3452
+[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare_pwy), stringsAsFactors = F)[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3471--3471
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_pathway_treatment', sep=""),[] 
+ []
+
+
+Overfull \hbox (337.5pt too wide) in paragraph at lines 3479--3479
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_pwy_top_100), sample_data(physeq_pwy_top_100)$treatment, mc.samples = 128, verbose=F, denom="all")[] 
  []
 
 
@@ -1757,65 +1712,30 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [104]
-Overfull \hbox (1277.25pt too wide) in paragraph at lines 3536--3536
-[]\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
+Overfull \hbox (206.25pt too wide) in paragraph at lines 3488--3488
+[]\TU/lmtt/m/n/10 maaslin = read.csv(paste(folder, "maaslin3_pathway_treatment/significant_results.tsv", sep=""), sep="\t")[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 3536--3536
-[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
+Overfull \hbox (148.5pt too wide) in paragraph at lines 3488--3488
+[]\TU/lmtt/m/n/10 maaslin$feature = gsub("\\.", "-", maaslin$feature) #replace any . in the pathway names with -[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3546--3546
-[]\TU/lmtt/m/n/10 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))[] 
+Underfull \hbox (badness 1314) in paragraph at lines 3490--3491
+\TU/lmr/m/n/10 MaAsLin3 does carry out differential abundance testing based on both
  []
 
 
-Overfull \hbox (1266.75pt too wide) in paragraph at lines 3564--3564
-[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently![] 
+Overfull \hbox (731.25pt too wide) in paragraph at lines 3521--3521
+[]\TU/lmtt/m/n/10 microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=single_pathway, line = NULL, violin = FALSE, na.rm = FALSE, show.points = TRUE) + ggtitle(single_pathway) + ylab('Relative abundance (%)')[] 
  []
 
 
 
 [105]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3579--3579
-[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
- []
-
-
-Overfull \hbox (972.75pt too wide) in paragraph at lines 3579--3579
-[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame - again, if you didn't use the 16S data, you have some extra variables here that you will need to include, rather than only column 2, you may need another, too.[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3579--3579
-[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
- []
-
-
-Overfull \hbox (353.25pt too wide) in paragraph at lines 3579--3579
-[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here[] 
- []
-
-
-Overfull \hbox (132.75pt too wide) in paragraph at lines 3592--3592
-[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 3592--3592
-[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
- []
-
-
-Overfull \hbox (48.75pt too wide) in paragraph at lines 3592--3592
-[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3592--3592
-[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
+Overfull \hbox (411.0pt too wide) in paragraph at lines 3531--3531
+[]  \TU/lmtt/m/n/10 print(microbiome::boxplot_abundance(physeq_pwy_relabun, x='treatment', y=pathways[i]) + ggtitle(pathways[i]) + ylab('Relative abundance (%)'))[] 
  []
 
 
@@ -1826,45 +1746,20 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [106]
-Overfull \hbox (542.25pt too wide) in paragraph at lines 3610--3610
-[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 3566--3566
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module3/output/16S_analysis/deblur_output_exported/ .[] 
  []
 
 
-Overfull \hbox (216.75pt too wide) in paragraph at lines 3630--3630
-[]\TU/lmtt/m/n/10 indval_res <- multipatt(otu_mat, group_vector, func = "IndVal.g", duleg = TRUE, control = how(nperm = 999))[] 
- []
-
-
-Overfull \hbox (143.25pt too wide) in paragraph at lines 3649--3649
-[]\TU/lmtt/m/n/10 asv_indicator_group <- apply(sig_hits[sig_asvs, c("s.Forest", "s.Managed")], 1, function(x) {[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3649--3649
-[]    \TU/lmtt/m/n/10 if (x["s.Forest"] == 1 && x["s.Managed"] == 0) return("Forest")[] 
- []
-
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3649--3649
-[]    \TU/lmtt/m/n/10 if (x["s.Forest"] == 0 && x["s.Managed"] == 1) return("Managed")[] 
+Overfull \hbox (117.0pt too wide) in paragraph at lines 3566--3566
+[]\TU/lmtt/m/n/10 ln -s ~/CourseData/MIC_data/bmb_module2/output/16S_analysis/Blueberry_16S_metadata.tsv .[] 
  []
 
 
 
 [107]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3668--3668
-[]\TU/lmtt/m/n/10 prev_df <- apply(otu_table(physeq), 1, function(x) sum(x > 0) / length(x))[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3668--3668
-[]\TU/lmtt/m/n/10 rel_abun <- transform_sample_counts(physeq, function(x) x / sum(x))[] 
- []
-
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3676--3676
-[]\TU/lmtt/m/n/10 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")[] 
+Overfull \hbox (295.5pt too wide) in paragraph at lines 3611--3611
+[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
@@ -1875,50 +1770,65 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [108]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3702--3702
-[]                        \TU/lmtt/m/n/10 pulsar.params = list(rep.num = 50, ncores = 3))[] 
+Overfull \hbox (1277.25pt too wide) in paragraph at lines 3626--3626
+[]\TU/lmtt/m/n/10 asv_table_num = data.matrix(asv_table[,2:11]) #convert the ASV table to a numeric matrix. Note that if you didn't use 16S, you might need to change this "11" to make sure that you don't cut off any samples. It should be the number of samples + 1. Have a look at the asv_table object in the upper right corner![] 
  []
 
 
-Overfull \hbox (101.25pt too wide) in paragraph at lines 3727--3727
-[]\TU/lmtt/m/n/10 correct_taxa_names <- taxa_names(physeq_filtered)[as.integer(igraph::V(ig2.mb)$name)][] 
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3626--3626
+[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 3727--3727
-[]\TU/lmtt/m/n/10 # Add indicator status as a tax_table column (NA if not an indicator)[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3636--3636
+[]\TU/lmtt/m/n/10 colnames(asv_table_num) = gsub("B.", "B-", colnames(asv_table_num))[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3727--3727
-[]\TU/lmtt/m/n/10 tax_table(physeq_net) <- cbind(tax_table(physeq_net), Indicator = indicator_status)[] 
+Overfull \hbox (1266.75pt too wide) in paragraph at lines 3654--3654
+[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ") #separate the taxonomy table so each phylogenetic level is its own column. Note that if you are using 18S then you might need to separate this differently![] 
  []
 
 
 
 [109]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3766--3766
-[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_indicator.pdf", sep=""), width = 7, height = 6)[] 
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3669--3669
+[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Blueberry_16S_metadata.tsv", sep=""), sep='\t')[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 3766--3766
-[]\TU/lmtt/m/n/10 indicator_vals <- tax_table(physeq_net)[igraph::V(ig2.mb)$name, "Indicator"][] 
+Overfull \hbox (972.75pt too wide) in paragraph at lines 3669--3669
+[]\TU/lmtt/m/n/10 samples = data.frame(metadata[,2], stringsAsFactors = FALSE) #convert this to a data frame - again, if you didn't use the 16S data, you have some extra variables here that you will need to include, rather than only column 2, you may need another, too.[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3766--3766
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.35, 0), legend = levels(indicator_factor),[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3669--3669
+[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3766--3766
-[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.5, bty = "n", title = "Indicator")[] 
+Overfull \hbox (353.25pt too wide) in paragraph at lines 3669--3669
+[]\TU/lmtt/m/n/10 colnames(samples) = c('treatment') #and add a column name that makes sense. If you have extra variables, you'll need to add them here[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3794--3794
-[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_ta3.pdf", sep=""), width = 9, height = 6)[] 
+Overfull \hbox (132.75pt too wide) in paragraph at lines 3682--3682
+[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3682--3682
+[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3682--3682
+[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3682--3682
+[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
  []
 
 
@@ -1929,50 +1839,45 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [110]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3794--3794
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
+Overfull \hbox (542.25pt too wide) in paragraph at lines 3700--3700
+[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3794--3794
-[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.5, bty = "n", title = "ta3")[] 
+Overfull \hbox (216.75pt too wide) in paragraph at lines 3720--3720
+[]\TU/lmtt/m/n/10 indval_res <- multipatt(otu_mat, group_vector, func = "IndVal.g", duleg = TRUE, control = how(nperm = 999))[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3838--3838
-[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_panel.pdf", sep=""), width = 18, height = 6)[] 
+Overfull \hbox (143.25pt too wide) in paragraph at lines 3739--3739
+[]\TU/lmtt/m/n/10 asv_indicator_group <- apply(sig_hits[sig_asvs, c("s.Forest", "s.Managed")], 1, function(x) {[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3838--3838
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.05, 0), legend = levels(indicator_factor),[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3739--3739
+[]    \TU/lmtt/m/n/10 if (x["s.Forest"] == 1 && x["s.Managed"] == 0) return("Forest")[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3838--3838
-[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")[] 
- []
-
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3838--3838
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3838--3838
-[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")[] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3739--3739
+[]    \TU/lmtt/m/n/10 if (x["s.Forest"] == 0 && x["s.Managed"] == 1) return("Managed")[] 
  []
 
 
 
 [111]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 3886--3886
-[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_panel_degree.pdf", sep=""), width = 18, height = 6)[] 
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3758--3758
+[]\TU/lmtt/m/n/10 prev_df <- apply(otu_table(physeq), 1, function(x) sum(x > 0) / length(x))[] 
  []
 
 
-Overfull \hbox (101.25pt too wide) in paragraph at lines 3886--3886
-[]\TU/lmtt/m/n/10 scaled_degree <- scales::rescale(node_degree, to = c(3, 10))  # size between 3 and 10[] 
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3758--3758
+[]\TU/lmtt/m/n/10 rel_abun <- transform_sample_counts(physeq, function(x) x / sum(x))[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3766--3766
+[]\TU/lmtt/m/n/10 cat("Remaining taxa after filtering:", ntaxa(physeq_filtered), "\n")[] 
  []
 
 
@@ -1983,28 +1888,53 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [112]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3929--3929
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.05, 0), legend = levels(indicator_factor),[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3792--3792
+[]                        \TU/lmtt/m/n/10 pulsar.params = list(rep.num = 50, ncores = 3))[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3929--3929
-[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")[] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 3817--3817
+[]\TU/lmtt/m/n/10 correct_taxa_names <- taxa_names(physeq_filtered)[as.integer(igraph::V(ig2.mb)$name)][] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3929--3929
-[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3817--3817
+[]\TU/lmtt/m/n/10 # Add indicator status as a tax_table column (NA if not an indicator)[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3929--3929
-[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")[] 
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3817--3817
+[]\TU/lmtt/m/n/10 tax_table(physeq_net) <- cbind(tax_table(physeq_net), Indicator = indicator_status)[] 
  []
 
 
 
 [113]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3856--3856
+[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_indicator.pdf", sep=""), width = 7, height = 6)[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3856--3856
+[]\TU/lmtt/m/n/10 indicator_vals <- tax_table(physeq_net)[igraph::V(ig2.mb)$name, "Indicator"][] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3856--3856
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.35, 0), legend = levels(indicator_factor),[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3856--3856
+[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.5, bty = "n", title = "Indicator")[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3884--3884
+[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_ta3.pdf", sep=""), width = 9, height = 6)[] 
+ []
+
+
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
@@ -2012,70 +1942,50 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [114]
-Overfull \hbox (295.5pt too wide) in paragraph at lines 3998--3998
-[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3884--3884
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 4005--4005
-[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3884--3884
+[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.5, bty = "n", title = "ta3")[] 
  []
 
 
-Overfull \hbox (610.5pt too wide) in paragraph at lines 4019--4019
-[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Supergroup", "Division", "Subdivision", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ")[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3928--3928
+[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_panel.pdf", sep=""), width = 18, height = 6)[] 
  []
 
 
-Overfull \hbox (106.5pt too wide) in paragraph at lines 4027--4027
-[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Plastisphere_18S_metadata.tsv", sep=""), sep='\t')[] 
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3928--3928
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.05, 0), legend = levels(indicator_factor),[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3928--3928
+[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3928--3928
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3928--3928
+[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")[] 
  []
 
 
 
 [115]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 4027--4027
-[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3976--3976
+[]\TU/lmtt/m/n/10 pdf(paste(folder, "network_panel_degree.pdf", sep=""), width = 18, height = 6)[] 
  []
 
 
-Overfull \hbox (132.75pt too wide) in paragraph at lines 4038--4038
-[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4038--4038
-[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
- []
-
-
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4038--4038
-[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 4038--4038
-[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
- []
-
-
-Overfull \hbox (542.25pt too wide) in paragraph at lines 4052--4052
-[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], tax_table(physeq_genus)[,7], tax_table(physeq_genus)[,8], sep=';')[] 
- []
-
-
-Overfull \hbox (253.5pt too wide) in paragraph at lines 4060--4060
-[]\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
- []
-
-
-Overfull \hbox (174.75pt too wide) in paragraph at lines 4071--4071
-[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4071--4071
-[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
+Overfull \hbox (101.25pt too wide) in paragraph at lines 3976--3976
+[]\TU/lmtt/m/n/10 scaled_degree <- scales::rescale(node_degree, to = c(3, 10))  # size between 3 and 10[] 
  []
 
 
@@ -2086,33 +1996,28 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [116]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4090--4090
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_treatment', sep=""),[] 
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4019--4019
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.05, 0), legend = levels(indicator_factor),[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4126--4126
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_light', sep=""),[] 
+Overfull \hbox (75.0pt too wide) in paragraph at lines 4019--4019
+[]       \TU/lmtt/m/n/10 col = colors_ind, pch = 19, pt.cex = 1.2, bty = "n", title = "Indicator")[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 4126--4126
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_time', sep=""),[] 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4019--4019
+[]\TU/lmtt/m/n/10 legend("topright", inset = c(-0.18, 0), legend = levels(ta3_factor),[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4019--4019
+[]       \TU/lmtt/m/n/10 col = colors_ta3, pch = 19, pt.cex = 1.2, bty = "n", title = "ta3")[] 
  []
 
 
 
 [117]
-Overfull \hbox (253.5pt too wide) in paragraph at lines 4140--4140
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$light, mc.samples = 128, verbose=F, denom="all")[] 
- []
-
-
-Overfull \hbox (248.25pt too wide) in paragraph at lines 4140--4140
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$time, mc.samples = 128, verbose=F, denom="all")[] 
- []
-
-
 
 
 Overfull \hbox (102.41454pt too wide) has occurred while \output is active
@@ -2120,60 +2025,70 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [118]
-Overfull \hbox (295.5pt too wide) in paragraph at lines 4209--4209
+Overfull \hbox (295.5pt too wide) in paragraph at lines 4088--4088
 []\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 4216--4216
+Overfull \hbox (1.5pt too wide) in paragraph at lines 4095--4095
 []\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
+ []
+
+
+Overfull \hbox (610.5pt too wide) in paragraph at lines 4109--4109
+[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Domain", "Supergroup", "Division", "Subdivision", "Class", "Order", "Family", "Genus", "Species"), sep = "\\; ")[] 
+ []
+
+
+Overfull \hbox (106.5pt too wide) in paragraph at lines 4117--4117
+[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "Plastisphere_18S_metadata.tsv", sep=""), sep='\t')[] 
  []
 
 
 
 [119]
-Overfull \hbox (526.5pt too wide) in paragraph at lines 4230--4230
-[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Subspecies"), sep = "\\; ")[] 
- []
-
-
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4238--4238
-[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "pregnancy_ITS_metadata.tsv", sep=""), sep='\t')[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 4238--4238
+Overfull \hbox (6.75pt too wide) in paragraph at lines 4117--4117
 []\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
  []
 
 
-Overfull \hbox (132.75pt too wide) in paragraph at lines 4249--4249
+Overfull \hbox (132.75pt too wide) in paragraph at lines 4128--4128
 []\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4249--4249
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4128--4128
 []\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4249--4249
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4128--4128
 []\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 4249--4249
+Overfull \hbox (75.0pt too wide) in paragraph at lines 4128--4128
 []\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
  []
 
 
-Overfull \hbox (542.25pt too wide) in paragraph at lines 4263--4263
-[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
+Overfull \hbox (542.25pt too wide) in paragraph at lines 4142--4142
+[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], tax_table(physeq_genus)[,7], tax_table(physeq_genus)[,8], sep=';')[] 
  []
 
 
-Overfull \hbox (253.5pt too wide) in paragraph at lines 4271--4271
+Overfull \hbox (253.5pt too wide) in paragraph at lines 4150--4150
 []\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 4161--4161
+[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4161--4161
+[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
  []
 
 
@@ -2184,55 +2099,30 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [120]
-Overfull \hbox (174.75pt too wide) in paragraph at lines 4280--4280
-[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4280--4280
-[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
- []
-
-
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4299--4299
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4180--4180
 []                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_treatment', sep=""),[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4335--4335
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_exact_age', sep=""),[] 
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4216--4216
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_light', sep=""),[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4216--4216
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_time', sep=""),[] 
  []
 
 
 
 [121]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4335--4335
-[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_category', sep=""),[] 
+Overfull \hbox (253.5pt too wide) in paragraph at lines 4230--4230
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$light, mc.samples = 128, verbose=F, denom="all")[] 
  []
 
 
-Overfull \hbox (274.5pt too wide) in paragraph at lines 4349--4349
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$exact_age, mc.samples = 128, verbose=F, denom="all")[] 
- []
-
-
-Overfull \hbox (269.25pt too wide) in paragraph at lines 4349--4349
-[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$category, mc.samples = 128, verbose=F, denom="all")[] 
- []
-
-
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4359--4359
-[]\TU/lmtt/m/n/10 aldex_exact_age = read.csv(paste(folder, "ALDEx2_exact_age.csv", sep=""))[] 
- []
-
-
-Overfull \hbox (1.5pt too wide) in paragraph at lines 4359--4359
-[]\TU/lmtt/m/n/10 aldex_exact_age = aldex_exact_age[aldex_exact_age$kw.eBH <= 0.2, ][] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4359--4359
-[]\TU/lmtt/m/n/10 aldex_category = read.csv(paste(folder, "ALDEx2_category.csv", sep=""))[] 
+Overfull \hbox (248.25pt too wide) in paragraph at lines 4230--4230
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$time, mc.samples = 128, verbose=F, denom="all")[] 
  []
 
 
@@ -2243,10 +2133,133 @@ Overfull \hbox (102.41454pt too wide) has occurred while \output is active
  []
 
 [122]
+Overfull \hbox (295.5pt too wide) in paragraph at lines 4299--4299
+[]\TU/lmtt/m/n/10 asv_table <- read.csv(paste(folder, "deblur_output_exported/feature-table_w_tax.txt", sep=""), sep='\t', skip=1, header=T)[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 4306--4306
+[]\TU/lmtt/m/n/10 rownames(asv_table_num) = asv_table[,1] #give the matrix row names[] 
+ []
+
+
+
+[123]
+Overfull \hbox (526.5pt too wide) in paragraph at lines 4320--4320
+[]\TU/lmtt/m/n/10 taxonomy_split <- separate(data = taxonomy, col = taxonomy, into = c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species", "Subspecies"), sep = "\\; ")[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4328--4328
+[]\TU/lmtt/m/n/10 metadata <- read.csv(paste(folder, "pregnancy_ITS_metadata.tsv", sep=""), sep='\t')[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 4328--4328
+[]\TU/lmtt/m/n/10 rownames(samples) = metadata[,1] #add the sample names as row names[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 4339--4339
+[]\TU/lmtt/m/n/10 ASV = otu_table(asv_table_num, taxa_are_rows = TRUE) #convert asv_table_num to an otu_table[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4339--4339
+[]\TU/lmtt/m/n/10 TAX = tax_table(taxonomy_split) #convert taxonomy_split to a tax_table[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4339--4339
+[]\TU/lmtt/m/n/10 taxa_names(TAX) <- rownames(taxonomy_split) #add names to TAX/the tax_table[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 4339--4339
+[]\TU/lmtt/m/n/10 physeq = phyloseq(ASV, TAX, SAMPLE) #combine these all to make a phyloseq object[] 
+ []
+
+
+Overfull \hbox (542.25pt too wide) in paragraph at lines 4353--4353
+[]\TU/lmtt/m/n/10 all_tax = paste(tax_table(physeq_genus)[,2], tax_table(physeq_genus)[,3], tax_table(physeq_genus)[,4], tax_table(physeq_genus)[,5], tax_table(physeq_genus)[,6], sep=';')[] 
+ []
+
+
+Overfull \hbox (253.5pt too wide) in paragraph at lines 4361--4361
+[]\TU/lmtt/m/n/10 physeq_rare = rarefy_even_depth(physeq_genus, sample.size = 1000, replace = TRUE, trimOTUs = TRUE, verbose = TRUE)[] 
+ []
+
+
+
+
+Overfull \hbox (102.41454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 124 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+ []
+
+[124]
+Overfull \hbox (174.75pt too wide) in paragraph at lines 4370--4370
+[]\TU/lmtt/m/n/10 feat_table = data.frame(t(otu_table(physeq_rare)), check.rows=T, check.names=T, stringsAsFactors=T)[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4370--4370
+[]\TU/lmtt/m/n/10 metadata = data.frame(sample_data(physeq_rare), stringsAsFactors = F)[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4389--4389
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_treatment', sep=""),[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4425--4425
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_exact_age', sep=""),[] 
+ []
+
+
+
+[125]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4425--4425
+[]                    \TU/lmtt/m/n/10 output = paste(folder, 'maaslin3_category', sep=""),[] 
+ []
+
+
+Overfull \hbox (274.5pt too wide) in paragraph at lines 4439--4439
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$exact_age, mc.samples = 128, verbose=F, denom="all")[] 
+ []
+
+
+Overfull \hbox (269.25pt too wide) in paragraph at lines 4439--4439
+[]\TU/lmtt/m/n/10 x <- aldex.clr(otu_table(physeq_genus), sample_data(physeq_genus)$category, mc.samples = 128, verbose=F, denom="all")[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4449--4449
+[]\TU/lmtt/m/n/10 aldex_exact_age = read.csv(paste(folder, "ALDEx2_exact_age.csv", sep=""))[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 4449--4449
+[]\TU/lmtt/m/n/10 aldex_exact_age = aldex_exact_age[aldex_exact_age$kw.eBH <= 0.2, ][] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4449--4449
+[]\TU/lmtt/m/n/10 aldex_category = read.csv(paste(folder, "ALDEx2_category.csv", sep=""))[] 
+ []
+
+
+
+
+Overfull \hbox (102.41454pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 126 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 4 LAB: FUNCTIONAL PREDICTION AND ADDITIONAL ANALYSES
+ []
+
+[126]
 No file _main.bbl.
 
 
-[123] (./_main.aux)
+[127] (./_main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-29>
@@ -2256,12 +2269,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17590 strings out of 472247
- 321638 string characters out of 5528703
- 862549 words of memory out of 5000000
- 43898 multiletter control sequences out of 15000+600000
+ 17602 strings out of 472247
+ 321846 string characters out of 5528703
+ 867983 words of memory out of 5000000
+ 43910 multiletter control sequences out of 15000+600000
  633308 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,7n,114p,2123b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on _main.pdf (123 pages).
+Output written on _main.pdf (127 pages).

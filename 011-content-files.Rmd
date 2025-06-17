@@ -1,1 +1,31 @@
+## AWS Setup Instructions
 
+### Data Downloads
+
+Note that some of these files are quite large. If you have issues downloading them, try copying the link address, opening a new blank tab, and entering the URL into the new tab’s address bar. If that fails, contact us at info@bioinformatics.ca.  
+
+AMB_data.tar: https://hpc4health.ca/cbw/2025/MIC/AMB_data.tar  
+amb_module1.tar: https://hpc4health.ca/cbw/2025/MIC/amb_module1.tar  
+amb_module2.tar: https://hpc4health.ca/cbw/2025/MIC/amb_module2.tar  
+amb_module3.tar: https://hpc4health.ca/cbw/2025/MIC/amb_module3.tar  
+amb_module4.tar: https://hpc4health.ca/cbw/2025/MIC/amb_module4.tar  
+AMB_notebooks.tar: https://hpc4health.ca/cbw/2025/MIC/AMB_notebooks.tar  
+bmb_module1.tar: https://hpc4health.ca/cbw/2025/MIC/bmb_module1.tar  
+bmb_module2.tar: https://hpc4health.ca/cbw/2025/MIC/bmb_module2.tar  
+bmb_module3.tar: https://hpc4health.ca/cbw/2025/MIC/bmb_module3.tar  
+bmb_module4.tar: https://hpc4health.ca/cbw/2025/MIC/bmb_module4.tar  
+bmb_raw_data.tar: https://hpc4health.ca/cbw/2025/MIC/bmb_raw_data.tar  
+conda.tar: https://hpc4health.ca/cbw/2025/MIC/conda.tar  
+ref_dbs.tar: https://hpc4health.ca/cbw/2025/MIC/ref_dbs.tar  
+
+### Amazon Machine Image
+
+We have made our AWS AMI (Amazon Machine Image) publicly available. To launch your own instance, follow the [instructions provided by Amazon on how to launch an EC2 instance from a custom Amazon Machine Image](https://repost.aws/knowledge-center/launch-instance-custom-ami). Please note that you will need an AWS account to proceed, and that you will need to upload the CourseData files yourself.
+
+Here are the details of the AMI:
+
+AWS Region: us-east-1 (N. Virgina)
+AMI name: CBW_MIC_250522
+AMI ID: ami-01d5bd950161d8bb2
+
+If you want to create and activate a new AWS account, please follow [these instructions provided by Amazon](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
